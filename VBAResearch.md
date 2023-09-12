@@ -30,9 +30,9 @@ Link: https://www.simplilearn.com/tutorials/excel-tutorial/excel-vba
 # Maneesh Wijewardhana's Notes:
 - Can assign macros to UI elements in spreadsheets such as buttons
 - Can join strings using the '&' operator
-- Some common syntax to know are:
 - To create a function, you insert a new Module
 - There exists Sub-Procedures that are functions but do not return a value and can be called without a call keyword
+- Some common syntax to know are:
 -   ```excel-vba
         `Creates a popup message box
         MsgBox "Hello World"
