@@ -44,8 +44,8 @@ Acceptance Criteria:
 - Users can choose the file format (pdf, excel, etc.) for saving.
 - The saved/exported recommendations are accurate and well formatted.
 
-*Title*: Course Recommendation Button
-**Priority**: High
+Title: Course Recommendation Button
+Priority: High
 Estimate (in hrs):
 User Story:
 As a student, I want a clearly visible and easily accessible button within the Excel VBA application that I can click to receive course recommendations for the next semester based on my completed courses and prerequisites.
