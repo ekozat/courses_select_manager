@@ -84,8 +84,8 @@ As an undergraduate student, I want that the Excel spreadsheet automatically val
 course names to ensure accuracy.
 
 Acceptance Criteria:
-•	Verify that the user can easily see if the course code/name has been incorrectly entered.
-•	Verify that the user can easily correct the incorrect course name/codes by suggesting possible correct names/codes.
+- Verify that the user can easily see if the course code/name has been incorrectly entered.
+- Verify that the user can easily correct the incorrect course name/codes by suggesting possible correct names/codes.
 
 Title: Course List
 Priority: - MUST
@@ -95,7 +95,7 @@ User Story:
 As an undergraduate student, I want to be able to get the courses that I’ll be eligible to take in my upcoming semesters.
 
 Acceptance Criteria:
-•	Verify that the user can filter out courses by subjects, days of the week.
-•	Verify that the user can see a brief description of each course and how much weight the course carries.
+- Verify that the user can filter out courses by subjects, days of the week.
+- Verify that the user can see a brief description of each course and how much weight the course carries.
 
 
