@@ -21,6 +21,7 @@ User Story:
 As a student, I want to be able to access all the undergraduate course information easily, so that I can plan my course selection efficiently. I expect to find this information in the application.
 Acceptance Criteria:
 - I can access undergraduate course information within the application.
+- All existing prerequisites are visible and correlate to their predetermined courses.
 - The course information is complete and up-to-date.
 
 Title: Search Courses
