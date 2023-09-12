@@ -1,6 +1,5 @@
 # F23_CIS3760_101
 # Team
-
 - Team Lead: 
     - Sara Adi
 - Team Members:
