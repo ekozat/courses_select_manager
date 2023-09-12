@@ -53,27 +53,17 @@ Link: https://www.simplilearn.com/tutorials/excel-tutorial/excel-vba
     ```
 -   ```excel-vba
         if(boolean_expression) Then
-
            Statement 1
-
            .....
-
            .....
-
            Statement n
-
         End If
     ```
 -   ```excel-vba
         While condition(s)
-
            [statements 1]
-
            [statements 2]
-
            ...
-
            [statements n]
-
         Wend
     ```
