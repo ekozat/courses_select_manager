@@ -53,3 +53,11 @@ Acceptance Criteria:
 - A custom button is added to the Excel spreadsheet.
 - When the button is clicked, the application triggers the course recommendation algorithm.
 - The spreadsheet updates with recommended courses based on prerequisites.
+
+Title: Multiple OS Compatibilty
+Priority: Low
+Estimate (in hours):
+User Story: As a student, I want the application (CLI) to run across or be compatible with different operaing systems, so that I can use it regardless of my platform.
+Acceptance Criteria:
+- The Python CLI program runs smoothly on different operating systems.
+- Students can perform searches on the course data without platform specific issues.
