@@ -26,3 +26,54 @@ Notes:
 
 Video: https://www.youtube.com/watch?v=CMlKBwKcFJc
 Link: https://www.simplilearn.com/tutorials/excel-tutorial/excel-vba
+
+# Maneesh Wijewardhana's Notes:
+- Can assign macros to UI elements in spreadsheets such as buttons
+- Can join strings using the '&' operator
+- Some common syntax to know are:
+- To create a function, you insert a new Module
+- There exists Sub-Procedures that are functions but do not return a value and can be called without a call keyword
+-   ```excel-vba
+        `Creates a popup message box
+        MsgBox "Hello World"
+    ```
+-   ```excel-vba
+        `Creates an input box that returns the value entered
+        InputBox(prompt[,title][,default][,xpos][,ypos][,helpfile,context])
+    ```
+-   ```excel-vba
+        `Declares a variable with a data type
+        `Numeric Data Types: byte, integer, long, single, double, currency, and decimal
+        `Non-Numeric Data Types: string, date, boolean, object, and variant
+        Dim <<variable_name>> As <<variable_type>>
+    ```
+-   ```excel-vba
+        `Constants cannot be changed during the execution of the program
+        Const <<constant_name>> As <<constant_type>> = <<constant_value>>
+    ```
+-   ```excel-vba
+        if(boolean_expression) Then
+
+           Statement 1
+
+           .....
+
+           .....
+
+           Statement n
+
+        End If
+    ```
+-   ```excel-vba
+        While condition(s)
+
+           [statements 1]
+
+           [statements 2]
+
+           ...
+
+           [statements n]
+
+        Wend
+    ```
