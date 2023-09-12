@@ -61,3 +61,13 @@ User Story: As a student, I want the application (CLI) to run across or be compa
 Acceptance Criteria:
 - The Python CLI program runs smoothly on different operating systems.
 - Students can perform searches on the course data without platform specific issues.
+
+# Emily Kozatchiner's User Stories:
+Title: Course List
+Priority: High
+Estimate (in hrs): -
+User Story: As an undergraduate student, I want to view all course prerequisites required for courses of my choice.
+Acceptance Criteria:
+- Verify that the prerequisites shown for a course entered is correct
+- Verify that if a course has no prerequisites, the CLI will inform the user
+- Verify that users can choose other courses after intial choice
