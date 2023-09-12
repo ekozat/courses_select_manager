@@ -14,4 +14,20 @@
 The purpose of this file is to list all user stories that will be used to help program the solution for sprint 1, and plan ahead for future sprints.
 
 # Sara Adi's User Stories:
+Title: Course Information
+Priority: High
+Estimate (in hrs): -
+User Story:
+As a student, I want to be able to access all the undergraduate course information easily, so that I can plan my course selection efficiently. I expect to find this information in the application.
+Acceptance Criteria:
+I can access undergraduate course information within the application.
+The course information is complete and up-to-date.
 
+Title: Search Courses
+Priority: Medium
+Estimate (in hrs): -
+User Story:
+ As a student, I want to have the option to search for specific courses or information within the application, so that I can quickly find the courses I'm interested in without navigating through the entire list.
+Acceptance Criteria:
+I can use a search feature within the application to find courses or information.
+The search feature works efficiently and accurately.
