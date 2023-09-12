@@ -98,4 +98,13 @@ Acceptance Criteria:
 - Verify that the user can filter out courses by subjects, days of the week.
 - Verify that the user can see a brief description of each course and how much weight the course carries.
 
-
+# Maneesh Wijewardhana's User Stories
+Title: Filter Courses
+Priority: Low
+Estimate (in hrs): -
+User Story:
+As a student, I want to have the option to filter and sort the search results in the CLI, so that I can refine my course search efficiently.
+Acceptance Criteria:
+- Add filtering and sorting options to the CLI program, allowing users to narrow down search results.
+- Allow users to sort results by course code, course name, credit hours, or any relevant criteria.
+- Ensure that the filtering and sorting options are user-friendly and intuitive.
