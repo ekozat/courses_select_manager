@@ -19,9 +19,9 @@ def course_search():
         # iteration example
         for row in reader:
             if row['course name'].casefold() == course_name.casefold():
-                print("we found it boys")
+                print(row)
                 break
-            print(reader.line_num)
+            # print(reader.line_num)
 
     file.close()
 
@@ -47,6 +47,7 @@ while True:
     elif choice == '3': code_search()
     elif choice == '4':
         print("Thank you for searching.")
+        break
     else:
         print("Invalid choice. Please select a valid option.")
         
