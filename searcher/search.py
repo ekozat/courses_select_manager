@@ -1,12 +1,19 @@
 from os import path
-
-basepath = path.dirname(__file__)
-filepath = path.abspath(path.join(basepath, "CIS3760", "f23_cis3760_101", "parser", "parsed_courses.csv"))
+import csv
 
 csv_file = "parsed_courses.csv"
 
-# Write the data to a CSV file
-with open(csv_file, mode='r', newline='', encoding='utf-8') as file:
+# Discuss with the groupt to change export of the file to diff dir
+parentpath = path.abspath(path.dirname(path.dirname(__file__)))
+filepath = path.join(parentpath, "parser", csv_file)
+
+# Read the data from the CSV file
+with open(filepath, mode='r', newline='', encoding='utf-8') as file:
     fieldnames = ["course code", "course name", "prerequisites"]
     reader = csv.DictReader(file, fieldnames=fieldnames)
+
+    # iteration example
+    for row in reader:
+        print(reader.line_num)
+
     
