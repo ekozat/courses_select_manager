@@ -1,5 +1,5 @@
 import re
-import pandas as pd
+import csv
 
 class Course:
     def __init__(self, code, name, prerequisites):
@@ -48,8 +48,16 @@ for blob in course_blobs:
 # Create a list of dictionaries for the data
 data = [{"course code": course.code, "course name": course.name, "prerequisites": course.prerequisites} for course in courses]
 
-# Create a DataFrame from the list of dictionaries
-df = pd.DataFrame(data)
+# Define the CSV file name
+csv_file = "parsed_courses.csv"
 
-# Write the DataFrame to an Excel file
-df.to_excel("parsed_courses.xlsx", index=False)
+# Write the data to a CSV file
+with open(csv_file, mode='w', newline='', encoding='utf-8') as file:
+    fieldnames = ["course code", "course name", "prerequisites"]
+    writer = csv.DictWriter(file, fieldnames=fieldnames)
+    
+    # Write the header row
+    writer.writeheader()
+    
+    # Write the data rows
+    writer.writerows(data)
