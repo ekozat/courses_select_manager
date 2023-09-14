@@ -67,3 +67,9 @@ Link: https://www.simplilearn.com/tutorials/excel-tutorial/excel-vba
            [statements n]
         Wend
     ```
+# Simar's Notes
+- Debugging Tools: To identify and resolve errors in the code, VBA offers debugging tools such as breakpoints, watch windows, and immediate windows.
+- Object Oriented Programming: VBA supports object oriented programming concepts, which allows a user to work with objects , methods, events and properties. Understanding the ways to use objects like worksheets, cells and ranges can be very beneficial.
+- UserForms: Excel interactive dialogue boxes and input forms may be created using customized UserForms created with VBA. These might significantly improve the user experience.
+- Interacting with other applications: Through COM (Component Object Model), VBA can communicate with other Microsoft Office programs like Word and Outlook as well as other programs.
+- Data Connections: VBA is capable of establishing connections to external data sources such as databases and online services. 
