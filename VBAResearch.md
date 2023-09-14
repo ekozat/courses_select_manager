@@ -67,3 +67,48 @@ Link: https://www.simplilearn.com/tutorials/excel-tutorial/excel-vba
            [statements n]
         Wend
     ```
+
+
+
+
+
+
+# Fee Kim Ah-Poa's Notes:
+- VBA (Virtual Basic for Applications) is an event-driven programming language from Microsoft used mainly in MS Excel, MS Access.
+- VBA is an automation known as Macro to generate charts, reports, calculations.
+- It helps build personalized applications to improve proficiency of the applications.
+- VBA is a high-level language
+- Among VBA, Excel VBA is the common one
+- VBA makes use of simple English statements to write instructions
+- It allows you to organize information
+- It allows interaction between Office applications
+- VBA macro cannot be saved as .docx instead .docm to protect Office users against viruses and dangerous macro code
+
+
+
+
+Links:
+        - https://www.javatpoint.com/vba
+        - https://learn.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
