@@ -3,8 +3,29 @@ import csv
 
 csv_file = "parsed_courses.csv"
 
+# Discuss with the groupt to change export of the file to diff dir
+parentpath = path.abspath(path.dirname(path.dirname(__file__)))
+filepath = path.join(parentpath, "parser", csv_file)
+
 def course_search():
-    print("\n")
+    # Input course they want to find
+    course_name = input("Enter the course name: ")
+
+    # Read the data from the CSV file
+    with open(filepath, mode='r', newline='', encoding='utf-8') as file:
+        fieldnames = ["course code", "course name", "prerequisites"]
+        reader = csv.DictReader(file, fieldnames=fieldnames)
+
+        # iteration example
+        for row in reader:
+            if row['course name'].casefold() == course_name.casefold():
+                print("we found it boys")
+                break
+            print(reader.line_num)
+
+    file.close()
+
+    print("\n") #maybe we should clear instead of newline?
 
 def subject_search():
     print("\n")
@@ -23,26 +44,11 @@ while True:
     
     if choice == '1': course_search()
     elif choice == '2': subject_search()
-    elif choice == '3': option3()
+    elif choice == '3': code_search()
     elif choice == '4':
         print("Thank you for searching.")
-        break
     else:
         print("Invalid choice. Please select a valid option.")
-
-
-# Discuss with the groupt to change export of the file to diff dir
-parentpath = path.abspath(path.dirname(path.dirname(__file__)))
-filepath = path.join(parentpath, "parser", csv_file)
-
-# Read the data from the CSV file
-with open(filepath, mode='r', newline='', encoding='utf-8') as file:
-    fieldnames = ["course code", "course name", "prerequisites"]
-    reader = csv.DictReader(file, fieldnames=fieldnames)
-
-    # iteration example
-    for row in reader:
-        print(row)
-        print(reader.line_num)
+        
 
     
