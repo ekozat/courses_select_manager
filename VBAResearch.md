@@ -69,6 +69,10 @@ Link: https://www.simplilearn.com/tutorials/excel-tutorial/excel-vba
     ```
 
 
+
+
+
+
 # Fee Kim Ah-Poa's Notes:
 - VBA (Virtual Basic for Applications) is an event-driven programming language from Microsoft used mainly in MS Excel, MS Access.
 - VBA is an automation known as Macro to generate charts, reports, calculations.
@@ -86,3 +90,25 @@ Link: https://www.simplilearn.com/tutorials/excel-tutorial/excel-vba
 Links:
         - https://www.javatpoint.com/vba
         - https://learn.microsoft.com/en-us/office/vba/library-reference/concepts/getting-started-with-vba-in-office
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
