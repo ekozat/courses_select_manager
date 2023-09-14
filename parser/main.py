@@ -11,7 +11,7 @@ class Course:
         return f"Course Code: {self.code}\nCourse Name: {self.name}\nPrerequisites: {self.prerequisites}"
 
 # Use the correct encoding so our program doesn't crash and read char by char making sure to remove newlines and spaces
-with open("./f23_courses1.txt", "r", encoding="ISO-8859-1") as file:
+with open("../f23_courses1.txt", "r", encoding="ISO-8859-1") as file:
     file_contents = file.read()
     file_contents = file_contents.strip()
 
