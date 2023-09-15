@@ -32,11 +32,11 @@ Furthermore, this repo also contains research regarding VBA and any other docume
 
 The following is the script ran to search through the CSV files through a course code:
 
-![run1](photos/courseCodeSearch.png)
+![run1](Photos/courseCodeSearch.png)
 
 
 The following is the script ran to search through the CSV files through a course name:
-![run2](photos/courseNameSearch.png)
+![run2](Photos/courseNameSearch.png)
 ## Team Approach
 This project involves two distinct parts: parsing course data from a text file and implementing a search functionality for the parsed data. The development process was handled by two separate teams, each focusing on their respective tasks.
 
