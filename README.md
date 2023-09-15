@@ -10,8 +10,13 @@
     - Maneesh K. Wijewardhana
     - Simardeep Singh
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## How to Run
+1. Go to the parser directory
+2. Run python3 main.py
+    2a. This will create a csv file with the extracted columns
+3. Change directories to the searcher directory
+4. Run python3 search.py
+5. Follow the instructions on the terminal
 
 ## Name
 Sprint 1: 
