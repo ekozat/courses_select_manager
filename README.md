@@ -19,7 +19,7 @@
 5. Follow the instructions on the terminal
 
 ## Name
-Sprint 1: 
+Sprint 1 
 
 ## Description
 F23 CIS*3760 Sprint 1:
