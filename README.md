@@ -36,6 +36,7 @@ The following is the script ran to search through the CSV files through a course
 
 
 The following is the script ran to search through the CSV files through a course name:
+
 ![run2](Photos/courseNameSearch.png)
 ## Team Approach
 This project involves two distinct parts: parsing course data from a text file and implementing a search functionality for the parsed data. The development process was handled by two separate teams, each focusing on their respective tasks.
