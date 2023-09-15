@@ -35,11 +35,6 @@ Furthermore, this repo also contains research regarding VBA and any other docume
 
 ## Visuals
 
-The following is the script ran to search through the CSV files through a course code:
-
-![run1](Photos/courseCodeSearch.png)
-
-
 The following is the script ran to search through the CSV files through a course name:
 
 ![run2](Photos/courseNameSearch.png)
