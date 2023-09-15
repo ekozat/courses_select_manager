@@ -48,6 +48,7 @@ def parse_courses(input_file_path, output_csv_file):
                 elif course_code and course_name and prerequisites:
                     courses.append(Course(course_code, course_name, prerequisites[0][0].strip()))
 
+        # If we added dupelicated courses, make sure to remove them before exporting to csv
         seen_codes = set()
         non_dupe_courses = []
         for course in courses:
