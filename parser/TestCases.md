@@ -44,12 +44,12 @@ The file contains different test cases which test various scenarios and function
 - Input: Input file with courses that do not have prerequisites.
 - Expected Result: Courses without prerequisites should be properly parsed and stored by the code.
 
-**Test Case 9: Valid Output CSV File**
+**Test Case 8: Valid Output CSV File**
 - Description: Test that the code generates a valid CSV output file.
 - Input: Valid input file with course data.
 - Expected Result: The produced CSV file must be properly structured and include the course data that has been processed.
 
-**Test Case 10: Performance Testing**
+**Test Case 9: Performance Testing**
 
 - Description: With a large input file including a lot of courses, evaluate the code's performance.
 - Input: A large input file with a substantial amount of course data.
