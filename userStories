@@ -32,6 +32,7 @@ As a student, I want to have the option to search for specific courses or inform
 Acceptance Criteria:
 - I can use a search feature within the application to find courses or information.
 - The search feature works efficiently and accurately.
+- I can use the search feature multiple times without having to exit the program
 
 
 # Simardeep Singh's User Stories:
@@ -80,23 +81,11 @@ Priority: - Low
 Estimate (in hrs): - 
 
 User Story: 
-As an undergraduate student, I want that the Excel spreadsheet automatically validate and highlight any incorrectly entered 
-course names to ensure accuracy.
+As an undergraduate student, I want that the Excel spreadsheet automatically validate and highlight any incorrectly entered course names to ensure accuracy.
 
 Acceptance Criteria:
 - Verify that the user can easily see if the course code/name has been incorrectly entered.
 - Verify that the user can easily correct the incorrect course name/codes by suggesting possible correct names/codes.
-
-Title: Course List
-Priority: - MUST
-Estimate (in hrs): - 
-
-User Story:
-As an undergraduate student, I want to be able to get the courses that I’ll be eligible to take in my upcoming semesters.
-
-Acceptance Criteria:
-- Verify that the user can filter out courses by subjects, days of the week.
-- Verify that the user can see a brief description of each course and how much weight the course carries.
 
 # Maneesh Wijewardhana's User Stories
 Title: Filter Courses
