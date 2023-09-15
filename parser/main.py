@@ -48,8 +48,15 @@ def parse_courses(input_file_path, output_csv_file):
                 elif course_code and course_name and prerequisites:
                     courses.append(Course(course_code, course_name, prerequisites[0][0].strip()))
 
+        seen_codes = set()
+        non_dupe_courses = []
+        for course in courses:
+            if course.code not in seen_codes:
+                non_dupe_courses.append(course)
+                seen_codes.add(course.code)
+
         # Create a list of dictionaries for the data
-        data = [{"course code": course.code, "course name": course.name, "prerequisites": course.prerequisites} for course in courses]
+        data = [{"course code": course.code, "course name": course.name, "prerequisites": course.prerequisites} for course in non_dupe_courses]
 
         # Write the data to a CSV file
         with open(output_csv_file, mode='w', newline='', encoding='utf-8') as file:
