@@ -33,7 +33,7 @@ def name_search():
         
         # match missing
         if found is False:
-            print("Match not found.")
+            print("\nMatch not found.")
 
     file.close()
 
@@ -42,7 +42,7 @@ def name_search():
 
 def subject_search():
 # Get the subject abbreviation from user
-    subject_name = input("Enter the Course Name: ")
+    subject_name = input("Enter the Subject Name (For example: CIS): ")
     sub_upper = subject_name.upper()
 
 
@@ -65,15 +65,49 @@ def subject_search():
                 if course_code.startswith(sub_upper):
                     matching_rows.append(row)
 
+
         if not matching_rows:
+
             print("Subject doesn't exist")
+        
         else:
+
             # matching_rows contains the rows that needs to be output
 
+            print("\n{:^25}|{:^60}|{:^65}".format("Course Code", "Course Name", "Prerequisites"))
+        
             for row in matching_rows:
-                print(row)
+                
+                for x in range(160): 
+                    print("-", end="")
+
+                #print("\n{:^25}|{:^60}|{:^65}".format(row['course code'], row['course name'], ''))   
+                prerequisite = row['prerequisites']
+                
+                #max length will be 65
+                
+                max_prerequisite_length = 65
 
 
+                # Split prerequisites into mult lines
+
+                prereq_lines = [prerequisite[i:i+max_prerequisite_length] 
+                
+                for i in range(0, len(prerequisite), max_prerequisite_length)]
+
+
+                # Print the first line with Course Code and Course Name
+
+                if prereq_lines:
+                    print("\n{:^25}|{:^60}|{:^65}".format(row['course code'], row['course name'], prereq_lines[0]))
+
+                # Print additional lines with empty Course Code and Course Name
+
+                for line in prereq_lines[1:]:
+                    print("\n{:^25}|{:^60}|{:^65}".format('', '', line))
+
+               # print("\n{:^25}|{:^60}|{:^60}".format(row['course code'], row['course name'], ''))
+                
     file.close()
 
     print("\n")
@@ -125,22 +159,23 @@ def code_search():
 
 
 while True:
-    print("Welcome to the prerequisite searcher! \n\nPlease type in the number of the search would you like to execute.")
+   
+    print("\nWelcome to the Prerequisite Searcher! \n\nPlease type in the number of the search would you like to execute.\n")
     print("1. Course Name Search")
     print("2. Subject Search")
     print("3. Course Code Search")
     print("4. Exit")
     
-    choice = input("Enter your choice: ")
+    choice = input("\n\nEnter your choice: ")
     
     if choice == '1': name_search()
     elif choice == '2': subject_search()
     elif choice == '3': code_search()
     elif choice == '4':
-        print("Thank you for searching.")
+        print("\nThank you for searching.\n")
         break
     else:
-        print("Invalid choice. Please select a valid option.")
+        print("\nInvalid choice. Please select a valid option.\n")
         
 
     
