@@ -70,16 +70,24 @@ def subject_search():
 
             # Ensure that 'course code' is a valid column name in your CSV file
             if 'course code' in row:
+                # get letters without code
                 course_code = row['course code']
+
+                # Extracts only string of subject
+                subject = ""
+                for c in course_code:
+                    if c == "*":
+                        break
+                    subject += c
                 
                 # Check if the course code starts with the given subject
-                if course_code.startswith(sub_upper):
+                if sub_upper == subject.upper():
+                    print(subject)
                     matching_rows.append(row)
 
 
         if not matching_rows:
-
-            print("Subject doesn't exist")
+            print("\nSubject doesn't exist")
         
         else:
 
