@@ -10,6 +10,7 @@ filepath = path.join(parentpath, "parser", csv_file)
 def name_search():
     # Input course they want to find
     course_name = input("Enter the course name: ")
+    course_nameC = course_name.strip().casefold()
 
     # Read the data from the CSV file
     with open(filepath, mode='r', newline='', encoding='utf-8') as file:
@@ -20,13 +21,23 @@ def name_search():
         # search iteration
         for row in reader:
             # consider match
-            if row['course name'].casefold() == course_name.casefold():
+            if row['course name'].casefold() == course_nameC:
+                        
+                print("\n")
+                print("Course Code:", row['course code'])
+                print("\n")
+                print("Course Name:", row['course name'])
+                print("\n")
+                print("Prerequisites:", row['prerequisites'])
+                print("\n")
+
+                print()
 
                 # table formatting
-                print("\n{:^30}|{:^30}|{:^30}".format("Course Code", "Course Name", "Prerequisites"))
-                for x in range(95): 
-                    print("-", end="")
-                print("\n{:^30}|{:^30}|{:^30}".format(row['course code'], row['course name'], row['prerequisites']))
+                #print("\n{:^30}|{:^30}|{:^30}".format("Course Code", "Course Name", "Prerequisites"))
+                #for x in range(95): 
+                 #   print("-", end="")
+                #print("\n{:^30}|{:^30}|{:^30}".format(row['course code'], row['course name'], row['prerequisites']))
 
                 found = True
                 break
@@ -74,7 +85,7 @@ def subject_search():
 
             # matching_rows contains the rows that needs to be output
 
-            print("\n{:^25}|{:^60}|{:^65}".format("Course Code", "Course Name", "Prerequisites"))
+            print("\n{:^25}|{:^60}|{:^60}".format("Course Code", "Course Name", "Prerequisites"))
         
             for row in matching_rows:
                 
@@ -84,9 +95,9 @@ def subject_search():
                 #print("\n{:^25}|{:^60}|{:^65}".format(row['course code'], row['course name'], ''))   
                 prerequisite = row['prerequisites']
                 
-                #max length will be 65
+                #max length will be 60
                 
-                max_prerequisite_length = 65
+                max_prerequisite_length = 60
 
 
                 # Split prerequisites into mult lines
@@ -99,12 +110,12 @@ def subject_search():
                 # Print the first line with Course Code and Course Name
 
                 if prereq_lines:
-                    print("\n{:^25}|{:^60}|{:^65}".format(row['course code'], row['course name'], prereq_lines[0]))
+                    print("\n{:^25}|{:^60}|{:^60}".format(row['course code'], row['course name'], prereq_lines[0]))
 
                 # Print additional lines with empty Course Code and Course Name
 
                 for line in prereq_lines[1:]:
-                    print("\n{:^25}|{:^60}|{:^65}".format('', '', line))
+                    print("\n{:^25}|{:^60}|{:^60}".format('', '', line))
 
                # print("\n{:^25}|{:^60}|{:^60}".format(row['course code'], row['course name'], ''))
                 
