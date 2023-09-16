@@ -49,3 +49,11 @@ The file contains different test cases which test various scenarios and function
 - Description: Test the code without input file.
 - Input: A path to an invalid or missing input file.
 - Expected Result: The code must gracefully handle the issue and display the proper error message.
+
+**Test Case 9: Course code input accpets different variations for course code**
+
+- Description: Test the code with different input for Course Code, e.g CIS1300, Cis1300, CIS 1300, Cis 1300, Cis*1300.
+- Input: A course code with different variation from the csv file
+- Expected result: The code should output the course description even when Cis 1300 is input
+
+
