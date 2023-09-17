@@ -59,9 +59,9 @@ def name_search(file):
             found = True
             break
 
-        # match missing
-        if found is False:
-            print("\nMatch not found.")
+    # match missing
+    if found is False:
+        print("\nMatch not found.")
 
     # how do we check if file closes??
     file.close()
@@ -77,13 +77,12 @@ def subject_search(file):
 
     # Read the data from the CSV file
     fieldnames = ["course code", "course name", "prerequisites"]
-    reader = csv.DictReader(file)
+    reader = csv.DictReader(file, fieldnames=fieldnames)
 
     # Initialize a list to store matching rows
     matching_rows = []
     
     # Iterate through the rows in the CSV file
-    next(reader)
     for row in reader:
         # Ensure that 'course code' is a valid column name in your CSV file
         if 'course code' in row:
@@ -119,7 +118,6 @@ def subject_search(file):
                 #max length will be 60              
                 max_prerequisite_length = 60
 
-
                 # Split prerequisites into mult lines
                 prereq_lines = [prerequisite[i:i+max_prerequisite_length]                 
                 for i in range(0, len(prerequisite), max_prerequisite_length)]
@@ -145,13 +143,12 @@ def code_search(file):
     search_text_Upp = search_text.upper()
 
     fieldnames = ["course code", "course name", "prerequisites"]
-    reader = csv.DictReader(file)
+    reader = csv.DictReader(file, fieldnames=fieldnames)
     
     # Initialize a list to store matching rows
     matching_rows = []
 
     # Iterate through the rows in the CSV file
-    next(reader)
     for row in reader:
         # Remove spaces and asterisks from user input and course code in excel
         course_code = row['course code'].replace(" ", "").replace("*", "")
