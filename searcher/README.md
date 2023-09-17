@@ -2,7 +2,7 @@
 
 -   Ensure you have python3 installed on your machine
 -   Navigate to the search directory and run the script by typing `python3 search.py` in your terminal
--   Make sure to have the parser directory as we are reading the csv file from the parser directory
+-   Make sure to have run the `main.py` script inside the parser directory as we are reading the csv file that gets generated from it
 -   A menu will be displayed to select the option you want to go for
 
 ### Approach
