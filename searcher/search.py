@@ -41,7 +41,8 @@ def name_search(file):
     for row in reader:
         # consider match
         if row['course name'].casefold() == course_nameC:
-                    
+
+            # table print                    
             for x in range(70): 
                 print("-", end="")
             print("\nCourse Code:", row['course code'])
@@ -49,12 +50,6 @@ def name_search(file):
             print("Prerequisites:", row['prerequisites'])
             for x in range(70): 
                 print("-", end="")
-
-            # table formatting
-            #print("\n{:^30}|{:^30}|{:^30}".format("Course Code", "Course Name", "Prerequisites"))
-            #for x in range(95): 
-            #   print("-", end="")
-            #print("\n{:^30}|{:^30}|{:^30}".format(row['course code'], row['course name'], row['prerequisites']))
 
             found = True
             break
@@ -112,7 +107,6 @@ def subject_search(file):
             for x in range(160): 
                 print("-", end="")
 
-            #print("\n{:^25}|{:^60}|{:^65}".format(row['course code'], row['course name'], ''))   
             prerequisite = row['prerequisites']
             
             #max length will be 60              
@@ -129,8 +123,6 @@ def subject_search(file):
             # Print additional lines with empty Course Code and Course Name
             for line in prereq_lines[1:]:
                 print("\n{:^25}|{:^60}|{:^60}".format('', '', line))
-
-            # print("\n{:^25}|{:^60}|{:^60}".format(row['course code'], row['course name'], ''))
                 
     file.close()
 
