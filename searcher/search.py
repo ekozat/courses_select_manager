@@ -3,96 +3,113 @@ import csv
 
 csv_file = "parsed_courses.csv"
 
-# Discuss with the groupt to change export of the file to diff dir
+# Paths established to the excel file
 parentpath = path.abspath(path.dirname(path.dirname(__file__)))
 filepath = path.join(parentpath, "parser", csv_file)
 
-def name_search():
+# opening the file
+def open_file(option_function, filepath, mode):
+    try: 
+        with open(filepath, mode=mode, newline='', encoding='utf-8') as file:
+            option_function(file)
+    except FileNotFoundError:
+        print("The file does not exist in the specified path.")
+    except PermissionError:
+        print("You do not have the correct permissions for the file.")
+    except FileExistsError:
+        print("The file already exists.")
+    except IOError:
+        print("An I/O error occurred.")
+    except OSError:
+        print("An operating system error occurred.")
+    except UnicodeDecodeError:
+        print("Unable to decode the file to Unicode.")
+
+
+
+def name_search(file):
     # Input course they want to find
     course_name = input("Enter the full course name: ")
     course_nameC = course_name.strip().casefold()
 
     # Read the data from the CSV file
-    with open(filepath, mode='r', newline='', encoding='utf-8') as file:
-        fieldnames = ["course code", "course name", "prerequisites"]
-        reader = csv.DictReader(file, fieldnames=fieldnames)
-        found = False
+    fieldnames = ["course code", "course name", "prerequisites"]
+    reader = csv.DictReader(file, fieldnames=fieldnames)
+    found = False
 
-        # search iteration
-        for row in reader:
-            # consider match
-            if row['course name'].casefold() == course_nameC:
-                        
-                for x in range(70): 
-                   print("-", end="")
-                print("\nCourse Code:", row['course code'])
-                print("Course Name:", row['course name'])
-                print("Prerequisites:", row['prerequisites'])
-                for x in range(70): 
-                   print("-", end="")
+    # search iteration
+    for row in reader:
+        # consider match
+        if row['course name'].casefold() == course_nameC:
+                    
+            for x in range(70): 
+                print("-", end="")
+            print("\nCourse Code:", row['course code'])
+            print("Course Name:", row['course name'])
+            print("Prerequisites:", row['prerequisites'])
+            for x in range(70): 
+                print("-", end="")
 
-                # table formatting
-                #print("\n{:^30}|{:^30}|{:^30}".format("Course Code", "Course Name", "Prerequisites"))
-                #for x in range(95): 
-                 #   print("-", end="")
-                #print("\n{:^30}|{:^30}|{:^30}".format(row['course code'], row['course name'], row['prerequisites']))
+            # table formatting
+            #print("\n{:^30}|{:^30}|{:^30}".format("Course Code", "Course Name", "Prerequisites"))
+            #for x in range(95): 
+            #   print("-", end="")
+            #print("\n{:^30}|{:^30}|{:^30}".format(row['course code'], row['course name'], row['prerequisites']))
 
-                found = True
-                break
-        
+            found = True
+            break
+
         # match missing
         if found is False:
             print("\nMatch not found.")
 
+    # how do we check if file closes??
     file.close()
 
-    print("\n") #maybe we should clear instead of newline?
+    print("\n")
 
 
-def subject_search():
+def subject_search(file):
 # Get the subject abbreviation from user
     subject_name = input("Enter the Subject Name (For example - \"CIS\"): ")
     sub_upper = subject_name.upper()
 
 
     # Read the data from the CSV file
-    with open(filepath, mode='r', newline='', encoding='utf-8') as file:
-        fieldnames = ["course code", "course name", "prerequisites"]
-        reader = csv.DictReader(file, fieldnames=fieldnames)
+    fieldnames = ["course code", "course name", "prerequisites"]
+    reader = csv.DictReader(file)
 
-        # Initialize a list to store matching rows
-        matching_rows = []
-        
-        # Iterate through the rows in the CSV file
-        for row in reader:
+    # Initialize a list to store matching rows
+    matching_rows = []
+    
+    # Iterate through the rows in the CSV file
+    next(reader)
+    for row in reader:
+        # Ensure that 'course code' is a valid column name in your CSV file
+        if 'course code' in row:
+            # get letters without code
+            course_code = row['course code']
 
-            # Ensure that 'course code' is a valid column name in your CSV file
-            if 'course code' in row:
-                # get letters without code
-                course_code = row['course code']
-
-                # Extracts only string of subject
-                subject = ""
-                for c in course_code:
-                    if c == "*":
-                        break
-                    subject += c
-                
-                # Check if the course code starts with the given subject
-                if sub_upper == subject.upper():
-                    print(subject)
-                    matching_rows.append(row)
+            # Extracts only string of subject
+            subject = ""
+            for c in course_code:
+                if c == "*":
+                    break
+                subject += c
+            
+            # Check if the course code starts with the given subject
+            if sub_upper == subject.upper():
+                matching_rows.append(row)
 
 
         if not matching_rows:
-            print("\nSubject doesn't exist")
+            print("\nSubject doesn't exist.")
         
         else:
             # matching_rows contains the rows that needs to be output
             print("\n{:^25}|{:^60}|{:^60}".format("Course Code", "Course Name", "Prerequisites"))
         
             for row in matching_rows:
-                
                 for x in range(160): 
                     print("-", end="")
 
@@ -122,48 +139,47 @@ def subject_search():
     print("\n")
 
 
-def code_search():
+def code_search(file):
 # Input text to search for (e.g., "CIS 1300" or "CIS1300" or "CIS*1300")
     search_text = input("Enter a course code to search for (For example - \"CIS*1500\"): ").replace(" ", "").replace("*", "")
     search_text_Upp = search_text.upper()
 
-    with open(filepath, mode='r', newline='', encoding='utf-8') as file:
-        fieldnames = ["course code", "course name", "prerequisites"]
-        reader = csv.DictReader(file, fieldnames=fieldnames)
-        
-        # Initialize a list to store matching rows
-        matching_rows = []
-        
-        # Iterate through the rows in the CSV file
-        for row in reader:
-            # Remove spaces and asterisks from user input and course code in excel
-            course_code = row['course code'].replace(" ", "").replace("*", "")
-            search_text_Upp = search_text_Upp.replace(" ", "").replace("*", "")
-            
-            # Check if the course code contains the search text
-            if search_text_Upp == course_code.upper():
-                matching_rows.append(row)
+    fieldnames = ["course code", "course name", "prerequisites"]
+    reader = csv.DictReader(file)
+    
+    # Initialize a list to store matching rows
+    matching_rows = []
 
-        if not matching_rows:
-            print("\nPlease enter the correct formatted input per choice.")
-        else:
-            # Display the matching rows
-            for row in matching_rows:
-                
-                for x in range(70): 
-                   print("-", end="")
-                print("\nCourse Code:", row['course code'])
-                print("Course Name:", row['course name'])
-                print("Prerequisites:", row['prerequisites'])
-                for x in range(70): 
-                   print("-", end="")
+    # Iterate through the rows in the CSV file
+    next(reader)
+    for row in reader:
+        # Remove spaces and asterisks from user input and course code in excel
+        course_code = row['course code'].replace(" ", "").replace("*", "")
+        search_text_Upp = search_text_Upp.replace(" ", "").replace("*", "")
+        
+        # Check if the course code contains the search text
+        if search_text_Upp == course_code.upper():
+            matching_rows.append(row)
+
+    if not matching_rows:
+        print("\nPlease enter the correct formatted input per choice.")
+    else:
+        # Display the matching rows
+        for row in matching_rows:
+            
+            for x in range(70): 
+                print("-", end="")
+            print("\nCourse Code:", row['course code'])
+            print("Course Name:", row['course name'])
+            print("Prerequisites:", row['prerequisites'])
+            for x in range(70): 
+                print("-", end="")
+
     file.close()
     
     print("\n")
 
-
-
-
+### MENU LOOP
 while True:
    
     print("\nWelcome to the Prerequisite Searcher! \n\nPlease type in the number of the search would you like to execute.\n")
@@ -174,9 +190,9 @@ while True:
     
     choice = input("\n\nEnter your choice: ")
     
-    if choice == '1': name_search()
-    elif choice == '2': subject_search()
-    elif choice == '3': code_search()
+    if choice == '1': open_file(name_search, filepath, "r")
+    elif choice == '2': open_file(subject_search, filepath, "r")
+    elif choice == '3': open_file(code_search, filepath, "r")
     elif choice == '4':
         print("\nThank you for searching.\n")
         break
