@@ -23,15 +23,13 @@ def name_search():
             # consider match
             if row['course name'].casefold() == course_nameC:
                         
-                print("\n")
-                print("Course Code:", row['course code'])
-                print("\n")
+                for x in range(70): 
+                   print("-", end="")
+                print("\nCourse Code:", row['course code'])
                 print("Course Name:", row['course name'])
-                print("\n")
                 print("Prerequisites:", row['prerequisites'])
-                print("\n")
-
-                print()
+                for x in range(70): 
+                   print("-", end="")
 
                 # table formatting
                 #print("\n{:^30}|{:^30}|{:^30}".format("Course Code", "Course Name", "Prerequisites"))
@@ -90,7 +88,6 @@ def subject_search():
             print("\nSubject doesn't exist")
         
         else:
-
             # matching_rows contains the rows that needs to be output
             print("\n{:^25}|{:^60}|{:^60}".format("Course Code", "Course Name", "Prerequisites"))
         
@@ -107,10 +104,8 @@ def subject_search():
 
 
                 # Split prerequisites into mult lines
-                prereq_lines = [prerequisite[i:i+max_prerequisite_length] 
-                
+                prereq_lines = [prerequisite[i:i+max_prerequisite_length]                 
                 for i in range(0, len(prerequisite), max_prerequisite_length)]
-
 
                 # Print the first line with Course Code and Course Name
                 if prereq_lines:
@@ -129,7 +124,7 @@ def subject_search():
 
 def code_search():
 # Input text to search for (e.g., "CIS 1300" or "CIS1300" or "CIS*1300")
-    search_text = input("Enter a course code to search for (For example - \"CIS 1500\"): ").replace(" ", "").replace("*", "")
+    search_text = input("Enter a course code to search for (For example - \"CIS*1500\"): ").replace(" ", "").replace("*", "")
     search_text_Upp = search_text.upper()
 
     with open(filepath, mode='r', newline='', encoding='utf-8') as file:
@@ -141,30 +136,27 @@ def code_search():
         
         # Iterate through the rows in the CSV file
         for row in reader:
-            # Extract the course code and remove spaces and asterisks
+            # Remove spaces and asterisks from user input and course code in excel
             course_code = row['course code'].replace(" ", "").replace("*", "")
+            search_text_Upp = search_text_Upp.replace(" ", "").replace("*", "")
             
             # Check if the course code contains the search text
-            if search_text_Upp in course_code:
+            if search_text_Upp == course_code.upper():
                 matching_rows.append(row)
 
         if not matching_rows:
-            print("No matching rows found.")
+            print("\nPlease enter the correct formatted input per choice.")
         else:
             # Display the matching rows
             for row in matching_rows:
-                #print (row)
-                print("\n")
-                print("-------------------------------------------------------------------------------------------------")
-                print("\n")
-                print("Course Code:", row['course code'])
-                print("\n")
+                
+                for x in range(70): 
+                   print("-", end="")
+                print("\nCourse Code:", row['course code'])
                 print("Course Name:", row['course name'])
-                print("\n")
                 print("Prerequisites:", row['prerequisites'])
-                print("\n")
-                print("-------------------------------------------------------------------------------------------------")
-                print()
+                for x in range(70): 
+                   print("-", end="")
     file.close()
     
     print("\n")
