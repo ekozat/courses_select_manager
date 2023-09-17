@@ -93,7 +93,7 @@ Links:
 
 
 
-# Simar's Notes
+# Simardeep Singh's Notes
 
 - Debugging Tools: To identify and resolve errors in the code, VBA offers debugging tools such as breakpoints, watch windows, and immediate windows.
 - Object Oriented Programming: VBA supports object oriented programming concepts, which allows a user to work with objects , methods, events and properties. 
