@@ -30,19 +30,48 @@ def open_file(option_function, filepath, mode):
 def name_search(file):
     # Input course they want to find
     course_name = input("Enter the full course name: ")
+
+    if course_name == "":
+        print("\nMatch not found.")
+        return
+
     course_nameC = course_name.strip().casefold()
 
     # Read the data from the CSV file
     fieldnames = ["course code", "course name", "prerequisites"]
     reader = csv.DictReader(file, fieldnames=fieldnames)
-    found = False
+    found = True
+
+    # list for displaying all rows
+    matching_rows = []
+
+    # Extract all words from user input
+    user_words = course_nameC.split()
 
     # search iteration
     for row in reader:
-        # consider match
-        if row['course name'].casefold() == course_nameC:
+        skip = False
 
-            # table print                    
+        # Extract all words from course name
+        course_words = row['course name'].casefold().split()
+
+        # checks if all words typed from the user belong to the course name
+        for word in user_words:
+            if word not in course_words:
+                skip = True
+            
+        if skip:
+            continue
+        
+        # If match is found
+        matching_rows.append(row)
+
+    # match missing
+    if not matching_rows:
+        print("\nMatch not found.")
+    else:
+        for row in matching_rows:
+            # table print                 
             for x in range(70): 
                 print("-", end="")
             print("\nCourse Code:", row['course code'])
@@ -50,15 +79,8 @@ def name_search(file):
             print("Prerequisites:", row['prerequisites'])
             for x in range(70): 
                 print("-", end="")
+        
 
-            found = True
-            break
-
-    # match missing
-    if found is False:
-        print("\nMatch not found.")
-
-    # how do we check if file closes??
     file.close()
 
     print("\n")
@@ -68,7 +90,6 @@ def subject_search(file):
 # Get the subject abbreviation from user
     subject_name = input("Enter the Subject Name (For example - \"CIS\"): ")
     sub_upper = subject_name.upper()
-
 
     # Read the data from the CSV file
     fieldnames = ["course code", "course name", "prerequisites"]
