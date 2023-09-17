@@ -38,6 +38,7 @@ Furthermore, this repo also contains research regarding VBA and any other docume
 The following is the script ran to search through the CSV files through a course name:
 
 ![run2](Photos/courseNameSearch.png)
+
 ## Team Approach
 This project involves two distinct parts: parsing course data from a text file and implementing a search functionality for the parsed data. The development process was handled by two separate teams, each focusing on their respective tasks.
 
@@ -63,6 +64,8 @@ Team B focused on creating a search functionality that allows users (students) t
 - CSV Data Load: The script loads the course data from the previously generated CSV file.
 - Search Algorithm: Team B has implemented a search algorithm that matches the user's input with course names and prerequisites in the CSV file.
 - Output: The script outputs the courses that match the user's query in terms of course name or prerequisites.
+
+
 ## Authors and acknowledgment
     - Sara Adi
     - Emily Kozatchiner
