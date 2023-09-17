@@ -20,8 +20,6 @@ def open_file(option_function, filepath, mode):
         print("The file already exists.")
     except IOError:
         print("An I/O error occurred.")
-    except OSError:
-        print("An operating system error occurred.")
     except UnicodeDecodeError:
         print("Unable to decode the file to Unicode.")
 
@@ -40,7 +38,6 @@ def name_search(file):
     # Read the data from the CSV file
     fieldnames = ["course code", "course name", "prerequisites"]
     reader = csv.DictReader(file, fieldnames=fieldnames)
-    found = True
 
     # list for displaying all rows
     matching_rows = []
@@ -72,12 +69,12 @@ def name_search(file):
     else:
         for row in matching_rows:
             # table print                 
-            for x in range(70): 
+            for _ in range(70):
                 print("-", end="")
             print("\nCourse Code:", row['course code'])
             print("Course Name:", row['course name'])
             print("Prerequisites:", row['prerequisites'])
-            for x in range(70): 
+            for _ in range(70):
                 print("-", end="")
         
 
@@ -125,7 +122,7 @@ def subject_search(file):
         print("\n{:^25}|{:^60}|{:^60}".format("Course Code", "Course Name", "Prerequisites"))
     
         for row in matching_rows:
-            for x in range(160): 
+            for _ in range(160):
                 print("-", end="")
 
             prerequisite = row['prerequisites']
@@ -177,12 +174,12 @@ def code_search(file):
         # Display the matching rows
         for row in matching_rows:
             
-            for x in range(70): 
+            for _ in range(70):
                 print("-", end="")
             print("\nCourse Code:", row['course code'])
             print("Course Name:", row['course name'])
             print("Prerequisites:", row['prerequisites'])
-            for x in range(70): 
+            for _ in range(70):
                 print("-", end="")
 
     file.close()
@@ -208,6 +205,3 @@ while True:
         break
     else:
         print("\nInvalid choice. Please select a valid option.\n")
-        
-
-    
