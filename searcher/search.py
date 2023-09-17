@@ -101,36 +101,36 @@ def subject_search(file):
                 matching_rows.append(row)
 
 
-        if not matching_rows:
-            print("\nSubject doesn't exist.")
-        
-        else:
-            # matching_rows contains the rows that needs to be output
-            print("\n{:^25}|{:^60}|{:^60}".format("Course Code", "Course Name", "Prerequisites"))
-        
-            for row in matching_rows:
-                for x in range(160): 
-                    print("-", end="")
+    if not matching_rows:
+        print("\nSubject doesn't exist.")
+    
+    else:
+        # matching_rows contains the rows that needs to be output
+        print("\n{:^25}|{:^60}|{:^60}".format("Course Code", "Course Name", "Prerequisites"))
+    
+        for row in matching_rows:
+            for x in range(160): 
+                print("-", end="")
 
-                #print("\n{:^25}|{:^60}|{:^65}".format(row['course code'], row['course name'], ''))   
-                prerequisite = row['prerequisites']
-                
-                #max length will be 60              
-                max_prerequisite_length = 60
+            #print("\n{:^25}|{:^60}|{:^65}".format(row['course code'], row['course name'], ''))   
+            prerequisite = row['prerequisites']
+            
+            #max length will be 60              
+            max_prerequisite_length = 60
 
-                # Split prerequisites into mult lines
-                prereq_lines = [prerequisite[i:i+max_prerequisite_length]                 
-                for i in range(0, len(prerequisite), max_prerequisite_length)]
+            # Split prerequisites into mult lines
+            prereq_lines = [prerequisite[i:i+max_prerequisite_length]                 
+            for i in range(0, len(prerequisite), max_prerequisite_length)]
 
-                # Print the first line with Course Code and Course Name
-                if prereq_lines:
-                    print("\n{:^25}|{:^60}|{:^60}".format(row['course code'], row['course name'], prereq_lines[0]))
+            # Print the first line with Course Code and Course Name
+            if prereq_lines:
+                print("\n{:^25}|{:^60}|{:^60}".format(row['course code'], row['course name'], prereq_lines[0]))
 
-                # Print additional lines with empty Course Code and Course Name
-                for line in prereq_lines[1:]:
-                    print("\n{:^25}|{:^60}|{:^60}".format('', '', line))
+            # Print additional lines with empty Course Code and Course Name
+            for line in prereq_lines[1:]:
+                print("\n{:^25}|{:^60}|{:^60}".format('', '', line))
 
-               # print("\n{:^25}|{:^60}|{:^60}".format(row['course code'], row['course name'], ''))
+            # print("\n{:^25}|{:^60}|{:^60}".format(row['course code'], row['course name'], ''))
                 
     file.close()
 
