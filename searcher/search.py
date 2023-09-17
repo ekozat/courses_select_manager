@@ -9,7 +9,7 @@ filepath = path.join(parentpath, "parser", csv_file)
 
 def name_search():
     # Input course they want to find
-    course_name = input("Enter the course name: ")
+    course_name = input("Enter the full course name: ")
     course_nameC = course_name.strip().casefold()
 
     # Read the data from the CSV file
@@ -53,7 +53,7 @@ def name_search():
 
 def subject_search():
 # Get the subject abbreviation from user
-    subject_name = input("Enter the Subject Name (For example: CIS): ")
+    subject_name = input("Enter the Subject Name (For example - \"CIS\"): ")
     sub_upper = subject_name.upper()
 
 
@@ -92,7 +92,6 @@ def subject_search():
         else:
 
             # matching_rows contains the rows that needs to be output
-
             print("\n{:^25}|{:^60}|{:^60}".format("Course Code", "Course Name", "Prerequisites"))
         
             for row in matching_rows:
@@ -103,25 +102,21 @@ def subject_search():
                 #print("\n{:^25}|{:^60}|{:^65}".format(row['course code'], row['course name'], ''))   
                 prerequisite = row['prerequisites']
                 
-                #max length will be 60
-                
+                #max length will be 60              
                 max_prerequisite_length = 60
 
 
                 # Split prerequisites into mult lines
-
                 prereq_lines = [prerequisite[i:i+max_prerequisite_length] 
                 
                 for i in range(0, len(prerequisite), max_prerequisite_length)]
 
 
                 # Print the first line with Course Code and Course Name
-
                 if prereq_lines:
                     print("\n{:^25}|{:^60}|{:^60}".format(row['course code'], row['course name'], prereq_lines[0]))
 
                 # Print additional lines with empty Course Code and Course Name
-
                 for line in prereq_lines[1:]:
                     print("\n{:^25}|{:^60}|{:^60}".format('', '', line))
 
@@ -134,7 +129,7 @@ def subject_search():
 
 def code_search():
 # Input text to search for (e.g., "CIS 1300" or "CIS1300" or "CIS*1300")
-    search_text = input("Enter a course code to search for: ").replace(" ", "").replace("*", "")
+    search_text = input("Enter a course code to search for (For example - \"CIS 1500\"): ").replace(" ", "").replace("*", "")
     search_text_Upp = search_text.upper()
 
     with open(filepath, mode='r', newline='', encoding='utf-8') as file:
