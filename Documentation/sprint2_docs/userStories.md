@@ -31,6 +31,7 @@ Acceptance Criteria:
 
 -   I have a separate Excel sheet where I can enter my information
 -   The UI is not confusing and I am able to navigate it without reading documentation
+-   I am able to input each course I have completed into the cells along with my in-progress courses
 
 **Title: Eligible Courses**
 
