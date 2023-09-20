@@ -8,20 +8,7 @@
 
 ### Initial Approach
 
-Our first thought was to use the file f23_courses2.txt since it looked more structured than f23_courses1.txt.
-
-The steps consisted of:
-1. Start reading from the first course line by line
-2. Once you hit the word "Location(s):" you know you have a new course on the next line so parse out the code and name from it
-3. Once you hit the word "Prerequisite(s):" parse this until you hit one of the other colon separated words
-
-This method surprisingly parsed most courses fine but due to inconsistencies within the file itself that made our initial assumption false. It resulted in some prerequisites not getting parsed fully, certain course codes not showing up at all, and a myriad of other small edge case issues.
-
-We needed to think of a new approach.
-
-### New Approach
-
-We decided on reading the f23_courses1.txt character by character instead and utilizing regular expressions to parse out what we needed.
+Our initial approach for this sprint was to use the parser created from sprint 1 using the following logic:
 
 The steps were as follows:
 
@@ -36,6 +23,24 @@ The steps were as follows:
 7. Since some courses do not have prerequisites, handle that case separately by assigning prerequisite and empty array
 8. In case the file has duplicated courses, filter those courses out
 9. Create respective column names, write our data into rows, and export the entirety as a csv
+
+However, we quickly realized that since we parsed the prerequisites as one string, we needed to break it down in order to successfully complete the functionality of this sprint.
+
+We needed to think of a new approach.
+
+### New Approach
+
+We decided to break down the prerequisite portion of the parser even further:
+
+- The parser will create four columns, instead of one for prerequisites; (1) Standalone Prerequisites, AND Prerequisites, OR Prerequisites, and Other Prerequisites.
+- An empty prerequisite cell will have an empty array: "[]"
+- A standalone prerequisite will be just the course intended to be taken prior to this one, with no other dependencies. i.e., "[CIS1300][CIS1500]".
+- The AND and OR prerequisites will be reformatted to be more vba friendly. For example, If a prerequisite is: " 1 of NUTR*1010, NUTR*2150, NUTR*3210" we will recognize the "1 of" and replace it into an or statement. The transformation will look like this: "[NUTR*101, NUTR*2150, NUTR*3210]"
+- All other forms of prerequisites will be in the "Other" column (i.e, [12 credits])
+
+ 
+
+
 
 ### Future Goals
 
