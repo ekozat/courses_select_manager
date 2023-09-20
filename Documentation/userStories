@@ -1,0 +1,44 @@
+# F23_CIS3760_101
+# Team
+
+- Team Lead: 
+    - Maneesh K. Wijewardhana
+- Team Members:
+    - Emily Kozatchiner
+    - Evan Ferguson
+    - Fee Kim Ah-Poa
+    - Sara Adi
+    - Simardeep Singh
+
+# Purpose
+The purpose of this file is to list all user stories that will be used to help program the solution for sprint 1, and plan ahead for future sprints.
+
+# Sara Adi's User Stories:
+Title: Course Eligability
+
+Priority: High
+
+Estimate (in hrs): -
+
+User Story: As a student, I want to be able to input my program progress into the Excel spreadsheet and receive a generated list of courses I can take next based on my completed courses and their prerequisites.
+
+Acceptance Critera:
+* The Excel spreadsheet should contain all the course data from Sprint 1, including course names and prerequisites.
+* I should be able to input my completed and in-progress courses into the spreadsheet, with one course per cell.
+* There should be a button or UI feature that I can use to trigger the generation of a list of recommended courses based on my progress.
+
+--
+
+Title: Recommended Course Descriptions
+
+Priority: High
+
+Estimate (in hrs): -
+
+User Story: As a student, I want to have access to detailed course descriptions for the recommended courses in the Excel spreadsheet so that I can make informed decisions about my future courses.
+
+Acceptance Critera:
+* The Excel spreadsheet should contain all the course data from Sprint 1, including course names, prerequisites, and detailed descriptions.
+* I should be able to input my completed and in-progress courses into the spreadsheet, with one course per cell.
+* There should be a button or UI feature that I can use to trigger the generation of a list of recommended courses based on my progress.
+* The list of recommended courses should include detailed course descriptions, allowing me to learn more about each course and its content.
