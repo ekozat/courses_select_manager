@@ -46,7 +46,7 @@ def parse_courses(input_file_path, output_csv_file):
                 if course_code and course_name:
                     if prerequisites:
                         prerequisites_str = prerequisites[0][0].strip()
-                        # Replace 'or' with '|' and 'and' with '&' to match your requirement
+                        # Replace 'or' with '|' and 'and' with '&' to match requirement
                         prerequisites_str = prerequisites_str.replace("or", "|").replace("and", "&")
 
                         # Handle the special cases for "Completion of ...", "&...", multiple options within parentheses, and "<#> of ..."
