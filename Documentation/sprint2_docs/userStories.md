@@ -79,3 +79,17 @@ Acceptance Criteria:
 
 -   Create an input UI to point to where students should enter their taken courses
 -   Implement a check box method where the student needs to only press a box to indicate they have taken the course
+
+**Title: Display restricted courses**
+
+Priority: Low
+
+Estimate (in hrs): -
+
+User Story:
+
+-   As a Bachelor of Science student, I want to be able to know what courses are entirely restricted due to previous courses
+
+Acceptance Criteria:
+
+-   Create a separate column to list all restricted courses that correlate to each course taken
