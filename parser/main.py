@@ -43,10 +43,21 @@ def parse_courses(input_file_path, output_csv_file):
                 course_name = course_name.split("  ")[0].strip()
                 prerequisites = re.findall(prerequisite_pattern, blob, re.DOTALL)
                 # Since some courses do not have prerequisites, handle that case separately
-                if course_code and course_name and not prerequisites:
-                    courses.append(Course(course_code, course_name, []))
-                elif course_code and course_name and prerequisites:
-                    courses.append(Course(course_code, course_name, prerequisites[0][0].strip()))
+                if course_code and course_name:
+                    if prerequisites:
+                        prerequisites_str = prerequisites[0][0].strip()
+                        # Replace 'or' with '|' and 'and' with '&' to match your requirement
+                        prerequisites_str = prerequisites_str.replace("or", "|").replace("and", "&")
+
+                        # Handle the special cases for "Completion of ...", "&...", multiple options within parentheses, and "<#> of ..."
+                        prerequisites_str = re.sub(r'Completion of &([\d.]+) credits including', r'&Completion of \1 credits including', prerequisites_str)
+                        prerequisites_str = re.sub(r'&(\d+\.\d+ credits including)', r'\1', prerequisites_str)
+                        prerequisites_str = re.sub(r'\((.*?)\)', lambda x: x.group(1).replace(", ", "|"), prerequisites_str)
+                        prerequisites_str = re.sub(r'<#> of (.*?)', r'(\1)', prerequisites_str)
+                        
+                        courses.append(Course(course_code, course_name, prerequisites_str))
+                    else:
+                        courses.append(Course(course_code, course_name, ""))
 
         # If we added dupelicated courses, make sure to remove them before exporting to csv
         seen_codes = set()
