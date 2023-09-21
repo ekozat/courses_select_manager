@@ -48,27 +48,11 @@ def parse_courses(input_file_path, output_csv_file):
                         prerequisites_str = prerequisites[0][0].strip()
                         # Replace 'or' with '|' and 'and' with '&' to match requirement
                         prerequisites_str = prerequisites_str.replace("or", "|").replace("and", "&")
-
-                        # Handle the special cases for "Completion of ...", "&...", multiple options within parentheses, and "<#> of ..."
-                        prerequisites_str = re.sub(r'Completion of &([\d.]+) credits including', r'\1 credits, ', prerequisites_str)
-                        prerequisites_str = re.sub(r'&([\d.]+ credits including)', r'\1, ', prerequisites_str)
                         prerequisites_str = re.sub(r'\((.*?)\)', lambda x: x.group(1).replace(", ", "|"), prerequisites_str)
-                        prerequisites_str = re.sub(r'<#> of (.*?)', r'(\1)', prerequisites_str)
-                        
                         # Handle the special case for multiple options within parentheses
                         prerequisites_str = re.sub(r'(\([^\)]+\))', lambda x: x.group(1).replace(" | ", "|"), prerequisites_str)
-
-                        # Remove the first part of the prerequisites, which is the credit count
-                        credit_pattern = r'([\d.]+ credits, )'
-                        prerequisites_str = re.sub(credit_pattern, "", prerequisites_str)
-                        # Add " credits" after the credit count
-                        prerequisites_str = re.sub(r'([\d.]+)', r'\1 credits', prerequisites_str)
-
-                        # Remove " credits" from individual courses
-                        prerequisites_str = re.sub(r'(\w+\*[\d]+\w*) credits', r'\1', prerequisites_str)
-
-                        # Handle "credits including" as "credits, "
-                        prerequisites_str = re.sub(r' credits including', r', ', prerequisites_str)
+                        prerequisites_str = re.sub(r'([\d.]+) credits including ([\w*]+)', r'\1 credits, \2', prerequisites_str)
+                        prerequisites_str = re.sub(r'Completion of ([\d.]+) credits,', r'\1 credits,', prerequisites_str)
 
                         courses.append(Course(course_code, course_name, prerequisites_str))
                     else:
@@ -112,5 +96,3 @@ if input_file_path.endswith(".txt"):
   print(message)
 else:
     print("ERROR: Please provide .txt file format")
-  
-
