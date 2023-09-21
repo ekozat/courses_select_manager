@@ -32,14 +32,11 @@ We needed to think of a new approach.
 
 We decided to break down the prerequisite portion of the parser even further:
 
-- The parser will create four columns, instead of one for prerequisites; (1) Standalone Prerequisites, AND Prerequisites, OR Prerequisites, and Other Prerequisites.
-- An empty prerequisite cell will have an empty array: "[]"
-- A standalone prerequisite will be just the course intended to be taken prior to this one, with no other dependencies. i.e., "[CIS1300][CIS1500]".
-- The AND and OR prerequisites will be reformatted to be more vba friendly. For example, If a prerequisite is: " 1 of NUTR*1010, NUTR*2150, NUTR*3210" we will recognize the "1 of" and replace it into an or statement. The transformation will look like this: "[NUTR*101, NUTR*2150, NUTR*3210]"
-- All other forms of prerequisites will be in the "Other" column (i.e, [12 credits])
-
- 
-
+If prerequisites exist for the course:
+* Process the prerequisites_str:
+* Replace 'or' with '|' and 'and' with ',' to modify the logical operators.
+* Transform X.Y credits including "course" to "X.Y credits, "course"
+* Transform Completion of X.Y credits, 1 of ..." to "X.Y credits, 1 of ..."
 
 
 ### Future Goals
