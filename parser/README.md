@@ -38,13 +38,3 @@ If prerequisites exist for the course:
 * Transform X.Y credits including "course" to "X.Y credits, "course"
 * Transform Completion of X.Y credits, 1 of ..." to "X.Y credits, 1 of ..."
 
-
-### Future Goals
-
-Although the parser does everything we need, there are some aspects of it that can be improved or features that need to be added later on. These include:
-
-1.  Parsing out prerequisites themselves since at some point, we will have to store them in a more organized way so that it is easier to check student eligibility
-    -   Examples:
-        -   (ACCT\*3330 or BUS\*3330), (ACCT\*3340 or BUS\*3340)
-        -   Completion of 7.50 credits including (1 of GEOG\*2460, STAT\*2040, STAT\*2060, STAT\*2080)
-2.  Parsing out restrictions
