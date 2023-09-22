@@ -1,4 +1,3 @@
-Attribute VB_Name = "Module1"
 Sub GetPrereq()
     Dim courseSheet As Worksheet
     Dim prereqSheet As Worksheet
@@ -76,6 +75,7 @@ Sub GetPrereq()
     i = 0
     j = 0
     k = 0
+    ' PURPOSE: loops through ALL parsed courses
     For i = startRow To lastPrereqRow
         ' extract all courses from prerequisites
         Set course = regex.Execute(courseSheet.Cells(i, 3).Value)
@@ -88,7 +88,7 @@ Sub GetPrereq()
         
         j = 0
         found = False
-        ' loop through all courses regexed PER prereq string (each row)
+        ' PURPOSE: loop through all courses IN prereq string (each row)
         ' compare all matches to coursesTaken and see if it matches
         For j = 0 To course.Count - 1
             ' define course to replace
@@ -96,15 +96,15 @@ Sub GetPrereq()
             ' Debug.Print "course" & subStr
             
             
-            ' loop through all taken courses to determine
+            ' PURPOSE: loop through input sheet (taken courses)
             k = 0
             For k = 0 To lastInputRow - 1
                 If course(j).Value = coursesTaken(k) Then
                     'Debug.Print "courses Taken:" & coursesTaken(k)
                     resultString = Replace(resultString, subStr, "True")
                     
-                    Debug.Print "Original String: " & courseSheet.Cells(i, 3).Value
-                    Debug.Print "Result String: " & resultString
+                    'Debug.Print "Original String: " & courseSheet.Cells(i, 3).Value
+                    'Debug.Print "Result String: " & resultString
                     
                     found = True
                     Exit For
@@ -115,15 +115,21 @@ Sub GetPrereq()
             ' If the pattern was not found, set resultString to "False"
             If Not found Then
                 resultString = Replace(resultString, subStr, "False")
-                Debug.Print "Original String: " & courseSheet.Cells(i, 3).Value
-                Debug.Print "Result String: " & resultString
+                'Debug.Print "Original String: " & courseSheet.Cells(i, 3).Value
+                'Debug.Print "Result String: " & resultngStri
             End If
         
         Next j
         
+        'Debug.Print "Original String: " & courseSheet.Cells(i, 3).Value
+        'Debug.Print "Result String: " & resultString
+        
         ' STEP 3 - Create logic expression and calculate result
         'courseSheet.Cells(i, 3).Value
-            
+        
+        resultString = Replace(resultString, ",", " AND")
+        resultString = Replace(resultString, "|", "OR ")
+        Debug.Print "Result String: " & resultString
             
         
         ' test print statement for successful regex parsing
@@ -137,4 +143,5 @@ Sub GetPrereq()
     ' i=0 for next for loop outside of here
     
 End Sub
+
 
