@@ -89,7 +89,7 @@ def parse_courses(input_file_path, output_csv_file):
                   
                     courses.append(
                       Course(course_code, course_name, "", restriction_data))
-        # If we added dupelicated courses, make sure to remove them before exporting to csv
+        # If we added duplicated courses, make sure to remove them before exporting to csv
         seen_codes = set()
         non_dupe_courses = []
         for course in courses:
