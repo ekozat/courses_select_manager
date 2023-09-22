@@ -110,7 +110,7 @@ def parse_courses(input_file_path, output_csv_file):
 
             # Write the data rows
             writer.writerows(data)
-        
+        #error handling
         return True, "Successfully parsed and saved to CSV."
     except FileNotFoundError:
         return False, "Input file not found."
