@@ -43,11 +43,21 @@ def parse_courses(input_file_path, output_csv_file):
                 course_name = course_name.split("  ")[0].strip()
                 prerequisites = re.findall(prerequisite_pattern, blob, re.DOTALL)
                 # Since some courses do not have prerequisites, handle that case separately
-                if course_code and course_name and not prerequisites:
-                    courses.append(Course(course_code, course_name, []))
-                elif course_code and course_name and prerequisites:
-                    courses.append(Course(course_code, course_name, prerequisites[0][0].strip()))
+                if course_code and course_name:
+                    if prerequisites:
+                        prerequisites_str = prerequisites[0][0].strip()
+                        # Replace 'or' with '|' and 'and' with '&' to match requirement
+                        prerequisites_str = prerequisites_str.replace("or", "|").replace("and", "&")
+                        prerequisites_str = re.sub(r'\((.*?)\)', lambda x: x.group(1).replace(", ", "|"), prerequisites_str)
+                        # Handle the special case for multiple options within parentheses
+                        prerequisites_str = re.sub(r'(\([^\)]+\))', lambda x: x.group(1).replace(" | ", "|"), prerequisites_str)
+                        prerequisites_str = re.sub(r'([\d.]+) credits including ([\w*]+)', r'\1 credits, \2', prerequisites_str)
+                        prerequisites_str = re.sub(r'Completion of ([\d.]+) credits,', r'\1 credits,', prerequisites_str)
 
+                        courses.append(Course(course_code, course_name, prerequisites_str))
+                    else:
+                        courses.append(Course(course_code, course_name, ""))
+                        
         # If we added dupelicated courses, make sure to remove them before exporting to csv
         seen_codes = set()
         non_dupe_courses = []
@@ -86,5 +96,3 @@ if input_file_path.endswith(".txt"):
   print(message)
 else:
     print("ERROR: Please provide .txt file format")
-  
-

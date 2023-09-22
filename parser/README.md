@@ -8,20 +8,7 @@
 
 ### Initial Approach
 
-Our first thought was to use the file f23_courses2.txt since it looked more structured than f23_courses1.txt.
-
-The steps consisted of:
-1. Start reading from the first course line by line
-2. Once you hit the word "Location(s):" you know you have a new course on the next line so parse out the code and name from it
-3. Once you hit the word "Prerequisite(s):" parse this until you hit one of the other colon separated words
-
-This method surprisingly parsed most courses fine but due to inconsistencies within the file itself that made our initial assumption false. It resulted in some prerequisites not getting parsed fully, certain course codes not showing up at all, and a myriad of other small edge case issues.
-
-We needed to think of a new approach.
-
-### New Approach
-
-We decided on reading the f23_courses1.txt character by character instead and utilizing regular expressions to parse out what we needed.
+Our initial approach for this sprint was to use the parser created from sprint 1 using the following logic:
 
 The steps were as follows:
 
@@ -37,12 +24,17 @@ The steps were as follows:
 8. In case the file has duplicated courses, filter those courses out
 9. Create respective column names, write our data into rows, and export the entirety as a csv
 
-### Future Goals
+However, we quickly realized that since we parsed the prerequisites as one string, we needed to break it down in order to successfully complete the functionality of this sprint.
 
-Although the parser does everything we need, there are some aspects of it that can be improved or features that need to be added later on. These include:
+We needed to think of a new approach.
 
-1.  Parsing out prerequisites themselves since at some point, we will have to store them in a more organized way so that it is easier to check student eligibility
-    -   Examples:
-        -   (ACCT\*3330 or BUS\*3330), (ACCT\*3340 or BUS\*3340)
-        -   Completion of 7.50 credits including (1 of GEOG\*2460, STAT\*2040, STAT\*2060, STAT\*2080)
-2.  Parsing out restrictions
+### New Approach
+
+We decided to break down the prerequisite portion of the parser even further:
+
+If prerequisites exist for the course:
+* Process the prerequisites_str:
+* Replace 'or' with '|' and 'and' with ',' to modify the logical operators.
+* Transform X.Y credits including "course" to "X.Y credits, "course"
+* Transform Completion of X.Y credits, 1 of ..." to "X.Y credits, 1 of ..."
+
