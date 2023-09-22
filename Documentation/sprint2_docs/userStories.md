@@ -48,3 +48,48 @@ Acceptance Criteria:
 -   In the separate Excel sheet, I am able to click a button once I enter my information
 -   The cells in the sheet are updated with courses that I am eligible to take
 
+# Emily Kozatchiner's User Stories
+
+**Title: Filter Eligible Courses**
+
+Priority: Medium
+
+Estimate (in hrs): -
+
+User Story:
+
+-   As a Bachelor of Science student, I want displayed prerequisite courses to match selected features (i.e. semester, course credits, etc.)
+
+Acceptance Criteria:
+
+-   In the input UI, I am able to select and input data into filters for the displayed prerequisites 
+-   When prerequisites are displayed, they match the chosen attributes that were selected by the user
+
+**Title: Enter Student Courses**
+
+Priority: High
+
+Estimate (in hrs): -
+
+User Story:
+
+-   As a Bachelor of Science student, I want to be able to enter courses in a quick and easy-to-use format (via UI) instead of typing them manually
+
+Acceptance Criteria:
+
+-   Create an input UI to point to where students should enter their taken courses
+-   Implement a check box method where the student needs to only press a box to indicate they have taken the course
+
+**Title: Display restricted courses**
+
+Priority: Low
+
+Estimate (in hrs): -
+
+User Story:
+
+-   As a Bachelor of Science student, I want to be able to know what courses are entirely restricted due to previous courses
+
+Acceptance Criteria:
+
+-   Create a separate column to list all restricted courses that correlate to each course taken
