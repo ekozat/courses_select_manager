@@ -17,7 +17,7 @@ The purpose of this file is to list all user stories that will be used to help p
 
 # Maneesh Wijewardhana's User Stories
 
-**Title: Enter Student Information**
+**Title: Course Entry Format**
 
 Priority: High
 
@@ -25,28 +25,11 @@ Estimate (in hrs): -
 
 User Story:
 
--   As a Bachelor of Science student, I want to have somewhere to enter my information such as credits completed, major, etc. all in an easy-to-use UI
+-   As a Bachelor of Science student, I want to be able to get a list of my eligible courses even if I input my courses inconsistently with respect to capitalization, "\*" symbols, spaces, etc
 
 Acceptance Criteria:
 
--   I have a separate Excel sheet where I can enter my information
--   The UI is not confusing and I am able to navigate it without reading documentation
--   I am able to input each course I have completed into the cells along with my in-progress courses
-
-**Title: Eligible Courses**
-
-Priority: High
-
-Estimate (in hrs): -
-
-User Story:
-
--   As a Bachelor of Science student, I want to click a button in that updates my Excel page with all the courses that I am able to take for the next semester
-
-Acceptance Criteria:
-
--   In the separate Excel sheet, I am able to click a button once I enter my information
--   The cells in the sheet are updated with courses that I am eligible to take
+-   After inputting each course into a cell with inconsistencies, my eligible courses still display correctly
 
 # Emily Kozatchiner's User Stories
 
@@ -62,7 +45,7 @@ User Story:
 
 Acceptance Criteria:
 
--   In the input UI, I am able to select and input data into filters for the displayed prerequisites 
+-   In the input UI, I am able to select and input data into filters for the displayed prerequisites
 -   When prerequisites are displayed, they match the chosen attributes that were selected by the user
 
 **Title: Enter Student Courses**
@@ -95,7 +78,8 @@ Acceptance Criteria:
 -   Create a separate column to list all restricted courses that correlate to each course taken
 
 # Sara Adi's User Stories
-Title: Course Eligability
+
+**Title: Course Eligibility**
 
 Priority: High
 
@@ -103,14 +87,13 @@ Estimate (in hrs): -
 
 User Story: As a student, I want to be able to input my program progress into the Excel spreadsheet and receive a generated list of courses I can take next based on my completed courses and their prerequisites.
 
-Acceptance Critera:
-* The Excel spreadsheet should contain all the course data from Sprint 1, including course names and prerequisites.
-* I should be able to input my completed and in-progress courses into the spreadsheet, with one course per cell.
-* There should be a button or UI feature that I can use to trigger the generation of a list of recommended courses based on my progress.
+Acceptance Criteria:
 
---
+-   The Excel spreadsheet should contain all the course data from Sprint 1, including course names and prerequisites.
+-   I should be able to input my completed and in-progress courses into the spreadsheet, with one course per cell.
+-   There should be a button or UI feature that I can use to trigger the generation of a list of recommended courses based on my progress.
 
-Title: Recommended Course Descriptions
+**Title: Recommended Course Descriptions**
 
 Priority: Low
 
@@ -118,8 +101,9 @@ Estimate (in hrs): -
 
 User Story: As a student, I want to have access to detailed course descriptions for the recommended courses in the Excel spreadsheet so that I can make informed decisions about my future courses.
 
-Acceptance Critera:
-* The Excel spreadsheet should contain all the course data from Sprint 1, including course names, prerequisites, and detailed descriptions.
-* I should be able to input my completed and in-progress courses into the spreadsheet, with one course per cell.
-* There should be a button or UI feature that I can use to trigger the generation of a list of recommended courses based on my progress.
-* The list of recommended courses should include detailed course descriptions, allowing me to learn more about each course and its content.
+Acceptance Criteria:
+
+-   The Excel spreadsheet should contain all the course data from Sprint 1, including course names, prerequisites, and detailed descriptions.
+-   I should be able to input my completed and in-progress courses into the spreadsheet, with one course per cell.
+-   There should be a button or UI feature that I can use to trigger the generation of a list of recommended courses based on my progress.
+-   The list of recommended courses should include detailed course descriptions, allowing me to learn more about each course and its content.
