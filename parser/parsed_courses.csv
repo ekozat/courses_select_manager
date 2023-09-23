@@ -7,7 +7,7 @@ ACCT*3280,Auditing I,ACCT*3330,[]
 ACCT*3330,Intermediate Financial Accounting I,ACCT*1220 OR ACCT*2220,
 ACCT*3340,Intermediate Financial Accounting II,ACCT*3330,[]
 ACCT*3350,Taxation,ACCT*3330,
-ACCT*4220,Advanced Financial Accounting,ACCT*3330 OR BUS*3330 AND ACCT*3340 OR BUS*3340,
+ACCT*4220,Advanced Financial Accounting,(ACCT*3330 OR BUS*3330) AND (ACCT*3340 OR BUS*3340),
 ACCT*4230,Advanced Management Accounting,ACCT*3230 OR BUS*3230,
 ACCT*4270,Auditing II,ACCT*3280 OR BUS*3280,[]
 ACCT*4290,IT Auditing and Data Analytics,ACCT*3280 OR BUS*4280,[]
@@ -16,17 +16,17 @@ ACCT*4350,Income Taxation II,ACCT*3350 OR BUS*3350,[]
 ACCT*4440,Integrated Cases in Accounting,15.00 credits AND ACCT*3280 AND ACCT*3340 AND ACCT*3350,[]
 AGR*1110,Introduction to the Agri-Food Systems,(),"AGR*1100,AGR*1250"
 AGR*1350,"Animal Production Systems and Industry: Dairy, Poultry and Egg",BIOL*1050 OR BIOL*1070 OR BIOL*1080 BIOL*1090,AGR*2350
-AGR*2050,Agroecology,AGR*1110 OR AGR*2150 AND BIOL*1050 OR BIOL*1070,CROP*2110
+AGR*2050,Agroecology,(AGR*1110 OR AGR*2150) AND (BIOL*1050 OR BIOL*1070),CROP*2110
 AGR*2150,Plant Agriculture for International Development,4.00 credits,AGR*2470
 AGR*2320,Soils in Agroecosystems,2.50 credits,"ENVS*2060,SOIL*2010"
 AGR*2350,"Animal Production Systems and Industry: Beef, Swine and Others",(2 of BIOL*1050 OR BIOL*1070 OR BIOL*1080 OR BIOL*1090),[]
 AGR*2470,Introduction to Plant Agriculture,BIOL*1050 OR BIOL*1070,AGR*2150
-AGR*2500,Field Course in International Agriculture,AGR*1110 OR AGR*1250 OR registration in International Development,
+AGR*2500,Field Course in International Agriculture,(AGR*1110 OR AGR*1250) OR registration in International Development,
 AGR*3010,Special Studies in Agricultural Science I,10.00 credits,
 AGR*3200,Computing for Bioscientists,9.50 credits,
 AGR*3450,Research Methods in Agricultural Science,7.50 credits AND (GEOG*2460 OR STAT*2040  OR STAT*2060 OR STAT*2080),
 AGR*4010,Special Studies in Agricultural Science II,15.00 credits,
-AGR*4020,Precision Techniques for Plant Agriculture,AGR*2470 AND STAT*2040 AND BIOL*1050 OR BIOL*1070,[]
+AGR*4020,Precision Techniques for Plant Agriculture,AGR*2470 AND STAT*2040 AND (BIOL*1050 OR BIOL*1070),[]
 AGR*4450,Research Project I,10.00 credits,
 AGR*4460,Research Project II,AGR*4450,
 AGR*4600,Agriculture and Food Issues Problem Solving,12.50 credits,
@@ -40,7 +40,7 @@ ANSC*3120,Introduction to Animal Nutrition,(),
 ANSC*3170,Nutrition of Fish and Crustacea,NUTR*3210,[]
 ANSC*3180,Wildlife Nutrition,NUTR*3210,[]
 ANSC*3270,Animal Disorders,ANSC*3080,[]
-ANSC*4010,Animal Welfare Judging and Evaluation,15.00 credits AND ANSC*3080 AND ANSC*1210 OR ANSC*2210,[]
+ANSC*4010,Animal Welfare Judging and Evaluation,15.00 credits AND ANSC*3080 AND (ANSC*1210 OR ANSC*2210),[]
 ANSC*4040,Digital Technologies for Animal Production Systems,ANSC*3120 AND STAT*2040,
 ANSC*4050,Biotechnology in Animal Science,MBG*2040 OR MBG*2400,[]
 ANSC*4090,Applied Animal Behaviour and Welfare,ANSC*3080 AND ANSC*3090,[]
@@ -65,42 +65,42 @@ ANTH*2230,Regional Ethnography,ANTH*1150,[]
 ANTH*2660,Contemporary Indigenous Peoples in Canada,ANTH*1150 OR IDEV*1000 OR IES*1010 OR SOC*1100,[]
 ANTH*3550,Medical Anthropology,SOAN*2120 AND (ANTH*2160 OR ANTH*2180 OR ANTH*2230 OR ANTH*2660 OR IDEV*2500),[]
 ANTH*3650,The Anthropology of Indigenous Peoples Before Canada,(ANTH*2160 OR ANTH*2180 OR IDEV*2000 OR IES*2010 OR (1 of ANTH*2230 OR ANTH*2660 OR HIST*2090 OR IDEV*2400 OR IDEV*2500)),ANTH*2650
-ANTH*3690,Engaging Anthropological Theory,ANTH*2230 AND ANTH*2160 OR ANTH*2180 AND SOAN*2120,[]
-ANTH*3770,"Kinship, Family, and Power",ANTH*2230 AND ANTH*2160 OR ANTH*2180 AND SOAN*2120,[]
+ANTH*3690,Engaging Anthropological Theory,ANTH*2230 AND (ANTH*2160 OR ANTH*2180) AND SOAN*2120,[]
+ANTH*3770,"Kinship, Family, and Power",ANTH*2230 AND (ANTH*2160 OR ANTH*2180) AND SOAN*2120,[]
 ANTH*3840,Seminar in Anthropology,10.00 credits AND ANTH*2160 AND ANTH*2180 AND SOAN*2120,[]
 ANTH*3850,Seminar in Anthropology,10.00 credits AND ANTH*2160 AND ANTH*2180 AND SOAN*2120,[]
 ANTH*3950,Special Projects in Anthropology,10.00 credits,
 ANTH*4300,Anthropological Issues,12.50 credits AND ANTH*3690 AND SOAN*3070,[]
-ANTH*4440,"Culture, Rights and Development",12.50 credits AND (ANTH*3690 OR IDEV*2300 OR ONEH*3000 OR IDEV*2100 OR SOAN*3070),[]
-ANTH*4540,Seminar in Anthropology,12.50 credits AND ANTH*3690 OR SOC*3310 AND SOAN*3070,[]
-ANTH*4550,Topics in the Anthropology of Health,12.50 credits AND (ANTH*3690 OR IDEV*2300 OR ONEH*3000 OR IDEV*2100 OR SOAN*3070),[]
-ANTH*4640,Seminar in Anthropology,12.50 credits AND ANTH*3690 OR SOC*3310 AND SOAN*3070,[]
+ANTH*4440,"Culture, Rights and Development",12.50 credits AND (ANTH*3690 OR IDEV*2300 OR ONEH*3000 OR (IDEV*2100 OR SOAN*3070)),[]
+ANTH*4540,Seminar in Anthropology,12.50 credits AND (ANTH*3690 OR SOC*3310) AND SOAN*3070,[]
+ANTH*4550,Topics in the Anthropology of Health,12.50 credits AND (ANTH*3690 OR IDEV*2300 OR ONEH*3000 OR (IDEV*2100 OR SOAN*3070)),[]
+ANTH*4640,Seminar in Anthropology,12.50 credits AND (ANTH*3690 OR SOC*3310) AND SOAN*3070,[]
 ANTH*4700,Issues in Contemporary Anthropological Theory,12.50 credits AND ANTH*3690 AND SOAN*3070,[]
-ANTH*4740,Seminar in Anthropology,12.50 credits AND ANTH*3690 OR SOC*3310 AND SOAN*3070,[]
-ANTH*4840,Seminar in Anthropology,12.50 credits AND ANTH*3690 OR SOC*3310 AND SOAN*3070,[]
+ANTH*4740,Seminar in Anthropology,12.50 credits AND (ANTH*3690 OR SOC*3310) AND SOAN*3070,[]
+ANTH*4840,Seminar in Anthropology,12.50 credits AND (ANTH*3690 OR SOC*3310) AND SOAN*3070,[]
 ANTH*4880,Special Projects in Anthropology,12.50 credits,
 ANTH*4890,Special Projects in Anthropology,12.50 credits,
-ANTH*4900,Honours Anthropology Thesis I,15.00 credits AND ANTH*3690 AND SOAN*3070 OR SOAN*3120,
+ANTH*4900,Honours Anthropology Thesis I,15.00 credits AND ANTH*3690 AND (SOAN*3070 OR SOAN*3120),
 ANTH*4910,Honours Anthropology Thesis II,ANTH*4900,
-ARTH*2050,Modern Latin American Art,2.00 credits OR ARTH*1510 OR ARTH*1520,[]
-ARTH*2060,Indigenous Arts in the Americas,2.00 credits OR ARTH*1510 OR ARTH*1520,[]
+ARTH*2050,Modern Latin American Art,2.00 credits OR (ARTH*1510 OR ARTH*1520),[]
+ARTH*2060,Indigenous Arts in the Americas,2.00 credits OR (ARTH*1510 OR ARTH*1520),[]
 ARTH*2070,Art of the USA,"2.00 credits,ARTH*1510 OR ARTH*1520",[]
-ARTH*2120,Introduction to Museology,2.00 credits OR ARTH*1510 OR ARTH*1520,[]
-ARTH*2150,Art and Archaeology of Greece,2.00 credits OR ARTH*1510 OR ARTH*1520,[]
-ARTH*2220,The Visual Arts Today,2.00 credits OR ARTH*1510 OR ARTH*1520,ARTH*1220
+ARTH*2120,Introduction to Museology,2.00 credits OR (ARTH*1510 OR ARTH*1520),[]
+ARTH*2150,Art and Archaeology of Greece,2.00 credits OR (ARTH*1510 OR ARTH*1520),[]
+ARTH*2220,The Visual Arts Today,2.00 credits OR (ARTH*1510 OR ARTH*1520),ARTH*1220
 ARAB*1100,Introductory Arabic I,(),
 ARAB*1110,Introductory Arabic II,ARAB*1100,[]
 ARTH*1510,Art Historical Studies I,(),[]
 ARTH*1520,Art Historical Studies II,(),[]
-ARTH*2280,Modern Architecture,2.00 credits OR ARTH*1510 OR ARTH*1520,[]
+ARTH*2280,Modern Architecture,2.00 credits OR (ARTH*1510 OR ARTH*1520),[]
 ARTH*2290,History of Photographic Media,2.00 credits,[]
-ARTH*2480,Introduction to Art Theory and Criticism,2.00 credits OR ARTH*1510 OR ARTH*1520,
-ARTH*2490,History of Canadian Art,2.00 credits OR ARTH*1510 OR ARTH*1520,[]
-ARTH*2540,Medieval Art,2.00 credits OR ARTH*1510 OR ARTH*1520,[]
-ARTH*2550,The Italian Renaissance,2.00 credits OR ARTH*1510 OR ARTH*1520,[]
-ARTH*2580,Late Modern Art: 1900-1950,2.00 credits OR ARTH*1510 OR ARTH*1520,[]
-ARTH*2600,Early Modern Art,2.00 credits OR ARTH*1510 OR ARTH*1520,[]
-ARTH*2950,Baroque Art,2.00 credits OR ARTH*1510 OR ARTH*1520,[]
+ARTH*2480,Introduction to Art Theory and Criticism,2.00 credits OR (ARTH*1510 OR ARTH*1520),
+ARTH*2490,History of Canadian Art,2.00 credits OR (ARTH*1510 OR ARTH*1520),[]
+ARTH*2540,Medieval Art,2.00 credits OR (ARTH*1510 OR ARTH*1520),[]
+ARTH*2550,The Italian Renaissance,2.00 credits OR (ARTH*1510 OR ARTH*1520),[]
+ARTH*2580,Late Modern Art: 1900-1950,2.00 credits OR (ARTH*1510 OR ARTH*1520),[]
+ARTH*2600,Early Modern Art,2.00 credits OR (ARTH*1510 OR ARTH*1520),[]
+ARTH*2950,Baroque Art,2.00 credits OR (ARTH*1510 OR ARTH*1520),[]
 ARTH*3010,Contemporary Canadian Art,7.50 credits OR 1.50 credits in Art History.,[]
 ARTH*3060,Public Art,7.50 credits OR 1.50 credits in Art History.,[]
 ARTH*3150,Space: Roman Art and Urbanism,(),"ARTH*3530,ARTH*4500"
@@ -135,7 +135,7 @@ ASCI*4700,Independent Studies in Arts/Sciences,A minimum of 14.00 credits.,
 ASCI*4710,Independent Studies in Arts/Sciences,ASCI*4700,
 BIOC*2580,Introduction to Biochemistry,CHEM*1050,[]
 BIOC*3560,Structure and Function in Biochemistry,BIOC*2580,[]
-BIOC*3570,Analytical Biochemistry,BIOC*2580 AND CHEM*2400 OR CHEM*2480,[]
+BIOC*3570,Analytical Biochemistry,BIOC*2580 AND (CHEM*2400 OR CHEM*2480),[]
 BIOC*4050,Protein and Nucleic Acid Structure,BIOC*3560,[]
 BIOC*4520,Metabolic Processes,BIOC*3560 OR BIOC*3570,[]
 BIOC*4540,Enzymology,BIOC*3560 may be taken concurrently AND BIOC*3570,[]
@@ -149,12 +149,12 @@ BIOL*1500,Humans in the Natural World,(),
 BIOL*2060,Ecology,4.00 credits AND BIOL*1070,[]
 BIOL*2300,Field Course in Biodiversity,BIOL*1070,
 BIOL*2400,Evolution,BIOL*1070 AND BIOL*1090,[]
-BIOL*3010,Laboratory and Field Work in Ecology,BIOL*2060 AND STAT*2040 OR STAT*2230,
+BIOL*3010,Laboratory and Field Work in Ecology,BIOL*2060 AND (STAT*2040 OR STAT*2230),
 BIOL*3020,Population Genetics,MBG*2040,[]
 BIOL*3040,Methods in Evolutionary Biology,BIOL*2400,[]
 BIOL*3060,"Populations, Communities and Ecosystems",10.00 credits AND BIOL*2060 AND (GEOG*2460 OR STAT*2040 OR STAT*2060 OR STAT*2230),[]
 BIOL*3130,Conservation Biology,BIOL*2060,[]
-BIOL*3300,Applied Bioinformatics,MBG*2040 AND STAT*2040 OR STAT*2230,[]
+BIOL*3300,Applied Bioinformatics,MBG*2040 AND (STAT*2040 OR STAT*2230),[]
 BIOL*3450,Introduction to Aquatic Environments,BIOL*1070 AND CHEM*1050 AND ZOO*2700 is strongly recommended,[]
 BIOL*3650,Applications in Biology,9.00 credits AND (2 of BIOL*1070 OR BIOL*1080 OR BIOL*1090),
 BIOL*3660,Internship In Biological Science,7.50 credits AND minimum cumulative average of 60%,
@@ -162,7 +162,7 @@ BIOL*3670,Introduction to Wildlife Rehabilitation,ANSC*2340 OR BIOL*2060 OR BIOL
 BIOL*3680,"Wildlife Rehabilitation: Caring for Sick, Injured, and Orphaned Wildlife",BIOL*3670,[]
 BIOL*4010,Adaptational Physiology,(),[]
 BIOL*4020,Integrative Problems in Biological Science,14.00 credits,
-BIOL*4110,Ecological Methods,BIOL*3010 AND BIOL*3060 AND STAT*2040 OR STAT*2230,
+BIOL*4110,Ecological Methods,BIOL*3010 AND BIOL*3060 AND (STAT*2040 OR STAT*2230),
 BIOL*4120,Evolutionary Ecology,BIOL*2060 AND BIOL*2400,[]
 BIOL*4150,Wildlife Conservation and Management,BIOL*3060 OR BIOL*3130,[]
 BIOL*4350,Limnology of Natural and Polluted Waters,BIOL*3450,[]
@@ -183,7 +183,7 @@ BIOM*3200,Biomedical Physiology,BIOC*2580,
 BIOM*3210,Critical Thinking in the Health Sciences,7.50 credits AND (BIOL*1070 OR BIOL*1080 OR BIOL*1090),
 BIOM*4030,Endocrine Physiology,BIOC*2580 AND [(BIOM*3200 OR HK*3810 OR HK*3940 OR ZOO*3200 OR ZOO*3210 OR ZOO*3600]),
 BIOM*4050,Biomedical Aspects of Aging,BIOM*3200 OR HK*3810 OR HK*3940,
-BIOM*4070,Biomedical Histology,MCB*2050 OR MCB*2210 AND 1of ANSC*3080 AND BIOM*3200 AND HK*3810 AND HK*3940,ZOO*3000
+BIOM*4070,Biomedical Histology,(MCB*2050 OR MCB*2210) AND 1of ANSC*3080 AND BIOM*3200 AND HK*3810 AND HK*3940,ZOO*3000
 BIOM*4090,Pharmacology,BIOM*3090,[]
 BIOM*4110,Mammalian Reproductive Biology,(BIOM*3010 OR HK*3401 OR HK*3501 OR ZOO*2090 OR (1 of BIOM*3200 OR HK*3810 OR ZOO*3210 OR ZOO*3620)),[]
 BIOM*4150,Cancer Biology,MBG*2040 AND MCB*2050 AND (BIOM*3040 OR BIOM*4070 OR ZOO*3000),[]
@@ -200,7 +200,7 @@ BLCK*3000,Theorising Race and Racism,BLCK*2020,
 BLCK*3010,Experiential Learning in Black Studies,BLCK*2020,
 BOT*2100,Life Strategies of Plants,2 of BIOL*1050 OR BIOL*1070 OR BIOL*1080 OR BIOL*1090,[]
 BOT*3050,Plant Functional Ecology,7.50 credits AND BIOL*1070,[]
-BOT*3310,Plant Growth and Development,BIOL*1090 AND BIOL*1070 OR BIOL*1080,[]
+BOT*3310,Plant Growth and Development,BIOL*1090 AND (BIOL*1070 OR BIOL*1080),[]
 BOT*3410,Plant Anatomy,2 of BIOL*1070 OR BIOL*1080 OR BIOL*1090,[]
 BOT*3710,Plant Diversity and Evolution,7.50 credits AND BIOL*1070,[]
 BOT*1200,Plants and Human Use,(),BIOL*1050
@@ -209,10 +209,10 @@ BOT*4380,Metabolism in the Whole Life of Plants,BIOL*1090 AND BIOC*2580,[]
 BUS*4550,Applied Business Project I,10.00 credits,"AGEC*4550,FARE*4550"
 BUS*4560,Applied Business Project II,BUS*4550,"AGEC*4560,FARE*4560"
 CHEM*1060,Introductory Chemistry,(),CHEM*1040
-CHEM*2060,Structure and Bonding,CHEM*1050 AND [IPS*1510 OR MATH*1090 OR MATH*1210 AND (PHYS*1010 OR PHYS*1070 OR PHYS*1300]),[]
+CHEM*2060,Structure and Bonding,CHEM*1050 AND [IPS*1510 OR (MATH*1090 OR MATH*1210) AND (PHYS*1010 OR PHYS*1070 OR PHYS*1300]),[]
 CHEM*2070,Structure and Spectroscopy,CHEM*2060,[]
 CHEM*2400,Analytical Chemistry I,CHEM*1050,CHEM*2480
-CHEM*1040,General Chemistry I,4U Chemistry OR equivalent OR CHEM*1060,[]
+CHEM*1040,General Chemistry I,4U Chemistry (or equivalent) OR CHEM*1060,[]
 CHEM*1050,General Chemistry II,CHEM*1040,[]
 CHEM*2480,Analytical Chemistry I,CHEM*1050,CHEM*2400
 CHEM*2700,Organic Chemistry I,CHEM*1050,CHEM*2720
@@ -220,22 +220,22 @@ CHEM*2720,Fundamental Organic Chemistry,CHEM*1050,CHEM*2700
 CHEM*2820,Thermodynamics and Kinetics,CHEM*1050 AND (IPS*1510 OR MATH*1090 OR MATH*1210 OR MATH*2080),"CHEM*2880,PHYS*2240"
 CHEM*2880,Physical Chemistry,CHEM*1050 AND (IPS*1500 OR MATH*1000 OR MATH*1080 OR MATH*1200),CHEM*2820
 CHEM*3360,Environmental Chemistry and Toxicology,CHEM*1050,[]
-CHEM*3430,Analytical Chemistry II: Instrumental Analysis,CHEM*2400 OR CHEM*2480,TOX*3300
+CHEM*3430,Analytical Chemistry II: Instrumental Analysis,(CHEM*2400 OR CHEM*2480),TOX*3300
 CHEM*3440,Analytical Chemistry III: Analytical Instrumentation,CHEM*3430,[]
 CHEM*3640,Chemistry of the Elements I,CHEM*2070,[]
 CHEM*3650,Chemistry of the Elements II,CHEM*3640,[]
 CHEM*3750,Organic Chemistry II,CHEM*2700,
 CHEM*3760,Organic Chemistry III,CHEM*3750,[]
-CHEM*3860,Quantum Chemistry,CHEM*2070 AND MATH*2170 OR MATH*2270,[]
+CHEM*3860,Quantum Chemistry,CHEM*2070 AND (MATH*2170 OR MATH*2270),[]
 CHEM*3870,Molecular Spectroscopy,CHEM*3860 AND MATH*1160,[]
-CHEM*4010,Chemistry and Industry,CHEM*2060 AND CHEM*2700 OR CHEM*2720 AND (IPS*1510 OR MATH*1090 OR MATH*1210 OR MATH*2080),[]
+CHEM*4010,Chemistry and Industry,CHEM*2060 AND (CHEM*2700 OR CHEM*2720) AND (IPS*1510 OR MATH*1090 OR MATH*1210 OR MATH*2080),[]
 CHEM*4400,Advanced Topics in Analytical Chemistry,CHEM*3430,[]
 CHEM*4620,Advanced Topics in Inorganic Chemistry,CHEM*2070 AND (CHEM*3430 OR CHEM*3640 OR CHEM*3650 OR NANO*3200 OR NANO*3300 OR NANO*3500 OR TOX*3300 OR TOX*3360),[]
 CHEM*4630,Bioinorganic Chemistry,BIOC*2580 AND CHEM*3650,[]
 CHEM*4720,Organic Reactivity,(),[]
 CHEM*4730,Synthetic Organic Chemistry,CHEM*3750,[]
 CHEM*4740,Topics in Bio-Organic Chemistry,BIOC*2580 AND CHEM*3750,[]
-CHEM*4880,Topics in Advanced Physical Chemistry,CHEM*2820 OR PHYS*3240 AND CHEM*3860,[]
+CHEM*4880,Topics in Advanced Physical Chemistry,(CHEM*2820 OR PHYS*3240) AND CHEM*3860,[]
 CHEM*4900,Chemistry Research Project I,5.00 credits in chemistry including 1.50 credits from CHEM*3430 AND CHEM*3640 AND CHEM*3650 AND CHEM*3750 AND CHEM*3760 AND CHEM*3870,
 CHEM*4910,Chemistry Research Project II,CHEM*4900,
 CHIN*1210,Introductory Chinese II,CHIN*1200,[]
@@ -286,12 +286,12 @@ CIS*2170,User Interface Design,CIS*1200 OR CIS*1300 OR CIS*1500,[]
 CIS*2250,Software Design II,CIS*1250 AND CIS*1300,
 CIS*2430,Object Oriented Programming,CIS*2500,[]
 CIS*2500,Intermediate Programming,CIS*1300,[]
-CIS*2520,Data Structures,CIS*2500 OR ENGG*1420 AND (CIS*1910 OR ENGG*1500 OR MATH*2000),[]
-CIS*2750,Software Systems Development and Integration,CIS*2520 AND CIS*2430 OR ENGG*1420,[]
-CIS*2910,Discrete Structures in Computing II,CIS*1300 OR ENGG*1410 AND CIS*1910 OR ENGG*1500,[]
+CIS*2520,Data Structures,(CIS*2500 OR ENGG*1420) AND (CIS*1910 OR ENGG*1500 OR MATH*2000),[]
+CIS*2750,Software Systems Development and Integration,CIS*2520 AND (CIS*2430 OR ENGG*1420),[]
+CIS*2910,Discrete Structures in Computing II,(CIS*1300 OR ENGG*1410) AND (CIS*1910 OR ENGG*1500),[]
 CIS*3050,Systems Programming,CIS*3110,[]
-CIS*3090,Parallel Programming,CIS*2030 OR ENGG*3640 AND CIS*3110,[]
-CIS*3110,Operating Systems I,CIS*2520 AND CIS*2030 OR ENGG*2410.,[]
+CIS*3090,Parallel Programming,(CIS*2030 OR ENGG*3640) AND CIS*3110,[]
+CIS*3110,Operating Systems I,CIS*2520 AND (CIS*2030 OR ENGG*2410).,[]
 CIS*3120,Digital Systems I,CIS*1910 AND CIS*2500,[]
 CIS*3130,System Modeling and Simulation,CIS*2500 AND STAT*2040,CIS*2460
 CIS*3150,Theory of Computation,CIS*2750 AND CIS*3490,[]
@@ -301,8 +301,8 @@ CIS*3250,Software Design III,CIS*2250 AND CIS*2500,[]
 CIS*3260,Software Design IV,CIS*2750 AND CIS*3250 AND CIS*3760,[]
 CIS*3490,The Analysis and Design of Computer Algorithms,[CIS*1910 OR CIS*2910 and ENGG*1500] AND CIS*2520,[]
 CIS*3530,Data Base Systems and Concepts,CIS*2520,[]
-CIS*3700,Introduction to Intelligent Systems,CIS*3750 OR CIS*3760 AND CIS*2460 OR STAT*2040,[]
-CIS*3750,System Analysis and Design in Applications,9.00 credits AND CIS*2520 AND CIS*2430 OR ENGG*1420,[]
+CIS*3700,Introduction to Intelligent Systems,(CIS*3750 OR CIS*3760) AND (CIS*2460 OR STAT*2040),[]
+CIS*3750,System Analysis and Design in Applications,9.00 credits AND CIS*2520 AND (CIS*2430 OR ENGG*1420),[]
 CIS*3760,Software Engineering,CIS*2750 AND CIS*3750,[]
 CIS*4010,Cloud Computing,CIS*3110,[]
 CIS*4020,Data Science,CIS*2750 AND MATH*1160 AND STAT*2040,[]
@@ -316,10 +316,10 @@ CIS*4500,Special Topics in Computing Science,(),
 CIS*4510,Computer Security Foundations,CIS*3210,CIS*4110
 CIS*4520,Introduction to Cryptography,CIS*3490,CIS*4110
 CIS*4650,Compilers,CIS*2030 AND CIS*3110 AND CIS*3150,[]
-CIS*4720,Image Processing and Vision,CIS*2750 AND CIS*3110 AND CIS*2460 OR STAT*2040,[]
-CIS*4780,Computational Intelligence,CIS*3490 AND CIS*3750 OR CIS*3760 AND CIS*2460 OR STAT*2040,[]
-CIS*4800,Computer Graphics,CIS*3110 AND CIS*3750 OR CIS*3760,[]
-CIS*4820,Game Programming,CIS*3110 AND CIS*3750 OR CIS*3760,[]
+CIS*4720,Image Processing and Vision,CIS*2750 AND CIS*3110 AND (CIS*2460 OR STAT*2040),[]
+CIS*4780,Computational Intelligence,CIS*3490 AND (CIS*3750 OR CIS*3760) AND (CIS*2460 OR STAT*2040),[]
+CIS*4800,Computer Graphics,CIS*3110 AND (CIS*3750 OR CIS*3760),[]
+CIS*4820,Game Programming,CIS*3110 AND (CIS*3750 OR CIS*3760),[]
 CIS*4900,Computer Science Project,7.00 credits in CIS,
 CIS*4910,Computer Science Thesis,CIS*4900,
 CRWR*1000,Elements of Storytelling,(),ENGL*2920
@@ -346,9 +346,9 @@ CROP*3340,Managed Grasslands,AGR*2050 OR AGR*2320 OR AGR*2470 OR ENVS*2060,[]
 CTS*1000,Culture and Technology: Keywords,(),
 CTS*2000,Scripting for the Humanities,2.00 credits OR CTS*1000,
 CTS*2010,Digital Approaches to Culture,2.00 credits OR CTS*1000,
-CTS*3000,Data and Difference,CTS*1000 AND CTS*2000 OR CTS*2010,
-CTS*3010,Digital Arts & Critical Making,CTS*1000 AND CTS*2000 OR CTS*2010,
-CTS*3020,Digital Storytelling,CTS*1000 AND CTS*2000 OR CTS*2010,
+CTS*3000,Data and Difference,CTS*1000 AND (CTS*2000 OR CTS*2010),
+CTS*3010,Digital Arts & Critical Making,CTS*1000 AND (CTS*2000 OR CTS*2010),
+CTS*3020,Digital Storytelling,CTS*1000 AND (CTS*2000 OR CTS*2010),
 CTS*3030,Summer Workshop,CTS*2000 AND CTS*2010,
 CTS*4000,Digital Publishing,10.00 credits OR 1.50 credits in CTS,
 CTS*4010,Project Management and Prototyping,CTS*2000 AND CTS*2010 AND and CTS*3000,
@@ -356,44 +356,44 @@ CTS*4020,Digital Research Project,Take CTS*4010,
 CTS*4030,Independent Project,10.00 credits AND CTS*2000 AND CTS*2010,
 ECON*1100,Introductory Macroeconomics,(),[]
 ECON*2100,Economic Growth and Environmental Quality,ECON*1050 OR FARE*1040,[]
-ECON*2310,Intermediate Microeconomics,ECON*1050 OR FARE*1040 AND (IPS*1500 OR MATH*1030 OR MATH*1080 OR MATH*1200),[]
+ECON*2310,Intermediate Microeconomics,(ECON*1050 OR FARE*1040) AND (IPS*1500 OR MATH*1030 OR MATH*1080 OR MATH*1200),[]
 ECON*2410,Intermediate Macroeconomics,ECON*1100 AND (IPS*1500 OR MATH*1030 OR MATH*1080 OR MATH*1200),[]
-ECON*2650,Introductory Development Economics,ECON*1100 ECON*1050 OR FARE*1040,[]
+ECON*2650,Introductory Development Economics,ECON*1100 (ECON*1050 OR FARE*1040),[]
 ECON*1050,Introductory Microeconomics,(),[]
-ECON*2740,Economic Statistics,ECON*1100 AND ECON*1050 AND OR FARE*1040 AND (MATH*1000 OR MATH*1030 OR MATH*1050 OR MATH*1080 OR MATH*1200),[]
-ECON*2770,Introductory Mathematical Economics,ECON*1100 AND ECON*1050 AND OR FARE*1040 AND (MATH*1030 OR MATH*1080 OR MATH*1200),[]
-ECON*3100,Game Theory,ECON*2310 AND ECON*2410 AND ECON*2770 OR MATH*1210,ECON*3770
+ECON*2740,Economic Statistics,ECON*1100 AND (ECON*1050 AND OR FARE*1040) AND (MATH*1000 OR MATH*1030 OR MATH*1050 OR MATH*1080 OR MATH*1200),[]
+ECON*2770,Introductory Mathematical Economics,ECON*1100 AND (ECON*1050 AND OR FARE*1040) AND (MATH*1030 OR MATH*1080 OR MATH*1200),[]
+ECON*3100,Game Theory,ECON*2310 AND ECON*2410 AND (ECON*2770 OR MATH*1210),ECON*3770
 ECON*3300,Economics of Health and the Workplace,ECON*2310 AND (ECON*2740 OR PSYC*2010 OR STAT*2040 OR STAT*2050 OR STAT*2060 OR STAT*2080 OR STAT*2090 OR STAT*2100 OR STAT*2120),[]
 ECON*3400,The Economics of Personnel Management,ECON*2310 OR ECON*2200,[]
 ECON*3500,Urban Economics,ECON*2310,
 ECON*3520,Labour Economics,ECON*2310 AND (ECON*2740 OR PSYC*2010 OR STAT*2040 OR STAT*2050 OR STAT*2060 OR STAT*2080 OR STAT*2090 OR STAT*2100 OR STAT*2120),[]
-ECON*3530,Industrial Organization,ECON*2310 AND ECON*2770 OR MATH*1210,[]
+ECON*3530,Industrial Organization,ECON*2310 AND (ECON*2770 OR MATH*1210),[]
 ECON*3580,Economics of Regulation,ECON*2310,[]
 ECON*3610,Public Economics,ECON*2310,[]
 ECON*3620,International Trade,ECON*2310,[]
-ECON*3710,Advanced Microeconomics,ECON*2310 AND ECON*2770 OR MATH*1210. A grade average of 70% OR more in these courses is recommended.,[]
+ECON*3710,Advanced Microeconomics,ECON*2310 AND (ECON*2770 OR MATH*1210). A grade average of 70% OR more in these courses is recommended.,[]
 ECON*3730,The Origins of International Inequality,9.00 credits AND ECON*1050 AND ECON*1100,[]
-ECON*3740,Introduction to Econometrics,ECON*1100 AND ECON*1050 OR FARE*1040 AND (ECON*2740 OR STAT*2040 OR STAT*2060 OR STAT*2080 OR ECON*2770 OR MATH*1210),[]
-ECON*3810,Advanced Macroeconomics,ECON*2410 AND ECON*2740 OR STAT*2040 AND ECON*2770 OR MATH*1210,[]
+ECON*3740,Introduction to Econometrics,ECON*1100 AND (ECON*1050 OR FARE*1040) AND (ECON*2740 OR STAT*2040 OR STAT*2060 OR STAT*2080 OR (ECON*2770 OR MATH*1210)),[]
+ECON*3810,Advanced Macroeconomics,ECON*2410 AND (ECON*2740 OR STAT*2040) AND (ECON*2770 OR MATH*1210),[]
 ECON*3900,Intermediate Special Study in Economics,ECON*2310 AND ECON*2410 AND ECON*2740 AND ECON*2770,
 ECON*4400,Managerial Economics,ECON*2310 Students must have completed a minimum of 12 credits.,
-ECON*4500,Topics in Urban Economics,ECON*3740 AND ECON*3710 OR ECON*3500,[]
+ECON*4500,Topics in Urban Economics,ECON*3740 AND (ECON*3710 OR ECON*3500),[]
 ECON*4640,Advanced Econometrics,ECON*3740,[]
 ECON*4700,Advanced Mathematical Economics,ECON*3710 AND ECON*3740,[]
 ECON*4710,Advanced Topics in Microeconomics,ECON*3710,[]
 ECON*4720,Topics in Economic History,12.50 credits AND (ECON*2310 OR ECON*2720 OR ECON*3720 OR ECON*3730),[]
 ECON*4750,Topics in Public Economics,ECON*3710,[]
-ECON*4760,Topics in Monetary Economics,ECON*3600 OR ECON*3810 AND ECON*3740 AND [(ECON*3510 OR ECON*3710 OR ECON*3960 OR FIN*3500]),[]
+ECON*4760,Topics in Monetary Economics,(ECON*3600 OR ECON*3810) AND ECON*3740 AND [(ECON*3510 OR ECON*3710 OR (ECON*3960 OR FIN*3500)]),[]
 ECON*4780,Topics in Industrial Organization,ECON*3530 AND ECON*3740,[]
-ECON*4790,Topics in Labour Market Theory,ECON*3740 AND ECON*3710 OR ECON*3520,[]
-ECON*4800,Competitiveness and Strategic Advantage,14.50 credits AND ECON*2310 AND BUS*3320 OR MGMT*3320 AND ECON*2560 OR FIN*2000,
+ECON*4790,Topics in Labour Market Theory,ECON*3740 AND (ECON*3710 OR ECON*3520),[]
+ECON*4800,Competitiveness and Strategic Advantage,14.50 credits AND ECON*2310 AND (BUS*3320 OR MGMT*3320) AND (ECON*2560 OR FIN*2000),
 ECON*4810,Advanced Topics in Macroeconomics,ECON*3740 AND ECON*3810,[]
 ECON*4830,Economic Development,ECON*2310,[]
-ECON*4860,Seminar in Current Economic Problems,ECON*3600 OR ECON*3810 AND ECON*3710 AND ECON*3740,[]
-ECON*4880,Topics in International Economics,[(or ECON*3610 OR ECON*3810 OR ECON*3860 OR FIN*3400] OR ECON*3710 OR ECON*3620),[]
+ECON*4860,Seminar in Current Economic Problems,(ECON*3600 OR ECON*3810) AND ECON*3710 AND ECON*3740,[]
+ECON*4880,Topics in International Economics,([or ECON*3610 OR ECON*3810 OR (ECON*3860 OR FIN*3400)] OR (ECON*3710 OR ECON*3620)),[]
 ECON*4890,History of Economic Thought,ECON*2310 AND ECON*2410,[]
-ECON*4900,Special Study in Economics,ECON*3600 OR ECON*3810 AND ECON*3710 AND ECON*3740,[]
-ECON*4910,Special Study in Economics,ECON*3600 OR ECON*3810 AND ECON*3710 AND ECON*3740,[]
+ECON*4900,Special Study in Economics,(ECON*3600 OR ECON*3810) AND ECON*3710 AND ECON*3740,[]
+ECON*4910,Special Study in Economics,(ECON*3600 OR ECON*3810) AND ECON*3710 AND ECON*3740,[]
 ECON*4930,Environmental Economics,14.50 credits AND ECON*2310 AND ECON*2770,[]
 ENGG*1070,Occupational Health and Safety,(),
 ENGG*1100,Engineering and Design I,(),
@@ -401,7 +401,7 @@ ENGG*1210,Engineering Mechanics I,MATH*1200 AND PHYS*1130,
 ENGG*1410,Introductory Programming for Engineers,(),
 ENGG*1420,Object-Oriented Programming for Engineers,ENGG*1410,
 ENGG*1500,Engineering Analysis,(),"MATH*1160,MATH*2150,MATH*2160"
-ENGG*2010,Introduction to Biological Engineering,CHEM*1040 AND MATH*1090 OR MATH*1210,ENGG*2660
+ENGG*2010,Introduction to Biological Engineering,CHEM*1040 AND (MATH*1090 OR MATH*1210),ENGG*2660
 ENGG*2100,Engineering and Design II,Completion of 4.00 credits AND ENGG*1100,
 ENGG*2120,Material Science,CHEM*1040 AND PHYS*1130,
 ENGG*2130,Introduction to Environmental Engineering,4.00 credits,
@@ -435,7 +435,7 @@ ENGG*3250,Energy Management and Utilization,(),
 ENGG*3260,Thermodynamics,CHEM*1040 AND ENGG*2230 AND ENGG*2400 AND MATH*2270,
 ENGG*3270,Electromagnetics in Biomedical Engineering,ENGG*2450,
 ENGG*3280,Machine Design,ENGG*2120 AND ENGG*2160 AND ENGG*2230 AND ENGG*2340 AND ENGG*2450,
-ENGG*3340,Geographic Information Systems in Environmental Engineering,(CIS*1300 OR CIS*1500 OR ENGG*1410 OR MATH*1080 OR MATH*1200),
+ENGG*3340,Geographic Information Systems in Environmental Engineering,(CIS*1300 OR CIS*1500 OR ENGG*1410 OR (MATH*1080 OR MATH*1200)),
 ENGG*3370,Applied Fluids and Thermodynamics,ENGG*2230 AND ENGG*3260,
 ENGG*3380,Computer Organization and Design,ENGG*2410,
 ENGG*3390,Signal Processing,ENGG*2400,
@@ -447,14 +447,14 @@ ENGG*3470,Mass Transfer Operations,ENGG*2230 AND ENGG*3260 AND MATH*2270,
 ENGG*3490,Introduction to Mechatronic Systems Design,ENGG*2340 AND ENGG*2450,
 ENGG*3510,Electromechanical Devices,ENGG*2450 AND PHYS*1010,
 ENGG*3570,MEMS and Microfabrication,ENGG*2450 AND PHYS*1010,
-ENGG*3590,Water Quality,ENGG*2230 AND STAT*2120 AND BIOL*1090 OR MICR*2420 AND ENGG*2010 OR ENGG*2560,
+ENGG*3590,Water Quality,ENGG*2230 AND STAT*2120 AND (BIOL*1090 OR MICR*2420) AND (ENGG*2010 OR ENGG*2560),
 ENGG*3640,Microcomputer Interfacing,ENGG*2410 AND ENGG*2450,
-ENGG*3650,Hydrology,ENGG*2230 OR MET*2030 AND MATH*1210 OR MATH*2080 AND STAT*2120 OR STAT*2040 AND and competency in computing.,
+ENGG*3650,Hydrology,(ENGG*2230 OR MET*2030) AND (MATH*1210 OR MATH*2080) AND (STAT*2120 OR STAT*2040) AND and competency in computing.,
 ENGG*3670,Soil Mechanics,ENGG*2120 AND ENGG*2230,
 ENGG*3700,Optimization for Engineers,MATH*2130 AND MATH*2270 AND (CIS*1300 OR CIS*1500 OR ENGG*1410),
 ENGG*3830,Bio-Process Engineering,ENGG*2230 AND ENGG*2660,[]
 ENGG*4000,Proposal for Engineering Design IV,ENGG*3100,
-ENGG*4010,Unit Operations,ENGG*2230 OR FOOD*2620 AND (ENGG*3020 OR ENGG*3430 OR FOOD*3170),ENGG*3830
+ENGG*4010,Unit Operations,(ENGG*2230 OR FOOD*2620) AND (ENGG*3020 OR ENGG*3430 OR FOOD*3170),ENGG*3830
 ENGG*4020,Engineering Sustainability in Food and Agriculture,10.00 credits,
 ENGG*4030,Manufacturing System Design,ENGG*2180 AND ENGG*3070,
 ENGG*4040,Medical Imaging Modalities,ENGG*3390 OR PHYS*3130,PHYS*4070
@@ -485,7 +485,7 @@ ENGG*4400,Biomechanical Engineering Design,6.00 ENGG credits AND ENGG*3150,
 ENGG*4420,Real-time Systems Design,ENGG*2400 AND ENGG*3640,
 ENGG*4430,Neuro-Fuzzy and Soft Computing Systems,ENGG*3410,
 ENGG*4440,Computational Fluid Dynamics,ENGG*2230 AND ENGG*3370,
-ENGG*4450,Large-Scale Software Architecture Engineering,CIS*2420 OR CIS*2520 AND ENGG*2100,
+ENGG*4450,Large-Scale Software Architecture Engineering,(CIS*2420 OR CIS*2520) AND ENGG*2100,
 ENGG*4460,Robotic Systems,ENGG*1500 AND ENGG*2400,
 ENGG*4470,Finite Element Analysis,ENGG*2160 AND MATH*2130 AND MATH*2270,
 ENGG*4480,Advanced Mechatronic Systems Design,ENGG*3490,
@@ -499,7 +499,7 @@ ENGG*4660,Medical Image Processing,ENGG*3390,
 ENGG*4680,Multidisciplinary Engineering Design,ENGG*3100,
 ENGG*4760,Biological Wastewater Treatment Design,ENGG*3590,
 ENGG*4770,Physical and Chemical Water and Wastewater Treatment Design,ENGG*3590,
-ENGG*4810,Control of Atmospheric Particulates,6.00 credits of ENGG courses AND ENGG*2230 AND MATH*2130 AND ENGG*2450 OR PHYS*1010,
+ENGG*4810,Control of Atmospheric Particulates,6.00 credits of ENGG courses AND ENGG*2230 AND MATH*2130 AND (ENGG*2450 OR PHYS*1010),
 ENGG*4820,Atmospheric Emission Control: Combustion Systems,ENGG*2560 AND ENGG*3260,
 ENGL*1030,Effective Writing,(),[]
 ENGL*1080,Foundations in Critical Reading and Writing,(),
@@ -555,20 +555,20 @@ ENGL*3880,Topics in Literary and Cultural Studies,1.00 credits in English.,[]
 ENGL*3940,Seminar: Genre in Cultural Context,ENGL*2080,
 ENGL*3960,Seminar: Literature in History,ENGL*2080,
 ENGL*4090,Spec Topic Digital Lit Studies,14.00 credits,
-ENGL*4240,Medieval and Early Modern Literatures,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,ENGL*4040
-ENGL*4250,18th- and 19th- Century Literatures,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,ENGL*4050
-ENGL*4270,United States Literatures,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,ENGL*4070
-ENGL*4280,Canadian Literatures,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,ENGL*4080
-ENGL*4310,Special Studies in English,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,"ENGL*4100,ENGL*4110"
-ENGL*4400,Postcolonial Literatures,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,ENGL*4200
-ENGL*4410,Modern & Contemporary Literatures,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,ENGL*4210
-ENGL*4420,Women's Writings,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,ENGL*4220
-ENGL*4500,Non-fiction Prose,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,ENGL*4300
+ENGL*4240,Medieval and Early Modern Literatures,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),ENGL*4040
+ENGL*4250,18th- and 19th- Century Literatures,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),ENGL*4050
+ENGL*4270,United States Literatures,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),ENGL*4070
+ENGL*4280,Canadian Literatures,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),ENGL*4080
+ENGL*4310,Special Studies in English,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),"ENGL*4100,ENGL*4110"
+ENGL*4400,Postcolonial Literatures,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),ENGL*4200
+ENGL*4410,Modern & Contemporary Literatures,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),ENGL*4210
+ENGL*4420,Women's Writings,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),ENGL*4220
+ENGL*4500,Non-fiction Prose,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),ENGL*4300
 ENGL*4720,Creative Writing: Prose/Poetry,ENGL*2920 OR ENGL*2940 OR ENGL*3050 OR ENGL*3060 OR ENGL*3070 OR ENGL*3090,
-ENGL*4810,Directed Reading,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,
-ENGL*4880,20th- & 21st-Century Poetry,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,ENGL*4680
-ENGL*4890,Contemporary Literary Theory,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,ENGL*4690
-ENGL*4910,Honours English Essay,ENGL*2080 AND ENGL*2120 OR ENGL*2130 AND ENGL*3940 OR ENGL*3960,
+ENGL*4810,Directed Reading,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),
+ENGL*4880,20th- & 21st-Century Poetry,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),ENGL*4680
+ENGL*4890,Contemporary Literary Theory,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),ENGL*4690
+ENGL*4910,Honours English Essay,ENGL*2080 AND (ENGL*2120 OR ENGL*2130) AND (ENGL*3940 OR ENGL*3960),
 EDRD*3050,Agricultural Communication,10.00 credits,[]
 EDRD*3120,Educational Communication,5.00 credits,REXT*3100
 EDRD*3140,Organizational Communication,5.00 credits,REXT*3040
@@ -620,7 +620,7 @@ ENVS*3230,Agroforestry Systems,5.00 credits AND (BIOL*1040 OR BIOL*1050 OR BIOL*
 ENVS*3240,Creative Writing for Environmental Science,9.50 credits,
 ENVS*3250,Forest Health and Disease,BOT*2100 OR ENVB*2030 OR ENVS*2040 OR ENVS*2330,[]
 ENVS*3270,Forest Biodiversity,BIOL*2060 OR BOT*3050 OR ENVS*2330,[]
-ENVS*3290,Waterborne Disease Ecology,(ENVS*2080 OR ENVS*2320 OR [MBG*2040 AND BIOL*2060 OR MICR*2420],[]
+ENVS*3290,Waterborne Disease Ecology,(ENVS*2080 OR ENVS*2320 OR [MBG*2040 AND (BIOL*2060 OR MICR*2420)],[]
 ENVS*3300,Introduction to Controlled Environment Systems,BIOL*1050 OR BIOL*1070,[]
 ENVS*3310,Soil Biodiversity and Ecosystem Function,10.00 credits AND (AGR*2320 OR ENVS*2060 OR SOIL*2010),[]
 ENVS*3330,Flexible Environmental Internship,9 credits,"UNIV*2100,UNIV*3140"
@@ -629,7 +629,7 @@ ENVS*3370,Terrestrial Ecosystem Ecology,BIOL*2060 OR ENVS*2330,[]
 ENVS*4000,Toxicological Risk Assessment,TOX*2000,[]
 ENVS*4001,Project in Environmental Sciences,12.00 credits,
 ENVS*4002,Project in Environmental Sciences,ENVS*4001,[]
-ENVS*4030,Ecohydrology,BIOL*3130 OR GEOG*3610 AND (GEOG*2460 OR STAT*2040 OR STAT*2060 OR STAT*2120 OR STAT*2230),[]
+ENVS*4030,Ecohydrology,(BIOL*3130 OR GEOG*3610) AND (GEOG*2460 OR STAT*2040 OR STAT*2060 OR STAT*2120 OR STAT*2230),[]
 ENVS*4050,Predicting Impacts of Environmental Change,ENVS*3050,[]
 ENVS*4070,Pollinator Conservation,BIOL*3130,[]
 ENVS*4090,Soil Management,AGR*2320 OR ENVS*2060,ENVS*4160
@@ -639,7 +639,7 @@ ENVS*4180,Insecticide Biological Activity and Resistance,Minimum of 12.00 credit
 ENVS*4190,Biological Activity of Herbicides,Minimum of 12.00 credits,ENVB*4240
 ENVS*4210,Meteorological and Environmental Instrumentation,ENVS*3050 OR ENVS*3130 OR ENVS*3340 OR PHYS*3100,[]
 ENVS*4230,Biology of Aquatic Insects,ENVB*3090 OR ENVS*3090,[]
-ENVS*4260,Field Entomology,ENVB*3090 OR ENVS*3090 OR ENVB*4040 OR ENVS*4040,
+ENVS*4260,Field Entomology,(ENVB*3090 OR ENVS*3090) OR (ENVB*4040 OR ENVS*4040),
 ENVS*4320,Laboratory and Field Methods in Soil Biodiversity,ENVS*3200 OR ENVS*3310,[]
 ENVS*4350,Forest Ecology,BIOL*2060 OR ENVS*2330,[]
 ENVS*4360,Glacial Environments,ENVS*2400 OR ENVS*3180,[]
@@ -671,7 +671,7 @@ EURO*3300,Violence and Culture in 20th Century Europe,7.50 credits,EURO*2300
 EURO*3700,Experiential Learning and Language,10.00 credits AND 1.50 credits in European Studies.,
 EURO*4050,Contemporary Europe. New Landscapes in the Post-Cold War Era,10.00 credits,[]
 EURO*4600,Honours Seminar in European Studies,10.00 credits AND (2 of ARTH*1520 OR EURO*1050 OR EURO*1100 OR EURO*1200 OR EURO*2200 OR EURO*2300 OR EURO*3000 OR EURO*3300 OR HIST*2510 OR HIST*3090 OR MUSC*1060 OR POLS*3450),[]
-EURO*4740,Research Project in European Studies,10.00 credits including AND EURO*1100 OR EURO*1200 AND EURO*2200 AND EURO*3000 AND EURO*3300,
+EURO*4740,Research Project in European Studies,10.00 credits including AND (EURO*1100 OR EURO*1200) AND EURO*2200 AND EURO*3000 AND EURO*3300,
 XSEN*3070,Pharmaceutical Product Formulations,CHEM*3750,
 XSEN*3090,Biopharmaceuticals,BIOC*2580 AND CHEM*2700,
 XSEN*3200,Pharmaceutical Organic Chemistry,CHEM*3750,
@@ -718,23 +718,23 @@ FRHD*4400,"Youth, Risk and Resilience",13.00 credits AND (FRHD*1010 OR FRHD*2060
 FRHD*4810,Thesis I,FRHD*3070,
 FRHD*4910,Thesis II,FRHD*4810,
 FIN*2000,Introduction to Finance,ECON*1050 AND (IPS*1500 OR MATH*1030 OR MATH*1080 OR MATH*1200 OR (1 of ECON*2740 OR PSYC*1010 OR PSYC*2010 OR SOAN*2120 OR STAT*2040 OR STAT*2060 OR STAT*2080 OR STAT*2120)),[]
-FIN*3000,Investments,ECON*2310 AND ECON*2560 OR FIN*2000,
+FIN*3000,Investments,ECON*2310 AND (ECON*2560 OR FIN*2000),
 FIN*3100,Corporate Finance,ECON*2560 OR FIN*2000,
-FIN*3200,Fundamentals of Derivatives,ECON*2310 AND ECON*2560 OR FIN*2000,FARE*4240
-FIN*3300,The Strategy of Mergers and Acquisitions,ECON*2310 AND ECON*2410 AND ECON*2560 OR FIN*2000,
-FIN*3400,International Finance,ECON*2410 AND ECON*2560 OR FIN*2000,
-FIN*3500,"Money, Credit and the Financial System",ECON*2410 AND ECON*2560 OR FIN*2000,
+FIN*3200,Fundamentals of Derivatives,ECON*2310 AND (ECON*2560 OR FIN*2000),FARE*4240
+FIN*3300,The Strategy of Mergers and Acquisitions,ECON*2310 AND ECON*2410 AND (ECON*2560 OR FIN*2000),
+FIN*3400,International Finance,ECON*2410 AND (ECON*2560 OR FIN*2000),
+FIN*3500,"Money, Credit and the Financial System",ECON*2410 AND (ECON*2560 OR FIN*2000),
 FIN*4000,Advanced Topics in Finance,ECON*3710 AND ECON*3740 AND (ECON*3100 OR ECON*3810 OR ECON*4700 OR (2 of ECON*3360 OR ECON*3660 OR ECON*3760 OR ECON*3860 OR ECON*3960 OR FARE*4240 OR FIN*3000 OR FIN*3100 OR FIN*3200 OR FIN*3300 OR FIN*3400 OR FIN*3500)),[]
 FIN*4100,Financial Econometrics,ECON*3740,[]
-FIN*4200,Risk Management in Finance and Insurance,FIN*3100 AND ECON*3660 OR FIN*3000 AND ECON*3760 OR FIN*3200,[]
-FIN*4900,Special Study in Finance,"ECON*3740,FIN*3100 AND ECON*3660 OR FIN*3000",
+FIN*4200,Risk Management in Finance and Insurance,FIN*3100 AND (ECON*3660 OR FIN*3000) AND (ECON*3760 OR FIN*3200),[]
+FIN*4900,Special Study in Finance,"ECON*3740,FIN*3100 AND (ECON*3660 OR FIN*3000)",
 FOOD*2150,Introduction to Nutritional and Food Science,BIOL*1080 AND CHEM*1040,"FOOD*2010,FOOD*3090"
 FOOD*2400,Introduction to Food Chemistry,CHEM*1040,"FOOD*3030,FOOD*3050"
 FOOD*2410,Introduction to Food Processing,CHEM*1040 AND (BIOL*1070 OR BIOL*1080 OR MICR*2420),"FOOD*3140,FOOD*3160,FOOD*3170"
 FOOD*2420,Introduction to Food Microbiology,BIOL*1070 OR MICR*2420,"FOOD*3230,FOOD*3240"
 FOOD*2010,Principles of Food Science,(),"FOOD*2150,FOOD*3090,NUTR*2150"
 FOOD*2100,Communication in Food Science,(),
-FOOD*2620,Food Engineering Principles,BIOC*2580 OR CHEM*2880 AND (MATH*1030 OR MATH*1080 OR MATH*1200),[]
+FOOD*2620,Food Engineering Principles,(BIOC*2580 OR CHEM*2880) AND (MATH*1030 OR MATH*1080 OR MATH*1200),[]
 FOOD*3030,Food Chemistry I,BIOC*2580,
 FOOD*3040,Food Chemistry II,FOOD*3030,
 FOOD*3050,Food Chemistry I,BIOC*2580,"FOOD*2400,FOOD*3030"
@@ -748,7 +748,7 @@ FOOD*3240,Food Microbiology,MICR*2420,"FOOD*2420,FOOD*3230"
 FOOD*3260,Industrial Microbiology,MICR*2420,FOOD*3270
 FOOD*3270,Industrial Microbiology,MICR*2420,FOOD*3260
 FOOD*3430,Introduction to Food Analysis,FOOD*2400,FOOD*4190
-FOOD*3700,Sensory Evaluation of Foods,FOOD*2150 OR HTM*2700 AND (STAT*2040 OR STAT*2060 OR STAT*2080),
+FOOD*3700,Sensory Evaluation of Foods,(FOOD*2150 OR HTM*2700) AND (STAT*2040 OR STAT*2060 OR STAT*2080),
 FOOD*4020,Quality Management in the Food Industry,FARE*3310 AND FOOD*3170,[]
 FOOD*4070,Food Packaging,7.00 credits in science OR engineering,[]
 FOOD*4090,Functional Foods and Nutraceuticals,NUTR*3210,[]
@@ -756,10 +756,10 @@ FOOD*4110,Meat and Poultry Processing,ANSC*2340 OR FOOD*3090 OR FOOD*3140 OR FOO
 FOOD*4190,Advanced Food Analysis,(),[]
 FOOD*4220,Topics in Food Science,14.00 credits AND 1.50 credits at the 3000 level OR higher in Food Science.,
 FOOD*4230,Research in Food Science,FOOD*4220,
-FOOD*4260,Food Product Development I,FOOD*2100 AND FOOD*3700 AND FOOD*3030 OR FOOD*3050 AND FOOD*3140 OR FOOD*3160 AND FOOD*3230 OR FOOD*3240,"MGMT*4020,MGMT*4030"
+FOOD*4260,Food Product Development I,FOOD*2100 AND FOOD*3700 AND (FOOD*3030 OR FOOD*3050) AND (FOOD*3140 OR FOOD*3160) AND (FOOD*3230 OR FOOD*3240),"MGMT*4020,MGMT*4030"
 FOOD*4270,Food Product Development II,FOOD*4260,"MGMT*4020,MGMT*4030"
-FOOD*4310,Food Safety Management Systems,FOOD*2010 OR FOOD*2150 AND (FOOD*2410 OR FOOD*3140 OR FOOD*3160 OR (1 of FOOD*2420 OR FOOD*3230 OR FOOD*3240 )),[]
-FOOD*4400,Dairy Processing,BIOC*2580 AND MICR*2420 AND FOOD*2150 OR FOOD*3090,[]
+FOOD*4310,Food Safety Management Systems,(FOOD*2010 OR FOOD*2150) AND (FOOD*2410 OR FOOD*3140 OR FOOD*3160 OR (1 of FOOD*2420 OR FOOD*3230 OR FOOD*3240 )),[]
+FOOD*4400,Dairy Processing,BIOC*2580 AND MICR*2420 AND (FOOD*2150 OR FOOD*3090),[]
 FOOD*4520,Utilization of Cereal Grains for Human Food,BIOC*2580 AND (BIOL*1050 OR BIOL*1070 OR BIOL*1080 OR (1 of AGR*2470 OR FOOD*2150 OR FOOD*3090 OR NUTR*3210)),[]
 FARE*1400,Economics of the Agri-Food System,(),
 FARE*2410,Agri-food Markets and Policy,FARE*1040 OR FARE*1400,[]
@@ -770,21 +770,21 @@ FARE*1300,"Poverty, Food and Hunger",(),[]
 FARE*3030,The Firm and Markets,ECON*2310 AND ECON*2770 AND ECON*3740,[]
 FARE*3170,Cost-Benefit Analysis,ECON*2100 OR ECON*2310 OR ECON*2650 OR FARE*2700,
 FARE*3250,"Food Security, Nutrition and International Development",ECON*1050 OR FARE*1040 OR FARE*1300 OR IDEV*2200,[]
-FARE*3310,Operations Management,ACCT*1220 OR ACCT*2220 AND (ECON*2740 OR PSYC*1010 OR STAT*2040 OR STAT*2060 OR STAT*2080 OR STAT*2120),HTM*3120
+FARE*3310,Operations Management,(ACCT*1220 OR ACCT*2220) AND (ECON*2740 OR PSYC*1010 OR STAT*2040 OR STAT*2060 OR STAT*2080 OR STAT*2120),HTM*3120
 FARE*3320,Supply and Value Chain Management,FARE*3310,
 FARE*4000,Agricultural and Food Policy,15.00 credits AND ECON*2310,[]
 FARE*4220,Advanced Agribusiness Management,FARE*2410 OR BUS*3320 OR ECON*2770 OR MGMT*3320,
-FARE*4240,Futures and Options Markets,10.00 credits AND [(ECON*2560 OR FIN*2000 OR ECON*3560 OR FARE*2410 OR MGMT*3320]),
-FARE*4290,Land Economics,FARE*2700 AND OR ECON*2310 0.50 credits at the 3000 OR 4000 level in FARE OR ECON,[]
+FARE*4240,Futures and Options Markets,10.00 credits AND [((ECON*2560 OR FIN*2000) OR ECON*3560 OR FARE*2410 OR MGMT*3320]),
+FARE*4290,Land Economics,(FARE*2700 AND OR ECON*2310) 0.50 credits at the 3000 OR 4000 level in FARE OR ECON,[]
 FARE*4310,Resource Economics,(FARE*2700 OR ECON*2310 OR ECON*2100 OR 0.50 credits at the 3000 OR 4000 level in FARE OR ECON),[]
 FARE*4330,Advanced Operations Management In the Agri-Food Sector,FARE*3310,
 FARE*4360,Marketing Research,ECON*2740 OR PSYC*1010 OR STAT*2040 OR STAT*2050 OR STAT*2060 OR STAT*2080,[]
-FARE*4370,Food & Agri Marketing Management,10.00 credits AND ACCT*2230 OR MCS*2600,
+FARE*4370,Food & Agri Marketing Management,10.00 credits AND (ACCT*2230 OR MCS*2600),
 FARE*4380,"Agri-Food Retailing, Merchandising and Sales",FARE*3310 AND FARE*4370,MCS*4060
 FARE*4500,Decision Science,ECON*2770,[]
-FARE*4550,Independent Studies I,10.00 credits AND FARE*2410 OR FARE*2700,
-FARE*4560,Independent Studies II,10.00 credits AND FARE*2410 OR FARE*2700,
-FREN*1200,French Language I,FREN*1150 OR Grade 12U French OR permission of the School of Languages and Literatures,
+FARE*4550,Independent Studies I,10.00 credits AND (FARE*2410 OR FARE*2700),
+FARE*4560,Independent Studies II,10.00 credits AND (FARE*2410 OR FARE*2700),
+FREN*1200,French Language I,(FREN*1150 OR Grade 12U French OR permission of the School of Languages and Literatures),
 FREN*1300,French Language II,FREN*1200 OR equivalent AND such as grade 12 French Immersion,FREN*2030
 FREN*2020,France: Literature and Society,FREN*1300 OR FREN*2030,
 FREN*2060,Quebec: Literature and Society,FREN*1300 OR FREN*2030,
@@ -840,7 +840,7 @@ GEOG*3440,GIS for Decision-Making,GEOG*2480,[]
 GEOG*3480,GIS and Spatial Analysis,10.00 credits AND including GEOG*2480,[]
 GEOG*3490,Tourism and Sustainability,7.50 credits,[]
 GEOG*3600,Geography of a Selected Region,7.50 credits,[]
-GEOG*3610,Environmental Hydrology,7.50 credits AND including GEOG*2000 OR GEOG*2110 AND (GEOG*2460 OR STAT*2040 OR STAT*2230),[]
+GEOG*3610,Environmental Hydrology,7.50 credits AND including (GEOG*2000 OR GEOG*2110) AND (GEOG*2460 OR STAT*2040 OR STAT*2230),[]
 GEOG*4110,Environmental Systems Analysis,GEOG*3110 OR GEOG*3610,[]
 GEOG*4150,Catchment Processes,GEOG*3000,[]
 GEOG*4200,Social Life of Cities,GEOG*2260 AND GEOG*3050 recommended,GEOG*3400
@@ -903,7 +903,7 @@ HIST*2930,Women and Cultural Change,2.00 credits,[]
 HIST*3020,Sexuality and Gender in History,7.50 credits AND 0.50 credits in History AND (0.50 credits in History OR PHIL*2060 OR POLS*2150 OR SOAN*2400 OR WMST*1000 OR WMST*2000),[]
 HIST*3070,Modern India,7.50 credits,[]
 HIST*3080,United States in the World,7.50 credits,[]
-HIST*3130,"Popular Culture and Punishment, 1700-1900",7.50 credits AND HIST*1010 OR SOC*1500,[]
+HIST*3130,"Popular Culture and Punishment, 1700-1900",7.50 credits AND (HIST*1010 OR SOC*1500),[]
 HIST*3140,Witch-hunts and Popular Culture,7.50 credits,[]
 HIST*3150,History and Culture of Mexico,7.50 credits,[]
 HIST*3160,Canada: Political & Policy History,7.50 credits,[]
@@ -920,14 +920,14 @@ HIST*3350,Modern Germany,7.50 credits,HIST*2830
 HIST*3360,History and Culture of Brazil,7.50 credits,[]
 HIST*3370,Canada and the First World War,7.50 credits,[]
 HIST*3380,British Imperialism in Asia and Africa,7.50 credits,[]
-HIST*3390,Governments and Indigenous Spaces,7.50 credits AND 1.00 credits in History OR IDEV*2400,[]
+HIST*3390,Governments and Indigenous Spaces,7.50 credits AND (1.00 credits in History OR IDEV*2400),[]
 HIST*3440,The Global Sixties,7.50 credits,[]
 HIST*3450,Public History and Society,7.50 credits AND HIST*2450,[]
 HIST*3460,Natural Disasters in Global History,7.50 credits,HIST*3430
 HIST*3470,Independent Reading,7.50 credits,
 HIST*3480,Workplace Learning,7.50 credits AND 1.50 History credits,
 HIST*3490,Canada and the Second World War,7.50 credits,[]
-HIST*3520,The Vikings: Early Medieval Encounters,7.50 credits AND HIST*2000 OR HIST*2200,[]
+HIST*3520,The Vikings: Early Medieval Encounters,7.50 credits AND (HIST*2000 OR HIST*2200),[]
 HIST*3560,Experiential Learning for History Students,7.50 credits,[]
 HIST*3570,Women in Modern Europe,7.50 credits AND (HIST*2500 OR HIST*2510 OR HIST*2800 OR HIST*2930),[]
 HIST*3580,Women's History in Asia,7.50 credits AND (HIST*1150 OR HIST*2240 OR HIST*2890 OR HIST*2910 OR HIST*2930),[]
@@ -952,11 +952,11 @@ HIST*4080,Indigenous Resistance Writing and Movements,10.00 credits AND 1.50 cre
 HIST*4100,Africa and the Slave Trades,10.00 credits AND (HIST*2340 OR HIST*2960 OR HIST*3410 OR HIST*3910),
 HIST*4120,Topics in Global History,10.00 credits AND 1.50 credits in History at the 3000-level,
 HIST*4140,Sexuality in the Middle Ages,10.00 credits AND (HIST*2000 OR HIST*2200 OR HIST*3020),
-HIST*4160,Activism and Political Change in Canada,10.00 credits AND HIST*2100 OR HIST*2600,
+HIST*4160,Activism and Political Change in Canada,10.00 credits AND (HIST*2100 OR HIST*2600),
 HIST*4170,Exploration of Digital Humanities,10.00 credits,
 HIST*4180,American Identities,10.00 credits AND 1.50 credits in History at the 3000-level,HIST*4210
 HIST*4200,"Health, Mind and Body",10.00 credits AND including 1.50 credits in History at the 3000-level,
-HIST*4220,Cities and Canadian Culture,10.00 credits AND HIST*2100 OR HIST*2600,
+HIST*4220,Cities and Canadian Culture,10.00 credits AND (HIST*2100 OR HIST*2600),
 HIST*4230,Histories of Travel and Tourism,10 credits,
 HIST*4250,Topics in Environmental History,10.00 credits AND 1.50 credits at the 3000-level in HIST OR ASCI,
 HIST*4270,Topics in Modern Asia,10.00 credits AND HIST*2910.,HIST*4900
@@ -992,10 +992,10 @@ HTM*1070,Responsible Tourism Policy and Planning,(),HTM*2170
 HTM*2700,Understanding Foods,(),
 HTM*2740,Cultural Aspects of Food,2.00 credits,[]
 HTM*3030,Beverage Management,9.00 credits,
-HTM*3060,Lodging Management,9.00 credits AND HTM*2010 OR MCS*2000 AND HTM*1160 OR HTM*2100,[]
-HTM*3080,Marketing Strategy for Hospitality Managers,9.00 credits AND MCS*1000 AND HTM*2010 OR MCS*2000,[]
+HTM*3060,Lodging Management,9.00 credits AND (HTM*2010 OR MCS*2000) AND (HTM*1160 OR HTM*2100),[]
+HTM*3080,Marketing Strategy for Hospitality Managers,9.00 credits AND MCS*1000 AND (HTM*2010 OR MCS*2000),[]
 HTM*3090,Restaurant Operations Management,HTM*2030 AND HTM*2700,FARE*3310
-HTM*3120,Service Operations Analysis,ACCT*1220 OR ACCT*2220 AND (ECON*2740 OR PSYC*1010 OR STAT*2040 OR STAT*2060 OR STAT*2080),FARE*3310
+HTM*3120,Service Operations Analysis,(ACCT*1220 OR ACCT*2220) AND (ECON*2740 OR PSYC*1010 OR STAT*2040 OR STAT*2060 OR STAT*2080),FARE*3310
 HTM*3160,Destination Management and Marketing,HTM*1070 OR HTM*2020 OR HTM*2170,
 HTM*3180,Casino Operations Management,(BUS*2090 OR HROB*2090 OR HROB*2100 OR ACCT*2230),
 HTM*3780,Managing Food in Canada,FOOD*2010 OR HTM*1700 OR HTM*2700,FARE*3320
@@ -1027,9 +1027,9 @@ HK*4340,Genomics: Exercise and Disease,NUTR*3360,[]
 HK*4360,Research in Human Health and Nutritional Sciences,12.00 credits,
 HK*4371,Research in Human Health and Nutritional Sciences I,12.00 credits,
 HK*4372,Research in Human Health and Nutritional Sciences II,HK*4371,
-HK*4441,Advanced Study in Human Anatomy,HK*3402 AND HK*3810 OR HK*3940,
+HK*4441,Advanced Study in Human Anatomy,HK*3402 AND (HK*3810 OR HK*3940),
 HK*4442,Advanced Study in Human Anatomy,HK*4441,
-HK*4460,Regulation of Human Metabolism,HK*3810 OR HK*3940 AND NUTR*4210,[]
+HK*4460,Regulation of Human Metabolism,(HK*3810 OR HK*3940) AND NUTR*4210,[]
 HK*4510,"Teaching, Learning and Knowledge Transfer",10.00 credits AND BIOL*1080,
 HK*4511,"Teaching, Learning & Knowledge Transfer I",10.00 credits AND BIOL*1080,
 HK*4512,"Teaching, Learning & Knowledge Transfer II.",HK*4511,
@@ -1044,7 +1044,7 @@ HROB*3010,Compensation Systems,BUS*3000 OR HROB*2100 OR HROB*2290 OR HROB*3000 O
 HROB*3030,Occupational Health and Safety,9.00 credits AND (BUS*3000 OR HROB*2100 OR HROB*2290 OR HROB*3000 OR PSYC*3070),
 HROB*3070,Recruitment and Selection,BUS*3000 OR HROB*2100 OR HROB*2290 OR HROB*3000 OR PSYC*3070,
 HROB*3090,Training and Development,BUS*3000 OR HROB*2100 OR HROB*2290 OR HROB*3000 OR PSYC*3070,
-HROB*3100,Developing Management and Leadership Competencies,9.00 credits AND HROB*2010 AND HROB*2090 OR HROB*2100,
+HROB*3100,Developing Management and Leadership Competencies,9.00 credits AND HROB*2010 AND (HROB*2090 OR HROB*2100),
 HROB*4010,Leadership Certificate Capstone,HROB*2010 AND (PHIL*2120 OR PHIL*2600 OR POLS*3440 OR (2 of BUS*3000 OR EDRD*3140 OR EDRD*3160 OR EDRD*4120 OR HROB*2090 OR HROB*2290 OR HROB*3000 OR MGMT*2150 OR PHIL*2100 OR POLS*2250 plus 120 hours of leadership experience.)),
 HROB*4030,Advanced Topics In Leadership and Organizational Management,12.50 credits AND (BUS*3000 OR HROB*2100 OR HROB*2290 OR HROB*3000 OR PSYC*3070),[]
 HROB*4060,Human Resource Planning,15.00 credits AND (BUS*3000 OR HROB*2100 OR HROB*2290 OR HROB*3000 OR PSYC*3070),
@@ -1079,7 +1079,7 @@ IBIO*4510,Research in Integrative Biology II,IBIO*4500,
 IBIO*3100,Interpreting Biodiversity I,12.00 credits,
 IBIO*4521,Thesis in Integrative Biology,12.00 credits,
 IBIO*4522,Thesis in Integrative Biology,IBIO*4521,[]
-IBIO*4600,Integrative Marine and Freshwater Research,BIOL*3450 AND STAT*2040 OR STAT*2230 AND ZOO*3210 OR ZOO*3610,
+IBIO*4600,Integrative Marine and Freshwater Research,BIOL*3450 AND (STAT*2040 OR STAT*2230) AND (ZOO*3210 OR ZOO*3610),
 IAEF*3500,Experiential Education,5.00 credits,
 IPS*1500,Integrated Mathematics and Physics I,4U Physics OR PHYS*1020 OR PHYS*1300,"MATH*1080,MATH*1200,PHYS*1000,PHYS*1080"
 IPS*1510,Integrated Mathematics and Physics II,IPS*1500,"MATH*1090,MATH*1210,MATH*2080,PHYS*1010,PHYS*1070,PHYS*1130"
@@ -1109,10 +1109,10 @@ IDEV*2200,"Policy, Economy and Society",GEOG*1220 OR IDEV*1000,[]
 IDEV*2300,Theoretical Perspectives on Development,IDEV*2200 OR ECON*1050 AND ECON*1100,[]
 IDEV*2400,"Development, Social Justice and Human Rights",IDEV*1000 OR IDEV*2200 OR JLS*1000,[]
 IDEV*3000,Poverty and Inequality,7.50 credits AND 1.00 credit in IDEV courses at the 2000 level,[]
-IDEV*3100,Achieving Sustainable Development,7.50 credits AND 1.00 credit in IDEV courses at the 2000 level OR ONEH*2000,[]
+IDEV*3100,Achieving Sustainable Development,7.50 credits AND (1.00 credit in IDEV courses at the 2000 level OR ONEH*2000),[]
 IDEV*3200,Individual Work/Study in International Development,10.00 credits,
 IDEV*3300,Engaging in Development Practice,7.50 credits AND 1.00 credit in IDEV courses at the 2000 level,
-IDEV*3400,Managing and Evaluating Change in Development,7.50 credits AND 1.00 credits in IDEV courses at the 2000 level OR ONEH*2000,[]
+IDEV*3400,Managing and Evaluating Change in Development,7.50 credits AND (1.00 credits in IDEV courses at the 2000 level OR ONEH*2000),[]
 IDEV*3500,Field Course in Development Studies,7.50 credits,
 IDEV*4000,Development in Action,14.00 credits AND IDEV*2400 AND IDEV*3000 AND IDEV*3100 AND IDEV*3300,
 IDEV*4100,Thesis in International Development Studies I,14.00 credits AND IDEV*3000 AND IDEV*3100,
@@ -1178,16 +1178,16 @@ MGMT*3140,Business Analytics,9.00 credits AND (MATH*1030 OR MATH*1080 OR MATH*12
 MGMT*3200,Negotiation and Conflict Management,HROB*2290 AND MGMT*1200,[]
 MGMT*3300,Project Management,4.00 credits.,
 MGMT*3320,Financial Management,ACCT*2230 OR HTM*3070,
-MGMT*3400,Current Topics in Management,9.00 credits AND MGMT*1000 OR MGMT*2150,"BUS*4250,HTM*4200"
+MGMT*3400,Current Topics in Management,9.00 credits AND (MGMT*1000 OR MGMT*2150),"BUS*4250,HTM*4200"
 MGMT*3500,Design Thinking,MGMT*2500,
-MGMT*4000,Strategic Management,MGMT*3320 AND [( ECON*2560 OR FIN*2000 OR ECON*3460 OR ECON*3560] OR (1 of FARE*3310 OR HTM*3120 OR REAL*3890)),"BUS*4250,HTM*4200"
+MGMT*4000,Strategic Management,MGMT*3320 AND [(( ECON*2560 OR FIN*2000) OR ECON*3460 OR ECON*3560] OR (1 of FARE*3310 OR HTM*3120 OR REAL*3890)),"BUS*4250,HTM*4200"
 MGMT*4020,Interdisciplinary Food Product Development I,14.00 credits AND minimum 70% cumulative average,FOOD*4260
 MGMT*4030,Interdisciplinary Food Product Development II,MGMT*4020 AND minimum 70% cumulative average,FOOD*4270
 MGMT*4040,Advanced Topics in Management,12.00 credits AND MGMT*1200,[]
 MGMT*4050,Business Consulting,(MCS*1000 OR MGMT*1000 OR MGMT*2150 OR 10.00 credits OR minimum 70% cumulative average),
 MGMT*4060,Business Consulting,(MCS*1000 OR MGMT*1000 OR MGMT*2150 OR 10.00 credits OR minimum 70% cumulative average),
 MGMT*4100,Management Decision Making,MGMT*3140 AND MGMT*3200,[]
-MGMT*4140,Advanced Business Analytics,ECON*3740 AND MGMT*3140 AND CIS*1300 OR CIS*1500,
+MGMT*4140,Advanced Business Analytics,ECON*3740 AND MGMT*3140 AND (CIS*1300 OR CIS*1500),
 MGMT*4200,Management Capstone,HROB*3100 AND MGMT*3200,[]
 MGMT*4260,International Business,14.50 credits AND MGMT*2260,
 MGMT*4300,Advanced Project Management,HROB*2010 AND HROB*3100 AND MGMT*3300,
@@ -1205,7 +1205,7 @@ MCS*3010,Quality Management,10.00 credits AND ( ECON*2740 OR PSYC*1010 OR STAT*2
 MCS*3030,Research Methods,ECON*2740 OR PSYC*1010 OR STAT*2060,
 MCS*3040,Business and Consumer Law,4.00 credits,
 MCS*3050,Digital Marketing,10.00 credits AND MCS*1000 AND MCS*2020,
-MCS*3500,Marketing Analytics,10.00 credits AND ECON*1050 AND MATH*1000 OR MATH*1030 AND MCS*2600 AND (ECON*2740 OR PSYC*1010 OR STAT*2060),
+MCS*3500,Marketing Analytics,10.00 credits AND ECON*1050 AND (MATH*1000 OR MATH*1030) AND MCS*2600 AND (ECON*2740 OR PSYC*1010 OR STAT*2060),
 MCS*3620,Marketing Communications,10.00 credits AND MCS*1000 AND MCS*2600,
 MCS*4010,Consumer Information Processes,15.00 Credits including MCS*2600 AND MCS*3030,MCS*3600
 MCS*4020,Research in Consumer Studies,15.00 credits AND MCS*3030,
@@ -1214,30 +1214,30 @@ MCS*4060,Retail Management,14.00 credits,
 MCS*4100,Entrepreneurship,15.00 credits AND MCS*3500,
 MCS*4300,Marketing and Society,15.00 credits AND MCS*2600,
 MCS*4370,Marketing Strategy,15.00 credits AND MCS*3030 AND MCS*3500,
-MCS*4400,Pricing Management,10.00 credits AND ECON*3740 OR MCS*3030,MCS*3100
+MCS*4400,Pricing Management,10.00 credits AND (ECON*3740 OR MCS*3030),MCS*3100
 MCS*4600,International Marketing,10.00 credits AND MCS*3030,
 MCS*4880,Sales and Negotiation,10.00 credits.,
 MCS*4910,Topics in Consumer Studies,15.00 credits AND MCS*2600,
 MCS*4920,Topics in Consumer Studies,15.00 credits AND MCS*2600,
 MCS*4950,Consumer Studies Practicum,15.00 credits AND MCS*3030 AND MCS*3500 AND MCS*3620,
 MATH*1030,Business Mathematics,4U Advanced Functions,"MATH*1080,MATH*1200"
-MATH*1080,Elements of Calculus I,4U Advanced Functions OR 4U Advanced Functions and Calculus OR equivalent,"IPS*1500,MATH*1200"
+MATH*1080,Elements of Calculus I,(4U Advanced Functions OR 4U Advanced Functions and Calculus OR equivalent),"IPS*1500,MATH*1200"
 MATH*1090,Elements of Calculus II,IPS*1500 OR MATH*1080 OR MATH*1200,"IPS*1510,MATH*1210,MATH*2080"
 MATH*1160,Linear Algebra I,4U Calculus and Vectors OR 4U Advanced Functions,ENGG*1500
-MATH*1200,Calculus I,4U Calculus and Vectors OR 4U Advanced Functions and Calculus OR Grade 12 Calculus,"IPS*1500,MATH*1080"
+MATH*1200,Calculus I,(4U Calculus and Vectors OR 4U Advanced Functions and Calculus OR Grade 12 Calculus),"IPS*1500,MATH*1080"
 MATH*1210,Calculus II,MATH*1080 OR MATH*1200,"IPS*1510,MATH*1090,MATH*2080"
 MATH*2000,"Proofs, Sets, and Numbers",IPS*1500 OR MATH*1080 OR MATH*1160 OR MATH*1200,[]
 MATH*2130,Numerical Methods,(CIS*1300 OR CIS*1500 OR ENGG*1410 OR (1 of IPS*1510 OR MATH*1090 OR MATH*1210 OR MATH*2080)),[]
 MATH*2200,Advanced Calculus I,IPS*1510 OR MATH*1090 OR MATH*1210 OR MATH*2080,[]
 MATH*2210,Advanced Calculus II,MATH*2200,[]
-MATH*2270,Applied Differential Equations,ENGG*1500 OR MATH*1160 AND (IPS*1510 OR MATH*1090 OR MATH*1210 OR MATH*2080),[]
-MATH*3100,Differential Equations II,MATH*2270 AND ENGG*1500 OR MATH*1160,[]
+MATH*2270,Applied Differential Equations,(ENGG*1500 OR MATH*1160) AND (IPS*1510 OR MATH*1090 OR MATH*1210 OR MATH*2080),[]
+MATH*3100,Differential Equations II,MATH*2270 AND (ENGG*1500 OR MATH*1160),[]
 MATH*3130,Abstract Algebra,MATH*1160 AND MATH*2000,[]
 MATH*3160,Linear Algebra II,MATH*1160 AND 1.00 credits in MATH OR STAT at the 2000 level OR above,[]
-MATH*3200,Real Analysis,MATH*2000 AND MATH*1160 OR MATH*2160,[]
+MATH*3200,Real Analysis,MATH*2000 AND (MATH*1160 OR MATH*2160),[]
 MATH*3240,Operations Research,MATH*1160 AND 0.50 credits in statistics,[]
 MATH*3260,Complex Analysis,MATH*2200,[]
-MATH*3510,Biomathematics,MATH*2270 AND ENGG*1500 OR MATH*1160,[]
+MATH*3510,Biomathematics,MATH*2270 AND (ENGG*1500 OR MATH*1160),[]
 MATH*4050,Topics in Mathematics I,MATH*3200,[]
 MATH*4060,Topics in Mathematics II,MATH*3200,[]
 MATH*4150,Topics in Mathematics III,MATH*3200,[]
@@ -1256,8 +1256,8 @@ MICR*3240,Microbial Physiology and Genetics,BIOC*3560 AND MBG*2040 AND MICR*2420
 MICR*3280,Microbial Cell Biology,BIOC*3560 AND MBG*2040 AND MICR*2420,"MBG*3080,MICR*4520"
 MICR*3330,World of Viruses,MCB*2050,[]
 MICR*3420,Microbial Diversity and Ecology,BIOC*3560 AND MBG*2040 AND MICR*2430,[]
-MICR*3430,Advanced Methods in Microbiology,MICR*2430 AND MBG*3080 OR MICR*3240,[]
-MICR*4010,Pathogenic Microbiology,MCB*2050 AND MBG*3080 OR MICR*3240,[]
+MICR*3430,Advanced Methods in Microbiology,MICR*2430 AND (MBG*3080 OR MICR*3240),[]
+MICR*4010,Pathogenic Microbiology,MCB*2050 AND (MBG*3080 OR MICR*3240),[]
 MICR*4330,Molecular Virology,MICR*3330 AND MICR*2430 is recommended,[]
 MICR*4430,Medical Virology,MICR*3330,[]
 MICR*4530,Immunology II,MICR*3230,[]
@@ -1270,18 +1270,18 @@ MCB*4510,Research Project in Molecular and Cellular Biology,MCB*4500. Normally A
 MCB*4600,Topics in Molecular and Cellular Biology,MBG*3350 OR equivalent laboratory experience at the discretion of the student's faculty advisor. Normally AND students must have a minimum of 3.00 credits in 3000 OR 4000 level BIOC AND MBG AND MCB OR MICR courses,MCB*4600
 MBG*1000,Genetics and Society,(),
 MBG*2040,Foundations in Molecular Biology and Genetics,4.00 credits AND BIOL*1090,[]
-MBG*2400,Fundamentals of Plant and Animal Genetics,BIOL*1050 OR BIOL*1070 AND BIOL*1090,[]
+MBG*2400,Fundamentals of Plant and Animal Genetics,(BIOL*1050 OR BIOL*1070) AND BIOL*1090,[]
 MBG*3040,Molecular Biology of the Gene,MCB*2050,MBG*4080
 MBG*3050,Human Genetics,MCB*2050,[]
 MBG*3060,Quantitative Genetics,MBG*2400 AND 0.50 credits in statistics.,[]
-MBG*3100,Plant Genetics,MBG*2040 OR MBG*2400  AND STAT*2040,[]
+MBG*3100,Plant Genetics,(MBG*2040 OR MBG*2400 ) AND STAT*2040,[]
 MBG*3350,Laboratory Methods in Molecular Biology,BIOC*2580 AND MCB*2050,
 MBG*3660,Genomics,MCB*2050,[]
 MBG*4020,Genetics of Companion Animals,MBG*3060,[]
 MBG*4030,Animal Breeding Methods and Applications,MBG*3060,[]
 MBG*4040,Genetics and Molecular Biology of Development,MBG*3040,[]
 MBG*4110,Epigenetics,MBG*3040,[]
-MBG*4160,Plant Breeding,MBG*2040 OR MBG*2400 AND STAT*2040,[]
+MBG*4160,Plant Breeding,(MBG*2040 OR MBG*2400) AND STAT*2040,[]
 MBG*4240,Applied Molecular Genetics in Medicine and Biotechnology,MBG*3040,[]
 MBG*4300,Plant Molecular Genetics,MBG*2040 OR MBG*2400,[]
 MUSC*1060,Amadeus to Zeppelin: Music and Culture I,(),MUSC*2280
@@ -1334,15 +1334,15 @@ MUSC*3500,Applied Music V,3.00 credits in music courses including a minimum grad
 MUSC*3510,Applied Music VI,4.00 credits in music courses including a minimum grade of 70% in MUSC*3500,
 MUSC*3550,Collaborative Performance Project I,MUSC*2500 AND (2 of MUSC*2530 OR MUSC*2540 OR MUSC*2550 OR MUSC*2560),
 MUSC*3560,Collaborative Performance Project II,MUSC*3550,
-MUSC*3630,"Tragedy, Technology, and Torture: Music Post 1900",MUSC*2660 AND MUSC*2330 OR MUSC*2620,[]
+MUSC*3630,"Tragedy, Technology, and Torture: Music Post 1900",MUSC*2660 AND (MUSC*2330 OR MUSC*2620),[]
 MUSC*3710,Instrumental Ensembles V,MUSC*2720,
 MUSC*3720,Instrumental Ensembles VI,MUSC*3710,
 MUSC*3730,Topics in Jazz and Improvised Music,7.50 credits AND MUSC*2140,[]
-MUSC*3740,Topics in Popular Music Studies,7.50 credits AND MUSC*2150 AND MUSC*1160 OR MUSC*1180,[]
-MUSC*3800,Topics in Music History/Analysis,7.50 credits AND MUSC*2670 OR MUSC*3010 AND MUSC*3630,[]
-MUSC*3820,Topics in Ethnomusicology,7.50 credits AND MUSC*2270 AND MUSC*1160 OR MUSC*1180,[]
+MUSC*3740,Topics in Popular Music Studies,7.50 credits AND MUSC*2150 AND (MUSC*1160 OR MUSC*1180),[]
+MUSC*3800,Topics in Music History/Analysis,7.50 credits AND (MUSC*2670 OR MUSC*3010) AND MUSC*3630,[]
+MUSC*3820,Topics in Ethnomusicology,7.50 credits AND MUSC*2270 AND (MUSC*1160 OR MUSC*1180),[]
 MUSC*3860,Topics in Digital Music,7.50 credits AND MUSC*2100 AND MUSC*2220,
-MUSC*3880,Topics in Music Pedagogy,7.50 credits AND MUSC*2660 AND MUSC*1170 OR MUSC*2180,[]
+MUSC*3880,Topics in Music Pedagogy,7.50 credits AND MUSC*2660 AND (MUSC*1170 OR MUSC*2180),[]
 MUSC*3910,Choral Ensembles V,MUSC*2920,
 MUSC*3920,Choral Ensembles VI,MUSC*3910,
 MUSC*4000,Honours Capstone Project in Music,14.00 credits AND including 1.50 credits in Music at the 3000 level,
@@ -1354,21 +1354,21 @@ MUSC*4470,Honours Music Recital,A minimum grade of 70% in MUSC*4460,
 NANO*2000,Synthesis and Characterization of Nanomaterials I,CHEM*1050 AND [IPS*1510 OR  MATH*1210 AND PHYS*1010],
 NANO*2100,Synthesis and Characterization of Nanomaterials II,NANO*2000,[]
 NANO*3200,Nanolithographic Techniques,NANO*2100,[]
-NANO*3300,Spectroscopy of Nanomaterials,NANO*2100 AND CHEM*3860 OR PHYS*3230,[]
+NANO*3300,Spectroscopy of Nanomaterials,NANO*2100 AND (CHEM*3860 OR PHYS*3230),[]
 NANO*3500,Thin Film Science,NANO*2100,[]
 NANO*1000,Introduction to Nanoscience,4U Chemistry OR 4U Physics,
-NANO*3600,Computational Methods in Materials Science,MATH*1160 OR MATH*2160 AND MATH*2170 OR MATH*2270 AND CHEM*3860 OR PHYS*3230,[]
-NANO*4100,Biological Nanomaterials,MATH*2270 AND CHEM*2820 OR PHYS*2240,[]
-NANO*4200,Topics in Nanomaterials,NANO*3300 AND NANO*3500 AND CHEM*3860 OR PHYS*3230,[]
-NANO*4700,Concepts in Quantum Computing,MATH*1160 AND CHEM*3860 OR PHYS*3230,NANO*3500
+NANO*3600,Computational Methods in Materials Science,(MATH*1160 OR MATH*2160) AND (MATH*2170 OR MATH*2270) AND (CHEM*3860 OR PHYS*3230),[]
+NANO*4100,Biological Nanomaterials,MATH*2270 AND (CHEM*2820 OR PHYS*2240),[]
+NANO*4200,Topics in Nanomaterials,NANO*3300 AND NANO*3500 AND (CHEM*3860 OR PHYS*3230),[]
+NANO*4700,Concepts in Quantum Computing,MATH*1160 AND (CHEM*3860 OR PHYS*3230),NANO*3500
 NANO*4910,Nanoscience Research Project I,1.50 credits in NANO courses at the 3000 level.,
 NANO*4920,Nanoscience Research Project II,NANO*4910,
 NEUR*2000,Foundations in Neuroscience I,BIOL*1090 AND PSYC*1000,PSYC*2410
 NEUR*2100,Foundations in Neuroscience II,NEUR*2000,
-NEUR*3100,Molecular Mechanisms of Neurological Disorders,"MCB*2050 AND NEUR*2000 OR PSYC*2410,",
+NEUR*3100,Molecular Mechanisms of Neurological Disorders,"MCB*2050 AND (NEUR*2000 OR PSYC*2410),",
 NEUR*3500,Techniques in Neuroscience,MCB*2050 AND PSYC*3270 AND (NEUR*2000 OR NEUR*2100 OR PSYC*2410 OR (1 of BIOM*3200 OR HK*2810 OR ZOO*3600)),
 NEUR*4000,Current Issues in Neuroscience,14.00 credits,
-NEUR*4100,Neuropharmacology,BIOM*3090 AND NEUR*2000 OR PSYC*2410,
+NEUR*4100,Neuropharmacology,BIOM*3090 AND (NEUR*2000 OR PSYC*2410),
 NEUR*4401,Research in Neurosciences,14.00 credits,"BIOM*4510,BIOM*4521,BIOM*4522,NEUR*4421,NEUR*4422,NEUR*4450"
 NEUR*4402,Research in Neurosciences,NEUR*4401,"BIOM*4510,BIOM*4521,BIOM*4522,NEUR*4421,NEUR*4422,NEUR*4450"
 NEUR*4421,Advanced Research in Neurosciences,14.00 credits,"BIOM*4510,BIOM*4521,BIOM*4522,NEUR*4401,NEUR*4402,NEUR*4450"
@@ -1377,10 +1377,10 @@ NEUR*4450,Research in Neurosciences,14.00 credits,"BIOM*4510,BIOM*4521,BIOM*4522
 NUTR*1010,Introduction to Nutrition,(),
 NUTR*1020,Professional Practice in Applied Nutrition,(),
 NUTR*2050,Nutrition Through the Life Cycle,NUTR*1010,
-NUTR*2150,Introduction to Nutritional and Food Sciences,BIOL*1040 OR BIOL*1080 AND CHEM*1040,"FOOD*2010,FOOD*3090"
+NUTR*2150,Introduction to Nutritional and Food Sciences,(BIOL*1040 OR BIOL*1080) AND CHEM*1040,"FOOD*2010,FOOD*3090"
 NUTR*2500,Introduction to Food Systems,4.00 credits,[]
 NUTR*3070,Nutrition and Physical Activity Interventions,FRHD*3070 AND NUTR*2050,
-NUTR*3090,Clinical Nutrition I,BIOM*2000 OR BIOM*3200 AND FRHD*3070 AND NUTR*2050 AND NUTR*3190 OR NUTR*3210 AND STAT*2090,NUTR*3040
+NUTR*3090,Clinical Nutrition I,(BIOM*2000 OR BIOM*3200) AND FRHD*3070 AND NUTR*2050 AND (NUTR*3190 OR NUTR*3210) AND STAT*2090,NUTR*3040
 NUTR*3110,Food Security,9.50 credits AND NUTR*2050,
 NUTR*3150,Aging and Nutrition,NUTR*1010 OR NUTR*2150 OR NUTR*3210,NUTR*2070
 NUTR*3210,Fundamentals of Nutrition,BIOC*2580,[]
@@ -1389,14 +1389,14 @@ NUTR*3360,Lifestyle Genomics,BIOC*2580 AND BIOL*1080 AND MBG*2040,
 NUTR*3390,Applied Nutritional and Nutraceutical Sciences I,NUTR*3210,
 NUTR*3500,Research Internship in AHN,FRHD*3070 AND STAT*2090,
 NUTR*4010,Nutritional Assessment,14.50 credits AND NUTR*2050 AND NUTR*3210,
-NUTR*4040,Clinical Nutrition II,14.50 credits AND NUTR*3090 AND BIOM*2000 OR BIOM*3200,
+NUTR*4040,Clinical Nutrition II,14.50 credits AND NUTR*3090 AND (BIOM*2000 OR BIOM*3200),
 NUTR*4070,Nutrition Education,FRHD*3400 AND NUTR*2050,
 NUTR*4090,Functional Foods and Nutraceuticals,NUTR*3210,[]
 NUTR*4120,Applied Clinical Skills,NUTR*4010 AND NUTR*4040,NUTR*4850
 NUTR*4210,"Nutrition, Exercise and Energy Metabolism",NUTR*3210 AND (BIOM*3200 OR HK*3810),[]
 NUTR*4320,Nutrition and Metabolic Control of Disease,NUTR*3210 AND (BIOM*3200 OR HK*3810 OR ZOO*3210 OR ZOO*3620),[]
 NUTR*4330,Applied Nutritional and Nutraceutical Sciences II,NUTR*3330 AND NUTR*3390 AND HK*3810,
-NUTR*4360,Current Issues in Nutrigenomics,NUTR*3210 AND BIOM*3200 OR HK*3810,[]
+NUTR*4360,Current Issues in Nutrigenomics,NUTR*3210 AND (BIOM*3200 OR HK*3810),[]
 NUTR*4510,"Toxicology, Nutrition and Food",NUTR*3210,[]
 NUTR*4810,Applied Human Nutrition Thesis I,FRHD*3070 AND NUTR*2050 AND NUTR*3090,
 NUTR*4850,Field Experience in Nutrition Education,FRHD*3400 AND NUTR*3090 AND NUTR*4070,NUTR*4120
@@ -1471,27 +1471,27 @@ PHIL*4710,Directed Reading,1.00 credits in Philosophy at the 3000-level,
 PHIL*4720,Directed Reading,1.00 credits in Philosophy at the 3000-level,
 PHIL*4800,Honours Philosophy Research Paper I,1.00 credits in Philosophy at the 3000 level,
 PHIL*4820,Philosophy Research Presentation,14.00 credits AND 1.00 credits in Philosophy at the 3000-level,
-PHYS*1010,Introductory Electricity and Magnetism,(MATH*1080 OR MATH*1200 OR 4U Physics OR equivalent ),IPS*1510
+PHYS*1010,Introductory Electricity and Magnetism,(MATH*1080 OR MATH*1200 OR (4U Physics OR equivalent )),IPS*1510
 PHYS*1020,Introductory Physics,(),[]
-PHYS*1070,Physics for Life Sciences II,4U Physics OR PHYS*1020 AND 4U Mathematics,"IPS*1510,PHYS*1130,PHYS*1300"
+PHYS*1070,Physics for Life Sciences II,(4U Physics OR PHYS*1020) AND 4U Mathematics,"IPS*1510,PHYS*1130,PHYS*1300"
 PHYS*1080,Physics for Life Sciences,(4U Physics OR PHYS*1020 OR PHYS*1300  OR 4U Mathematics),"IPS*1500,PHYS*1000"
-PHYS*1130,Physics with Applications,4U Calculus and Vectors OR equivalent AND 4U Physics OR equivalent,"IPS*1500,PHYS*1080"
+PHYS*1130,Physics with Applications,(4U Calculus and Vectors OR equivalent) AND (4U Physics OR equivalent),"IPS*1500,PHYS*1080"
 PHYS*1300,Fundamentals of Physics,(),"PHYS*1020,PHYS*1070"
 PHYS*1600,Contemporary Astronomy,(),"PHYS*1020,PHYS*1300,PHYS*1810"
 PHYS*1810,Physics of Music,(),"PHYS*1020,PHYS*1600"
 PHYS*2030,Biophysics of Excitable Cells,1.00 credits in physics excluding PHYS*1020 AND PHYS*1600 AND PHYS*1810,[]
 PHYS*2180,Experimental Techniques in Physics,PHYS*2330,[]
-PHYS*2240,Thermal Physics,(IPS*1510 OR MATH*1210 OR MATH*2080 OR IPS*1500 OR PHYS*1080),CHEM*2820
+PHYS*2240,Thermal Physics,(IPS*1510 OR MATH*1210 OR MATH*2080 OR (IPS*1500 OR PHYS*1080)),CHEM*2820
 PHYS*2310,Mechanics,MATH*2270 AND (IPS*1500 OR PHYS*1000 OR PHYS*1080),PHYS*2440
-PHYS*2330,Electricity and Magnetism I,IPS*1510 OR [MATH*1210 OR MATH*2080 AND (PHYS*1010 OR PHYS*1070 OR PHYS*1130]),PHYS*2460
+PHYS*2330,Electricity and Magnetism I,IPS*1510 OR [(MATH*1210 OR MATH*2080) AND (PHYS*1010 OR PHYS*1070 OR PHYS*1130]),PHYS*2460
 PHYS*2340,Electricity and Magnetism II,PHYS*2330,PHYS*2470
 PHYS*2600,General Astronomy,IPS*1500 OR [(PHYS*1010 OR PHYS*1070 OR PHYS*1080 OR PHYS*1130 OR PHYS*1300 OR (1 of MATH*1030 OR MATH*1080 OR MATH*1160 OR MATH*1200)]),[]
 PHYS*3000,Optics: Fundamentals and Applications,PHYS*2340 AND PHYS*3130,PHYS*3220
 PHYS*3080,Energy,IPS*1500 OR [ PHYS*1080 AND (MATH*1000 OR MATH*1080 OR MATH*1200] OR (1 of IPS*1510 OR PHYS*1010 OR PHYS*1070 OR PHYS*1130)),[]
 PHYS*3130,Mathematical Physics,(MATH*1160 OR MATH*2150 OR MATH*2160 OR MATH*2200 OR MATH*2270 OR PHYS*2310 OR PHYS*2340),[]
-PHYS*3170,Radioactivity and Radiation Interactions,(IPS*1510 OR MATH*1210 OR MATH*2080 OR MATH*2170 OR MATH*2270),[]
-PHYS*3230,Quantum Mechanics I,(MATH*1160 OR MATH*2150 OR MATH*2160 OR MATH*2170 OR MATH*2270 OR PHYS*2340 OR PHYS*2470),[]
-PHYS*3400,Advanced Mechanics,MATH*2170 OR MATH*2270 AND PHYS*2310 OR PHYS*2440,[]
+PHYS*3170,Radioactivity and Radiation Interactions,(IPS*1510 OR MATH*1210 OR MATH*2080 OR (MATH*2170 OR MATH*2270)),[]
+PHYS*3230,Quantum Mechanics I,(MATH*1160 OR MATH*2150 OR MATH*2160 OR (MATH*2170 OR MATH*2270) OR (PHYS*2340 OR PHYS*2470)),[]
+PHYS*3400,Advanced Mechanics,(MATH*2170 OR MATH*2270) AND (PHYS*2310 OR PHYS*2440),[]
 PHYS*3510,Intermediate Laboratory,PHYS*2180 OR NANO*2100 AND PHYS*2310,[]
 PHYS*4001,Research in Physics,PHYS*3510,PHYS*4510
 PHYS*4002,Research in Physics,PHYS*4001,[]
@@ -1500,22 +1500,22 @@ PHYS*4070,Clinical Applications of Physics in Medicine,ENGG*3390 OR PHYS*3130,"E
 PHYS*4120,Atomic and Molecular Physics,PHYS*4040,[]
 PHYS*4130,Subatomic Physics,PHYS*4040,[]
 PHYS*4150,Solid State Physics,PHYS*4040 AND PHYS*4240,[]
-PHYS*4180,Advanced Electromagnetic Theory,PHYS*2340 OR PHYS*2470,[]
-PHYS*4240,Statistical Physics II,PHYS*2240 OR PHYS*3240 AND PHYS*3230,[]
+PHYS*4180,Advanced Electromagnetic Theory,(PHYS*2340 OR PHYS*2470),[]
+PHYS*4240,Statistical Physics II,(PHYS*2240 OR PHYS*3240) AND PHYS*3230,[]
 PHYS*4500,Advanced Physics Laboratory,PHYS*3510,
-PHYS*4540,Molecular Biophysics,0.50 credits in biochemistry AND CHEM*3860 OR PHYS*3230,[]
-PHYS*4910,Advanced Topics in Physics I,(MATH*1160 OR MATH*2150 OR MATH*2160 OR MATH*2170 OR MATH*2270 OR [PHYS*2450 OR PHYS*2470 OR PHYS*2180  OR PHYS*2310 OR PHYS*2340]),[]
-PHYS*4920,Advanced Topics in Physics II,(MATH*1160 OR MATH*2150 OR MATH*2160 OR MATH*2170 OR MATH*2270 OR [PHYS*2450  OR PHYS*2470 OR PHYS*2180  OR PHYS*2310 OR PHYS*2340]),[]
-PHYS*4930,Advanced Topics in Physics III,(MATH*1160 OR MATH*2150 OR MATH*2160 OR MATH*2170 OR MATH*2270 OR [PHYS*2450 OR PHYS*2470 OR PHYS*2180  OR PHYS*2310 OR PHYS*2340]),[]
+PHYS*4540,Molecular Biophysics,0.50 credits in biochemistry AND (CHEM*3860 OR PHYS*3230),[]
+PHYS*4910,Advanced Topics in Physics I,(MATH*1160 OR MATH*2150 OR MATH*2160 OR (MATH*2170 OR MATH*2270) OR [PHYS*2450 OR PHYS*2470 OR PHYS*2180  OR PHYS*2310 OR PHYS*2340]),[]
+PHYS*4920,Advanced Topics in Physics II,(MATH*1160 OR MATH*2150 OR MATH*2160 OR (MATH*2170 OR MATH*2270) OR [PHYS*2450  OR PHYS*2470 OR PHYS*2180  OR PHYS*2310 OR PHYS*2340]),[]
+PHYS*4930,Advanced Topics in Physics III,(MATH*1160 OR MATH*2150 OR MATH*2160 OR (MATH*2170 OR MATH*2270) OR [PHYS*2450 OR PHYS*2470 OR PHYS*2180  OR PHYS*2310 OR PHYS*2340]),[]
 PBIO*3110,Crop Physiology,BIOL*1050 OR BIOL*1070 OR BIOL*1090,[]
 PBIO*3120,Plant Physiology,BIOL*1050 OR BOT*2100,[]
 PBIO*3750,Plant Tissue Culture,AGR*2470 OR BOT*2100,[]
 PBIO*4000,Molecular and Cellular Aspects of Plant-Microbe Interactions,(BOT*2100 OR MICR*2030 OR BIOL*1070 OR BIOL*1090 OR MBG*2040),[]
 PBIO*4070,Biological and Cultural Control of Plant Diseases,ENVB*3210 OR ENVS*3210 OR MICR*3090 OR MICR*3220,[]
-PBIO*4150,Molecular and Cellular Aspects of Plant Development,AGR*2470 OR BOT*2100 AND MBG*2040 OR MBG*2400,[]
-PBIO*4290,Cannabis Production,14.50 credits AND CHEM*1040 AND ENVS*2040 OR ENVS*3210 AND PBIO*3110 OR PBIO*3120,[]
+PBIO*4150,Molecular and Cellular Aspects of Plant Development,(AGR*2470 OR BOT*2100) AND (MBG*2040 OR MBG*2400),[]
+PBIO*4290,Cannabis Production,14.50 credits AND CHEM*1040 AND (ENVS*2040 OR ENVS*3210) AND (PBIO*3110 OR PBIO*3120),[]
 PBIO*4530,Plants and Environmental Pollution,(BIOL*2060 OR BOT*2100 OR ENVM*1200 OR ENVS*2040  OR ENVS*2330 OR PBIO*3110 OR CHEM*1040),[]
-PBIO*4750,Genetic Engineering of Plants,AGR*2470 OR BOT*2100 AND MBG*2040 OR MBG*2400,[]
+PBIO*4750,Genetic Engineering of Plants,(AGR*2470 OR BOT*2100) AND (MBG*2040 OR MBG*2400),[]
 POLS*2200,International Relations,(),[]
 POLS*2230,Public Policy,2.00 credits,[]
 POLS*2250,Public Administration and Governance,2.00 credits,[]
@@ -1526,7 +1526,7 @@ POLS*1500,World Politics,(),[]
 POLS*2000,Political Theory,(),PHIL*2280
 POLS*2100,Comparative Politics,2.00 credits,[]
 POLS*2150,Gender and Politics,(),[]
-POLS*2650,Political Inquiry and Research Methods,4.00 credits AND JLS*1000 OR POLS*1150,POLS*3180
+POLS*2650,Political Inquiry and Research Methods,4.00 credits AND (JLS*1000 OR POLS*1150),POLS*3180
 POLS*3000,Politics of Africa,IDEV*2000 OR POLS*2080 OR POLS*2100,[]
 POLS*3020,International Law and Organizations,IDEV*2400 OR POLS*2200 OR POLS*2350,[]
 POLS*3050,Canadian Campaigns and Elections,POLS*1400 OR POLS*2300,[]
@@ -1580,11 +1580,11 @@ POLS*4300,"Human Rights, Ethics, and Development",(IDEV*2000 OR IDEV*2400 OR POL
 POLS*4310,"Advanced Lecture in Women, Justice and Public Policy",(2 of POLS*2150 OR POLS*2230 OR POLS*2250 OR POLS*2300 OR POLS*2350 OR and 1.00 credits in the Public Policy OR Governance and Law OR Canadian Politics streams. Streams are defined under the Political Science Major.),POLS*4100
 POLS*4320,"Advanced Lecture on Human Rights, Ethics and Development",(IDEV*2000 OR IDEV*2400 OR POLS*2080 OR POLS*2100 OR POLS*2200 OR 1.00 credits at the 3000 level in Political Science.),POLS*4300
 POLS*4340,"Nationalism, State-building and Identity",(POLS*2000 OR POLS*2100 OR POLS*2200 OR 0.50 credits at the 3000 level in the Comparative Politics stream OR 0.50 credits at the 3000 level in the International Relations and Global Studies stream. Streams are defined under the Political Science Major.),[]
-POLS*4710,Topics in Comparative Politics,(IDEV*2000 OR POLS*2080 OR POLS*2100 and 1.00 credits at the 3000 level in the Comparative Politics stream. Streams are defined under the Political Science Major.),POLS*4760
+POLS*4710,Topics in Comparative Politics,((IDEV*2000 OR POLS*2080 OR POLS*2100) and 1.00 credits at the 3000 level in the Comparative Politics stream. Streams are defined under the Political Science Major.),POLS*4760
 POLS*4720,Topics in International Relations,POLS*2200 and 1.00 credits at the 3000 level in the International Relations and Global Studies stream. Streams are defined under the Political Science Major.,
 POLS*4730,International Relations of the Middle East,POLS*2200 and 1.00 credit at the 3000 level in the Comparative Politics and/or International Relations and Global Studies streams. Streams are defined under the Political Science Major.,POLS*4910
 POLS*4740,Advanced Topics in Rights and Liberties,2 of POLS*3020 OR POLS*3130 OR POLS*3140 OR POLS*3210 OR POLS*3300 OR POLS*3350.,POLS*4780
-POLS*4760,Advanced Lecture in Comparative Politics,(IDEV*2000 OR POLS*2080 OR POLS*2100 OR 1.00 credits in the Comparative Politics stream. Streams are defined under the Political Science Major.),POLS*4710
+POLS*4760,Advanced Lecture in Comparative Politics,((IDEV*2000 OR POLS*2080 OR POLS*2100) OR 1.00 credits in the Comparative Politics stream. Streams are defined under the Political Science Major.),POLS*4710
 POLS*4770,Advanced Lecture in International Relations,POLS*2200 AND (2 of POLS*3160 OR POLS*3320 OR POLS*3490 OR POLS*3790),"POLS*4720,POLS*4770"
 POLS*4780,Advanced Lecture in Rights and Liberties,2 of POLS*3020 OR POLS*3130 OR POLS*3140 OR POLS*3210 OR POLS*3300 OR POLS*3350,"POLS*4740,POLS*4780"
 POLS*4900,Special Topics Seminar in Political Science,14.00 credits AND including 1.00 credits in Political Science at the 3000 level.,[]
@@ -1592,7 +1592,7 @@ POLS*4910,Selected Topics in Political Science II,1.50 credits at the 3000 level
 POLS*4930,Selected Topics in Political Science,1.50 credits at the 3000 level in Political Science OR equivalent,
 POLS*4970,Honours Political Science Research I,70% average in all POLS courses. Recommendation: Students with less than a 75% average are advised not to take this course.,
 POLS*4980,Honours Political Science Research II,POLS*4970,
-POPM*3240,Epidemiology,BIOL*1080 OR BIOL*1090 AND STAT*2040,
+POPM*3240,Epidemiology,(BIOL*1080 OR BIOL*1090) AND STAT*2040,
 POPM*4040,Epidemiology of Food-borne Diseases,FOOD*3230 OR POPM*3240,FOOD*4210
 POPM*4230,Animal Health,ANSC*2340 OR ANSC*3080,
 PSYC*1010,Making Sense of Data in Psychological Research,PSYC*1000,"STAT*2040,STAT*2060,STAT*2080,STAT*2120"
@@ -1606,7 +1606,7 @@ PSYC*2020,Clinical Psychology and Mental Health,PSYC*1000,
 PSYC*2070,"Teams, Leadership, and Professional Behaviour",PSYC*1500 OR 4.00 credits in Psychology,PSYC*3080
 PSYC*2310,Social Psychology,PSYC*1000 OR PSYC*1100 OR PSYC*1200,[]
 PSYC*2330,Principles of Learning,PSYC*1000,
-PSYC*2360,Psychological Methods and Statistics,PSYC*1000 AND PSYC*1010 OR STAT*2040,[]
+PSYC*2360,Psychological Methods and Statistics,PSYC*1000 AND (PSYC*1010 OR STAT*2040),[]
 PSYC*2390,Sensation and Perception,PSYC*1000 OR PSYC*1100 OR PSYC*1200,
 PSYC*2410,Behavioural Neuroscience I,PSYC*1000,NEUR*2000
 PSYC*2450,Developmental Psychology,PSYC*1000 OR PSYC*1100 OR PSYC*1200,FRHD*2270
@@ -1625,7 +1625,7 @@ PSYC*3300,Psychology of Gender,2.50 credits in Psychology including PSYC*2310,[]
 PSYC*3330,Memory and Attention,2.50 credits in Psychology including PSYC*2650,[]
 PSYC*3350,Cross-Cultural Psychology,2.50 credits in Psychology including PSYC*2310,[]
 PSYC*3410,Behavioural Neuroscience II,NEUR*2000 OR PSYC*2410,
-PSYC*3450,Social and Personality Development,2.00 credits in Psychology including FRHD*2270 OR PSYC*2450,
+PSYC*3450,Social and Personality Development,2.00 credits in Psychology including (FRHD*2270 OR PSYC*2450),
 PSYC*3470,Putting Psychology to Work,PSYC*2070 AND PSYC*2360 AND (2 of PSYC*2020 OR PSYC*2310 OR PSYC*2450 OR PSYC*2740 OR (PSYC*2330 OR PSYC*2390 OR PSYC*2410 OR PSYC*2650)),PSYC*3070
 PSYC*3480,Psychology of Sport,PSYC*2310 OR PSYC*2740,[]
 PSYC*3490,Social and Organizational Psychology,3.00 credits in Psychology including PSYC*2070 AND PSYC*2310,PSYC*3080
@@ -1633,27 +1633,27 @@ PSYC*3570,The Psychology of Death and Dying,FRHD*2270 OR PSYC*2310 OR PSYC*2740 
 PSYC*3800,Psychology and Education,FRHD*2270 OR PSYC*1000 OR PSYC*1100 OR PSYC*1200,[]
 PSYC*3850,Intellectual Disabilities,FRHD*2270 OR PSYC*2450,[]
 PSYC*3910,Psychology Externship,PSYC*2070 AND PSYC*2360 AND (2 of PSYC*2020 OR PSYC*2310 OR PSYC*2450 OR PSYC*2740 OR (PSYC*2330 OR PSYC*2390 OR PSYC*2410 OR PSYC*2650)),
-PSYC*4240,Advanced Independent Research Project,14.00 credits AND [PSYC*2040 OR PSYC*3290 ) AND 1.00 credits in Psychology at the 3000 level],"PSYC*4500,PSYC*4510"
+PSYC*4240,Advanced Independent Research Project,14.00 credits AND [(PSYC*2040 OR PSYC*3290) ) AND 1.00 credits in Psychology at the 3000 level],"PSYC*4500,PSYC*4510"
 PSYC*4290,Psychological Measurement,PSYC*3290,PSYC*3250
 PSYC*4310,Advanced Topics in Social and Applied Social Psychology,14.00 credits AND PSYC*2310 AND PSYC*3290,
 PSYC*4330,Industrial/Organizational Psychology,14.00 credits AND PSYC*3290 AND (PSYC*2070 OR PSYC*3070 OR PSYC*3080 OR PSYC*3490),
 PSYC*4460,Advanced Topics in Clinical and Applied Developmental Psychology,14.00 credits AND PSYC*2020 AND PSYC*3290 AND (FRHD*2270 OR PSYC*2450 OR PSYC*2740),
-PSYC*4470,Advanced Topics in Behavioural and Cognitive Neuroscience,PSYC*3270 AND NEUR*2000 OR PSYC*2410,
-PSYC*4540,Practical Applications of Psychology,14.00 credits AND PSYC*3290 AND PSYC*3000 OR 7.50 credits in Psychology,"PSYC*4870,PSYC*4880"
+PSYC*4470,Advanced Topics in Behavioural and Cognitive Neuroscience,PSYC*3270 AND (NEUR*2000 OR PSYC*2410),
+PSYC*4540,Practical Applications of Psychology,14.00 credits AND PSYC*3290 AND (PSYC*3000 OR 7.50 credits in Psychology),"PSYC*4870,PSYC*4880"
 PSYC*4570,Special Topics in Applied Psychology,14.00 credits AND PSYC*3290,
 PSYC*4580,Special Topics in Behavioural Sciences,14.00 credits AND PSYC*3290 AND 1.00 credits in Psychology at the 3000 level,
 PSYC*4750,Seminar in Motivation and Emotion,14.00 credits AND 1.50 credits in Psychology at the 3000 level,
-PSYC*4780,Advanced Quantitative Research Methods and Statistics,14.00 credits AND PSYC*3290 OR STAT*2050,PSYC*4790
-PSYC*4790,Qualitative Methods in Psychology,14.00 credits AND PSYC*3290 OR STAT*2050,PSYC*4780
+PSYC*4780,Advanced Quantitative Research Methods and Statistics,14.00 credits AND (PSYC*3290 OR STAT*2050),PSYC*4790
+PSYC*4790,Qualitative Methods in Psychology,14.00 credits AND (PSYC*3290 OR STAT*2050),PSYC*4780
 PSYC*4870,Honours Thesis I,14.00 credits AND (NEUR*3500 OR PSYC*3000 OR 7.50 credits in Psychology),PSYC*4540
 PSYC*4880,Honours Thesis II,PSYC*4870,PSYC*4540
 REAL*1820,Introduction to Real Estate,(),
 REAL*2820,Real Estate Finance,5.00 credits,
 REAL*2850,Service Learning in Housing,4.00 credits,
-REAL*3810,Real Estate Market Analysis,REAL*1820 AND ECON*2740 OR STAT*2060,
+REAL*3810,Real Estate Market Analysis,REAL*1820 AND (ECON*2740 OR STAT*2060),
 REAL*3870,Topics in Housing,10.00 credits AND REAL*1820,
 REAL*3880,Topics in Real Estate,10.00 credits AND REAL*1820,
-REAL*3890,Property Management,REAL*1820 AND ACCT*2230 OR REAL*2820,
+REAL*3890,Property Management,REAL*1820 AND (ACCT*2230 OR REAL*2820),
 REAL*4820,Real Estate Appraisal,(CIS*1200 OR CIS*1500 OR MCS*2020 OR (1 of ACCT*2230 OR ECON*2560 OR FIN*2000 OR REAL*2820)),
 REAL*4830,Real Estate Development Project,15.00 credits AND REAL*3810 AND REAL*4820,
 REAL*4840,Housing and Real Estate Law,9.00 credits AND REAL*1820 AND REAL*2820,
@@ -1677,34 +1677,34 @@ SOC*2760,Homicide,ANTH*1150 OR FRHD*1010 OR PHIL*1010 OR POLS*1400 OR PSYC*1000 
 SOC*3130,Politics and Society,SOAN*2112 AND SOAN*2120,[]
 SOC*3310,Contemporary Theory,SOAN*2112 AND SOAN*2120,[]
 SOC*3410,Individual and Society,SOAN*2112 AND SOAN*2120,[]
-SOC*3490,Law and Society,SOAN*2112 OR SOC*2700 AND POLS*2650 OR SOAN*2120,
-SOC*3710,Youth Justice,SOAN*2112 OR SOC*2700 AND SOAN*2120,
-SOC*3730,Courts and Society,SOAN*2112 OR SOC*2700 AND SOAN*2120,
-SOC*3740,Corrections and Penology,SOAN*2112 OR SOC*2700 AND SOAN*2120,
-SOC*3750,Police in Society,SOAN*2112 OR SOC*2700 AND SOAN*2120,
+SOC*3490,Law and Society,(SOAN*2112 OR SOC*2700) AND (POLS*2650 OR SOAN*2120),
+SOC*3710,Youth Justice,(SOAN*2112 OR SOC*2700) AND SOAN*2120,
+SOC*3730,Courts and Society,(SOAN*2112 OR SOC*2700) AND SOAN*2120,
+SOC*3740,Corrections and Penology,(SOAN*2112 OR SOC*2700) AND SOAN*2120,
+SOC*3750,Police in Society,(SOAN*2112 OR SOC*2700) AND SOAN*2120,
 SOC*3840,Seminar in Sociology,10.00 credits AND (SOAN*2112 OR SOC*2080 OR SOC*2700 OR SOAN*2120),[]
 SOC*3850,Seminar in Sociology,10.00 credits AND (SOAN*2112 OR SOC*2080 OR SOC*2700 OR SOAN*2120),[]
 SOC*3950,Special Projects in Sociology,10.00 credits,
-SOC*4010,Violence and Society,14.00 credits AND SOC*2700 OR SOC*3310 AND SOAN*3120 OR POLS*3650 ,
-SOC*4030,Advanced Topics in Criminology,14.00 credits AND (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750 OR (ANTH*3690 OR SOC*2700 OR SOC*3310 OR SOAN*3120 OR POLS*3650)),
-SOC*4130,Advanced Seminar in Violence and Society,14.00 credits AND POLS*3650 OR SOAN*3120 AND SOC*2700 OR SOC*3310,
-SOC*4140,Victimology,14.00 credits AND POLS*3650 OR SOAN*3120 AND SOC*2700 OR SOC*3310,
-SOC*4150,Youth and Violence,14.00 credits AND POLS*3650 OR SOAN*3120 AND SOC*2700 OR SOC*3310,
-SOC*4170,Violence Against Women and Gendered Violence,14.00 credits AND POLS*3650 OR SOAN*3120 AND SOC*2700 OR SOC*3310,
-SOC*4200,Advanced Topics in Criminal Justice,14.00 credits AND (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750 OR (ANTH*3690 OR SOC*2700 OR SOC*3310 OR SOAN*3120 OR POLS*3650)),
+SOC*4010,Violence and Society,14.00 credits AND (SOC*2700 OR SOC*3310) AND (SOAN*3120 OR POLS*3650 ),
+SOC*4030,Advanced Topics in Criminology,14.00 credits AND (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750 OR (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (SOAN*3120 OR POLS*3650))),
+SOC*4130,Advanced Seminar in Violence and Society,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (SOC*2700 OR SOC*3310),
+SOC*4140,Victimology,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (SOC*2700 OR SOC*3310),
+SOC*4150,Youth and Violence,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (SOC*2700 OR SOC*3310),
+SOC*4170,Violence Against Women and Gendered Violence,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (SOC*2700 OR SOC*3310),
+SOC*4200,Advanced Topics in Criminal Justice,14.00 credits AND (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750 OR (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (SOAN*3120 OR POLS*3650))),
 SOC*4300,Theoretical and Methodological Issues,14.00 credits AND SOAN*3070 AND SOAN*3120 AND SOC*3310,[]
-SOC*4320,Advanced Seminar in Criminal Justice,14.00 credits AND POLS*3650 OR SOAN*3120 AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
-SOC*4330,Miscarriages of Justice,14.00 credits AND POLS*3650 OR SOAN*3120 AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
-SOC*4340,Women and the Criminal Justice System,14.00 credits AND POLS*3650 OR SOAN*3120 AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
-SOC*4350,Drugs and Society,14.00 credits AND POLS*3650 OR SOAN*3120 AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
+SOC*4320,Advanced Seminar in Criminal Justice,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
+SOC*4330,Miscarriages of Justice,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
+SOC*4340,Women and the Criminal Justice System,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
+SOC*4350,Drugs and Society,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
 SOC*4410,"Women, Work and Public Policy",12.50 credits AND (ANTH*2160 OR ANTH*2180 OR SOAN*2112 OR SOC*2700 OR SOAN*2120),[]
 SOC*4420,Sociology of Food,12.50 credits AND (IDEV*2100 OR SOAN*2120 OR SOAN*3070 OR (1 of ANTH*2160 OR ANTH*2180 OR IDEV*2300 OR SOAN*2112)),[]
 SOC*4430,Alternative Social Possibilities,12.50 credits AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (1 of POLS*2650 OR POLS*3180 OR SOAN*2120)),[]
-SOC*4460,Advanced Seminar in Criminology,14.00 credits AND POLS*3650 OR SOAN*3120 AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
-SOC*4470,Youth in Conflict with the Law,14.00 credits AND POLS*3650 OR SOAN*3120 AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
-SOC*4480,Moral Regulation,14.00 credits AND POLS*3650 OR SOAN*3120 AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
-SOC*4490,Advanced Theory and Methods in Criminology,14.00 credits AND POLS*3650 OR SOAN*3120 AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
-SOC*4500,Crime and Social Exclusion,14.00 credits AND POLS*3650 OR SOAN*3120 AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
+SOC*4460,Advanced Seminar in Criminology,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
+SOC*4470,Youth in Conflict with the Law,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
+SOC*4480,Moral Regulation,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
+SOC*4490,Advanced Theory and Methods in Criminology,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
+SOC*4500,Crime and Social Exclusion,14.00 credits AND (POLS*3650 OR SOAN*3120) AND (ANTH*3690 OR SOC*2700 OR SOC*3310 OR (2 of SOC*3490 OR SOC*3710 OR SOC*3730 OR SOC*3740 OR SOC*3750)),
 SOC*4740,Seminar in Sociology,12.50 credits AND SOC*3310 AND SOAN*3070 AND SOAN*3120,[]
 SOC*4840,Seminar in Sociology,12.50 credits AND SOC*3310 AND SOAN*3070 AND SOAN*3120,[]
 SOC*4880,Special Projects in Sociology,12.50 credits,
@@ -1716,7 +1716,7 @@ SOAN*2290,Identities and Cultural Diversity,ANTH*1150 OR SOC*1100,[]
 SOAN*2400,Introduction to Gender Systems,ANTH*1150 OR SOC*1100,[]
 SOAN*3040,Globalization of Work and Organizations,ANTH*2160 OR ANTH*2180 OR IDEV*2500 OR SOAN*2112,SOAN*2040
 SOAN*3070,Qualitative and Observational Methods,ONEH*2000 OR SOAN*2120,
-SOAN*3100,Gender Perspectives on Families and Households,(ANTH*2160 OR ANTH*2180 OR SOAN*2112 OR SOAN*2400 OR POLS*2650 OR SOAN*2120),FRHD*3120
+SOAN*3100,Gender Perspectives on Families and Households,(ANTH*2160 OR ANTH*2180 OR SOAN*2112 OR SOAN*2400 OR (POLS*2650 OR SOAN*2120)),FRHD*3120
 SOAN*2111,Classical Theory,ANTH*1150 OR SOC*1100 OR SOC*1500,[]
 SOAN*2112,Classical Theory,SOAN*2111,[]
 SOAN*3120,Quantitative Methods,SOAN*2120,
@@ -1728,8 +1728,8 @@ SOAN*3680,Perspectives on Development,ANTH*2160 OR ANTH*2180 OR IDEV*2010 OR IDE
 SOAN*4210,Indigenous-Settler Relations in Canadian Society,12.50 credits AND (ANTH*2660 OR IDEV*2400 OR IDEV*2500 OR GEOG*2210 OR SOAN*2290 OR (1 of GEOG*2260 OR IDEV*2100 OR IES*2010 OR SOAN*3070)),[]
 SOAN*4220,Gender and Change in Rural Canada,12.50 credits AND (ANTH*2160 OR ANTH*2180 OR IDEV*2300 OR SOC*2080 OR (1 of IDEV*2100 OR SOAN*2120 OR WMST*3000)),[]
 SOAN*4230,Gender and Global Inequality II,12.50 credits AND SOAN*3240 AND (GEOG*3090 OR IDEV*2100 OR POLS*2650 OR POLS*3180 OR SOAN*2120),SOAN*4240
-SOAN*4250,Energy and Society,12.50 credits AND IDEV*2100 OR SOAN*2120 AND (ANTH*2160 OR ANTH*2180 OR IDEV*2300 OR SOAN*2112 OR SOC*2080),[]
-SOAN*4260,"Migration, Inequality and Social Change",12.50 credits AND IDEV*2100 OR SOAN*2120 AND (ANTH*2160 OR ANTH*2180 OR IDEV*2300 OR IDEV*2500 OR SOAN*2112 OR SOC*2080),[]
+SOAN*4250,Energy and Society,12.50 credits AND (IDEV*2100 OR SOAN*2120) AND (ANTH*2160 OR ANTH*2180 OR IDEV*2300 OR SOAN*2112 OR SOC*2080),[]
+SOAN*4260,"Migration, Inequality and Social Change",12.50 credits AND (IDEV*2100 OR SOAN*2120) AND (ANTH*2160 OR ANTH*2180 OR IDEV*2300 OR IDEV*2500 OR SOAN*2112 OR SOC*2080),[]
 SOAN*4320,Transition from School to Work,(),
 SOAN*4500,Community Development,(ANTH*2160 OR ANTH*2180 OR IDEV*2010 OR IDEV*2500 OR ONEH*2000 OR SOC*2080 OR (1 of GEOG*2210 OR SOAN*2120 OR SOAN*3070)),[]
 SPAN*1110,Introductory Spanish II,SPAN*1100,[]
@@ -1746,27 +1746,27 @@ SPAN*3230,Literature and Arts II: Latin America,HISP*2990 OR SPAN*2990,[]
 SPAN*3240,Topics in Hispanic Linguistics,HISP*1110 OR SPAN*1110,[]
 SPAN*3500,Advanced Spanish I,HISP*2010 OR SPAN*2010,[]
 SPAN*3700,Experiential Learning and Language,10.00 credits AND 1.50 credits in Spanish.,
-SPAN*3800,Directed Readings in Hispanic Studies,1.00 credits from the following: HISP*3220 OR SPAN*3220 AND HISP*3230 OR SPAN*3230 AND SPAN*3080,
-SPAN*3810,Directed Readings in Hispanic Studies,1.00 credits from the following: HISP*3220 OR SPAN*3220 AND HISP*3230 OR SPAN*3230 AND SPAN*3080,
-SPAN*4100,Seminar in Hispanic Studies,HISP*4410 OR SPAN*4410 AND HISP*4420 OR SPAN*4420,[]
+SPAN*3800,Directed Readings in Hispanic Studies,1.00 credits from the following: (HISP*3220 OR SPAN*3220) AND (HISP*3230 OR SPAN*3230) AND SPAN*3080,
+SPAN*3810,Directed Readings in Hispanic Studies,1.00 credits from the following: (HISP*3220 OR SPAN*3220) AND (HISP*3230 OR SPAN*3230) AND SPAN*3080,
+SPAN*4100,Seminar in Hispanic Studies,(HISP*4410 OR SPAN*4410) AND (HISP*4420 OR SPAN*4420),[]
 SPAN*4410,Senior Seminar on Latin America,HISP*2990 OR SPAN*2990,[]
 SPAN*4420,Senior Seminar on Spain or Africa,HISP*2990 OR SPAN*2990,[]
 SPAN*4500,Spanish Translation - Theory and Practice,HISP*3500 OR SPAN*3500,[]
 SPAN*4840,Research Paper in Hispanic Studies,SPAN*3210 OR SPAN*3220 OR SPAN*3230,
-SPMT*2020,The Business of Sport and Event Tourism,2.00 credits AND MGMT*1000 OR MGMT*2150,
-SPMT*2220,Communication and Media Strategy in Sport and Events,MCS*1000 AND HTM*2020 OR SPMT*2020,
-SPMT*3020,The Impact of Business on Sport Industry,HTM*2020 OR SPMT*2020 AND ECON*2560 OR FIN*2000,
+SPMT*2020,The Business of Sport and Event Tourism,2.00 credits AND (MGMT*1000 OR MGMT*2150),
+SPMT*2220,Communication and Media Strategy in Sport and Events,MCS*1000 AND (HTM*2020 OR SPMT*2020),
+SPMT*3020,The Impact of Business on Sport Industry,(HTM*2020 OR SPMT*2020) AND (ECON*2560 OR FIN*2000),
 SPMT*1020,Sport Management Today,(),[]
-SPMT*3220,"Sales, Sponsorship and Stakeholder Engagement in Sport",9.00 credits AND HTM*2020 OR SPMT*2020,
-SPMT*4020,Advanced Concepts in Sport and Event Management,14.00 credits AND including HTM*4080 AND HTM*3020 OR SPMT*3020,
+SPMT*3220,"Sales, Sponsorship and Stakeholder Engagement in Sport",9.00 credits AND (HTM*2020 OR SPMT*2020),
+SPMT*4020,Advanced Concepts in Sport and Event Management,14.00 credits AND including HTM*4080 AND (HTM*3020 OR SPMT*3020),
 STAT*2050,Statistics II,STAT*2040 OR STAT*2060 OR STAT*2120 OR STAT*2230,STAT*2090
-STAT*2060,Statistics for Business Decisions,4U mathematics OR equivalent OR 0.50 credit in mathematics,"STAT*2040,STAT*2080,STAT*2120,STAT*2230"
-STAT*2080,Introductory Applied Statistics I,4U mathematics OR equivalent OR 0.50 credit in mathematics,"STAT*2040,STAT*2060,STAT*2120,STAT*2230"
+STAT*2060,Statistics for Business Decisions,(4U mathematics OR equivalent) OR 0.50 credit in mathematics,"STAT*2040,STAT*2080,STAT*2120,STAT*2230"
+STAT*2080,Introductory Applied Statistics I,(4U mathematics OR equivalent) OR 0.50 credit in mathematics,"STAT*2040,STAT*2060,STAT*2120,STAT*2230"
 STAT*2090,Introductory Applied Statistics II,STAT*2080,STAT*2050
 STAT*2040,Statistics I,4U Calculus and Vectors OR Advanced Functions and Calculus OR OAC Calculus OR MATH*1080,"STAT*2060,STAT*2080,STAT*2120,STAT*2230"
 STAT*2120,Probability and Statistics for Engineers,IPS*1510 OR MATH*1090 OR MATH*1210 OR MATH*2080,"STAT*2040,STAT*2060,STAT*2080,STAT*2230"
 STAT*2230,Biostatistics for Integrative Biology,BIOL*1070,"STAT*2040,STAT*2060,STAT*2080,STAT*2120"
-STAT*3100,Introductory Mathematical Statistics I,(IPS*1510 OR MATH*1090 OR MATH*1210 OR MATH*2080 OR STAT*2040 OR STAT*2120),[]
+STAT*3100,Introductory Mathematical Statistics I,(IPS*1510 OR MATH*1090 OR MATH*1210 OR MATH*2080 OR (STAT*2040 OR STAT*2120)),[]
 STAT*3110,Introductory Mathematical Statistics II,STAT*3100,[]
 STAT*3210,Experimental Design,STAT*2050,[]
 STAT*3240,Applied Regression Analysis,MATH*1160 AND STAT*2050 AND (IPS*1510 OR MATH*1090 OR MATH*1210 OR MATH*2080),[]
@@ -1857,9 +1857,9 @@ THST*4650,Honours Essay,THST*3150 OR THST*3160 OR THST*3170 OR THST*4270,
 TOX*2000,Principles of Toxicology,CHEM*1050 AND (IPS*1500 OR MATH*1080 OR MATH*1200  OR (1 of BIOL*1040 OR BIOL*1070 OR BIOL*1080 OR BIOL*1090)),[]
 TOX*3360,Environmental Chemistry and Toxicology,CHEM*1050,[]
 TOX*4000,Medical Toxicology,BIOM*3090,
-TOX*4100,Toxicological Pathology,PATH*3610 OR equivalent,[]
+TOX*4100,Toxicological Pathology,PATH*3610 (or equivalent),[]
 TOX*4200,Topics in Toxicology,TOX*2000 AND CHEM*3430 AND TOX*3300,
-TOX*4590,Biochemical Toxicology,(BIOC*3570 OR CHEM*3430 OR TOX*3300 OR BIOC*3560 OR MBG*2020 OR MBG*2040),[]
+TOX*4590,Biochemical Toxicology,(BIOC*3570 OR CHEM*3430 OR TOX*3300 OR BIOC*3560 OR (MBG*2020 OR MBG*2040)),[]
 TOX*4900,Toxicology Research Project I,CHEM*3430 OR TOX*3300,
 TOX*4910,Toxicology Research Project II,TOX*4900,
 VETM*3070,Veterinary Anatomy,(),[]
@@ -1898,15 +1898,15 @@ ZOO*2090,Vertebrate Structure and Function,4.00 credits AND BIOL*1070,[]
 ZOO*2700,Invertebrate Morphology & Evolution,4.00 credits AND BIOL*1070,[]
 ZOO*3000,Comparative Histology,ZOO*2090,[]
 ZOO*3050,Developmental Biology,MBG*2040 AND BIOL*2400 is strongly recommended.,[]
-ZOO*3600,Comparative Animal Physiology I,BIOC*2580 AND ZOO*2090 AND STAT*2040 OR STAT*2230 is recommended,[]
+ZOO*3600,Comparative Animal Physiology I,BIOC*2580 AND ZOO*2090 AND (STAT*2040 OR STAT*2230 is recommended),[]
 ZOO*3610,Lab Studies in Animal Physiology I,STAT*2040 OR STAT*2230,[]
 ZOO*3620,Comparative Animal Physiology II,ZOO*3600,ZOO*3210
 ZOO*3630,Lab Studies in Animal Physiology II,ZOO*3610,ZOO*3210
 ZOO*3700,Integrative Biology of Invertebrates,ZOO*2700,[]
-ZOO*4070,Animal Behaviour,BIOL*2400 AND STAT*2040 OR STAT*2230,[]
+ZOO*4070,Animal Behaviour,BIOL*2400 AND (STAT*2040 OR STAT*2230),[]
 ZOO*4170,Experimental Comparative Animal Physiology,BIOM*3200 OR HK*2810 OR ZOO*3210 OR ZOO*3600,[]
 ZOO*4300,Marine Biology and Oceanography,BIOL*3450 AND ZOO*2700,[]
-ZOO*4330,Biology of Fishes,15.00 credits AND STAT*2040 OR STAT*2230 AND ZOO*2090,[]
+ZOO*4330,Biology of Fishes,15.00 credits AND (STAT*2040 OR STAT*2230) AND ZOO*2090,[]
 ZOO*4570,Marine Ecological Processes,BIOL*2060 AND BIOL*3450 AND PHYS*1080,[]
 ZOO*4910,Integrative Vertebrate Biology,BIOL*2400 AND ZOO*2090,[]
 ZOO*4920,Lab Studies in Ornithology,14.00 credits AND ZOO*2090,
