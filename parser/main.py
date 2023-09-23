@@ -82,12 +82,12 @@ def parse_courses(input_file_path, output_csv_file):
                 # Use re.sub to transform the input string
                 prerequisites_str = re.sub(patternOne, r'(\1), (\2)', prerequisites_str)
                 prerequisites_str = re.sub(r' credits including ', ' credits, ', prerequisites_str)
+                prerequisites_str = re.sub(patternSix, r'(\1\2\3)', prerequisites_str)
                 prerequisites_str = re.sub(patternTwo, lambda match: f'({match.group(1).replace(", ", " or ")})', prerequisites_str)
                 prerequisites_str = re.sub(patternThree, lambda match: f'{match.group(1)} of ({match.group(2).replace(", ", " or ")})', prerequisites_str)
                 prerequisites_str = re.sub(patternFour, lambda match: f'{match.group(1)} of ({match.group(2).replace(", ", " or ")})', prerequisites_str)
                 prerequisites_str = re.sub(patternFive, lambda match: f'{match.group(1)} of ({match.group(2).replace(", ", " or ")})', prerequisites_str)
                 prerequisites_str = re.sub(patternSeven, remove_nested, prerequisites_str)
-                prerequisites_str = re.sub(patternSix, r'(\1\2\3)', prerequisites_str)
                 # Replace 'or' with ' OR ' and ',' with ' AND '
                 prerequisites_str = prerequisites_str.replace(" or ", " OR ").replace(", ", " AND ")
                 
