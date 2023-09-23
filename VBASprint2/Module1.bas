@@ -7,7 +7,7 @@ Sub GetPrereq()
     Set prereqSheet = ThisWorkbook.Sheets("Input")
     
     Dim coursesTaken() As String
-    Dim completedCredits As Double
+    Dim completedCredits As String
     
     completedCredits = CDbl(prereqSheet.Range("B2").Value)
     Debug.Print "Completed Credits: " & completedCredits
@@ -31,7 +31,7 @@ Sub GetPrereq()
     
     Dim i As Long
     Dim j As Long
-
+    Dim k As Long
 
     ' Figure out the last cell
     lastInputRow = prereqSheet.Cells(prereqSheet.Rows.Count, "A").End(xlUp).Row
@@ -63,7 +63,8 @@ Sub GetPrereq()
         'Debug.Print "Original String: " & courseString
         
         'add it to the loop to check if credit meets course requirements
-        completedCredits = CDbl(prereqSheet.Range("B2").Value)
+        'completedCredits = CDbl(prereqSheet.Range("B2").Value)
+        
         
        
         
@@ -94,18 +95,64 @@ Sub GetPrereq()
                 resultString = Replace(resultString, coursesTaken(j), "False", , 1, vbTextCompare)
                 
          End If
+         
+            ' Initializa required credit
+            
+    Dim requiredCredit As String
+    Dim requiredCredits As Double
+    requiredCredit = ""
+    
+    ' Loop through each character in the prerequisite string
+    
+        For k = 1 To Len(resultString)
+        
+        ' Check if the character is a digit or a period (.)
+            If IsNumeric(Mid(resultString, k, 1)) Or Mid(resultString, k, 1) = "." Then
+            
+            ' Add the character to the required credit
+            requiredCredit = requiredCredit & Mid(resultString, k, 1)
+            
+             Else
+            ' If a course is encountered, exit the loop
+        Exit For
+            End If
+    Next k
 
         Next j
+        
+        ' converted to double as it was stored as string
+        Dim numReq As Double
+        
+        numReq = Val(requiredCredit)
+        
+        'If condition tocheck if credits completed is more so that course is eligible to be taken
+        
+        If completedCredits >= numReq Then
+           
+           resultString = Replace(resultString, requiredCredit, "TRUE")
+           
+        ElseIf completedCredit < numReq Then
+        
+            resultString = Replace(resultString, requiredCredit, "FALSE")
+            
+        End If
+        
+        ' Debug.Print "RequiredCredit: " & requiredCredit
 
         
-        'if no courses completed meet the prerequisites, result string is false as no courses will be eligible to be taken
-        If Not Found Then
-            resultString = "False"
+        'if there is no prerequisite then it returns true as the course ie eligible to be taken
+        
+        If Len(resultString) = 0 Then
+             resultString = "True"
+      
+       'if no courses completed meet the prerequisites, result string is false as no courses will be eligible to be taken
+       
+       ElseIf Not Found And Len(resultString) > 0 Then
+             resultString = "False"
         End If
         
         Debug.Print "Resulting: " & resultString
         
     Next i
 End Sub
-
 
