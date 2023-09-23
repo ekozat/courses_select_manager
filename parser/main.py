@@ -72,8 +72,10 @@ def parse_courses(input_file_path, output_csv_file):
                 patternThree = r'(2+) of (.+)$'
                 patternFour = r'(3+) of (.+)$'
                 patternFive = r'(4+) of (.+)$'
+                
                 #for the prereqs that have an OR but no bracket around the expression
                 patternSix = r'([^()]*)\b(or)\b([^()]*)'
+                
                 #remove nested brackets
                 patternSeven = r'\(([^()]+)\)'
 
@@ -86,7 +88,6 @@ def parse_courses(input_file_path, output_csv_file):
                 prerequisites_str = re.sub(patternFour, lambda match: f'{match.group(1)} of ({match.group(2).replace(", ", " or ")})', prerequisites_str)
                 prerequisites_str = re.sub(patternFive, lambda match: f'{match.group(1)} of ({match.group(2).replace(", ", " or ")})', prerequisites_str)
                 prerequisites_str = re.sub(patternSeven, remove_nested, prerequisites_str)
-                
                 # Replace 'or' with ' OR ' and ',' with ' AND '
                 prerequisites_str = prerequisites_str.replace(" or ", " OR ").replace(", ", " AND ")
                 
