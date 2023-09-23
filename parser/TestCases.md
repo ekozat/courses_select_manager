@@ -65,3 +65,15 @@ The file contains different test cases which test various scenarios and function
 - Description: Test the program's ability to handle duplicate course entries. 
 - Input: CIS*2500 is duplicated and has two rows in the textfile
 - Expected Result: Ensure that if there are duplicate courses in the input data, they are appropriately handled and not duplicated in the output Excel spreadsheet.
+
+**Test Case 12: Course Data with Restrictions**
+
+- Description: Test course data that contains restrictions.
+- Input: Input file with courses containing restrictions.
+- Expected Result: The restrictions should be accurately parsed by the code and stored in the Course objects.
+
+**Test Case 13: Course Data without Restriction**
+
+- Description: Test the code with course data that does not have any restrictions.
+- Input: Input file with courses that do not have restrictions.
+- Expected Result: Courses without restrictions should be properly parsed and stored by the code.
