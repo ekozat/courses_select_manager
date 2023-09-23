@@ -55,13 +55,13 @@ The file contains different test cases which test various scenarios and function
 - Input: A large input file with a substantial amount of course data.
 - Expected Result: The code should output the CSV file without experiencing any performance concerns when handling the big input.
 
-**Test Case 10: Special Characters in Course Names **
+**Test Case 10: Special Characters in Course Names**
 
 - Description: Include courses with special characters in their names or descriptions 
 - Input: "Introduction to C++" 
 - Expected Result: Verify that the program can handle and display such course names correctly in the output spreadsheet
 
-**Test Case 11: Duplicate Course Entries **
+**Test Case 11: Duplicate Course Entries**
 - Description: Test the program's ability to handle duplicate course entries. 
 - Input: CIS*2500 is duplicated and has two rows in the textfile
 - Expected Result: Ensure that if there are duplicate courses in the input data, they are appropriately handled and not duplicated in the output Excel spreadsheet.
