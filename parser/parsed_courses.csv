@@ -15,7 +15,7 @@ ACCT*4340,Accounting Theory,15.00 credits AND ACCT*3340,[]
 ACCT*4350,Income Taxation II,ACCT*3350 OR BUS*3350,[]
 ACCT*4440,Integrated Cases in Accounting,15.00 credits AND ACCT*3280 AND ACCT*3340 AND ACCT*3350,[]
 AGR*1110,Introduction to the Agri-Food Systems,(),"AGR*1100,AGR*1250"
-AGR*1350,"Animal Production Systems and Industry: Dairy, Poultry and Egg",BIOL*1050 OR BIOL*1070 OR BIOL*1080 BIOL*1090,AGR*2350
+AGR*1350,"Animal Production Systems and Industry: Dairy, Poultry and Egg",BIOL*1050 OR BIOL*1070 OR BIOL*1080 OR BIOL*1090,AGR*2350
 AGR*2050,Agroecology,(AGR*1110 OR AGR*2150) AND (BIOL*1050 OR BIOL*1070),CROP*2110
 AGR*2150,Plant Agriculture for International Development,4.00 credits,AGR*2470
 AGR*2320,Soils in Agroecosystems,2.50 credits,"ENVS*2060,SOIL*2010"
