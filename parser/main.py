@@ -96,9 +96,9 @@ def parse_courses(input_file_path, output_csv_file):
             
             if restrictions:
                 restriction_data = re.findall(r"([A-Z]{3,4}\*\d{4})+", restrictions[0][0].strip())
-                restriction_data = ','.join(restriction_data) if restriction_data else ""
+                restriction_data = '{' + ','.join(restriction_data) + '}'
             else:
-                 restriction_data = []
+                 restriction_data = {}
             
             
             courses.append(Course(course_code, course_name, prerequisites_str, restriction_data))
