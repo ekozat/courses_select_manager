@@ -1,6 +1,5 @@
 import re
 import csv
-import os
 
 class Course:
     def __init__(self, code, name, prerequisites, restrictions):
@@ -37,58 +36,35 @@ def parse_courses(input_file_path, output_csv_file):
             blob = blob.strip()
             # DOTALL flag will allow us to span multiple lines
             matches = re.search(course_pattern, blob, re.DOTALL)
-            if matches:
-                course_code = matches.group(1)
-                course_name = matches.group(2)
-                # Since some course names span two lines and contain other useless info, we split on double space so we can take the first element in that array
-                course_name = course_name.split("  ")[0].strip()
-                prerequisites = re.findall(prerequisite_pattern, blob, re.DOTALL)
-                restrictions = re.findall(restriction_pattern, blob, re.DOTALL)
-                # Since some courses do not have prerequisites, handle that case separately
-                # if course_code and course_name:
-                #     if prerequisites and restrictions:
-                #     elif prerequisites and not restrictions:
-                #         courses.append(Course(course_code, course_name, prerequisites_str""))
-                if course_code and course_name and not prerequisites and not restrictions:
-                  courses.append(Course(course_code, course_name, "", ""))
-                elif course_code and course_name and prerequisites and not restrictions:
-                    prerequisites_str = prerequisites[0][0].strip()
-                        # Replace 'or' with '|' and 'and' with '&' to match requirement
-                    prerequisites_str = prerequisites_str.replace("or", "|").replace("and", "&")
-                    prerequisites_str = re.sub(r'\((.*?)\)', lambda x: x.group(1).replace(", ", "|"), prerequisites_str)
-                    # Handle the special case for multiple options within parentheses
-                    prerequisites_str = re.sub(r'(\([^\)]+\))', lambda x: x.group(1).replace(" | ", "|"), prerequisites_str)
-                    prerequisites_str = re.sub(r'([\d.]+) credits including ([\w*]+)', r'\1 credits, \2', prerequisites_str)
-                    prerequisites_str = re.sub(r'Completion of ([\d.]+) credits,', r'\1 credits,', prerequisites_str)
-                    courses.append(
-                      Course(course_code, course_name, prerequisites_str,
-                             ""))
-                elif course_code and course_name and prerequisites and restrictions:
-                    prerequisites_str = prerequisites[0][0].strip()
-                    # Replace 'or' with '|' and 'and' with '&' to match requirement
-                    prerequisites_str = prerequisites_str.replace("or", "|").replace("and", "&")
-                    prerequisites_str = re.sub(r'\((.*?)\)', lambda x: x.group(1).replace(", ", "|"), prerequisites_str)
-                    # Handle the special case for multiple options within parentheses
-                    prerequisites_str = re.sub(r'(\([^\)]+\))', lambda x: x.group(1).replace(" | ", "|"), prerequisites_str)
-                    prerequisites_str = re.sub(r'([\d.]+) credits including ([\w*]+)', r'\1 credits, \2', prerequisites_str)
-                    prerequisites_str = re.sub(r'Completion of ([\d.]+) credits,', r'\1 credits,', prerequisites_str)
-                    restriction_data = restrictions[0][0].strip()
-                    restriction_data = re.findall(r"([A-Z]{3,4}\*\d{4})+", restriction_data)
-                    if restriction_data:
-                        restriction_data = '{' + ','.join(restriction_data) +'}'
-                    else:
-                      restriction_data = ""
-                    courses.append(Course(course_code, course_name, prerequisites_str, restriction_data))
-                elif course_code and course_name and not prerequisites and restrictions:
-                    restriction_data = restrictions[0][0].strip()
-                    restriction_data = re.findall(r"([A-Z]{3,4}\*\d{4})+", restriction_data)
-                    if restriction_data:
-                        restriction_data = '{' + ','.join(restriction_data) +'}' 
-                    else:
-                      restriction_data = ""
-                  
-                    courses.append(
-                      Course(course_code, course_name, "", restriction_data))
+            
+            if not matches:
+                continue
+            
+            course_code = matches.group(1)
+            course_name = matches.group(2).split("  ")[0].strip()
+            
+            prerequisites = re.findall(prerequisite_pattern, blob, re.DOTALL)
+            restrictions = re.findall(restriction_pattern, blob, re.DOTALL)
+            
+            prerequisites_str = ""
+            restriction_data = ""
+            
+            if prerequisites:
+                prerequisites_str = prerequisites[0][0].strip()
+                # Replace 'or' with '|' and 'and' with '&' to match requirement
+                prerequisites_str = prerequisites_str.replace("or", "|").replace("and", "&")
+                prerequisites_str = re.sub(r'\((.*?)\)', lambda x: x.group(1).replace(", ", "|"), prerequisites_str)
+                # Handle the special case for multiple options within parentheses
+                prerequisites_str = re.sub(r'(\([^\)]+\))', lambda x: x.group(1).replace(" | ", "|"), prerequisites_str)
+                prerequisites_str = re.sub(r'([\d.]+) credits including ([\w*]+)', r'\1 credits, \2', prerequisites_str)
+                prerequisites_str = re.sub(r'Completion of ([\d.]+) credits,', r'\1 credits,', prerequisites_str)
+            
+            if restrictions:
+                restriction_data = re.findall(r"([A-Z]{3,4}\*\d{4})+", restrictions[0][0].strip())
+                restriction_data = '{' + ','.join(restriction_data) + '}' if restriction_data else ""
+            
+            courses.append(Course(course_code, course_name, prerequisites_str, restriction_data))
+
         # If we added duplicated courses, make sure to remove them before exporting to csv
         seen_codes = set()
         non_dupe_courses = []
@@ -110,7 +86,7 @@ def parse_courses(input_file_path, output_csv_file):
 
             # Write the data rows
             writer.writerows(data)
-        #error handling
+        # error handling
         return True, "Successfully parsed and saved to CSV."
     except FileNotFoundError:
         return False, "Input file not found."
