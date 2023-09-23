@@ -2,146 +2,110 @@ Sub GetPrereq()
     Dim courseSheet As Worksheet
     Dim prereqSheet As Worksheet
     
-    'Change prereqSheet to UI input
+    ' Change prereqSheet to UI input
     Set courseSheet = ThisWorkbook.Sheets("parsed_courses")
     Set prereqSheet = ThisWorkbook.Sheets("Input")
     
-    
     Dim coursesTaken() As String
-    Dim prereqs() As String
+    Dim completedCredits As Double
     
-    Dim regex As Object
-    Set regex = CreateObject("VBScript.RegExp")
-    regex.Pattern = "([A-Z]{3,4}\*\d{4})"
-    regex.Global = True
+    completedCredits = CDbl(prereqSheet.Range("B2").Value)
+    Debug.Print "Completed Credits: " & completedCredits
+    
     
     ' Initialize a collection to store available courses
     Dim availableCourses As Collection
     Set availableCourses = New Collection
     
     ' Initialize destination row
+    Dim DestRow As Long
     DestRow = 1
-    
-    'Read all the courses taken - COMPLETE
-    'Go through each line and try to calculate the condition
-    'if the course is not present - it will be a false
-    'if result is false = do not add course to list
-    'if result is true = add course and display
-    
+
     Dim lastInputRow As Long
     Dim lastPrereqRow As Long
     
-    'Accounts for header rows
-    Dim startRow As Integer
+    ' Accounts for header rows
+    Dim startRow As Long
     startRow = 2
     
-    'reset to 0 every loop
+    
     Dim i As Long
     Dim j As Long
-    Dim k As Long
 
-    
-    'figure out last cell
+
+    ' Figure out the last cell
     lastInputRow = prereqSheet.Cells(prereqSheet.Rows.Count, "A").End(xlUp).Row
-    Debug.Print "The last row is: " & lastInputRow
+    'Debug.Print "The last row is: " & lastInputRow
     
     ' Resize the array
-    ReDim coursesTaken(0 To lastInputRow)
+    ReDim coursesTaken(0 To lastInputRow - startRow)
 
     For i = startRow To lastInputRow
-        ' change to 2 for column headers
-        coursesTaken(i - 2) = prereqSheet.Cells(i, 1).Value
-        
+        ' Change to 2 for column headers
+        coursesTaken(i - startRow) = Trim(prereqSheet.Cells(i, 1).Value)
+        'Debug.Print "Courses Taken: " & coursesTaken(i - startRow)
     Next i
     
-    For i = 0 To lastInputRow
-        'Print courses taken
-        Debug.Print "" & coursesTaken(i)
-    Next i
-    
-    ' STEP 2 - read through each logic expression
-    
-    'figure out last cell
+    ' Figure out the last cell
     lastPrereqRow = courseSheet.Cells(courseSheet.Rows.Count, "A").End(xlUp).Row
-    ' Debug.Print "The last row is: " & lastRow
+    'Debug.Print "The last row is: " & lastPrereqRow
     
-    Dim course As Object
-    Dim courseBool() As String
-    Dim found As Boolean
-    found = False
-    
-    Dim resultString As String
-    
+    ' Reset to 0
     i = 0
-    j = 0
-    k = 0
-    ' PURPOSE: loops through ALL parsed courses
+  
+
+
+    ' Loop through ALL parsed courses
     For i = startRow To lastPrereqRow
-        ' extract all courses from prerequisites
-        Set course = regex.Execute(courseSheet.Cells(i, 3).Value)
+        'Get the prerequisite string
+        Dim courseString As String
+        courseString = courseSheet.Cells(i, 3).Value
+        'Debug.Print "Original String: " & courseString
         
-        ReDim courseBool(0 To course.Count)
+        'add it to the loop to check if credit meets course requirements
+        completedCredits = CDbl(prereqSheet.Range("B2").Value)
         
-        ' Debug.Print "course:" & course.Count
+       
         
-        resultString = courseSheet.Cells(i, 3).Value
+        Dim resultString As String
+        resultString = courseString
         
-        j = 0
-        found = False
-        ' PURPOSE: loop through all courses IN prereq string (each row)
-        ' compare all matches to coursesTaken and see if it matches
-        For j = 0 To course.Count - 1
-            ' define course to replace
-            subStr = course(j).Value
-            ' Debug.Print "course" & subStr
-            
-            
-            ' PURPOSE: loop through input sheet (taken courses)
-            k = 0
-            For k = 0 To lastInputRow - 1
-                If course(j).Value = coursesTaken(k) Then
-                    'Debug.Print "courses Taken:" & coursesTaken(k)
-                    resultString = Replace(resultString, subStr, "True")
-                    
-                    'Debug.Print "Original String: " & courseSheet.Cells(i, 3).Value
-                    'Debug.Print "Result String: " & resultString
-                    
-                    found = True
-                    Exit For
-                    'Debug.Print "" & courseBool(j) - test
-                End If
-            Next k
-            
-            ' If the pattern was not found, set resultString to "False"
-            If Not found Then
-                resultString = Replace(resultString, subStr, "False")
-                'Debug.Print "Original String: " & courseSheet.Cells(i, 3).Value
-                'Debug.Print "Result String: " & resultngStri
-            End If
-        
-        Next j
-        
-        'Debug.Print "Original String: " & courseSheet.Cells(i, 3).Value
-        'Debug.Print "Result String: " & resultString
-        
-        ' STEP 3 - Create logic expression and calculate result
-        'courseSheet.Cells(i, 3).Value
+        'replace , and | with logic expression AND, OR
         
         resultString = Replace(resultString, ",", " AND")
-        resultString = Replace(resultString, "|", "OR ")
-        Debug.Print "Result String: " & resultString
-            
+        resultString = Replace(resultString, "|", " OR ")
         
-        ' test print statement for successful regex parsing
-        'For j = 0 To course.Count - 1
-        '    Debug.Print "Match " & j + 1 & ": " & course(j).Value
-        'Next j
+        Dim Found As Boolean
+        Found = False
         
+        
+          j = 0
 
+        ' Loop through input courses and replace them with "True"
+        For j = LBound(coursesTaken) To UBound(coursesTaken)
+        
+            ' Use a case-insensitive comparison
+           If InStr(1, resultString, coursesTaken(j), vbTextCompare) > 0 Then
+                resultString = Replace(resultString, coursesTaken(j), "True", , 1, vbTextCompare)
+                Found = True
+                
+            'need to check this else statement as False is notbeing replaced in the string
+           Else
+                resultString = Replace(resultString, coursesTaken(j), "False", , 1, vbTextCompare)
+                
+         End If
+
+        Next j
+
+        
+        'if no courses completed meet the prerequisites, result string is false as no courses will be eligible to be taken
+        If Not Found Then
+            resultString = "False"
+        End If
+        
+        Debug.Print "Resulting: " & resultString
+        
     Next i
-    
-    ' i=0 for next for loop outside of here
-    
 End Sub
 
 
