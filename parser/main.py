@@ -31,6 +31,7 @@ def parse_courses(input_file_path, output_csv_file):
         course_pattern = r"([A-Z]{2,4}\*\d{4})\s+(.*?)\s+\[[\d.]+\]"
         prerequisite_pattern = r"Prerequisite\(s\):(.*?)(Restriction\(s\)|Location\(s\)|Co-requisite\(s\)|Equate\(s\)|Offering\(s\)|Department\(s\))"
         restriction_pattern = r"Restriction\(s\):(.*?)(Location\(s\)|Department\(s\))"
+        
         # Loop through each course blob and extract the first course code
         for blob in course_blobs:
             blob = blob.strip()
@@ -41,27 +42,35 @@ def parse_courses(input_file_path, output_csv_file):
                 continue
             
             course_code = matches.group(1)
-            course_name = matches.group(2).split("  ")[0].strip()
-            
+            course_name = matches.group(2)
+            # Since some course names span two lines and contain other useless info, we split on double space so we can take the first element in that array
+            course_name = course_name.split("  ")[0].strip()
             prerequisites = re.findall(prerequisite_pattern, blob, re.DOTALL)
             restrictions = re.findall(restriction_pattern, blob, re.DOTALL)
             
             prerequisites_str = ""
             restriction_data = ""
+            null_prereqs = ""
             
             if prerequisites:
                 prerequisites_str = prerequisites[0][0].strip()
-                # Replace 'or' with '|' and 'and' with '&' to match requirement
-                prerequisites_str = prerequisites_str.replace("or", "|").replace("and", "&")
-                prerequisites_str = re.sub(r'\((.*?)\)', lambda x: x.group(1).replace(", ", "|"), prerequisites_str)
-                # Handle the special case for multiple options within parentheses
-                prerequisites_str = re.sub(r'(\([^\)]+\))', lambda x: x.group(1).replace(" | ", "|"), prerequisites_str)
-                prerequisites_str = re.sub(r'([\d.]+) credits including ([\w*]+)', r'\1 credits, \2', prerequisites_str)
-                prerequisites_str = re.sub(r'Completion of ([\d.]+) credits,', r'\1 credits,', prerequisites_str)
+                #Replace 'or' with '|' and 'and' with '&' to match requirement
+                #prerequisites_str = prerequisites_str.replace("or", "OR").replace(",", "AND")
+                
+                patternOne = r'Completion of (\d+\.\d+ credits) including \((.*?)\)'
+                prerequisites_str = re.sub(patternOne, r'(\1), (\2)', prerequisites_str)
+                
+                prerequisites_str = re.sub(r' credits including ', ' credits, ', prerequisites_str)
+                
+            else:
+                prerequisites_str = ()
             
             if restrictions:
                 restriction_data = re.findall(r"([A-Z]{3,4}\*\d{4})+", restrictions[0][0].strip())
-                restriction_data = '{' + ','.join(restriction_data) + '}' if restriction_data else ""
+                restriction_data = ','.join(restriction_data) if restriction_data else ""
+            else:
+                 restriction_data = []
+            
             
             courses.append(Course(course_code, course_name, prerequisites_str, restriction_data))
 
