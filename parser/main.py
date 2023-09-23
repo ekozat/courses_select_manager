@@ -1,15 +1,15 @@
 import re
 import csv
-import os
 
 class Course:
-    def __init__(self, code, name, prerequisites):
+    def __init__(self, code, name, prerequisites, restrictions):
         self.code = code
         self.name = name
         self.prerequisites = prerequisites
+        self.restrictions = restrictions
 
     def __str__(self):
-        return f"Course Code: {self.code}\nCourse Name: {self.name}\nPrerequisites: {self.prerequisites}"
+        return f"Course Code: {self.code}\nCourse Name: {self.name}\nPrerequisites: {self.prerequisites}\nRestrictions: {self.restrictions}"
 
 def parse_courses(input_file_path, output_csv_file):
     try:
@@ -28,37 +28,44 @@ def parse_courses(input_file_path, output_csv_file):
         course_blobs = re.split(r"Location\(s\):", start)
 
         # Define a regular expression pattern to match course codes and course names combined and prerequisites separately
-        course_pattern = r"([A-Z]{3,4}\*\d{4})\s+(.*?)\s+\[[\d.]+\]"
+        course_pattern = r"([A-Z]{2,4}\*\d{4})\s+(.*?)\s+\[[\d.]+\]"
         prerequisite_pattern = r"Prerequisite\(s\):(.*?)(Restriction\(s\)|Location\(s\)|Co-requisite\(s\)|Equate\(s\)|Offering\(s\)|Department\(s\))"
-
+        restriction_pattern = r"Restriction\(s\):(.*?)(Location\(s\)|Department\(s\))"
         # Loop through each course blob and extract the first course code
         for blob in course_blobs:
             blob = blob.strip()
             # DOTALL flag will allow us to span multiple lines
             matches = re.search(course_pattern, blob, re.DOTALL)
-            if matches:
-                course_code = matches.group(1)
-                course_name = matches.group(2)
-                # Since some course names span two lines and contain other useless info, we split on double space so we can take the first element in that array
-                course_name = course_name.split("  ")[0].strip()
-                prerequisites = re.findall(prerequisite_pattern, blob, re.DOTALL)
-                # Since some courses do not have prerequisites, handle that case separately
-                if course_code and course_name:
-                    if prerequisites:
-                        prerequisites_str = prerequisites[0][0].strip()
-                        # Replace 'or' with '|' and 'and' with '&' to match requirement
-                        prerequisites_str = prerequisites_str.replace("or", "|").replace("and", "&")
-                        prerequisites_str = re.sub(r'\((.*?)\)', lambda x: x.group(1).replace(", ", "|"), prerequisites_str)
-                        # Handle the special case for multiple options within parentheses
-                        prerequisites_str = re.sub(r'(\([^\)]+\))', lambda x: x.group(1).replace(" | ", "|"), prerequisites_str)
-                        prerequisites_str = re.sub(r'([\d.]+) credits including ([\w*]+)', r'\1 credits, \2', prerequisites_str)
-                        prerequisites_str = re.sub(r'Completion of ([\d.]+) credits,', r'\1 credits,', prerequisites_str)
+            
+            if not matches:
+                continue
+            
+            course_code = matches.group(1)
+            course_name = matches.group(2).split("  ")[0].strip()
+            
+            prerequisites = re.findall(prerequisite_pattern, blob, re.DOTALL)
+            restrictions = re.findall(restriction_pattern, blob, re.DOTALL)
+            
+            prerequisites_str = ""
+            restriction_data = ""
+            
+            if prerequisites:
+                prerequisites_str = prerequisites[0][0].strip()
+                # Replace 'or' with '|' and 'and' with '&' to match requirement
+                prerequisites_str = prerequisites_str.replace("or", "|").replace("and", "&")
+                prerequisites_str = re.sub(r'\((.*?)\)', lambda x: x.group(1).replace(", ", "|"), prerequisites_str)
+                # Handle the special case for multiple options within parentheses
+                prerequisites_str = re.sub(r'(\([^\)]+\))', lambda x: x.group(1).replace(" | ", "|"), prerequisites_str)
+                prerequisites_str = re.sub(r'([\d.]+) credits including ([\w*]+)', r'\1 credits, \2', prerequisites_str)
+                prerequisites_str = re.sub(r'Completion of ([\d.]+) credits,', r'\1 credits,', prerequisites_str)
+            
+            if restrictions:
+                restriction_data = re.findall(r"([A-Z]{3,4}\*\d{4})+", restrictions[0][0].strip())
+                restriction_data = '{' + ','.join(restriction_data) + '}' if restriction_data else ""
+            
+            courses.append(Course(course_code, course_name, prerequisites_str, restriction_data))
 
-                        courses.append(Course(course_code, course_name, prerequisites_str))
-                    else:
-                        courses.append(Course(course_code, course_name, ""))
-                        
-        # If we added dupelicated courses, make sure to remove them before exporting to csv
+        # If we added duplicated courses, make sure to remove them before exporting to csv
         seen_codes = set()
         non_dupe_courses = []
         for course in courses:
@@ -67,11 +74,11 @@ def parse_courses(input_file_path, output_csv_file):
                 seen_codes.add(course.code)
 
         # Create a list of dictionaries for the data
-        data = [{"course code": course.code, "course name": course.name, "prerequisites": course.prerequisites} for course in non_dupe_courses]
+        data = [{"course code": course.code, "course name": course.name, "prerequisites": course.prerequisites, "restrictions": course.restrictions} for course in non_dupe_courses]
 
         # Write the data to a CSV file
         with open(output_csv_file, mode='w', newline='', encoding='utf-8') as file:
-            fieldnames = ["course code", "course name", "prerequisites"]
+            fieldnames = ["course code", "course name", "prerequisites", "restrictions"]
             writer = csv.DictWriter(file, fieldnames=fieldnames)
 
             # Write the header row
@@ -79,7 +86,7 @@ def parse_courses(input_file_path, output_csv_file):
 
             # Write the data rows
             writer.writerows(data)
-        
+        # error handling
         return True, "Successfully parsed and saved to CSV."
     except FileNotFoundError:
         return False, "Input file not found."
