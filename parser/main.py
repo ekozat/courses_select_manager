@@ -54,13 +54,24 @@ def parse_courses(input_file_path, output_csv_file):
             
             if prerequisites:
                 prerequisites_str = prerequisites[0][0].strip()
-                #Replace 'or' with '|' and 'and' with '&' to match requirement
-                #prerequisites_str = prerequisites_str.replace("or", "OR").replace(",", "AND")
                 
                 patternOne = r'Completion of (\d+\.\d+ credits) including \((.*?)\)'
                 prerequisites_str = re.sub(patternOne, r'(\1), (\2)', prerequisites_str)
                 
                 prerequisites_str = re.sub(r' credits including ', ' credits, ', prerequisites_str)
+                
+                patternTwo = r'1 of (.+)$'
+                patternThree = r'(2+) of (.+)$'
+                patternFour = r'(3+) of (.+)$'
+                patternFive = r'(4+) of (.+)$'
+                # Use re.sub to transform the input string
+                prerequisites_str = re.sub(patternTwo, lambda match: f'({match.group(1).replace(", ", " or ")})', prerequisites_str)
+                prerequisites_str = re.sub(patternThree, lambda match: f'{match.group(1)} of {match.group(2).replace(", ", " or ")})', prerequisites_str)
+                prerequisites_str = re.sub(patternFour, lambda match: f'{match.group(1)} of ({match.group(2).replace(", ", " or ")})', prerequisites_str)
+                prerequisites_str = re.sub(patternFive, lambda match: f'{match.group(1)} of ({match.group(2).replace(", ", " or ")})', prerequisites_str)
+                
+                #Replace 'or' with '|' and 'and' with '&' to match requirement
+                prerequisites_str = prerequisites_str.replace("or", " OR ").replace(",", " AND ")
                 
             else:
                 prerequisites_str = ()
