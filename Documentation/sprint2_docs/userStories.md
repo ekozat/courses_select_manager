@@ -125,7 +125,7 @@ Acceptance Critera:
 * The list of recommended courses should include detailed course descriptions, allowing me to learn more about each course and its content.
 
 # Simardeep Singh's user stories
-Title: Export Course Recommendations
+Title: Output Course Recommendations in new sheet
 
 Priority: Low
 
@@ -133,10 +133,9 @@ Estimate (in hrs): -
 
 User Story:
 
-As a Bachelor of Science student, I want the ability to export the list of recommended courses from the Excel spreadsheet for reference or sharing with advisors.
+As a Bachelor of Science student, I want the ability to output the list of recommended courses in the Excel spreadsheet to new sheet for easier reference.
 
 Acceptance Criteria:
-- In the Excel spreadsheet, there should be an option to export the list of recommended courses, either as a downloadable file or by copying to the clipboard.
+- In the Excel spreadsheet, there should be an option to write the list of recommended courses, to the new sheet.
 - The export should include course names, prerequisites, and any other relevant information.
-- I should be able to choose the format of the export, such as a PDF, CSV, or Excel file.
-- This feature will provide convenience and flexibility in sharing and using the recommended course information outside of the spreadsheet.
+- This feature will provide convenience in reference and using the recommended course information.
