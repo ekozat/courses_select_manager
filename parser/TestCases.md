@@ -62,9 +62,16 @@ The file contains different test cases which test various scenarios and function
 - Expected Result: Verify that the program can handle and display such course names correctly in the output spreadsheet
 
 **Test Case 11: Duplicate Course Entries**
+
 - Description: Test the program's ability to handle duplicate course entries. 
 - Input: CIS*2500 is duplicated and has two rows in the textfile
 - Expected Result: Ensure that if there are duplicate courses in the input data, they are appropriately handled and not duplicated in the output Excel spreadsheet.
+
+**Test Case 18: Entering Courses in Excel**
+
+- Description: Entering a course with the "*" symbol, inconsistent capitalization, should all yield the same results
+- Input: cIS1300, ACCT1220, cis*4720 (one per cell)
+- Expected Result: List of eligible courses (one per cell)
 
 **Test Case 12: Course Data with Restrictions**
 
