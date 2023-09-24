@@ -107,3 +107,19 @@ Acceptance Criteria:
 -   I should be able to input my completed and in-progress courses into the spreadsheet, with one course per cell.
 -   There should be a button or UI feature that I can use to trigger the generation of a list of recommended courses based on my progress.
 -   The list of recommended courses should include detailed course descriptions, allowing me to learn more about each course and its content.
+
+# Simardeep Singh's user stories
+Title: Output Course Recommendations in new sheet
+
+Priority: Medium
+
+Estimate (in hrs): -
+
+User Story:
+
+As a Bachelor of Science student, I want the ability to output the list of recommended courses in the Excel spreadsheet to new sheet for easier reference.
+
+Acceptance Criteria:
+- In the Excel spreadsheet, there should be an option to write the list of recommended courses, to the new sheet.
+- The export should include course names, prerequisites, and any other relevant information.
+- This feature will provide convenience in reference and using the recommended course information.

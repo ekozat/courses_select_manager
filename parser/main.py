@@ -10,15 +10,6 @@ class Course:
 
     def __str__(self):
         return f"Course Code: {self.code}\nCourse Name: {self.name}\nPrerequisites: {self.prerequisites}\nRestrictions: {self.restrictions}"
-    
-# Function to process and remove unnecessary nested parentheses
-def remove_nested(match):
-    inner_content = match.group(1)
-    # Check if it matches the pattern with a number before "of"
-    if re.match(r'\d+ of .+', inner_content):
-        return f'({inner_content})'
-    # Remove unnecessary nesting
-    return inner_content
 
 def parse_courses(input_file_path, output_csv_file):
     try:
@@ -77,8 +68,7 @@ def parse_courses(input_file_path, output_csv_file):
                 patternSix = r'([^()]*)\b(or)\b([^()]*)'
                 
                 #remove nested brackets
-                patternSeven = r'\(([^()]+)\)'
-
+                patternSeven = re.compile(r'\(([^()]+)\)')
                 # Use re.sub to transform the input string
                 prerequisites_str = re.sub(patternOne, r'(\1), (\2)', prerequisites_str)
                 prerequisites_str = re.sub(r' credits including ', ' credits, ', prerequisites_str)
@@ -87,7 +77,8 @@ def parse_courses(input_file_path, output_csv_file):
                 prerequisites_str = re.sub(patternThree, lambda match: f'{match.group(1)} of ({match.group(2).replace(", ", " or ")})', prerequisites_str)
                 prerequisites_str = re.sub(patternFour, lambda match: f'{match.group(1)} of ({match.group(2).replace(", ", " or ")})', prerequisites_str)
                 prerequisites_str = re.sub(patternFive, lambda match: f'{match.group(1)} of ({match.group(2).replace(", ", " or ")})', prerequisites_str)
-                prerequisites_str = re.sub(patternSeven, remove_nested, prerequisites_str)
+                prerequisites_str = patternSeven.sub(lambda match: f'({match.group(1)})' if re.match(r'\d+ of .+', match.group(1)) else match.group(1), prerequisites_str)
+                
                 # Replace 'or' with ' OR ' and ',' with ' AND '
                 prerequisites_str = prerequisites_str.replace(" or ", " OR ").replace(", ", " AND ")
                 
