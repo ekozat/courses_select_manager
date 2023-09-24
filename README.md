@@ -12,9 +12,10 @@
 
 ## How to Run
 
-1. Open the Microsoft Excel file which contains the UI and parsed courses (make sure to enable macros)
-2. Navigate to the input courses sheet and input your completed courses and credits completed
-3. Click the generate eligible courses button
+1. Navigate to the VBASprint2 directory
+2. Open the Microsoft Excel file which contains the UI and parsed courses (make sure to enable macros)
+3. Navigate to the input courses sheet and input your completed courses and credits completed
+4. Click the generate eligible courses button
 
 ## Name
 
