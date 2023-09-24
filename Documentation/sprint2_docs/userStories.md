@@ -127,7 +127,7 @@ Acceptance Critera:
 # Simardeep Singh's user stories
 Title: Output Course Recommendations in new sheet
 
-Priority: Low
+Priority: Medium
 
 Estimate (in hrs): -
 
