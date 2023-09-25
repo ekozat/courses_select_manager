@@ -15,7 +15,10 @@
 1. Navigate to the VBASprint2 directory
 2. Open the Microsoft Excel file which contains the UI and parsed courses (make sure to enable macros)
 3. Navigate to the input courses sheet and input your completed courses and credits completed
-4. Click the generate eligible courses button
+4. Click the generate eligible courses button ()
+    - This will take around 20 seconds due to parsing all courses in the parsed_courses data sheet
+5. Navigate to the Eligible Courses sheet and view courses
+6. Before inputting different courses, make sure to click the reset button to clear the Eligible Courses sheet
 
 ## Name
 
