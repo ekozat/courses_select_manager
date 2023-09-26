@@ -1,4 +1,4 @@
-#NGINX
+# NGINX
 
 ## Sara Adi
 **What is NGINX>**
@@ -24,3 +24,13 @@ server {
     }
 }
 ```
+
+## Maneesh Wijewardhana
+-   Running `sudo nginx -t` will validate any changes in an NGINX config file for syntax errors and such
+-   If you update the configuration file, then you'll have to instruct NGINX explicitly to reload the configuration file. There are two ways to do that.
+    -   You can restart the NGINX service by executing the `sudo systemctl restart nginx` command.
+    -   You can dispatch a reload signal to NGINX by executing the `sudo nginx -s reload` command.
+-   The `root` directive will route all incoming requests to '/' to the specified HTML or PHP
+-   The `location` directive is used to specify certain paths like '/maneesh' to respond with a different HTML or PHP page (think different page routes)
+-   In the example above, the location is set to '/' and it will try to fetch the base uri, if it cannot it will serve a 404
+

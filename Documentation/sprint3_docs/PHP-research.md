@@ -1,4 +1,4 @@
-#PHP
+# PHP
 
 ## Sara Adi
 **Variables**
@@ -30,3 +30,38 @@
 </body>
 </html>
 ```
+
+## Maneesh Wijewardhana
+-   There exists the `DOMDocument` class in PHP that allows you to manipulate the DOM
+    -   Functions such as GetElementById(), createElement(), createAttribute() are present among many other familiar ones
+-   Form Control Example:
+```html
+<html>
+    <body>
+
+        <form action="welcome.php" method="post">
+            First Name: <input type="text" name="first"><br>
+            Last Name: <input type="text" name="last"><br>
+            <input type="submit">
+        </form>
+    </body>
+</html>
+```
+
+firstlast.php can then be created to extract out the variables using $_POST
+```php
+<html>
+    <body>
+        Your first name is: <?php echo $_POST["first"]; ?><br>
+        Your last name is: <?php echo $_POST["last"]; ?>
+    </body>
+</html>
+```
+
+Assuming the form was submitted, this will result in:
+
+```
+Your first name is Maneesh
+Your last name is Wijewardhana
+```
+
