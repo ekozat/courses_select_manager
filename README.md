@@ -3,12 +3,12 @@
 # Team
 
 -   Team Lead:
-    -   Maneesh K. Wijewardhana
+    -   Simardeep Singh
 -   Team Members:
     -   Sara Adi
     -   Emily Kozatchiner
     -   Fee Kim Ah-Poa
-    -   Simardeep Singh
+    -   Maneesh K. Wijewardhana
 
 ## How to Run
 
