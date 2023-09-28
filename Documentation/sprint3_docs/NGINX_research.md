@@ -34,3 +34,8 @@ server {
 -   The `location` directive is used to specify certain paths like '/maneesh' to respond with a different HTML or PHP page (think different page routes)
 -   In the example above, the location is set to '/' and it will try to fetch the base uri, if it cannot it will serve a 404
 
+## Fee Kim Ah-Poa
+- NGINX is popular as it can handle a higher number of concurrent requests.
+- It has a fast static content delivery while use less resource.
+- It is used as a reverse proxy, HTTP cache, and load balancer.
+- Nginx uses an asynchronous, event-driven approach where requests are handled in a single thread.
