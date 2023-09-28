@@ -65,3 +65,38 @@ Your first name is Maneesh
 Your last name is Wijewardhana
 ```
 
+## Simardeep Singh
+- PHP is a general-purpose scripting language geared towards web development.
+- PHP supports Objeect-Oriented Programming:
+The source of the following code: https://www.w3schools.com/php/php_oop_classes_objects.asp 
+```
+<?php
+class Fruit {
+  // Properties
+  public $name;
+  public $color;
+
+  // Methods
+  function set_name($name) {
+    $this->name = $name;
+  }
+  function get_name() {
+    return $this->name;
+  }
+}
+
+$apple = new Fruit();
+$banana = new Fruit();
+$apple->set_name('Apple');
+$banana->set_name('Banana');
+
+echo $apple->get_name();
+echo "<br>";
+echo $banana->get_name();
+?> 
+// Outputs: 
+Apple
+Banana.
+```
+- PHP is commonly used for database-driven web applications. 
+- PHP supports exception handling to gracefully handle errors and exceptions in the code using try, catch, and finally blocks.
