@@ -19,9 +19,13 @@ The purpose of this file is to list all user stories that will be used to help p
 # Simardeep Singh's User Stories
 
 **Title:** Export excel spreadsheet
+
 **Priority:** High
+
 **Estimate (in hrs):** - 30 minutes
+
 **User Story:** As user I should be able to download the excel spreadsheet using the 'Download' button to view the course recommendations.
+
 **Acceptance Criteria:**
 - The 'Download' button should be prominently displayed on the homepage of the website.
 - Clicking on the 'Download' button should trigger the download of the Excel spreadsheet.
