@@ -55,7 +55,7 @@ HTML;
 foreach ($teamMembers as $member) {
     $name = $member['name'];
     $imagePath = $member['imagePath'];
-    $href = strtolower($name) . '/index.php';
+    $href = strtolower($name);
     $html .= <<<HTML
             <div class="team-member">
                 <a href="$href"><img src="$imagePath" alt="$name's Headshot"></a>
