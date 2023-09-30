@@ -14,7 +14,7 @@
 
 # Purpose
 
-The purpose of this file is to list all user stories that will be used to help program the solution for sprint 2, and plan ahead for future sprints.
+The purpose of this file is to list all user stories that will be used to help program the solution for sprint 3, and plan ahead for future sprints.
 
 # Simardeep Singh's User Stories
 
@@ -31,3 +31,31 @@ The purpose of this file is to list all user stories that will be used to help p
 - Clicking on the 'Download' button should trigger the download of the Excel spreadsheet.
 - The Excel spreadsheet should contain course information and be up-to-date.
 - The download process should be smooth and should not result in any errors or broken links.
+
+# Maneesh's User Stories
+
+**Title:** Custom 404 Page 
+
+**Priority:** Low
+
+**Estimate (in hrs):** - 1 hr
+
+**User Story:** As user I should be able to view a custom 404 page when navigating to an undefined route instead of seeing the default nginx page
+
+**Acceptance Criteria:**
+- A custom and unique 404 page is made
+- This 404 page gets surfaced to me when I navigate to an undefined route
+- It should work on an undefined route through the homepage as well as any sub page
+
+**Title:** Home Buttom
+
+**Priority:** High
+
+**Estimate (in hrs):** - 30 minutes
+
+**User Story:** As user I should be able navigate back to the home page after visiting the other pages
+
+**Acceptance Criteria:**
+- A home page button is present on any page that is not the home page
+- It is consistent across all pages
+- It brings me back to the home page
