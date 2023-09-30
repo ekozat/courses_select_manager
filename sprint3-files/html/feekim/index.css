@@ -68,3 +68,22 @@ p1{
     font-family: Arial, sans-serif; 
     text-align:center;
 }
+
+.home {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.btn {
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: white;
+}
+
+.btn:hover {
+    opacity: 0.5;
+}

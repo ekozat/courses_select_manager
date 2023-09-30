@@ -60,3 +60,23 @@ h1 {
     font-size: 14px;
     color: #666;
 }
+
+.home {
+    padding-top: 20px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.btn {
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: white;
+}
+
+.btn:hover {
+    opacity: 0.5;
+}
