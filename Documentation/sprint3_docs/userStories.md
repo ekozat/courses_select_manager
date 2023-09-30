@@ -59,3 +59,19 @@ The purpose of this file is to list all user stories that will be used to help p
 - A home page button is present on any page that is not the home page
 - It is consistent across all pages
 - It brings me back to the home page
+
+
+# Fee Kim's User Stories
+
+**Title:** User Friendly Interface
+
+**Priority:** Low
+
+**Estimate (in hrs):** - 1 hr
+
+**User Story:** As a user I should be able to have a user friendly layout where it's easy to use and navigate.
+
+**Acceptance Criteria:**
+- A layout where user can easily download and go to each member's page
+- Provide a download button where user can easily notice it
+
