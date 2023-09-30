@@ -38,6 +38,21 @@ Basic SQL Commands:
     -   HELP; (Display a list of available MariaDB shell commands)
     -   HELP <command>; (Get help and syntax information for a specific command)
 
+## Simardeep Singh
+**Data Types:**
+
+MySQL supports various data types, each designed for specific types of data and storage requirements. Common data types include:
+
+1. **Numeric Types:** INT, FLOAT, DOUBLE, DECIMAL
+2. **String Types:** VARCHAR, CHAR, TEXT
+3. **Date and Time Types:** DATE, TIME, DATETIME, TIMESTAMP
+4. **Spatial Types:** GEOMETRY, POINT, LINESTRING, etc.
+
+Choosing the appropriate data type is essential for efficient storage and retrieval of data.
+
+Link: https://dev.mysql.com/doc/refman/8.0/en/data-types.html
+
+
 ## Fee Kim Ah-Poa
 
 - MySQL is the most popular Open Source Relational SQL database management system. 

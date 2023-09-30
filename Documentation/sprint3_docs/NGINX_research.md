@@ -34,6 +34,14 @@ server {
 -   The `location` directive is used to specify certain paths like '/maneesh' to respond with a different HTML or PHP page (think different page routes)
 -   In the example above, the location is set to '/' and it will try to fetch the base uri, if it cannot it will serve a 404
 
+## Simardeep Singh
+- NGINX is pronounced as 'engine X'. It is more than a web server.  
+    - **Reverse Proxy:** NGINX acts as a reverse proxy, distributing traffic among backend servers, enhancing security, and improving performance. It can also handle SSL/TLS encryption.
+    - **Load Balancer:** NGINX balances loads across multiple servers using algorithms like round-robin, ensuring high availability and even distribution of requests.
+    - **Caching:** It caches frequently accessed content, reducing the load on backend servers and improving response times.
+    - **Application Gateway:** NGINX serves as an API gateway, managing APIs with features like rate limiting, authentication, and request/response transformation. It's ideal for microservices architecture.
+    - **Content Delivery:** NGINX supports streaming media delivery, adaptive streaming, and content compression, making it valuable for media and web performance optimization.
+
 ## Fee Kim Ah-Poa
 - NGINX is popular as it can handle a higher number of concurrent requests.
 - It has a fast static content delivery while use less resource.
