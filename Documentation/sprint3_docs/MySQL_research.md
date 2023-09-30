@@ -52,3 +52,15 @@ Choosing the appropriate data type is essential for efficient storage and retrie
 
 Link: https://dev.mysql.com/doc/refman/8.0/en/data-types.html
 
+
+## Fee Kim Ah-Poa
+
+- MySQL is the most popular Open Source Relational SQL database management system. 
+- One of the best RDBMS being used for developing web-based software applications.
+- Works on many operating systems including PHP
+- It is quick and can work with large amount of data
+- It has large databases and is fully customizable
+- The general format for PHP function in MySQL
+   - mysql_function(value,value,...);
+
+

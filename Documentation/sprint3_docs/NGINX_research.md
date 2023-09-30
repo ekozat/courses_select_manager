@@ -41,3 +41,9 @@ server {
     - **Caching:** It caches frequently accessed content, reducing the load on backend servers and improving response times.
     - **Application Gateway:** NGINX serves as an API gateway, managing APIs with features like rate limiting, authentication, and request/response transformation. It's ideal for microservices architecture.
     - **Content Delivery:** NGINX supports streaming media delivery, adaptive streaming, and content compression, making it valuable for media and web performance optimization.
+
+## Fee Kim Ah-Poa
+- NGINX is popular as it can handle a higher number of concurrent requests.
+- It has a fast static content delivery while use less resource.
+- It is used as a reverse proxy, HTTP cache, and load balancer.
+- Nginx uses an asynchronous, event-driven approach where requests are handled in a single thread.

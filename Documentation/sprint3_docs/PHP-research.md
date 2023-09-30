@@ -100,3 +100,28 @@ Banana.
 ```
 - PHP is commonly used for database-driven web applications. 
 - PHP supports exception handling to gracefully handle errors and exceptions in the code using try, catch, and finally blocks.
+## Fee Kim Ah-Poa
+
+- PHP is a server scripting language
+- PHP can written anywhere in a document
+- It has the following syntax
+
+ ```
+ <?php
+
+ // code is placed here
+
+ ?>
+
+ ```
+- it has a file extension .php
+- it has html tags and php scripts
+- Its statements ends with ;
+- PHP can be local, global and static
+- It supports different data types such as string, integer, float, boolean, array, object, null
+- PHP supports +,-,*,/,% and **
+- It has while, do while , for and foreach loops
+-
+
+    
+
