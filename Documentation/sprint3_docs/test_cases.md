@@ -14,3 +14,13 @@
 - Description: Clicking on profile photos should take to new personal webpages of each team member.
 - Input: Clicking profile photo of a team member.
 - Expected Result: Clicking the profile photo will open a new page information respective to a team member.
+
+**Test Case 4: Home Button**
+- Description: Clicking on the home button from a personal PHP file should bring the user back to the main page.
+- Input: Clicking on the home button on personal site.
+- Expected Result: Take the user back to the landing page.
+
+**Test Case 5: Images**
+- Description: Ensure images are properly displayed on the website.
+- Input: Using the website in any browser and going to pages with images attached.
+- Expected: Images should load and properly display contents.
