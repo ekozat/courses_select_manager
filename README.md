@@ -43,6 +43,7 @@ The criteria that we needed to meet were"
 ![Fee's_page](./Photos/fee_s_page.png)
 ![Simar's_page](./Photos/simar_s_page.png)
 ![Maneesh's_page](./Photos/maneesh_s_page.png)
+![Emily's_page](./Photos/emily_s_page.png)
 
 ## Team Approach
 
