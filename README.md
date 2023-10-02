@@ -64,4 +64,4 @@ The criteria that we needed to meet were"
 
 ## Project status
 
-In Progress
+Completed
