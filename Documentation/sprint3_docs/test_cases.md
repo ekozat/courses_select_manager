@@ -30,3 +30,7 @@
 - Input: On loading an incorrect link  https://cis3760f23-01.socs.uoguelph.ca/undefined 
 - Expected: A 404 page should be display and there should be a link to return to the homepage
 
+**Test Case 7: Verify the number of team members**
+- Description: Verify that all 5 team members are visible on the homepage.
+- Input: https://cis3760f23-01.socs.uoguelph.ca
+- Expected: Total 5 profile pictures, one of each member, should be visible at the end of the page.
