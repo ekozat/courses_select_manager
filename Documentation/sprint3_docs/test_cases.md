@@ -24,3 +24,9 @@
 - Description: Ensure images are properly displayed on the website.
 - Input: Using the website in any browser and going to pages with images attached.
 - Expected: Images should load and properly display contents.
+
+**Test Case 6: Return Home when page is invalid**
+- Description: On the 404 page, there should be a link to return to the homepage
+- Input: On loading an incorrect link  https://cis3760f23-01.socs.uoguelph.ca/undefined 
+- Expected: A 404 page should be display and there should be a link to return to the homepage
+
