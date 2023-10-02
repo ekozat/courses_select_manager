@@ -30,9 +30,9 @@ F23 CIS\*3760 Sprint 3:
 The objective of this sprint was to create a web interface that includes a homepage from where users can download Excel spreadsheets. Additionally, another task was to showcase the personal webpages of team members, which can be easily accessed through the homepage.
 
 The criteria that we needed to meet were"
-    - Host homepage
-    - Describe Excel spreadsheet
-    - Host Individual pages of team members
+-   Host homepage
+-   Describe Excel spreadsheet
+-   Host Individual pages of team members
 
 ## Visuals
 
