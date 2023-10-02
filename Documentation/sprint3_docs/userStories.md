@@ -89,3 +89,19 @@ The purpose of this file is to list all user stories that will be used to help p
 - A layout where user can easily download and go to each member's page
 - Provide a download button where user can easily notice it
 
+
+# Emily Kozatchiner's User Stories
+
+**Title:** About Team Pages
+
+**Priority:** Medium
+
+**Estimate (in hrs):** - 1 hr
+
+**User Story:** As a user I should be able to identify the developers behind the excelsheet course recommender, and navigate to their about pages.
+
+**Acceptance Criteria:**
+- An identifiable link/button on the main page that takes you to one developer's personal page
+- A home or back button on each personal php page that can be used to navigate back to the main page
+- An introduction on the developer and some fun facts about them.
+
