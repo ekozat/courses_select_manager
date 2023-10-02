@@ -38,7 +38,7 @@ The purpose of this file is to list all user stories that will be used to help p
 
 **Estimate (in hrs):** - 30 minutes
 
-**User Story:** As user I should be able to go back to homepage once I enter the 404 page.
+**User Story:** As user I should be able to go back to homepage once I enter the 404 page so that I don't have to relaunch the website again.
 
 **Acceptance Criteria:**
 - A custom and unique 404 page is made
