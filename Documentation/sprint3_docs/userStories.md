@@ -32,6 +32,19 @@ The purpose of this file is to list all user stories that will be used to help p
 - The Excel spreadsheet should contain course information and be up-to-date.
 - The download process should be smooth and should not result in any errors or broken links.
 
+**Title:** Exiting 404 page 
+
+**Priority:** Medium
+
+**Estimate (in hrs):** - 30 minutes
+
+**User Story:** As user I should be able to go back to homepage once I enter the 404 page.
+
+**Acceptance Criteria:**
+- A custom and unique 404 page is made
+- This 404 page gets surfaced to me when I navigate to an undefined route.
+- It should work on an undefined route through the homepage as well as any sub page
+
 # Maneesh's User Stories
 
 **Title:** Custom 404 Page 
