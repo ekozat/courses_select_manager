@@ -42,6 +42,7 @@ The purpose of this file is to list all user stories that will be used to help p
 
 **Acceptance Criteria:**
 - A custom and unique 404 page is made
+- A link back to homepage should be present on the 404 page.
 - This 404 page gets surfaced to me when I navigate to an undefined route.
 - It should work on an undefined route through the homepage as well as any sub page
 
