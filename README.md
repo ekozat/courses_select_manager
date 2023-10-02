@@ -36,6 +36,7 @@ The criteria that we needed to meet were"
 
 ## Visuals
 1. Home Page
+![404_page](./Photos/homepage.png)
 2. 404 Page
 ![404_page](./Photos/404_page.png)
 3. Team's Personal Pages
