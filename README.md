@@ -13,7 +13,7 @@
 ## How to Run
 
 
-## Name
+## Current Sprint
 
 Sprint 4
 
