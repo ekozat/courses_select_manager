@@ -52,12 +52,12 @@ http {
 
 4. Navigate to our cis3760 repo, make sure you are up to date on the sprint4 branch
 5. Copy the html folder from the sprint4 files into `/opt/homebrew/var/www/` by doing `cp -r html /opt/homebrew/var/www/`
-    -   It contains a new file called `server.php` that just has a hardcoded json string
+    - It contains a new file called `server.php` that just has a hardcoded json string
 6. Run `sudo nginx -t` and make sure there are no errors
 7. Run `brew services reload nginx`
 8. You _should_ be able to navigate to http://localhost:8080 and see our page
 9. You _should_ also be able to navigate to http://localhost:8080/courses/get and see our "mock" API that returns some json
 
 -   On the real VM, we would just have to change the mysql connection url. (probably more stuff I am forgetting)
+    -   To access MySQL on the VM, run `mysql -u cis3760 -p` and then enter `pass1234` when asked
 -   The `server.php` script is already on the server with the nginx config edited similar to the local one so https://cis3760f23-01.socs.uoguelph.ca/courses/get/ will work
-
