@@ -61,7 +61,7 @@ http {
 6. Run `sudo nginx -t` and make sure there are no errors
 7. Run `brew services reload nginx`
 8. You _should_ be able to navigate to http://localhost:8080 and see our page
-9. You _should_ also be able to navigate to http://localhost:8080/courses/get and see our "mock" API that returns some json
+9. You _should_ also be able to navigate to http://localhost:8080/courses/getAllCourses/ and see "Connected Successfully" meaning our mysql db connection worked!
 
 -   On the real VM, we would just have to change the mysql connection url. (probably more stuff I am forgetting)
     -   To access MySQL on the VM, run `mysql -u cis3760 -p` and then enter `pass1234` when asked
