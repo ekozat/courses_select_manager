@@ -2,11 +2,13 @@
 
 ## Note: YOU NEED HOMEBREW FOR ALL OF THIS
 
+## Note: IF YOU ARE ON AN INTEL MAC, THE PATH `/opt/homebrew` WILL NOT EXIST, IT IS `/usr/local` INSTEAD
+
 ### Set up MySQL
 
 1. `brew install mysql`
 2. `brew services start mysql`
-3. `mysql -v` to check version
+3. `mysql -V` to check version
 4. `mysql -u root`
 5. Now should be in an interactive terminal and can run sql scripts
 
@@ -20,8 +22,9 @@
 
 1. `brew install nginx`
 2. `brew services start nginx`
-3. Copy this nginx config into `/opt/homebrew/etc/nginx/nginx.conf`
+3. Copy this nginx config into `/opt/homebrew/etc/nginx/nginx.conf` or `/usr/local/etc/nginx/nginx.conf`
 
+-   NOTE: If you are on intel, anywhere you see /opt/homebrew, the path should be /usr/local in this config
 ```nginx
 events {
 }
@@ -51,7 +54,7 @@ http {
 ```
 
 4. Navigate to our cis3760 repo, make sure you are up to date on the sprint4 branch
-5. Copy the html folder from the sprint4 files into `/opt/homebrew/var/www/` by doing `cp -r html /opt/homebrew/var/www/`
+5. Copy the html folder from the sprint4 files into `/opt/homebrew/var/www/` or `/usr/local/var/www/` on intel by doing `cp -r html /opt/homebrew/var/www/`
     - It contains a new file called `server.php` that just has a hardcoded json string
 6. Run `sudo nginx -t` and make sure there are no errors
 7. Run `brew services reload nginx`
