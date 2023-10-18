@@ -25,6 +25,7 @@
 3. Copy this nginx config into `/opt/homebrew/etc/nginx/nginx.conf` or `/usr/local/etc/nginx/nginx.conf`
 
 -   NOTE: If you are on intel, anywhere you see /opt/homebrew, the path should be /usr/local in this config
+
 ```nginx
 events {
 }
@@ -64,3 +65,11 @@ http {
 -   On the real VM, we would just have to change the mysql connection url. (probably more stuff I am forgetting)
     -   To access MySQL on the VM, run `mysql -u cis3760 -p` and then enter `pass1234` when asked
 -   The `server.php` script is already on the server with the nginx config edited similar to the local one so https://cis3760f23-01.socs.uoguelph.ca/courses/get/ will work
+
+### Development Strategy
+
+-   Write and test everything locally first before pushing to sprint4 branch
+-   **IMPORTANT**: If you made nginx changes, remember that the nginx on the VM is configured differently than local so do not push your local nginx config to the repo, just push any changes you made in the html directory once it worked locally as they are the same on the VM (apart from some variables referencing localhost, but you will change that on the VM itself)
+    -   On the VM, you will have to do some live coding if the nginx config needed to be changed locally. Just edit it on the server making sure to add the changes properly. Usually these changes will be in `/etc/nginx/sites-available/3760Website` You can run `sudo nginx -t` to verify the config files after saving them then run `sudo systemctl restart nginx` to reload and see changes
+    -   You can copy the contents of the `html` directory making sure to change any variables like DB urls, and others if needed
+-   If all goes well, the same functionalities you made locally like creating an endpoint or writing code to retrieve some columns in the DB, should all work on the VM
