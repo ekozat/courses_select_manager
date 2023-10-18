@@ -64,7 +64,7 @@
 
     <div class="photo-container">
         <?php
-            $photographs = array('tennis.jpg', 'banff.jpg', 'bee.jpg', 'grass.jpg');
+            $photographs = array('tennis.jpg', 'banff.jpg', 'bee.jpg', 'grass.JPG');
 
             foreach ($photographs as $image) {
                 echo '<div class="photo"><img class="photo" src="' . $image . '" alt="Photo"></div>';

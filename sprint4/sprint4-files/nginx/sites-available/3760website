@@ -130,8 +130,8 @@ server {
 		try_files $uri $uri/ /404/index.php;
 	}
 
-        location /courses/get/ {
-          try_files $uri $uri/ /server.php;
+        location /courses/getAllCourses/ {
+          try_files $uri $uri/ /get_all_courses.php;
         }
 
 	# pass PHP scripts to FastCGI server
