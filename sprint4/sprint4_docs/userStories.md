@@ -32,3 +32,18 @@ The purpose of this file is to list all user stories that will be used to help p
 - The API call should handle error incorrect query parameters
 - The API call should handle server-side errors
 
+# Maneesh Wijewardhana's User Stories
+
+**Title:** Successful POST request from database
+
+**Priority:** High
+
+**Estimate (in hrs):** - 
+
+**User Story:** As a user I should be able to call a POST endpoint to add data to the MySQL database.
+
+**Acceptance Criteria:**
+- The POST request should have an appropriate endpoint to fetch and display the data that correlates to the written query.
+- The API call should accept multiple query parameters specifying different data to be added.
+- The API call should handle error incorrect query parameters
+- The API call should handle server-side errors
