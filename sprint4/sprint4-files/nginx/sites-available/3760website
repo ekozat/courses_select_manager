@@ -134,6 +134,23 @@ server {
           try_files $uri $uri/ /get_all_courses.php;
         }
 
+	location /courses/getCoursesByPrereq/ {
+          try_files $uri $uri/ /get_courses_by_prereq.php?$args;
+        }
+	
+        location /courses/getCoursesByRestrictions/ {
+          try_files $uri $uri/ /get_courses_by_restrict.php?$args;
+        }
+	
+        location /courses/getCourseByCode/ {
+          try_files $uri $uri/ /get_course_by_code.php?$args;
+        }
+
+        location /courses/getCourseByName/ {
+          try_files $uri $uri/ /get_course_by_name.php?$args;
+        }
+
+
 	# pass PHP scripts to FastCGI server
 	#
 	location ~ \.php$ {

@@ -6,7 +6,6 @@ function open_con() {
   // $dbpass = "";
   $dbpass = "pass1234";
   $conn = new mysqli($dbhost, $dbuser, $dbpass) or die("Connect failed: %s\n". $conn->error);
-  echo "Connected Successfully";
   return $conn;
 }
 function close_con($conn) {

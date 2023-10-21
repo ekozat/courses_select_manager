@@ -6,19 +6,21 @@ require 'db_connection.php';
 $conn = open_con();
 
 if (!$conn) {
-    http_response_code(500);
     echo json_encode(array('error' => 'Failed to connect to the database'));
 } else {
     $databaseName = 'cis3760';
     if (mysqli_select_db($conn, $databaseName)) {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $courseName = mysqli_real_escape_string($conn, $_GET['course_name']);
 
-            $sql = "SELECT * FROM coursesDB";
+            $sql = "SELECT * FROM coursesDB WHERE courseName LIKE '%$courseName%'";
 
             try {
                 $result = $conn->query($sql);
+
                 if ($result) {
                     $data = array();
+
                     while ($row = $result->fetch_assoc()) {
                         // Remove quotation marks from the values
                         foreach ($row as $key => $value) {
@@ -29,8 +31,12 @@ if (!$conn) {
 
                     close_con($conn);
 
-                    http_response_code(200);
-                    echo json_encode($data);
+                    if (empty($data)) {
+                        http_response_code(404);
+                        echo json_encode(array('error' => 'Course not found'));
+                    } else {
+                        echo json_encode($data);
+                    }
                 } else {
                     http_response_code(500);
                     echo json_encode(array('error' => 'Failed to fetch data from the database'));
@@ -49,3 +55,4 @@ if (!$conn) {
     }
 }
 ?>
+
