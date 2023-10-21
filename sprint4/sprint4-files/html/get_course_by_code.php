@@ -11,6 +11,12 @@ if (!$conn) {
     $databaseName = 'cis3760';
     if (mysqli_select_db($conn, $databaseName)) {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+	    if (!isset($_GET['course_code'])) {
+                http_response_code(400);
+                echo json_encode(array('error' => 'Malformed course_code parameter'));
+                return;
+            }
+
             $courseCode = mysqli_real_escape_string($conn, $_GET['course_code']);
 
             $sql = "SELECT * FROM coursesDB WHERE courseCode = '\"$courseCode\"'";

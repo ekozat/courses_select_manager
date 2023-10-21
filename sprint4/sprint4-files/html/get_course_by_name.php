@@ -11,6 +11,12 @@ if (!$conn) {
     $databaseName = 'cis3760';
     if (mysqli_select_db($conn, $databaseName)) {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+	    if (!isset($_GET['course_name'])) {
+                http_response_code(400);
+                echo json_encode(array('error' => 'Malformed course_name parameter'));
+                return;
+            }
+
             $courseName = mysqli_real_escape_string($conn, $_GET['course_name']);
 
             $sql = "SELECT * FROM coursesDB WHERE courseName LIKE '%$courseName%'";
