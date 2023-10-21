@@ -63,3 +63,38 @@
         -   **404** if no matching restrictions were found in the database or the query parameter is not properly formatted
         -   **405** if the request method given was not GET
         -   **500** if the connection to the database failed or fetching fails
+
+
+
+### PUT
+#### This endpoint will always return an JSON array of objects where each object contains a courseCode, courseName, prerequisites, and restrictions
+
+    **PUT requires a coursecode for it to work
+    - https://cis3760f23-01.socs.uoguelph.ca/courses/update/
+
+    - It will return the current info associated with the course code 
+    
+    "message": "Current Info",
+    "originalRow": {
+        "courseCode": "\"CIS*1300\"",
+        "courseName": "\"Programming\"",
+        "prerequisites": "\"()\"",
+        "restrictions": "\"{CIS*1500}\""
+    }
+    - When a courseCode and either courseName, prerequisites, and restrictions, it will return the updated row
+    For example, if courseName was changed to Introduction to Programming
+    "message": "Update successful",
+    "updatedRow": {
+        "courseCode": "\"CIS*1300\"",
+        "courseName": "Intoduction to Programming",
+        "prerequisites": "\"()\"",
+        "restrictions": "\"{CIS*1500}\""
+    }
+    - All 3 fields can be updated at once
+    - If the update is not for courseName, prerequisites, and restrictions, it will then return a  "error": "No valid update data provided" which is a 400 bad request
+
+    -   This endpoint will return:
+    -   **200** if the course is retrieved successfully from the database
+    -   **400** if invalid data is input or missing courseCode in the request
+    -   **405** if the request method given was not PUT
+    -   **500** if the connection to the database failed or fetching fails
