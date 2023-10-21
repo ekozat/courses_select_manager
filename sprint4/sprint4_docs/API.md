@@ -82,11 +82,13 @@
 ## How to test the PUT endpoint
     - On Postman select PUT and paste in the URL https://cis3760f23-01.socs.uoguelph.ca/courses/update/
     - Navigate to body select raw and choose JSON
+
     ```
     {
-    "courseCode": "CIS*1300"   //inputting just courseCode as this will give you the stored information on courseCode,
+    "courseCode": "CIS*1300"   //inputting just courseCode, will give you the stored information on courseCode,
                                //courseName,prerequisites and restrictions
     }
+
     ```
     - To update any of courseName, prerequisites and restrictions add it to the json
         - For example, if you want to update courseName and prerequisites, you'll do it as follows
@@ -97,6 +99,7 @@
     "courseName": "Intoduction to Programming",
     "prerequisites": "CIS*1000"
     }
+
     ```
     -If you have one field set to ""
         - For example, "prerequisites": "" , it will update the prerequisite field with ""
