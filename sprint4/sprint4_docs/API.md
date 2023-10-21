@@ -78,32 +78,58 @@
 
 **PUT requires a coursecode for it to work**
 - https://cis3760f23-01.socs.uoguelph.ca/courses/update/
-- It will return the current info associated with the course code 
-```
-"message": "Current Info",
-"originalRow": {
-    "courseCode": "\"CIS*1300\"",
-    "courseName": "\"Programming\"",
-    "prerequisites": "\"()\"",
-    "restrictions": "\"{CIS*1500}\""
-}
-```
-- When a courseCode and either courseName, prerequisites, and restrictions, it will return the updated row
-For example, if courseName was changed to Introduction to Programming
-```
-"message": "Update successful",
-"updatedRow": {
-    "courseCode": "\"CIS*1300\"",
+
+## How to test the PUT endpoint
+    - On Postman select PUT and paste in the URL https://cis3760f23-01.socs.uoguelph.ca/courses/update/
+    - Navigate to body select raw and choose JSON
+    ```
+    {
+    "courseCode": "CIS*1300"   //inputting just courseCode as this will give you the stored information on courseCode,
+                               //courseName,prerequisites and restrictions
+    }
+    ```
+    - To update any of courseName, prerequisites and restrictions add it to the json
+        - For example, if you want to update courseName and prerequisites, you'll do it as follows
+
+    ```
+    {
+    "courseCode": "CIS*1200",
     "courseName": "Intoduction to Programming",
-    "prerequisites": "\"()\"",
-    "restrictions": "\"{CIS*1500}\""
+    "prerequisites": "CIS*1000"
+    }
+    ```
+    -If you have one field set to ""
+        - For example, "prerequisites": "" , it will update the prerequisite field with ""
+
+
+- It will return the current info associated with the course code for the above example where we updated courseName and prereq
+```
+{
+    "message": "Current Info",
+    "originalRow": {
+        "courseCode": "\"CIS*1200\"",
+        "courseName": "\"Introduction to Computing\"",
+        "prerequisites": "\"()\"",
+        "restrictions": "\"{CIS*1000}\""
+    }
+}
+{
+    "message": "Update successful",
+    "updatedRow": {
+        "courseCode": "\"CIS*1200\"",
+        "courseName": "Intoduction to Programming",
+        "prerequisites": "CIS*1000",
+        "restrictions": "\"{CIS*1000}\""
+    }
 }
 ```
-- All 3 fields can be updated at once
+
+- All 3 fields can be updated at once and only the fields that you want to update should be stated
 - If the update is not for courseName, prerequisites, and restrictions, it will then return "error": "No valid update data provided" which is a 400 bad request
 
 -   This endpoint will return:
--   **200** if the course is retrieved successfully from the database
--   **400** if invalid data is input or missing courseCode in the request
--   **405** if the request method given was not PUT
--   **500** if the connection to the database failed or fetching fails
+    -   **200** if the course is retrieved successfully from the database
+    -   **400** if invalid data is input or missing courseCode in the request
+    -   **405** if the request method given was not PUT
+    -   **500** if the connection to the database failed or fetching fails
+
