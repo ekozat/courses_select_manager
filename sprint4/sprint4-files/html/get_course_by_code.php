@@ -13,7 +13,7 @@ if (!$conn) {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $courseCode = mysqli_real_escape_string($conn, $_GET['course_code']);
 
-            $sql = "SELECT * FROM coursesDB WHERE courseCode = '$courseCode'";
+            $sql = "SELECT * FROM coursesDB WHERE courseCode = '\"$courseCode\"'";
 
             try {
                 $result = $conn->query($sql);
