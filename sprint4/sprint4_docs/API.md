@@ -21,6 +21,13 @@
         -   **200** if the courses are fetched successfully from the database
         -   **405** if the request method given was not GET
         -   **500** if the connection to the database failed or fetching fails
+-   **Get all courses from backup table** (THIS IS USED TO VERIFY UPDATE, POST, AND DELETE METHODS)
+    -   https://cis3760f23-01.socs.uoguelph.ca/courses/getAllCoursesCopy/
+    -   This endpoint does not accept any query parameters
+    -   This endpoint will return:
+        -   **200** if the courses are fetched successfully from the coursesDBCopy table in the database
+        -   **405** if the request method given was not GET
+        -   **500** if the connection to the database failed or fetching fails
 -   **Get course by course code**
     -   https://cis3760f23-01.socs.uoguelph.ca/courses/?course_code=cis*1300
     -   This endpoint accepts a query parameter called **course_code** which has to match the exact course code including the * character (capitalization does not matter)
