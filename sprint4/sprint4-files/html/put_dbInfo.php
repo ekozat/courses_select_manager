@@ -10,7 +10,16 @@ if (!$conn) {
 } else {
     // Check if it's a PUT request
     if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
-        parse_str(file_get_contents('php://input'), $putData);
+        $json = file_get_contents('php://input');
+        $putData = json_decode($json, true);
+
+
+        if ($putData === null) {
+            http_response_code(400);
+            echo json_encode(array('error' => 'Invalid JSON data in the request body'));
+        } else {
+
+        //parse_str(file_get_contents('php://input'), $putData);
 
         $courseCode = isset($putData['courseCode']) ? $putData['courseCode'] : null;
 
@@ -18,9 +27,13 @@ if (!$conn) {
         $prerequisites = isset($putData['prerequisites']) ? $putData['prerequisites'] : null;
         $restrictions = isset($putData['restrictions']) ? $putData['restrictions'] : null;
 
+        //error_log(print_r($putData, true)); // Log $putData for debugging
+
+
         $databaseName = "cis3760";
 
         if (mysqli_select_db($conn, $databaseName)) {
+
             if (!is_null($courseCode)) {
                 $courseCode = '"' . addslashes($courseCode) . '"';
 
@@ -60,7 +73,7 @@ if (!$conn) {
                             if ($result) {
                                 $updatedRow = $result->fetch_assoc();
                                 echo json_encode(array('message' => 'Update successful', 'updatedRow' => $updatedRow));
-                        
+                                    // Add debugging output
 
                             } else {
                                 http_response_code(500);
@@ -86,7 +99,8 @@ if (!$conn) {
             http_response_code(500);
             echo json_encode(array('error' => 'Failed to select the database'));
         }
-    } else {
+    } 
+}else {
         http_response_code(405); // Method Not Allowed
         echo json_encode(array('error' => 'Invalid request method'));
     }

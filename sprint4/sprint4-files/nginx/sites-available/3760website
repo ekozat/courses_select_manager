@@ -159,7 +159,12 @@ server {
           include fastcgi_params;
           fastcgi_pass 127.0.0.1:9000;
         }
-
+	location ~ /courses/delete/ {
+          try_files $uri $uri/ /delete_course_by_code.php;
+          fastcgi_param REQUEST_METHOD $request_method;
+          include fastcgi_params;
+          fastcgi_pass 127.0.0.1:9000;
+        }
 
 	# pass PHP scripts to FastCGI server
 	#
