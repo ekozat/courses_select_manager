@@ -134,6 +134,10 @@ server {
           try_files $uri $uri/ /get_all_courses.php;
         }
 
+        location /courses/getAllCoursesCopy/ {
+          try_files $uri $uri/ /get_all_courses_copy.php;
+        }
+
 	location /courses/getCoursesByPrereq/ {
           try_files $uri $uri/ /get_courses_by_prereq.php?$args;
         }
@@ -148,6 +152,12 @@ server {
 
         location /courses/getCourseByName/ {
           try_files $uri $uri/ /get_course_by_name.php?$args;
+        }
+	location ~ /courses/update/ {
+          try_files $uri $uri/ /put_dbInfo.php;  
+          fastcgi_param REQUEST_METHOD $request_method;
+          include fastcgi_params;
+          fastcgi_pass 127.0.0.1:9000;
         }
 
 
