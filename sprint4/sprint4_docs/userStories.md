@@ -47,3 +47,20 @@ The purpose of this file is to list all user stories that will be used to help p
 - The API call should accept multiple query parameters specifying different data to be added.
 - The API call should handle error incorrect query parameters
 - The API call should handle server-side errors
+
+# Fee Kim Ah-Poa's User Stories
+
+**Title:** Successful PUT request from database
+
+**Priority:** High
+
+**Estimate (in hrs):** - 
+
+**User Story:** As a user I should be able to call a PUT endpoint to update data in the MySQL database.
+
+**Acceptance Criteria:**
+- The PUT request should have an appropriate endpoint to fetch data that will match the query.
+- The API should accept several updates for a specific course.
+- The courseCode will be the required input data so that we can update the fields accordingly.
+- The API call should handle error incorrect query parameters.
+- The API call should handle server-side errors.
