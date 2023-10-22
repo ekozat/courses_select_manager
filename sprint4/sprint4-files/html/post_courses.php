@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $restrictions = mysqli_real_escape_string($conn, $restrictions);
 
             // Check if the courseCode already exists
-            $check_query = "SELECT COUNT(*) FROM coursesDBCopy WHERE courseCode = '$courseCode'";
+            $check_query = "SELECT COUNT(*) FROM coursesDBCopy WHERE courseCode = '\"$courseCode\"'";
             $result = mysqli_query($conn, $check_query);
             $row = mysqli_fetch_array($result);
             $count = $row[0];
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo json_encode(array('error' => 'Course code already exists'));
             } else {
                 // Insert the new course data into the database
-                $sql = "INSERT INTO coursesDBCopy (courseCode, courseName, prerequisites, restrictions) VALUES ('$courseCode', '$courseName', '$prerequisites', '$restrictions')";
+                $sql = "INSERT INTO coursesDBCopy (courseCode, courseName, prerequisites, restrictions) VALUES ('\"$courseCode\"', '\"$courseName\"', '\"$prerequisites\"', '\"$restrictions\"')";
 
                 if (mysqli_query($conn, $sql)) {
                     // Course data successfully added

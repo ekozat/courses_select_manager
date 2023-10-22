@@ -20,7 +20,7 @@ if (!$conn) {
 
             $courseCode = mysqli_real_escape_string($conn, $input_data['courseCode']);
 
-            $sql = "DELETE FROM coursesDBCopy WHERE courseCode = '$courseCode'";
+            $sql = "DELETE FROM coursesDBCopy WHERE courseCode = '\"$courseCode\"'";
 
             try {
                 $result = $conn->query($sql);
