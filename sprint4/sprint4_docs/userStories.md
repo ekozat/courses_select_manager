@@ -44,9 +44,25 @@ The purpose of this file is to list all user stories that will be used to help p
 
 **Acceptance Criteria:**
 - The POST request should have an appropriate endpoint to fetch and display the data that correlates to the written query.
-- The API call should accept multiple query parameters specifying different data to be added.
-- The API call should handle error incorrect query parameters
+- The API call should accept a request body specifying different data to be added.
+- The API call should handle error incorrect request body and duplicate courses
 - The API call should handle server-side errors
+
+**Title:** HTTP Status Codes
+
+**Priority:** High
+
+**Estimate (in hrs):** - 
+
+**User Story:** As a user, the server should return with the correct HTTP status codes when a successful request has been made or an invalid one
+
+**Acceptance Criteria:**
+- The GET, POST, PUT, and DELETE request methods should return:
+    -   200 on success
+    -   400 if the user provided an incorrect request
+    -   404 if the request contents do not exist on the server
+    -   405 if the wrong method was used
+    -   500 if the server had an error
 
 # Fee Kim Ah-Poa's User Stories
 
