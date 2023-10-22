@@ -103,7 +103,7 @@
         "error": "Course code already exists"
     }
     ```
--   **NOTE:** This endpoint mutates the coursesDB table
+-   **NOTE:** This endpoint mutates the coursesDBCopy table
 -   If you want prerequisites to be empty, type in the field with "()". For example, "prerequisites": "()".
 -   If you want restrictions to be empty, type in the field with "{}". For example, "restrictions": "{}".
 -   This endpoint will return:
