@@ -96,3 +96,22 @@ The purpose of this file is to list all user stories that will be used to help p
 - The DELETE request ought should result in a response with an HTTP status code of 400 if the request body is empty or contains inaccurate information.
 - Only the HTTP DELETE method should be supported by the DELETE request. A response with an HTTP status code of 405 should be returned if an alternative HTTP method is employed.
 - The DELETE request should return a result with an HTTP status code of 500 if the database connection fails or if there are any server-side issues.
+
+**Title:** Prevent Duplicate Data Entry via POST Request
+**Priority:** Medium
+**Estimate (in hrs):**
+**User Story:** As a user, I want the system to prevent adding duplicate data when making a POST request to add a course to the MySQL database.
+
+**Acceptance Criteria:**
+- The POST request should have a defined endpoint to add a course object to the database, such as `https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/
+- The POST request must accept a JSON request body that contains course details, including course code, course name, prerequisites, and restrictions.
+- The system should validate whether a course with the provided course code already exists in the database.
+- If an attempt is made to add a course with a duplicate course code, the POST request should return a response with an HTTP status code of 409 (Conflict), along with an error message indicating that the course code already exists:
+
+   ```json
+   {
+       "error": "Course code already exists"
+   }
+   ```
+- The POST request should add the course to the database's 'coursesDB' table if the course code is distinct and does not already exist there.
+- The POST request should be designed to handle potential server-side errors or connection failures. If such errors occur, it should return a response with an HTTP status code of 500.
