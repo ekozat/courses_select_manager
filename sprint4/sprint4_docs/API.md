@@ -74,6 +74,44 @@
         -   **405** if the request method given was not GET
         -   **500** if the connection to the database failed or fetching fails
 
+### POST
+
+### How to test the POST endpoint
+
+###These endpoints will be used to add object containing course code, course name, prerequisite and restriction in the form JSON array
+    ```shell
+    {
+        "courseCode": "CS*101",
+        "courseName": "Introduction to Computer Science",
+        "prerequisites": "()",
+        "restrictions": "{}"
+    }
+    ```
+-   https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/
+-   On Postman select POST and paste in the URL https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/
+-   Navigate to body select raw and choose JSON
+-   Inputting just courseCode as the following and sending it will add the object to database.
+
+    ```shell
+    {
+        "courseCode": "CS*101",
+        "courseName": "Introduction to Computer Science",
+        "prerequisites": "()",
+        "restrictions": "{}"
+    }
+    ```
+    -   Trying to add the same object twice with the same course code will give display following error message, and will not add the course.
+        {"error":"Course code already exists"}
+    ```
+
+-   **NOTE:** This endpoint mutates the coursesDB table
+-   If you want prerequisites to be empty, type in the field with "()". For example, "prerequisites": "()".
+-   If you want restrictions to be empty, type in the field with "{}". For example, "restrictions": "{}".
+-   This endpoint will return:
+    -   **200** if the course is added successfully to the database
+    -   **405** if the request method given was not PUT
+    -   **500** if the connection to the database failed or fetching fails
+
 ### PUT
 
 ### How to test the PUT endpoint
