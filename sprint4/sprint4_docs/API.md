@@ -118,7 +118,6 @@
         "prerequisites": "None" 
     }
     ```
-
     -   **500** if the connection to the database failed or fetching fails
 
 ### PUT
