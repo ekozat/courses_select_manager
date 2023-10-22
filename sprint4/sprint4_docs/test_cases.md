@@ -61,19 +61,25 @@
 -   Expected Result: The system should only accept DELETE requests for course deletion. If the request method is incorrect, it should return an HTTP status code 405.
 
 **Test Case 11:**
+-   Description: Sending a DELETE request without specifying course code
+-   Input: Submit a DELETE request without including the courseCode in the JSON body
+-   Expected Result: It should give an invalid request (HTTP status code 400) and not allow the deletion to go through
+
+**Test Case 12:**
 
 -   Description: Sending a GET request with an invalid request method
 -   Input: Submit a GET request with an incorrect request method (e.g., DELETE, POST).
 -   Expected Result: The system should only accept GET requests for course fetching. If the request method is incorrect, it should return an HTTP status code 405.
 
-**Test Case 12:**
+**Test Case 13:**
 
 -   Description: Sending a GET request with invalid query parameters
 -   Input: Submit a GET request with an incorrect or malformed query parameters (e.g., ?course_codeeee=cis\*1300, ?prerequisites="").
 -   Expected Result: The system should return a 400 specifying a bad request and inform the user what was wrong (invalid/malformed course_code query param, invalid/malformed prerequisites query param)
 
-**Test Case 13:**
+**Test Case 14:**
 
 -   Description: Sending a GET request to getCoursesByPrereq and getCoursesByRestrictions with no query parameters
 -   Input: Submit a GET to these two endpoints with no query parameters (e.g. GET https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/)
 -   Expected Result: The system should return all courses with **no** prerequisites and restrictions respectively
+
