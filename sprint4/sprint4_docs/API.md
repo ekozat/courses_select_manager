@@ -108,7 +108,7 @@
 -   If you want restrictions to be empty, type in the field with "{}". For example, "restrictions": "{}".
 -   This endpoint will return:
     -   **200** if the course is added successfully to the database
-    -   **405** if the request method given was not PUT
+    -   **405** if the request method given was not POST
     -   **500** if the connection to the database failed or fetching fails
 
 ### PUT
