@@ -80,3 +80,19 @@ The purpose of this file is to list all user stories that will be used to help p
 - The courseCode will be the required input data so that we can update the fields accordingly.
 - The API call should handle error incorrect query parameters.
 - The API call should handle server-side errors.
+
+# Simardeep Singh's User Stories
+
+**Title:** Delete Course by Course Code via DELETE Request
+**Priority:** Medium
+**Estimate (in hrs):** -
+**User Story:** As a user, I want to be able to call a DELETE endpoint to remove a course and its related data from the MySQL database by providing its course code.
+
+**Acceptance Criteria:**
+- The DELETE request should have a well-defined endpoint to delete a course based on its course code, such as `https://cis3760f23-01.socs.uoguelph.ca/courses/delete/`.
+- The DELETE request must accept a JSON request body containing the course code to be deleted.
+- The DELETE request should successfully delete the course from the `coursesDB` table in the database when the provided course code matches a record.
+- The DELETE request should result in a response with an HTTP status code of 404 if the given course code cannot be found in the 'coursesDB' table.
+- The DELETE request ought should result in a response with an HTTP status code of 400 if the request body is empty or contains inaccurate information.
+- Only the HTTP DELETE method should be supported by the DELETE request. A response with an HTTP status code of 405 should be returned if an alternative HTTP method is employed.
+- The DELETE request should return a result with an HTTP status code of 500 if the database connection fails or if there are any server-side issues.
