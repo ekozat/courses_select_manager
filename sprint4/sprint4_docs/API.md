@@ -76,8 +76,6 @@
 
 ### POST
 
-### How to test the POST endpoint
-
 ### These endpoints will be used to add object containing course code, course name, prerequisite and restriction in the form JSON array
 ```
 {
