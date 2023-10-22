@@ -1,1 +1,0 @@
-In this folder, feel free to add any scripts you built in order to understand VBA further. Goodluck!
