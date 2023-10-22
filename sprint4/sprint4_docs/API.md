@@ -109,6 +109,16 @@
 -   This endpoint will return:
     -   **200** if the course is added successfully to the database
     -   **405** if the request method given was not POST
+    -   **400** if the course information is incomplete, i.e., one or more of course code, course name, prerequisite or restriction is missing. For example, the following input will display the message {'error' => 'Incomplete course data in the request'}:
+    
+    ```shell
+    {
+        "courseCode": "CS101",
+        "courseName": "Introduction to Computer Science",
+        "prerequisites": "None" 
+    }
+    ```
+
     -   **500** if the connection to the database failed or fetching fails
 
 ### PUT
