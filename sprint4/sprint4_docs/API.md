@@ -113,9 +113,9 @@
     
     ```shell
     {
-        "courseCode": "CS101",
+        "courseCode": "CS*4101",
         "courseName": "Introduction to Computer Science",
-        "prerequisites": "None" 
+        "prerequisites": "CIS*2132" 
     }
     ```
     -   **500** if the connection to the database failed or fetching fails
