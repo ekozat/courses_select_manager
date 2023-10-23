@@ -34,6 +34,13 @@ The criteria that we needed to meet were:
 -   Presenting documentation and examples on how to interact with the database with REST API
 
 ## Visuals
+MariaDB: Database creation and usage
+![db1](\f23_cis3760_101\sprint4\Images\MicrosoftTeams-image__7_.png)
+![db2](\f23_cis3760_101\sprint4\Images\MicrosoftTeams-image__8_.png)
+
+POSTMAN: API call example
+![api1](\f23_cis3760_101\sprint4\Images\APICallExample.png)
+
 
 
 
