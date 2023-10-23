@@ -35,6 +35,7 @@ The criteria that we needed to meet were:
 
 ## Visuals
 MariaDB: Database creation and usage
+
 ![db1](./sprint4/Images/MicrosoftTeams-image__7_.png) 
 ![db2](./sprint4/Images/MicrosoftTeams-image__8_.png)
 
