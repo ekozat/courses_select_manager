@@ -35,7 +35,7 @@ The criteria that we needed to meet were:
 
 ## Visuals
 MariaDB: Database creation and usage
-![db1](\f23_cis3760_101\sprint4\Images\MicrosoftTeams-image__7_.png)
+![db1](https://gitlab.socs.uoguelph.ca/cis3760_f23/f23_cis3760_101/-/blob/sprint4/sprint4/Images/MicrosoftTeams-image__7_.png) 
 ![db2](\f23_cis3760_101\sprint4\Images\MicrosoftTeams-image__8_.png)
 
 POSTMAN: API call example
