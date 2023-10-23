@@ -121,3 +121,20 @@ The purpose of this file is to list all user stories that will be used to help p
    ```
 - The POST request should add the course to the database's 'coursesDB' table if the course code is distinct and does not already exist there.
 - The POST request should be designed to handle potential server-side errors or connection failures. If such errors occur, it should return a response with an HTTP status code of 500.
+
+
+# Sara Adi's User Stories
+
+**Title:** Backup Database for DELETE Requests
+
+**Priority:** High
+
+**Estimate (in hrs):** - 
+
+**User Story:** As a database admin / user, I want to ensure that when a DELETE call is requested, a seperate database for deleted entries is used, instead of the intial full load database.
+
+**Acceptance Criteria:**
+- There should be at minumum two tables in the database. 
+- One has all courses including those that were previously deleted (initially entry). 
+- The second is the table with the updated, DELETED courses removed
+- Any DELETE request will use the second table.
