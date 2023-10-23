@@ -35,14 +35,11 @@ The criteria that we needed to meet were:
 
 ## Visuals
 MariaDB: Database creation and usage
-![db1](https://gitlab.socs.uoguelph.ca/cis3760_f23/f23_cis3760_101/-/blob/sprint4/sprint4/Images/MicrosoftTeams-image__7_.png) 
-![db2](\f23_cis3760_101\sprint4\Images\MicrosoftTeams-image__8_.png)
+![db1](./sprint4/Images/MicrosoftTeams-image__7_.png) 
+![db2](./sprint4/Images/MicrosoftTeams-image__8_.png)
 
 POSTMAN: API call example
-![api1](\f23_cis3760_101\sprint4\Images\APICallExample.png)
-
-
-
+![api1](./sprint4/Images/APICallExample.png)
 
 ## Team Approach
 Approaching the sprint, we had to set up a local development environment for the team. Coding on the VM would be inefficient and potentially dangerous, so before approaching outstanding tasks, the team set-up their environment.
