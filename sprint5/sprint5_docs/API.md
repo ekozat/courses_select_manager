@@ -1,82 +1,269 @@
 # API Documentation
 
-### Consists of GET, POST, PUT, DELETE methods and how they are implemented
-
 -   The base URL for requests is https://cis3760f23-01.socs.uoguelph.ca/
 -   Our API is defined as /courses/\<functionality>/
     -   **The last forward slash is important**
 
-### GET
+---
 
-#### These endpoints will always return a JSON array of objects where each object contains a courseCode, courseName, prerequisites, and restrictions
+### `GET /courses/getAllCourses/`
 
+Get a list of all courses in the coursesDB database
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getAllCourses/
+
+```
+[
     {
-        "courseCode": "CIS*1200",
-        "courseName": "Introduction to Computing",
+        "courseCode": "ACCT*1220",
+        "courseName": "Introductory Financial Accounting",
         "prerequisites": "()",
-        "restrictions": "{CIS*1000}"
+        "restrictions": "{ACCT*2220}"
+    },
+    {
+        "courseCode": "ACCT*1240",
+        "courseName": "Applied Financial Accounting",
+        "prerequisites": "ACCT*1220 OR ACCT*2220",
+        "restrictions": "{ACCT*2240}"
+    }...
+]
+```
+
+-   This endpoint does not accept any query parameters
+-   This endpoint will return:
+    -   **200** if the courses are fetched successfully from the database
+    -   **405** if the request method given was not GET
+    -   **500** if the connection to the database failed or fetching fails
+
+### `GET /courses/getAllCoursesCopy/`
+
+Get a list of all courses in the coursesDBCopy database (used to verify POST, PUT, and DELETE operations)
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getAllCoursesCopy/
+
+```
+[
+    {
+        "courseCode": "ACCT*1220",
+        "courseName": "Introductory Financial Accounting",
+        "prerequisites": "()",
+        "restrictions": "{ACCT*2220}"
+    },
+    {
+        "courseCode": "ACCT*1240",
+        "courseName": "Applied Financial Accounting",
+        "prerequisites": "ACCT*1220 OR ACCT*2220",
+        "restrictions": "{ACCT*2240}"
+    }...
+]
+```
+
+-   This endpoint does not accept any query parameters
+-   This endpoint will return:
+    -   **200** if the courses are fetched successfully from the database
+    -   **405** if the request method given was not GET
+    -   **500** if the connection to the database failed or fetching fails
+
+### `GET /courses/getCourseByCode/?course_code={course_code}`
+
+Get course details using the respective course code
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByCode/?course_code=cis*1300
+
+```
+[
+    {
+        "courseCode": "CIS*1300",
+        "courseName": "Programming",
+        "prerequisites": "()",
+        "restrictions": "{CIS*1500}"
     }
+]
+```
 
--   **Get all courses**
-    -   https://cis3760f23-01.socs.uoguelph.ca/courses/getAllCourses/
-    -   This endpoint does not accept any query parameters
-    -   This endpoint will return:
-        -   **200** if the courses are fetched successfully from the database
-        -   **405** if the request method given was not GET
-        -   **500** if the connection to the database failed or fetching fails
--   **Get all courses from backup table** (THIS IS USED TO VERIFY UPDATE, POST, AND DELETE METHODS)
-    -   https://cis3760f23-01.socs.uoguelph.ca/courses/getAllCoursesCopy/
-    -   This endpoint does not accept any query parameters
-    -   This endpoint will return:
-        -   **200** if the courses are fetched successfully from the coursesDBCopy table in the database
-        -   **405** if the request method given was not GET
-        -   **500** if the connection to the database failed or fetching fails
--   **Get course by course code**
-    -   https://cis3760f23-01.socs.uoguelph.ca/courses/?course_code=cis*1300
-    -   This endpoint accepts a query parameter called **course_code** which has to match the exact course code including the \* character (capitalization does not matter)
-    -   This endpoint will return:
-        -   **200** if the course is fetched successfully from the database
-        -   **400** if the query parameter is not included in the call
-        -   **404** if the course code was not found in the database
-        -   **405** if the request method given was not GET
-        -   **500** if the connection to the database failed or fetching fails
--   **Get course by course name**
-    -   https://cis3760f23-01.socs.uoguelph.ca/courses/?course_name=computing
-    -   This endpoint accepts a query parameter called **course_name** which can be any string and will return course names that contain the string specified in it
-    -   This endpoint will return:
-        -   **200** if the course(s) is fetched successfully from the database
-        -   **400** if the query parameter is not included in the call
-        -   **404** if the course name was not found in the database
-        -   **405** if the request method given was not GET
-        -   **500** if the connection to the database failed or fetching fails
--   **Get course(s) by prerequisite(s)**
-    -   https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490
-    -   https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490,cis*2750
-    -   This endpoint accepts a query parameter called **prerequisites** which can be comma separated values of course codes (capitalization does not matter but \* char does)
-    -   If no query parameter is given, the endpoint will return courses with **NO** prerequisites
-        -   https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/
-    -   The endpoint will return rows where any of the given prerequisites exist, so logically it is using **OR** logic
-    -   This endpoint will return:
-        -   **200** if the course(s) is fetched successfully from the database
-        -   **404** if no matching prerequisites were found in the database or if the query parameter is not properly formatted
-        -   **405** if the request method given was not GET
-        -   **500** if the connection to the database failed or fetching fails
--   **Get course(s) by restrictions(s)**
-    -   https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1300
-    -   https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1300,cis*1500
-    -   This endpoint accepts a query parameter called **restrictions** which can be comma separated values of course codes (capitalization does not matter but \* char does)
-    -   If no query parameter is given, the endpoint will return courses with **NO** restrictions
-        -   https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/
-    -   The endpoint will return rows where any of the given restrictions exist, so logically it is using **OR** logic
-    -   This endpoint will return:
-        -   **200** if the course(s) is fetched successfully from the database
-        -   **404** if no matching restrictions were found in the database or the query parameter is not properly formatted
-        -   **405** if the request method given was not GET
-        -   **500** if the connection to the database failed or fetching fails
+-   This endpoint will return:
+    -   **200** if the course is fetched successfully from the database
+    -   **400** if the query parameter is not included in the call
+    -   **404** if the course code was not found in the database
+    -   **405** if the request method given was not GET
+    -   **500** if the connection to the database failed or fetching fails
 
-### POST
+### `GET /courses/getCourseByName/?course_name={course_name}`
 
-### These endpoints will be used to add object containing course code, course name, prerequisite and restriction in the form JSON array
+Get course details using the respective course name using fuzzy search
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByName/?course_name=discrete
+
+```
+[
+    {
+        "courseCode": "CIS*1910",
+        "courseName": "Discrete Structures in Computing I",
+        "prerequisites": "()",
+        "restrictions": "{}"
+    },
+    {
+        "courseCode": "CIS*2910",
+        "courseName": "Discrete Structures in Computing II",
+        "prerequisites": "(CIS*1300 OR ENGG*1410) AND (CIS*1910 OR ENGG*1500)",
+        "restrictions": "{}"
+    }
+]
+```
+
+-   This endpoint will return:
+    -   **200** if the course(s) is fetched successfully from the database
+    -   **400** if the query parameter is not included in the call
+    -   **404** if the course name was not found in the database
+    -   **405** if the request method given was not GET
+    -   **500** if the connection to the database failed or fetching fails
+
+### `GET /courses/getCoursesByPrereq/?prerequisites={course_code1,course_code2, ...}`
+
+Get courses by their prerequisites using the course code(s) (logical OR)
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByPrereq/?prerequisites=cis*2910
+
+```
+[
+    {
+        "courseCode": "CIS*3490",
+        "courseName": "The Analysis and Design of Computer Algorithms",
+        "prerequisites": "[CIS*1910 OR CIS*2910 and ENGG*1500] AND CIS*2520",
+        "restrictions": "{}"
+    }
+]
+```
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByPrereq/?prerequisites=cis*2910,cis*3490
+
+```
+[
+    {
+        "courseCode": "CIS*3490",
+        "courseName": "The Analysis and Design of Computer Algorithms",
+        "prerequisites": "[CIS*1910 OR CIS*2910 and ENGG*1500] AND CIS*2520",
+        "restrictions": "{}"
+    },
+    {
+        "courseCode": "CIS*3150",
+        "courseName": "Theory of Computation",
+        "prerequisites": "CIS*2750 AND CIS*3490",
+        "restrictions": "{}"
+    },
+    {
+        "courseCode": "CIS*4520",
+        "courseName": "Introduction to Cryptography",
+        "prerequisites": "CIS*3490",
+        "restrictions": "{CIS*4110}"
+    },
+    {
+        "courseCode": "CIS*4780",
+        "courseName": "Computational Intelligence",
+        "prerequisites": "CIS*3490 AND (CIS*3750 OR CIS*3760) AND (CIS*2460 OR STAT*2040)",
+        "restrictions": "{}"
+    }
+]
+```
+
+If no query parameter is given, the endpoint will return courses with **NO** prerequisites
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/
+
+```
+[
+    {
+        "courseCode": "ACCT*1220",
+        "courseName": "Introductory Financial Accounting",
+        "prerequisites": "()",
+        "restrictions": "{ACCT*2220}"
+    },
+    {
+        "courseCode": "AGR*1110",
+        "courseName": "Introduction to the Agri-Food Systems",
+        "prerequisites": "()",
+        "restrictions": "{AGR*1100,AGR*1250}"
+    }...
+]
+```
+
+-   This endpoint will return:
+    -   **200** if the course(s) is fetched successfully from the database
+    -   **404** if no matching prerequisites were found in the database or if the query parameter is not properly formatted
+    -   **405** if the request method given was not GET
+    -   **500** if the connection to the database failed or fetching fails
+
+### `GET /courses/getCoursesByRestrictions/?restrictions={course_code1,course_code2, ...}`
+
+Get courses by their restrictions using the course code(s) (logical OR)
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500
+
+```
+[
+    {
+        "courseCode": "CIS*1300",
+        "courseName": "Programming",
+        "prerequisites": "()",
+        "restrictions": "{CIS*1500}"
+    }
+]
+```
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500,cis*1300
+
+```
+[
+    {
+        "courseCode": "CIS*1300",
+        "courseName": "Programming",
+        "prerequisites": "()",
+        "restrictions": "{CIS*1500}"
+    },
+    {
+        "courseCode": "CIS*1500",
+        "courseName": "Introduction to Programming",
+        "prerequisites": "()",
+        "restrictions": "{CIS*1300}"
+    }
+]
+```
+
+If no query parameter is given, the endpoint will return courses with **NO** restrictions
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/
+
+```
+[
+    {
+        "courseCode": "ACCT*2230",
+        "courseName": "Management Accounting",
+        "prerequisites": "ACCT*1220 OR ACCT*2220",
+        "restrictions": "{}"
+    },
+    {
+        "courseCode": "ACCT*3230",
+        "courseName": "Intermediate Management Accounting",
+        "prerequisites": "ACCT*2230",
+        "restrictions": "{}"
+    }...
+]
+```
+
+-   This endpoint will return:
+    -   **200** if the course(s) is fetched successfully from the database
+    -   **404** if no matching restrictions were found in the database or the query parameter is not properly formatted
+    -   **405** if the request method given was not GET
+    -   **500** if the connection to the database failed or fetching fails
+
+### `POST /courses/postCourses/`
+
+Update the coursesDBCopy table with a new course
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/
+
+You must provide a JSON body like this:
+
 ```
 {
     "courseCode": "CS*101",
@@ -85,113 +272,108 @@
     "restrictions": "{}"
 }
 ```
--   https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/
--   On Postman select POST and paste in the URL https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/
--   Navigate to body select raw and choose JSON
--   Inputting just courseCode as the following and sending it will add the object to database.
-    ```shell
-    {
-        "courseCode": "CS*101",
-        "courseName": "Introduction to Computer Science",
-        "prerequisites": "()",
-        "restrictions": "{}"
-    }
-    ```
-    -   Trying to add the same object twice with the same course code will give display following error message, and will not add the course.
-    ```
-    {
-        "error": "Course code already exists"
-    }
-    ```
--   **NOTE:** This endpoint mutates the coursesDBCopy table
--   If you want prerequisites to be empty, type in the field with "()". For example, "prerequisites": "()".
--   If you want restrictions to be empty, type in the field with "{}". For example, "restrictions": "{}".
+
+Adding the same course twice will return a 400 with:
+
+```
+{
+    "error": "Course code already exists"
+}
+```
+
+If you want prerequisites to be empty, type in the field with "()". For example, "prerequisites": "()".
+
+If you want restrictions to be empty, type in the field with "{}". For example, "restrictions": "{}".
+
+Adding a course with incomplete info such as excluding restrictions will return a 400 with:
+
+```
+{
+    "error": "Incomplete course data in the request"
+}
+```
+
 -   This endpoint will return:
     -   **200** if the course is added successfully to the database
     -   **405** if the request method given was not POST
     -   **400** if the course information is incomplete, i.e., one or more of course code, course name, prerequisite or restriction is missing. For example, the following input will display the message {'error' => 'Incomplete course data in the request'}:
-    
-    ```shell
-    {
-        "courseCode": "CS*4101",
-        "courseName": "Introduction to Computer Science",
-        "prerequisites": "CIS*2132" 
-    }
-    ```
     -   **500** if the connection to the database failed or fetching fails
 
-### PUT
+### `PUT /courses/update/`
 
-### How to test the PUT endpoint
+Update a specific course's information in the coursesDBCopy table using a mandatory courseCode property
 
-**PUT requires a courseCode for it to work**
+> https://cis3760f23-01.socs.uoguelph.ca/courses/update/
 
--   https://cis3760f23-01.socs.uoguelph.ca/courses/update/
--   On Postman select PUT and paste in the URL https://cis3760f23-01.socs.uoguelph.ca/courses/update/
--   Navigate to body select raw and choose JSON
--   Inputting just courseCode as this will give you the stored information on courseCode, courseName, prerequisites and restrictions
-    ```
-    {
-        "courseCode": "CIS*1300"
-    }
-    ```
-    -   To update any of courseName, prerequisites and restrictions add it to the json
-        -   For example, if you want to update courseName and prerequisites, you'll do it as follows
-    ```
-    {
-        "courseCode": "CIS*1200",
-        "courseName": "Intoduction to Programming",
-        "prerequisites": "CIS*1000"
-    }
-    ```
-    -   If you have one field set to ""
-        -   For example, "prerequisites": "" it will update the prerequisite field with ""
--   It will return the current info associated with the course code for the above example where we updated courseName and prereq
+You must provide a JSON body like this:
+
+```
+{
+    "courseCode": "CIS*1200",
+    "courseName": "Intoduction to Programming",
+    "prerequisites": "CIS*1000"
+}
+```
+
+This will update the course CIS\*1200 with the value of the other properties specified
+
+On successful update, the endpoint will return a JSON response like this:
 
 ```
 {
     "message": "Current Info",
     "originalRow": {
         "courseCode": "\"CIS*1200\"",
-        "courseName": "\"Introduction to Computing\"",
-        "prerequisites": "\"()\"",
+        "courseName": "Intro to Programming",
+        "prerequisites": "CIS*1000",
         "restrictions": "\"{CIS*1000}\""
     }
-}
-{
+}{
     "message": "Update successful",
     "updatedRow": {
         "courseCode": "\"CIS*1200\"",
-        "courseName": "Intoduction to Programming",
+        "courseName": "Introduction to Programming",
         "prerequisites": "CIS*1000",
         "restrictions": "\"{CIS*1000}\""
     }
 }
 ```
 
--   **NOTE:** This endpoint mutates the coursesDBCopy table and not the main one
--   All 3 fields can be updated at once and only the fields that you want to update should be stated
--   If the update is not for courseName, prerequisites, and restrictions, it will then return "error": "No valid update data provided" which is a 400 bad request
+All 3 fields can be updated at once and only the fields that you want to update should be stated
+
+If the update is not for courseName, prerequisites, and restrictions, it will then return "error": "No valid update data provided" which is a 400 bad request
+
 -   This endpoint will return:
     -   **200** if the course is retrieved successfully from the database
     -   **400** if invalid data is input or missing courseCode in the request
     -   **405** if the request method given was not PUT
     -   **500** if the connection to the database failed or fetching fails
 
-### DELETE
+### `DELETE /courses/delete/`
 
--   **Delete course by course code**
-    -   https://cis3760f23-01.socs.uoguelph.ca/courses/delete/
-    -   You must pass in a JSON body consisting of the correct course code that you would like deleted like this:
-    ```
-    {
-        "courseCode": "cis*1300"
-    }
-    ```
-    -   **NOTE:** This endpoint mutates the coursesDBCopy table and not the main one
-    -   This endpoint will return:
-        -   **200** if the course is found and deleted successfully from the database
-        -   **400** if invalid data is input or missing courseCode in the request body
-        -   **404** if the course was not found in the database
-        -   **405** if the request method given was not DELETE
-        -   **500** if the connection to the database failed or fetching fails
+Delete a course from the coursesDBCopy table by the courseCode
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/delete/
+
+You must provide a JSON body like this:
+
+```
+{
+    "courseCode": "cis*1300"
+}
+```
+
+On successful deletion, the endpoint will return this:
+
+```
+{
+    "message": "Course deleted successfully"
+}
+```
+
+-   This endpoint will return:
+    -   **200** if the course is found and deleted successfully from the database
+    -   **400** if invalid data is input or missing courseCode in the request body
+    -   **404** if the course was not found in the database
+    -   **405** if the request method given was not DELETE
+    -   **500** if the connection to the database failed or fetching fails
