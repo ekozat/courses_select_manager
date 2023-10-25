@@ -118,33 +118,16 @@ Get course details using the respective course name using fuzzy search
     -   **405** if the request method given was not GET
     -   **500** if the connection to the database failed or fetching fails
 
-### `GET /courses/getCoursesByPrereq/?prerequisites={course_code1,course_code2, ...}`
+### `GET /courses/getCoursesByPrereq/?prerequisites={course_code1[,|]course_code2[,|] ...}`
 
-Get courses by their prerequisites using the course code(s) (logical OR)
+**NOTE**: The course codes can be separated by the comma or pipe symbol and is explained why below
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByPrereq/?prerequisites=cis*2910
+Get courses by their prerequisites using the course code(s)
 
-```
-[
-    {
-        "courseCode": "CIS*3490",
-        "courseName": "The Analysis and Design of Computer Algorithms",
-        "prerequisites": "[CIS*1910 OR CIS*2910 and ENGG*1500] AND CIS*2520",
-        "restrictions": "{}"
-    }
-]
-```
-
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByPrereq/?prerequisites=cis*2910,cis*3490
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByPrereq/?prerequisites=cis*3490
 
 ```
 [
-    {
-        "courseCode": "CIS*3490",
-        "courseName": "The Analysis and Design of Computer Algorithms",
-        "prerequisites": "[CIS*1910 OR CIS*2910 and ENGG*1500] AND CIS*2520",
-        "restrictions": "{}"
-    },
     {
         "courseCode": "CIS*3150",
         "courseName": "Theory of Computation",
@@ -161,6 +144,90 @@ Get courses by their prerequisites using the course code(s) (logical OR)
         "courseCode": "CIS*4780",
         "courseName": "Computational Intelligence",
         "prerequisites": "CIS*3490 AND (CIS*3750 OR CIS*3760) AND (CIS*2460 OR STAT*2040)",
+        "restrictions": "{}"
+    }
+]
+```
+
+When a comma is used to separate prerequisites, a logical AND will be used
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByPrereq/?prerequisites=cis*3490,cis*2750
+
+```
+[
+    {
+        "courseCode": "CIS*3150",
+        "courseName": "Theory of Computation",
+        "prerequisites": "CIS*2750 AND CIS*3490",
+        "restrictions": "{}"
+    }
+]
+```
+
+When a '|' symbol is used to separate prerequisites, a logical OR will be used
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByPrereq/?prerequisites=cis*3490|cis*2750
+
+```
+[
+    {
+        "courseCode": "CIS*3150",
+        "courseName": "Theory of Computation",
+        "prerequisites": "CIS*2750 AND CIS*3490",
+        "restrictions": "{}"
+    },
+    {
+        "courseCode": "CIS*4520",
+        "courseName": "Introduction to Cryptography",
+        "prerequisites": "CIS*3490",
+        "restrictions": "{CIS*4110}"
+    },
+    {
+        "courseCode": "CIS*4780",
+        "courseName": "Computational Intelligence",
+        "prerequisites": "CIS*3490 AND (CIS*3750 OR CIS*3760) AND (CIS*2460 OR STAT*2040)",
+        "restrictions": "{}"
+    },
+    {
+        "courseCode": "CIS*3150",
+        "courseName": "Theory of Computation",
+        "prerequisites": "CIS*2750 AND CIS*3490",
+        "restrictions": "{}"
+    },
+    {
+        "courseCode": "CIS*3260",
+        "courseName": "Software Design IV",
+        "prerequisites": "CIS*2750 AND CIS*3250 AND CIS*3760",
+        "restrictions": "{}"
+    },
+    {
+        "courseCode": "CIS*3760",
+        "courseName": "Software Engineering",
+        "prerequisites": "CIS*2750 AND CIS*3750",
+        "restrictions": "{}"
+    },
+    {
+        "courseCode": "CIS*4020",
+        "courseName": "Data Science",
+        "prerequisites": "CIS*2750 AND MATH*1160 AND STAT*2040",
+        "restrictions": "{}"
+    },
+    {
+        "courseCode": "CIS*4030",
+        "courseName": "Mobile Computing",
+        "prerequisites": "CIS*2030 AND CIS*2750 AND CIS*3110",
+        "restrictions": "{}"
+    },
+    {
+        "courseCode": "CIS*4250",
+        "courseName": "Software Design V",
+        "prerequisites": "CIS*2750 AND CIS*3260",
+        "restrictions": "{}"
+    },
+    {
+        "courseCode": "CIS*4720",
+        "courseName": "Image Processing and Vision",
+        "prerequisites": "CIS*2750 AND CIS*3110 AND (CIS*2460 OR STAT*2040)",
         "restrictions": "{}"
     }
 ]
@@ -193,9 +260,11 @@ If no query parameter is given, the endpoint will return courses with **NO** pre
     -   **405** if the request method given was not GET
     -   **500** if the connection to the database failed or fetching fails
 
-### `GET /courses/getCoursesByRestrictions/?restrictions={course_code1,course_code2, ...}`
+### `GET /courses/getCoursesByRestrictions/?restrictions={course_code1[,|]course_code2[,|] ...}`
 
-Get courses by their restrictions using the course code(s) (logical OR)
+**NOTE**: The course codes can be separated by the comma or pipe symbol and is explained why below
+
+Get courses by their restrictions using the course code(s)
 
 > https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500
 
@@ -210,7 +279,19 @@ Get courses by their restrictions using the course code(s) (logical OR)
 ]
 ```
 
+When a comma is used to separate restrictions, a logical AND will be used
+
 > https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500,cis*1300
+
+```
+{
+    "error": "No matching restrictions found"
+}
+```
+
+When a '|' is used to separate restrictions, a logical OR will be used
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500|cis*1300
 
 ```
 [
