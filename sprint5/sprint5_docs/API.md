@@ -124,7 +124,7 @@ Get course details using the respective course name using fuzzy search
 
 Get courses by their prerequisites using the course code(s)
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByPrereq/?prerequisites=cis*3490
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490
 
 ```
 [
@@ -151,7 +151,7 @@ Get courses by their prerequisites using the course code(s)
 
 When a comma is used to separate prerequisites, a logical AND will be used
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByPrereq/?prerequisites=cis*3490,cis*2750
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490,cis*2750
 
 ```
 [
@@ -166,7 +166,7 @@ When a comma is used to separate prerequisites, a logical AND will be used
 
 When a '|' symbol is used to separate prerequisites, a logical OR will be used
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByPrereq/?prerequisites=cis*3490|cis*2750
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490|cis*2750
 
 ```
 [
