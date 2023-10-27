@@ -408,9 +408,9 @@ On successful update, the endpoint will return a JSON response like this:
         "courseName": "Intro to Programming",
         "prerequisites": "CIS*1000",
         "restrictions": "\"{CIS*1000}\""
-    }
-}{
-    "message": "Update successful",
+    },
+    
+
     "updatedRow": {
         "courseCode": "\"CIS*1200\"",
         "courseName": "Introduction to Programming",
