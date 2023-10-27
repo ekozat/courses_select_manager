@@ -41,28 +41,29 @@ if (!$conn) {
                 $selectOriginalRowSql = "SELECT * FROM coursesDBCopy WHERE courseCode = '$courseCode'";
                 $originalResult = $conn->query($selectOriginalRowSql);
                 $originalRow = $originalResult->fetch_assoc();
-                echo json_encode(array('message' => 'Current Info', 'originalRow' => $originalRow));
+                //echo json_encode(array('message' => 'Current Info', 'originalRow' => $originalRow));
 
+                if ($originalRow) {
                 $updateStatements = array();
 
-                if (!is_null($courseName)) {
+                    if (!is_null($courseName)) {
                     $updateStatements[] = "courseName = '$courseName'";
-                }
+                    }
 
-                if (!is_null($prerequisites)) {
+                    if (!is_null($prerequisites)) {
                     $updateStatements[] = "prerequisites = '$prerequisites'";
-                }
+                    }
 
-                if (!is_null($restrictions)) {
+                    if (!is_null($restrictions)) {
                     $updateStatements[] = "restrictions = '$restrictions'";
-                }
+                    }
 
-                if (!empty($updateStatements)) {
+                    if (!empty($updateStatements)) {
                     $updateSql = implode(', ', $updateStatements);
                     $sql = "UPDATE coursesDBCopy SET $updateSql WHERE courseCode ='$courseCode'";
 
-                    try {
-                        if ($conn->query($sql)) {
+                        try {
+                            if ($conn->query($sql)) {
                             // Set the HTTP response code to 200 (OK)
                             http_response_code(200);
 
@@ -70,16 +71,23 @@ if (!$conn) {
                             $selectUpdatedRowSql = "SELECT * FROM coursesDBCopy WHERE courseCode = '$courseCode'";
                             $result = $conn->query($selectUpdatedRowSql);
 
-                            if ($result) {
+                                if ($result) {
                                 $updatedRow = $result->fetch_assoc();
-                                echo json_encode(array('message' => 'Update successful', 'updatedRow' => $updatedRow));
+                                //echo json_encode(array('updatedRow' => $updatedRow));
                                     // Add debugging output
+                                    $outputJSON = array(
+                                        'message' => 'Current Info',
+                                        'originalRow' => $originalRow,
+                                        'updatedRow' => $updatedRow
+                                    );
+                                    
+                                    echo json_encode($outputJSON);
 
-                            } else {
+                                }else {
                                 http_response_code(500);
                                 echo json_encode(array('error' => 'Failed to retrieve the updated row from the database'));
                             }
-                        } else {
+                        }   else {
                             http_response_code(500);
                             echo json_encode(array('error' => 'Failed to update data in the database'));
                         }
@@ -93,8 +101,12 @@ if (!$conn) {
                 }
             } else {
                 http_response_code(400); // Bad Request
-                echo json_encode(array('error' => 'Missing courseCode in the request, required'));
+                echo json_encode(array('error' => 'Course Code not found!'));
             }
+        } else {
+            http_response_code(400); // Bad Request
+            echo json_encode(array('error' => 'Missing courseCode in the request, required'));
+        }
         } else {
             http_response_code(500);
             echo json_encode(array('error' => 'Failed to select the database'));
@@ -108,3 +120,5 @@ if (!$conn) {
     close_con($conn);
 }
 ?>
+
+
