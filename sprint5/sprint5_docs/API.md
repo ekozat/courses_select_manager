@@ -426,7 +426,7 @@ If the update is not for courseName, prerequisites, and restrictions, it will th
 
 -   This endpoint will return:
     -   **200** if the course is retrieved successfully from the database
-    -   **400** if invalid data is input or missing courseCode in the request
+    -   **400** if invalid data is input or missing courseCode in the request or course is not found
     -   **405** if the request method given was not PUT
     -   **500** if the connection to the database failed or fetching fails
 
