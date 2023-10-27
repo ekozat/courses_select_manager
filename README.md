@@ -3,15 +3,15 @@
 # Team
 
 -   Team Lead:
-    -   Emily Kozatchiner
+    -  Fee Kim Ah-Poa 
 -   Team Members:
     -   Sara Adi
     -   Simardeep Singh
-    -   Fee Kim Ah-Poa
+    -   Emily Kozatchiner
     -   Maneesh K. Wijewardhana
 
 ## How to Run
-Please reference the following files existing in the sprint4_docs folder:
+Please reference the following files existing in the sprint5_docs folder:
 -   the API.md file for the associated URLs of the API calls in POSTMAN
 -   the my_sql_use.md file for the creation and copying of the cis3760 database table.
 
@@ -19,11 +19,11 @@ The two documents state clear instructions on how to operate the database and al
 
 ## Current Sprint
 
-Sprint 4
+Sprint 5
 
 ## Description
 
-F23 CIS\*3760 Sprint 4:
+F23 CIS\*3760 Sprint 5:
 
 The objective of this sprint is to design and create a navigable MySQL database using the VM provided. To do so, we need to establish server side REST API to access and modify the database. Documentation the API calls for database manipualtion should be provided. 
 
@@ -70,5 +70,5 @@ We also accounted for various different database queries within these calls, and
 
 ## Project status
 
-Complete.
+In progress.
 
