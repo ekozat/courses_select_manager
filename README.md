@@ -60,6 +60,12 @@ For the API calls, we had multiple subtasks that everyone would take on to compl
 
 We also accounted for various different database queries within these calls, and had to decide which fields were required to be present and which were not.
 
+We have also implemented a link that directs you to the API document.
+This is the link to it https://cis3760f23-01.socs.uoguelph.ca/apidocs.php
+
+It can be easily access from the home page of our website
+
+
 ## Authors and acknowledgment
 
     - Sara Adi
