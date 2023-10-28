@@ -144,7 +144,7 @@ server {
           try_files $uri $uri/ /get_all_courses_copy.php;
         }
 
-	location /courses/getSubjects/ {
+		location /courses/getSubjects/ {
           try_files $uri $uri/ /get_subjects.php;
         }
 
