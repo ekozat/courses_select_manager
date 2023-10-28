@@ -130,6 +130,12 @@ server {
 		try_files $uri $uri/ /404/index.php;
 	}
 
+	location /apidocs {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ /404/index.php;
+	}
+
         location /courses/getAllCourses/ {
           try_files $uri $uri/ /get_all_courses.php;
         }
