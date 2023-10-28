@@ -39,8 +39,14 @@ $html = <<<HTML
             <p>$description1</p>
             <p>$description2</p>
         </div>
-        <div class="image">
-            <a href="parsed_courses.xlsm" download class="download-button">Download File</a>
+        <div class="buttons-container">
+            <div class="download-button">
+                <a href="parsed_courses.xlsm" download class="download-button">Download File</a>
+            </div>
+
+            <div class="download-button">
+                <a href="apidocs.php" download class="download-button">API Documentation</a>
+            </div>
         </div>
     </div>
 
