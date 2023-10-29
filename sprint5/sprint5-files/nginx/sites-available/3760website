@@ -149,6 +149,10 @@ server {
         location /courses/getCoursesByRestrictions/ {
           try_files $uri $uri/ /get_courses_by_restrict.php?$args;
         }
+
+		location /courses/getCoursesBySubject/ {
+          try_files $uri $uri/ /get_courses_by_subject.php?$args;
+        }
 	
         location /courses/getCourseByCode/ {
           try_files $uri $uri/ /get_course_by_code.php?$args;
