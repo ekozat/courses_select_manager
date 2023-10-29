@@ -410,29 +410,27 @@ Adding the same course twice will return a 400 with:
 
 If you want prerequisites to be empty, there are two ways to achieve it:
     -   Type in the field with "()". For example, "prerequisites": "()".
-
     -   Do not mention the "prerequisites" parameter. For example,
 
-    ```
-    {
-        "courseCode": "CS*101",
-        "courseName": "Introduction to Computer Science",
-        "restrictions": "{}"
-    }
+```
+{
+    "courseCode": "CS*101",
+    "courseName": "Introduction to Computer Science",
+    "restrictions": "{}"
+}
     ```
 
 If you want restrictions to be empty, there are two ways to achieve it:
     -   Type in the field with "{}". For example, "restrictions": "{}".
-    
     -   Do not mention the "restrictions" parameter. For example,
 
-    ```
-    {
-        "courseCode": "CS*101",
-        "courseName": "Introduction to Computer Science",
-        "prerequisites": "()"
-    }
-    ```
+```
+{
+    "courseCode": "CS*101",
+    "courseName": "Introduction to Computer Science",
+    "prerequisites": "()"
+}
+```
 
 Adding a course with incomplete info such as excluding restrictions will return a 400 with:
 
