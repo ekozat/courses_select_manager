@@ -64,6 +64,58 @@ Get a list of all courses in the coursesDBCopy database (used to verify POST, PU
     -   **405** if the request method given was not GET
     -   **500** if the connection to the database failed or fetching fails
 
+## `GET /courses/getCoursesBySubject/?subject={subject}`
+
+Get all the courses by a specified subject
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesBySubject/?subject=HROB
+
+```
+[
+    {
+        "courseCode": "HROB*2010",
+        "courseName": "Foundations of Leadership",
+        "prerequisites": "()",
+        "restrictions": "{UNIV*2000}"
+    },
+]
+```
+
+-   This endpoint will return:
+    -   **200** if the course is fetched successfully from the database
+    -   **400** if there is a malformed subject parameter
+    -   **404** if no courses found for the given subject
+    -   **405** if the request is an incorrect request method
+    -   **500** if the connection to the database failed or fetching fails
+
+---
+
+## `GET /courses/getSubjects/
+
+Get all the courses by a specified subject
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getSubjects/
+
+```
+[
+    "ACCT",
+    "AGR",
+    "ANSC",
+    "ANTH",
+    "ARTH",
+    "ARAB",
+    "ASCI",
+    "BIOC",
+]
+```
+
+-   This endpoint will return:
+    -   **200** if the subjects are fetched successfully from the database
+    -   **405** if the request is an incorrect request method
+    -   **500** if the connection to the database failed or fetching fails
+
+---
+
 ### `GET /courses/getCourseByCode/?course_code={course_code}`
 
 Get course details using the respective course code

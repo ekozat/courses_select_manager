@@ -138,3 +138,40 @@ The purpose of this file is to list all user stories that will be used to help p
 - One has all courses including those that were previously deleted (initially entry). 
 - The second is the table with the updated, DELETED courses removed
 - Any DELETE request will use the second table.
+
+**Title:** Get a list of subjects
+
+**Priority:** High
+
+**Estimate (in hrs):** - 
+
+**User Story:** As a user, I want to be able to get a list of all subjects in the database so I can use them to search for courses later.
+
+**Acceptance Criteria:**
+- When a user make a GET request to the /subjects endpoint, the system should respond with a list of all unique subjects available in the database.
+- The response should be in JSON format and include an array of subject names.
+- Each subject name in the array should be a string without leading or trailing spaces.
+- If there are no subjects in the database, the request should display an approporaite message.
+- The endpoint should return an appropriate HTTP status code (e.g., 200) to indicate a successful response.
+
+**Title:** Get a list of courses when specifiying the subject
+
+**Priority:** High
+
+**Estimate (in hrs):** - 
+
+**User Story:** As a user, I want to be able to get a list of all courses based on the subject I input.
+
+**Acceptance Criteria:**
+- When a user is to make a GET request to the /courses/getCoursesBySubject endpoint with a valid "subject" parameter, the system should respond with a list of courses that match the specified subject.
+- The "subject" parameter should be case-insensitive, allowing users to input subjects in any case (e.g., "HROB," "hrob," "Hrob," etc.).
+- The response should be in JSON format and include an array of course objects, where each object represents a course.
+- Each course object should contain at least the following attributes:
+    - courseCode: The course code or identifier.
+    - courseName: The name or title of the course.
+    - prerequisites: The prerequisites for the course (if available).
+    - restrictions: Any restrictions on the course (if available).
+- If there are no subjects in the database, the request should display an approporaite message.
+- The endpoint should return an appropriate HTTP status code (e.g., 200) to indicate a successful response.
+
+
