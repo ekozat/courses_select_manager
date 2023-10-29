@@ -64,7 +64,7 @@ Get a list of all courses in the coursesDBCopy database (used to verify POST, PU
     -   **405** if the request method given was not GET
     -   **500** if the connection to the database failed or fetching fails
 
-## `GET /courses/getCoursesBySubject/?subject={subject}`
+### `GET /courses/getCoursesBySubject/?subject={subject}`
 
 Get all the courses by a specified subject
 
@@ -88,9 +88,7 @@ Get all the courses by a specified subject
     -   **405** if the request is an incorrect request method
     -   **500** if the connection to the database failed or fetching fails
 
----
-
-## `GET /courses/getSubjects/`
+### `GET /courses/getSubjects/`
 
 Get all the courses by a specified subject
 
@@ -113,8 +111,6 @@ Get all the courses by a specified subject
     -   **200** if the subjects are fetched successfully from the database
     -   **405** if the request is an incorrect request method
     -   **500** if the connection to the database failed or fetching fails
-
----
 
 ### `GET /courses/getCourseByCode/?course_code={course_code}`
 
