@@ -12,11 +12,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate and sanitize the input data as needed
 
     // Ensure that all required fields are present
-    if (isset($course_data['courseCode']) && isset($course_data['courseName']) && isset($course_data['prerequisites']) && isset($course_data['restrictions'])) {
+    if (isset($course_data['courseCode']) && isset($course_data['courseName'])) {
         $courseCode = $course_data['courseCode'];
         $courseName = $course_data['courseName'];
-        $prerequisites = $course_data['prerequisites'];
-        $restrictions = $course_data['restrictions'];
+
+        // Check if the 'prerequisites' field is provided, otherwise set it to '()'
+        if (isset($course_data['prerequisites'])) {
+            $prerequisites = $course_data['prerequisites'];
+        } else {
+            $prerequisites = '()';
+        }
+
+        // Check if the 'restrictions' field is provided, otherwise set it to '{}'
+        if (isset($course_data['restrictions'])) {
+            $restrictions = $course_data['restrictions'];
+        } else {
+            $restrictions = '{}';
+        }
 
         // Connect to the database
         $conn = open_con();
@@ -31,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $restrictions = mysqli_real_escape_string($conn, $restrictions);
 
             // Check if the courseCode already exists
-            $check_query = "SELECT COUNT(*) FROM coursesDBCopy WHERE courseCode = '\"$courseCode\"'";
+            $check_query = "SELECT COUNT(*) FROM coursesDBCopy WHERE courseCode = '$courseCode'";
             $result = mysqli_query($conn, $check_query);
             $row = mysqli_fetch_array($result);
             $count = $row[0];
@@ -43,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo json_encode(array('error' => 'Course code already exists'));
             } else {
                 // Insert the new course data into the database
-                $sql = "INSERT INTO coursesDBCopy (courseCode, courseName, prerequisites, restrictions) VALUES ('\"$courseCode\"', '\"$courseName\"', '\"$prerequisites\"', '\"$restrictions\"')";
+                $sql = "INSERT INTO coursesDBCopy (courseCode, courseName, prerequisites, restrictions) VALUES ('$courseCode', '$courseName', '$prerequisites', '$restrictions')";
 
                 if (mysqli_query($conn, $sql)) {
                     // Course data successfully added
