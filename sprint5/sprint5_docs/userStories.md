@@ -64,6 +64,28 @@ The purpose of this file is to list all user stories that will be used to help p
     -   405 if the wrong method was used
     -   500 if the server had an error
 
+**Title:** Getting courses by prerequisites with OR logic
+
+**Priority:** High
+
+**Estimate (in hrs):** - 
+
+**User Story:** As a user, when I send a request to get courses by their prerequisites, I want to specify the prerequisites as OR so if any course matches, then I want to see the result
+
+**Acceptance Criteria:**
+- The GET request to /courses/getCoursesByPrereq with query parameters prerequisites=cis*2910|cis*3490 should return courses that have either one as its prerequisite
+
+**Title:** Getting courses by prerequisites with AND logic
+
+**Priority:** High
+
+**Estimate (in hrs):** - 
+
+**User Story:** As a user, when I send a request to get courses by their prerequisites, I want to specify the prerequisites as AND so all the courses specified need to match in order to get the result
+
+**Acceptance Criteria:**
+- The GET request to /courses/getCoursesByPrereq with query parameters prerequisites=cis*2750,cis*3490 should return courses that have both as its prerequisite
+
 # Fee Kim Ah-Poa's User Stories
 
 **Title:** Successful PUT request from database
