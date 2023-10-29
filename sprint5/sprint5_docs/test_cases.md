@@ -148,3 +148,8 @@
 Description: Sending a POST request with valid courseCode, courseName, and empty prerequisites and restrictions.
 Input: Submit a POST request with a JSON body that contains courseCode, courseName, and no value for prerequisites and restrictions, for example ```"restrictions":```.
 Expected Result: It should throw error and return a success message (HTTP status code 400).
+
+**Test Case 20:**
+Description: Accessing API documentation link through the cis3760 website and having a correct corresponding landing page.
+Input: Click the button labelled API documentation on the home page.
+Expected Result: The button should take the user to the documentation page where all API endpoints exist.
