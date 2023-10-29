@@ -144,6 +144,21 @@ The purpose of this file is to list all user stories that will be used to help p
 - The POST request should add the course to the database's 'coursesDB' table if the course code is distinct and does not already exist there.
 - The POST request should be designed to handle potential server-side errors or connection failures. If such errors occur, it should return a response with an HTTP status code of 500.
 
+**Title:** Handle Missing or Empty Prerequisites and Restrictions
+
+**Priority:** Medium
+
+**Estimate (in hrs):**
+
+**User Story:** As a user, I want the system to gracefully handle scenarios where course prerequisites or restrictions may be absent or present without a value when making a POST request to add a course to the MySQL database.
+
+**Acceptance Criteria:**
+- The POST request should have a well-defined endpoint for adding a course object to the database, such as `https://example.com/api/addCourse/`.
+- The POST request must accept a JSON request body that contains course details, including:
+   - `courseCode`: The unique identifier for the course.
+   - `courseName`: The name of the course.
+   - `prerequisites`: An optional field specifying course prerequisites. If absent, it should default to "()".
+   - `restrictions`: An optional field specifying course restrictions. If absent, it should default to "{}".
 
 # Sara Adi's User Stories
 
