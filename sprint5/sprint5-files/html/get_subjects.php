@@ -12,7 +12,7 @@ if (!$conn) {
     $databaseName = 'cis3760';
     if (mysqli_select_db($conn, $databaseName)) {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $sql = "SELECT course_code FROM coursesDB";
+            $sql = "SELECT courseCode FROM coursesDB";
 
             try {
                 $result = $conn->query($sql);
@@ -20,9 +20,11 @@ if (!$conn) {
                     $subjects = array();
 
                     while ($row = $result->fetch_assoc()) {
-                        $courseCode = $row['course_code'];
+                        $courseCode = $row['courseCode'];
                         // Extract the subject by splitting the course code
                         $subject = explode('*', $courseCode)[0];
+			// Remove double quotes
+			$subject = trim($subject, "\"");
                         $subjects[] = $subject;
                     }
 
