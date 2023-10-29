@@ -20,7 +20,7 @@ if (!$conn) {
             $subject = mysqli_real_escape_string($conn, $_GET['subject']);
             $subject = strtoupper($subject); // Convert to uppercase to ensure case-insensitive matching
 
-            $sql = "SELECT * FROM coursesDB WHERE courseCode LIKE '$subject%'";
+            $sql = 'SELECT * FROM coursesDB WHERE courseCode LIKE "%' . $subject . '%"';
 
             try {
                 $result = $conn->query($sql);
