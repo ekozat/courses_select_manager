@@ -1,20 +1,16 @@
 # API Documentation
 
--   The base URL for requests is 
-> https://cis3760f23-01.socs.uoguelph.ca/ 
-
--   Our API is defined as /courses/[functionality]/
+-   The base URL for requests is https://cis3760f23-01.socs.uoguelph.ca/
+-   Our API is defined as /courses/\<functionality>/
     -   **The last forward slash is important**
 
 ---
 
-## GET Endpoints
-
-## `GET /courses/getAllCourses/`
+### `GET /courses/getAllCourses/`
 
 Get a list of all courses in the coursesDB database
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getAllCourses/ 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getAllCourses/
 
 ```
 [
@@ -39,13 +35,11 @@ Get a list of all courses in the coursesDB database
     -   **405** if the request method given was not GET
     -   **500** if the connection to the database failed or fetching fails
 
----
-
-## `GET /courses/getAllCoursesCopy/`
+### `GET /courses/getAllCoursesCopy/`
 
 Get a list of all courses in the coursesDBCopy database (used to verify POST, PUT, and DELETE operations)
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getAllCoursesCopy/ 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getAllCoursesCopy/
 
 ```
 [
@@ -70,13 +64,63 @@ Get a list of all courses in the coursesDBCopy database (used to verify POST, PU
     -   **405** if the request method given was not GET
     -   **500** if the connection to the database failed or fetching fails
 
+## `GET /courses/getCoursesBySubject/?subject={subject}`
+
+Get all the courses by a specified subject
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesBySubject/?subject=HROB
+
+```
+[
+    {
+        "courseCode": "HROB*2010",
+        "courseName": "Foundations of Leadership",
+        "prerequisites": "()",
+        "restrictions": "{UNIV*2000}"
+    },
+]
+```
+
+-   This endpoint will return:
+    -   **200** if the course is fetched successfully from the database
+    -   **400** if there is a malformed subject parameter
+    -   **404** if no courses found for the given subject
+    -   **405** if the request is an incorrect request method
+    -   **500** if the connection to the database failed or fetching fails
+
 ---
 
-## `GET /courses/getCourseByCode/?course_code={course_code}`
+## `GET /courses/getSubjects/`
+
+Get all the courses by a specified subject
+
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getSubjects/
+
+```
+[
+    "ACCT",
+    "AGR",
+    "ANSC",
+    "ANTH",
+    "ARTH",
+    "ARAB",
+    "ASCI",
+    "BIOC",
+]
+```
+
+-   This endpoint will return:
+    -   **200** if the subjects are fetched successfully from the database
+    -   **405** if the request is an incorrect request method
+    -   **500** if the connection to the database failed or fetching fails
+
+---
+
+### `GET /courses/getCourseByCode/?course_code={course_code}`
 
 Get course details using the respective course code
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByCode/?course_code=cis*1300 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByCode/?course_code=cis*1300
 
 ```
 [
@@ -96,13 +140,11 @@ Get course details using the respective course code
     -   **405** if the request method given was not GET
     -   **500** if the connection to the database failed or fetching fails
 
----
-
-## `GET /courses/getCourseByName/?course_name={course_name}`
+### `GET /courses/getCourseByName/?course_name={course_name}`
 
 Get course details using the respective course name using fuzzy search
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByName/?course_name=discrete 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByName/?course_name=discrete
 
 ```
 [
@@ -128,15 +170,13 @@ Get course details using the respective course name using fuzzy search
     -   **405** if the request method given was not GET
     -   **500** if the connection to the database failed or fetching fails
 
----
-
-## `GET /courses/getCoursesByPrereq/?prerequisites={course_code1[,|]course_code2[,|] ...}`
+### `GET /courses/getCoursesByPrereq/?prerequisites={course_code1[,|]course_code2[,|] ...}`
 
 **NOTE**: The course codes can be separated by the comma or pipe symbol and is explained why below
 
 Get courses by their prerequisites using the course code(s)
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490
 
 ```
 [
@@ -163,7 +203,7 @@ Get courses by their prerequisites using the course code(s)
 
 When a comma is used to separate prerequisites, a logical AND will be used
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490,cis*2750 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490,cis*2750
 
 ```
 [
@@ -178,7 +218,7 @@ When a comma is used to separate prerequisites, a logical AND will be used
 
 When a '|' symbol is used to separate prerequisites, a logical OR will be used
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490|cis*2750 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490|cis*2750
 
 ```
 [
@@ -247,7 +287,7 @@ When a '|' symbol is used to separate prerequisites, a logical OR will be used
 
 If no query parameter is given, the endpoint will return courses with **NO** prerequisites
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/ 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/
 
 ```
 [
@@ -272,15 +312,13 @@ If no query parameter is given, the endpoint will return courses with **NO** pre
     -   **405** if the request method given was not GET
     -   **500** if the connection to the database failed or fetching fails
 
----
-
-## `GET /courses/getCoursesByRestrictions/?restrictions={course_code1[,|]course_code2[,|] ...}`
+### `GET /courses/getCoursesByRestrictions/?restrictions={course_code1[,|]course_code2[,|] ...}`
 
 **NOTE**: The course codes can be separated by the comma or pipe symbol and is explained why below
 
 Get courses by their restrictions using the course code(s)
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500
 
 ```
 [
@@ -295,7 +333,7 @@ Get courses by their restrictions using the course code(s)
 
 When a comma is used to separate restrictions, a logical AND will be used
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500,cis*1300 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500,cis*1300
 
 ```
 {
@@ -305,7 +343,7 @@ When a comma is used to separate restrictions, a logical AND will be used
 
 When a '|' is used to separate restrictions, a logical OR will be used
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500|cis*1300 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500|cis*1300
 
 ```
 [
@@ -326,7 +364,7 @@ When a '|' is used to separate restrictions, a logical OR will be used
 
 If no query parameter is given, the endpoint will return courses with **NO** restrictions
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/ 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/
 
 ```
 [
@@ -351,15 +389,11 @@ If no query parameter is given, the endpoint will return courses with **NO** res
     -   **405** if the request method given was not GET
     -   **500** if the connection to the database failed or fetching fails
 
----
-
-## POST Endpoint
-
-## `POST /courses/postCourses/`
+### `POST /courses/postCourses/`
 
 Update the coursesDBCopy table with a new course
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/ 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/
 
 You must provide a JSON body like this:
 
@@ -398,15 +432,11 @@ Adding a course with incomplete info such as excluding restrictions will return 
     -   **400** if the course information is incomplete, i.e., one or more of course code, course name, prerequisite or restriction is missing. For example, the following input will display the message {'error' => 'Incomplete course data in the request'}:
     -   **500** if the connection to the database failed or fetching fails
 
----
-
-## PUT Endpoint
-
-## `PUT /courses/update/`
+### `PUT /courses/update/`
 
 Update a specific course's information in the coursesDBCopy table using a mandatory courseCode property
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/update/ 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/update/
 
 You must provide a JSON body like this:
 
@@ -452,15 +482,11 @@ If the update is not for courseName, prerequisites, and restrictions, it will th
     -   **405** if the request method given was not PUT
     -   **500** if the connection to the database failed or fetching fails
 
----
-
-## DELETE Endpoint
-
-## `DELETE /courses/delete/`
+### `DELETE /courses/delete/`
 
 Delete a course from the coursesDBCopy table by the courseCode
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/delete/ 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/delete/
 
 You must provide a JSON body like this:
 
