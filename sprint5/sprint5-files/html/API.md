@@ -411,7 +411,7 @@ If no query parameter is given, the endpoint will return courses with **NO** res
 
 Update the coursesDBCopy table with a new course
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/ 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/
 
 You must provide a JSON body like this:
 
@@ -432,9 +432,29 @@ Adding the same course twice will return a 400 with:
 }
 ```
 
-If you want prerequisites to be empty, type in the field with "()". For example, "prerequisites": "()".
+If you want prerequisites to be empty, there are two ways to achieve it:
+    -   Type in the field with "()". For example, "prerequisites": "()".
+    -   Do not mention the "prerequisites" parameter. For example,
 
-If you want restrictions to be empty, type in the field with "{}". For example, "restrictions": "{}".
+```
+{
+    "courseCode": "CS*101",
+    "courseName": "Introduction to Computer Science",
+    "restrictions": "{}"
+}
+    ```
+
+If you want restrictions to be empty, there are two ways to achieve it:
+    -   Type in the field with "{}". For example, "restrictions": "{}".
+    -   Do not mention the "restrictions" parameter. For example,
+
+```
+{
+    "courseCode": "CS*101",
+    "courseName": "Introduction to Computer Science",
+    "prerequisites": "()"
+}
+```
 
 Adding a course with incomplete info such as excluding restrictions will return a 400 with:
 
@@ -447,7 +467,7 @@ Adding a course with incomplete info such as excluding restrictions will return 
 -   This endpoint will return:
     -   **200** if the course is added successfully to the database
     -   **405** if the request method given was not POST
-    -   **400** if the course information is incomplete, i.e., one or more of course code, course name, prerequisite or restriction is missing. For example, the following input will display the message {'error' => 'Incomplete course data in the request'}:
+    -   **400** if the course information is incomplete, i.e., one or more of course code or course name or the parameters are provided without the value. is missing. For example, the following input will display the message {'error' => 'Incomplete course data in the request'}:
     -   **500** if the connection to the database failed or fetching fails
 
 ---
