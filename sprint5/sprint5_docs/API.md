@@ -409,8 +409,8 @@ Adding the same course twice will return a 400 with:
 ```
 
 If you want prerequisites to be empty, there are two ways to achieve it:
-    -   Type in the field with "()". For example, "prerequisites": "()".
-    -   Do not mention the "prerequisites" parameter. For example,
+1. Type in the field with "()". For example, "prerequisites": "()".
+2. Do not mention the "prerequisites" parameter. For example:
 
 ```
 {
@@ -418,11 +418,11 @@ If you want prerequisites to be empty, there are two ways to achieve it:
     "courseName": "Introduction to Computer Science",
     "restrictions": "{}"
 }
-    ```
+```
 
 If you want restrictions to be empty, there are two ways to achieve it:
-    -   Type in the field with "{}". For example, "restrictions": "{}".
-    -   Do not mention the "restrictions" parameter. For example,
+1. Type in the field with "{}". For example, "restrictions": "{}".
+2. Do not mention the "restrictions" parameter. For example:
 
 ```
 {
@@ -432,18 +432,10 @@ If you want restrictions to be empty, there are two ways to achieve it:
 }
 ```
 
-Adding a course with incomplete info such as excluding restrictions will return a 400 with:
-
-```
-{
-    "error": "Incomplete course data in the request"
-}
-```
-
 -   This endpoint will return:
     -   **200** if the course is added successfully to the database
     -   **405** if the request method given was not POST
-    -   **400** if the course information is incomplete, i.e., one or more of course code or course name or the parameters are provided without the value. is missing. For example, the following input will display the message {'error' => 'Incomplete course data in the request'}:
+    -   **400** if the course information is incomplete, i.e., one or more of course code or course name or the parameters are provided without the value
     -   **500** if the connection to the database failed or fetching fails
 
 ### `PUT /courses/update/`
