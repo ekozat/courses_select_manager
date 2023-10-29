@@ -90,7 +90,7 @@ Get all the courses by a specified subject
 
 ---
 
-## `GET /courses/getSubjects/
+## `GET /courses/getSubjects/`
 
 Get all the courses by a specified subject
 
