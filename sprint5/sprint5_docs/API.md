@@ -4,8 +4,6 @@
 -   Our API is defined as /courses/\<functionality>/
     -   **The last forward slash is important**
 
----
-
 ### `GET /courses/getAllCourses/`
 
 Get a list of all courses in the coursesDB database
