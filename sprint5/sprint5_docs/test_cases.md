@@ -139,3 +139,12 @@
         }
     ]
     ```
+**Test Case 18:**
+-   Description: Sending a POST request with valid courseCode and courseName, but missing prerequisites and restrictions.
+-   Input: Submit a POST request with a JSON body that contains courseCode and courseName, but prerequisites and restrictions are missing.
+-   Expected Result: It should insert the course into the database with empty prerequisites and restrictions, and return a success message (HTTP status code 201).
+
+**Test Case 19:**
+Description: Sending a POST request with valid courseCode, courseName, and empty prerequisites and restrictions.
+Input: Submit a POST request with a JSON body that contains courseCode, courseName, and no value for prerequisites and restrictions, for example ```"restrictions":```.
+Expected Result: It should throw error and return a success message (HTTP status code 400).
