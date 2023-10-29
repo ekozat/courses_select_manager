@@ -411,7 +411,7 @@ If no query parameter is given, the endpoint will return courses with **NO** res
 
 Update the coursesDBCopy table with a new course
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/
+> https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/ 
 
 You must provide a JSON body like this:
 
@@ -458,18 +458,10 @@ Adding the same course twice will return a 400 with:
 }
 ```
 
-Adding a course with incomplete info such as excluding restrictions will return a 400 with:
-
-```
-{
-    "error": "Incomplete course data in the request"
-}
-```
-
 -   This endpoint will return:
     -   **200** if the course is added successfully to the database
     -   **405** if the request method given was not POST
-    -   **400** if the course information is incomplete, i.e., one or more of course code or course name or the parameters are provided without the value. is missing. For example, the following input will display the message {'error' => 'Incomplete course data in the request'}:
+    -   **400** if the course information is incomplete, i.e., one or more of course code or course name or the parameters are provided without the value
     -   **500** if the connection to the database failed or fetching fails
 
 ---
