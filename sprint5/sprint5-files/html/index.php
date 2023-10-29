@@ -45,7 +45,7 @@ $html = <<<HTML
             </div>
 
             <div class="download-button">
-                <a href="apidocs.php" download class="download-button">API Documentation</a>
+                <a href="apidocs.php" class="download-button">API Documentation</a>
             </div>
         </div>
     </div>
