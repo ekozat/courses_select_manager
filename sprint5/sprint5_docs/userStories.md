@@ -32,6 +32,20 @@ The purpose of this file is to list all user stories that will be used to help p
 - The API call should handle error incorrect query parameters
 - The API call should handle server-side errors
 
+**Title:** Access API documentation on website
+
+**Priority:** High
+
+**Estimate (in hrs):** - 
+
+**User Story:** As user I should be able to view API endpoint documentation associated with the website.
+
+**Acceptance Criteria:**
+- The documentation can be navigated to from the home page via link/button
+- The documentation should contain all associated endpoints and clear instruction on how to use them.
+- The documentation should contain all HTTP status codes and associated meaning 
+- The API endpoints taken from the documentation should work as expected.
+
 # Maneesh Wijewardhana's User Stories
 
 **Title:** Successful POST request from database
