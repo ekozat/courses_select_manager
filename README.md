@@ -14,6 +14,7 @@
 Please reference the following files existing in the sprint5_docs folder:
 -   the API.md file for the associated URLs of the API calls in POSTMAN
 -   the my_sql_use.md file for the creation and copying of the cis3760 database table.
+-   We have it on our homepage where there is a button which will bring you to the API document
 
 The two documents state clear instructions on how to operate the database and all the API calls associated with them.
 
@@ -26,6 +27,8 @@ Sprint 5
 F23 CIS\*3760 Sprint 5:
 
 The objective of this sprint is to design and create a navigable MySQL database using the VM provided. To do so, we need to establish server side REST API to access and modify the database. Documentation the API calls for database manipualtion should be provided. 
+
+We mainly focused on improving our API endpoints and also we added some get endpoints to getSubject as we completed most of the work in the previous sprint.
 
 
 The criteria that we needed to meet were:
@@ -41,6 +44,12 @@ MariaDB: Database creation and usage
 
 POSTMAN: API call example
 ![api1](./sprint5/Images/APICallExample.png)
+
+API Doc: How to get the document on how to use our API from our website 
+This is the link to it https://cis3760f23-01.socs.uoguelph.ca/apidocs.php
+
+
+![apiDoc](./sprint5/Images/APIDoc.png)
 
 ## Team Approach
 Approaching the sprint, we had to set up a local development environment for the team. Coding on the VM would be inefficient and potentially dangerous, so before approaching outstanding tasks, the team set-up their environment.
@@ -76,5 +85,5 @@ It can be easily access from the home page of our website
 
 ## Project status
 
-In progress.
+Complete!!
 
