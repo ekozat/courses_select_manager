@@ -434,7 +434,7 @@ Adding the same course twice will return a 400 with:
 
 If you want prerequisites to be empty, there are two ways to achieve it:
     -   Type in the field with "()". For example, "prerequisites": "()".
-    
+
     -   Do not mention the "prerequisites" parameter. For example,
 
 
@@ -444,7 +444,7 @@ If you want prerequisites to be empty, there are two ways to achieve it:
     "courseName": "Introduction to Computer Science",
     "restrictions": "{}"
 }
-    ```
+```
 
 If you want restrictions to be empty, there are two ways to achieve it:
     -   Type in the field with "{}". For example, "restrictions": "{}".
