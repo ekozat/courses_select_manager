@@ -153,7 +153,7 @@ The purpose of this file is to list all user stories that will be used to help p
 **User Story:** As a user, I want the system to gracefully handle scenarios where course prerequisites or restrictions may be absent or present without a value when making a POST request to add a course to the MySQL database.
 
 **Acceptance Criteria:**
-- The POST request should have a well-defined endpoint for adding a course object to the database, such as `https://example.com/api/addCourse/`.
+- The POST request should have a well-defined endpoint for adding a course object to the database, such as `https://cis3760f23-01.socs.uoguelph.ca/courses/postCourses/`.
 - The POST request must accept a JSON request body that contains course details, including:
    - `courseCode`: The unique identifier for the course.
    - `courseName`: The name of the course.
