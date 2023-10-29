@@ -67,6 +67,7 @@
 -   Expected Result: The system should only accept DELETE requests for course deletion. If the request method is incorrect, it should return an HTTP status code 405.
 
 **Test Case 12:**
+
 -   Description: Sending a DELETE request without specifying course code
 -   Input: Submit a DELETE request without including the courseCode in the JSON body
 -   Expected Result: It should give an invalid request (HTTP status code 400) and not allow the deletion to go through
@@ -89,3 +90,52 @@
 -   Input: Submit a GET to these two endpoints with no query parameters (e.g. GET https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/)
 -   Expected Result: The system should return all courses with **no** prerequisites and restrictions respectively
 
+**Test Case 16:**
+
+-   Description: Getting courses by prerequisites (AND)
+-   Input: Sending a GET to https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*1300,cis*1910
+-   Expected Result:
+    ```
+    [
+        {
+            "courseCode": "CIS*2910",
+            "courseName": "Discrete Structures in Computing II",
+            "prerequisites": "(CIS*1300 OR ENGG*1410) AND (CIS*1910 OR ENGG*1500)",
+            "restrictions": "{}"
+        }
+    ]
+    ```
+
+**Test Case 17:**
+
+-   Description: Getting courses by prerequisites (OR)
+-   Input: Sending a GET to https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*2910|cis*3490
+-   Expected Result:
+    ```
+    [
+        {
+            "courseCode": "CIS*3490",
+            "courseName": "The Analysis and Design of Computer Algorithms",
+            "prerequisites": "[CIS*1910 OR CIS*2910 and ENGG*1500] AND CIS*2520",
+            "restrictions": "{}"
+        },
+        {
+            "courseCode": "CIS*3150",
+            "courseName": "Theory of Computation",
+            "prerequisites": "CIS*2750 AND CIS*3490",
+            "restrictions": "{}"
+        },
+        {
+            "courseCode": "CIS*4520",
+            "courseName": "Introduction to Cryptography",
+            "prerequisites": "CIS*3490",
+            "restrictions": "{CIS*4110}"
+        },
+        {
+            "courseCode": "CIS*4780",
+            "courseName": "Computational Intelligence",
+            "prerequisites": "CIS*3490 AND (CIS*3750 OR CIS*3760) AND (CIS*2460 OR STAT*2040)",
+            "restrictions": "{}"
+        }
+    ]
+    ```
