@@ -3,9 +3,9 @@
 # Team
 
 -   Team Lead:
-    -  Fee Kim Ah-Poa 
+    -  Sara Adi
 -   Team Members:
-    -   Sara Adi
+    -   Fee Kim Ah-Poa 
     -   Simardeep Singh
     -   Emily Kozatchiner
     -   Maneesh K. Wijewardhana
@@ -20,7 +20,7 @@ The two documents state clear instructions on how to operate the database and al
 
 ## Current Sprint
 
-Sprint 5
+Sprint 6
 
 ## Description
 
