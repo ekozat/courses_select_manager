@@ -94,6 +94,12 @@ server {
 	index index.html index.htm index.php;
     server_name cis3760f23-01.socs.uoguelph.ca; # managed by Certbot
 
+	location /course_generator {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ /404/index.php;
+	}
+
 	location /simar {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.

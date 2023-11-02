@@ -5,7 +5,7 @@ header('Content-Type: text/html; charset=UTF-8');
 // Define variables for the content
 $title = "F’23 CIS*3760: Group 101";
 $greeting = "Greetings and welcome to our digital realm!";
-$description1 = "We’re group 101, although we’re small in size, we're mighty in effort!";
+$description1 = "We’re group 101! Although we’re small in size, we're mighty in effort!";
 $description2 = "Prepare to embark on a journey with us as we dive into Sprint 3. We look forward to showcasing our collective talents and pushing the boundaries of what's achievable in the digital realm. Welcome aboard!";
 
 $downloadFile = 'parsed_courses.xlsm';
@@ -49,6 +49,21 @@ $html = <<<HTML
             </div>
         </div>
     </div>
+    <hr>
+
+    <div class="container">
+        <div class="text">
+            <h2>STUDENT COURSE GENERATOR</h2>
+            <p>Click on the button below to start planning your academic future!</p>
+            <div class="download-button-two">
+                <a href="course_generator" class="download-button-two">Start Now!</a>
+            </div>
+        </div>
+        <div class="buttons-container">
+            <a href="Laptop"><img src="laptop-homepage.png"></a>
+        </div>
+    </div>
+
 
     <div class="team">
         <div class="team-text">
@@ -56,6 +71,8 @@ $html = <<<HTML
         </div>
         <div class="team-members">
 HTML;
+
+
 
 // Loop through team members and create the HTML for each
 foreach ($teamMembers as $member) {
