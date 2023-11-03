@@ -27,6 +27,11 @@
           <img src="./books.png" alt="books">
       </div>
   </div>
+
+  <div class="home">
+      <a href=/><button class="btn-home"><i class="fa fa-home"></i></button></a>
+  </div>
+
   <div class="input-course-container">
       <h2>Step 1: Input Taken Courses</h2>
       <p>Input the courses that you have taken below one at a time , clicking the “Add Course” button after each input.
@@ -63,6 +68,7 @@ for example; CIS*2500.<p>
           <button class="btn1">Search Course</button>
       </div>
   </div>
+
 </body>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function() {
