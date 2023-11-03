@@ -4,6 +4,10 @@ body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 .image-row {
     display: flex;
     justify-content: space-between;
@@ -60,6 +64,7 @@ input[type=text] {
 .submit-course {
   display: flex;
   flex-direction: row;
+  padding-bottom: 20px;
 }
 
 .btn1 {
@@ -91,3 +96,8 @@ input[type=text] {
   display: flex;
   flex-direction: row;
 }
+
+.enteredCoursesList {
+  padding-top: 10px;
+}
+

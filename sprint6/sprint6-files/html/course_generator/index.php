@@ -38,6 +38,9 @@ for example; CIS*2500.<p>
           </form>
           <button class="btn1">Add Course</button>
       </div>
+      <div class="enteredCoursesList">
+        <p>Courses inputted so far:</p>
+      </div>
   </div>
 
   <div class="generate-course-container">
@@ -61,4 +64,32 @@ for example; CIS*2500.<p>
       </div>
   </div>
 </body>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+      let add_course_btn = document.querySelector(".btn1");
+      let courseInput = document.getElementById("course");
+      let enteredCoursesList = document.querySelector(".enteredCoursesList");
+      let prereqs = [];
+
+      add_course_btn.addEventListener("click", function() {
+        let courseValue = courseInput.value;
+        
+        let splitCourse = courseValue.split('*');
+      
+        // sanity check
+        if (splitCourse.length === 2 && splitCourse[0] !== '' && splitCourse[1] !== '' && splitCourse[1].trim() !== '' && !isNaN(splitCourse[1])) {
+            prereqs.push(courseValue);
+            
+            let listItem = document.createElement("li");
+            listItem.textContent = courseValue;
+            enteredCoursesList.appendChild(listItem);
+            
+            courseInput.value = "";
+        } else {
+            alert("Please enter the course in the format of SUBJECT*COURSE NUM, for example; CIS*2500");
+        }
+      });
+    });
+</script>
 </html>
+
