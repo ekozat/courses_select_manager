@@ -50,7 +50,7 @@ button {
   padding: 20px;
 }
 
-.input-course-container button {
+.input-course-container .btn1 {
   margin-left: 30px;
 }
 
@@ -74,6 +74,10 @@ button {
   margin-right: 30px;
 }
 
+.recommended-courses {
+  padding: 20px;
+}
+
 input[type=text] {
   padding: 12px 20px;
   box-sizing: border-box;
@@ -87,6 +91,11 @@ input[type=text] {
 }
 
 .btn1 {
+  width: 20%;
+  background-color: #D3B194;
+}
+
+.btn3 {
   width: 20%;
   background-color: #D3B194;
 }

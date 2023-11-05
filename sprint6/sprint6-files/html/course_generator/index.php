@@ -38,8 +38,9 @@
           <input type="text" id="course" name="course" placeholder="Input Course..."><br>
           <button class="btn1">Add Course</button>
       </div>
-      <div class="enteredCoursesList">
         <h3>Courses inputted so far:</h3>
+	<button class="clear-btn">Clear</button>
+      <div class="enteredCoursesList">
         <ul id="enteredCourses"></ul>
       </div>
   </div>
@@ -54,7 +55,8 @@
     
     <!-- div to display recommended courses -->
     <div class="recommended-courses">
-        <h2>Recommended Courses:</h2>
+        <h3>Recommended Courses:</h3>
+	<button class="clear-btn-rec">Clear</button>
             <ul id="recommended-courses-list">
                 <!-- Recommended courses will be displayed here -->
             </ul>
@@ -72,9 +74,11 @@
   <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
       let add_course_btn = document.querySelector(".btn1");
+      let clear_button = document.querySelector(".clear-btn");
+      let clear_button_rec = document.querySelector(".clear-btn-rec");
       let courseInput = document.getElementById("course");
       let enteredCoursesList = document.getElementById("enteredCourses");
-      let recommendedCoursesList = document.getElementById("recommendedCoursesList");
+      let recommendedCoursesList = document.getElementById("recommended-courses-list");
  
       // Collect entered courses
       let enteredCourses = [];
@@ -96,6 +100,15 @@
           alert("Please enter the course in the format of SUBJECT*COURSE NUM, for example; CIS*2500");
         }
       });
+
+      clear_button.addEventListener("click", function() {
+	enteredCourses = [];
+	enteredCoursesList.innerHTML = "";
+      })
+
+      clear_button_rec.addEventListener("click", function() {
+	recommendedCoursesList.innerHTML = "";
+      })
  
 // Generate Courses button click event
 function generateAndDisplayRecommendedCourses() {
@@ -138,4 +151,3 @@ function generateAndDisplayRecommendedCourses() {
   </script>
 </body>
 </html>
-
