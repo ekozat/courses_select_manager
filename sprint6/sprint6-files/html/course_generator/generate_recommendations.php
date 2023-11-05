@@ -16,9 +16,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
     // Function to generate recommendations based on entered courses
     function generateRecommendations($enteredCourses) {
-        // Send a POST request to the API endpoint to get available courses with no prerequisites
+
+
+        if (empty($enteredCourses)) {
+            // Send a GET request to the API endpoint to get available courses with no prerequisites
+            $apiUrl = "https://cis3760f23-13.socs.uoguelph.ca/site/rest-api/courses.php?action=available";
+            $response = file_get_contents($apiUrl);
+        } else {
+        // Send a POST request to the API endpoint to get available courses 
         $apiUrl = "https://cis3760f23-13.socs.uoguelph.ca/site/rest-api/courses.php?action=available";
-        $postData = json_encode(["coursesTaken" => $enteredCourses]);
+        $postData = json_encode(["coursesTaken" => $enteredCourses, "includeNoPrereqs" => true,"allCourseData" => true]);
  
         $options = [
             'http' => [
@@ -30,6 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
         $context = stream_context_create($options);
         $response = file_get_contents($apiUrl, false, $context);
+        
+    }
  
         if ($response === false) {
             throw new Exception("Failed to fetch recommended courses.");
@@ -61,3 +70,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 ?>
+

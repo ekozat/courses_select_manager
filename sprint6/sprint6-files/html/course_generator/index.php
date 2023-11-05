@@ -121,8 +121,9 @@ function generateAndDisplayRecommendedCourses() {
                     // Display only the course codes in the list
                     response.recommendedCourses.forEach(function(course) {
                         let courseCode = course.courseCode;
+                        let courseName = course.courseName;
                         let listItem = document.createElement("li");
-                        listItem.textContent = courseCode;
+                        listItem.textContent = courseCode + " - " + courseName;
                         recommendedCoursesList.appendChild(listItem);
                     });
                 }
@@ -137,3 +138,4 @@ function generateAndDisplayRecommendedCourses() {
   </script>
 </body>
 </html>
+
