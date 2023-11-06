@@ -135,9 +135,6 @@
         let splitCourse = courseValue.split('*');
         
         if (splitCourse.length === 2 && splitCourse[0] !== '' && splitCourse[1] !== '' && splitCourse[1].trim() !== '' && !isNaN(splitCourse[1])) {
-          //Display course code
-          codeDetail.textContent = "Course Code: " + courseValue;
-
           let apiUrl = 'http://localhost/html/course_generator/get_course_details.php?id=' + encodeURIComponent(courseValue);
           
           // call get by course ID endpoint
@@ -154,11 +151,20 @@
               return response.json();
             })
             .then(data => {
-              console.log(data);
-              // Handle the data you received from the GET request.
-              nameDetail.textContent = "Course Name: " + data[0].courseName;
-              prereqDetail.textContent = "Prerequisites: " + data[0].prereqList;
-              restrDetail.textContent = "Restrictions: " + data[0].restrictList;
+              // if the array is empty
+              if (data.length == 0){
+                codeDetail.textContent = "Error: Inputted course does not exist. Please try again.";
+                nameDetail.textContent = "";
+                prereqDetail.textContent = "";
+                restrDetail.textContent = "";
+              }
+              else{
+                  // Handle the data you received from the GET request.
+                codeDetail.textContent = "Course Code: " + courseValue;
+                nameDetail.textContent = "Course Name: " + data[0].courseName;
+                prereqDetail.textContent = "Prerequisites: " + data[0].prereqList;
+                restrDetail.textContent = "Restrictions: " + data[0].restrictList;
+              }
             })
             .catch(error => {
               console.error('There was a problem with the fetch operation:', error);
