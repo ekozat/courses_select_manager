@@ -89,6 +89,7 @@
       // clear buttons
       let clear_button = document.querySelector(".clear-btn");
       let clear_button_rec = document.querySelector(".clear-btn-rec");
+      let clear_btn_detail = document.querySelector(".clear-btn-detail");
 
       //Function 1 - course list compilation
       let courseInput = document.getElementById("course");
@@ -136,12 +137,14 @@
         if (splitCourse.length === 2 && splitCourse[0] !== '' && splitCourse[1] !== '' && splitCourse[1].trim() !== '' && !isNaN(splitCourse[1])) {
           //Display course code
           codeDetail.textContent = "Course Code: " + courseValue;
+
+          let apiUrl = 'http://localhost/html/course_generator/get_course_details.php?id=' + encodeURIComponent(courseValue);
           
           // call get by course ID endpoint
-          fetch('https://cis3760f23-13.socs.uoguelph.ca/site/rest-api/courses.php?id=${courseValue}', {
+          fetch(apiUrl, {
             method: 'GET', 
             headers: {
-              'Content-Type': 'application/json', 
+              'Content-Type': 'application/json',
             },
           })
             .then(response => {
@@ -151,10 +154,11 @@
               return response.json();
             })
             .then(data => {
+              console.log(data);
               // Handle the data you received from the GET request.
-              nameDetail.textContent = "Course Name: " + data.courseName;
-              prereqDetail.textContent = "Prerequisites: " + data.prereqList;
-              restrDetail.textContent = "Restrictions: " + data.restrictList;
+              nameDetail.textContent = "Course Name: " + data[0].courseName;
+              prereqDetail.textContent = "Prerequisites: " + data[0].prereqList;
+              restrDetail.textContent = "Restrictions: " + data[0].restrictList;
             })
             .catch(error => {
               console.error('There was a problem with the fetch operation:', error);
@@ -172,6 +176,14 @@
 
       clear_button_rec.addEventListener("click", function() {
 	recommendedCoursesList.innerHTML = "";
+      })
+
+      clear_btn_detail.addEventListener("click", function() {
+  courseDetail.value = "";
+  codeDetail.textContent= "";
+  nameDetail.textContent = "";
+  prereqDetail.textContent = "";
+  restrDetail.textContent = "";
       })
  
 // Generate Courses button click event
