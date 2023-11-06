@@ -69,21 +69,47 @@
       <input type="text" id="course-detail" name="course-detail" placeholder="Input Course..."><br>
       <button class="btn3">Search Course</button>
     </div>
+    <h3>Course details: </h3>
+	  <button class="clear-btn-detail">Clear</button>
+      <div class="courseDetails">
+        <!-- Course Details will be displayed here -->
+        <p id=code-detail></p>
+        <p id=name-detail></p>
+        <p id=prereq-detail></p>
+        <p id=restr-detail></p>
+      </div>
   </div>
  
   <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
+      // all functionality buttons
       let add_course_btn = document.querySelector(".btn1");
+      let display_course_btn = document.querySelector(".btn3");
+
+      // clear buttons
       let clear_button = document.querySelector(".clear-btn");
       let clear_button_rec = document.querySelector(".clear-btn-rec");
+
+      //Function 1 - course list compilation
       let courseInput = document.getElementById("course");
       let enteredCoursesList = document.getElementById("enteredCourses");
       let recommendedCoursesList = document.getElementById("recommended-courses-list");
+
+      //Function 3 - input course detail
+      let courseDetail = document.getElementById("course-detail");
+      // Output
+      let codeDetail = document.getElementById("code-detail");
+      let nameDetail = document.getElementById("name-detail");
+      let prereqDetail = document.getElementById("prereq-detail");
+      let restrDetail = document.getElementById("restr-detail");
+      
  
       // Collect entered courses
       let enteredCourses = [];
- 
+      
+      // Event listener for adding a course to the list
       add_course_btn.addEventListener("click", function() {
+        console.log("hello");
         let courseValue = courseInput.value;
  
         let splitCourse = courseValue.split('*');
@@ -101,6 +127,44 @@
         }
       });
 
+      /*** FUNCTION 3: Event listener for the display of courses at the bottom.***/
+      display_course_btn.addEventListener("click", function() {
+        let courseValue = courseDetail.value;
+
+        let splitCourse = courseValue.split('*');
+        
+        if (splitCourse.length === 2 && splitCourse[0] !== '' && splitCourse[1] !== '' && splitCourse[1].trim() !== '' && !isNaN(splitCourse[1])) {
+          //Display course code
+          codeDetail.textContent = "Course Code: " + courseValue;
+          
+          // call get by course ID endpoint
+          fetch('https://cis3760f23-13.socs.uoguelph.ca/site/rest-api/courses.php?id=${courseValue}', {
+            method: 'GET', 
+            headers: {
+              'Content-Type': 'application/json', 
+            },
+          })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.json();
+            })
+            .then(data => {
+              // Handle the data you received from the GET request.
+              nameDetail.textContent = "Course Name: " + data.courseName;
+              prereqDetail.textContent = "Prerequisites: " + data.prereqList;
+              restrDetail.textContent = "Restrictions: " + data.restrictList;
+            })
+            .catch(error => {
+              console.error('There was a problem with the fetch operation:', error);
+            });
+        } else {
+          alert("Please enter the course in the format of SUBJECT*COURSE NUM, for example; CIS*2500");
+        }
+      });
+
+      // Event listeners for clearing list and recs
       clear_button.addEventListener("click", function() {
 	enteredCourses = [];
 	enteredCoursesList.innerHTML = "";
@@ -148,6 +212,8 @@ function generateAndDisplayRecommendedCourses() {
       let generateCourseBtn = document.querySelector(".btn2");
       generateCourseBtn.addEventListener("click", generateAndDisplayRecommendedCourses);
     });
+
+
   </script>
 </body>
 </html>
