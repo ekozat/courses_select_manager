@@ -135,7 +135,10 @@
         let splitCourse = courseValue.split('*');
         
         if (splitCourse.length === 2 && splitCourse[0] !== '' && splitCourse[1] !== '' && splitCourse[1].trim() !== '' && !isNaN(splitCourse[1])) {
-          let apiUrl = 'http://localhost/html/course_generator/get_course_details.php?id=' + encodeURIComponent(courseValue);
+          //Display course code
+          codeDetail.textContent = "Course Code: " + courseValue;
+
+          let apiUrl = 'get_course_details.php?id=' + encodeURIComponent(courseValue);
           
           // call get by course ID endpoint
           fetch(apiUrl, {
