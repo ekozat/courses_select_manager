@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Merriweather:wght@300&display=swap" rel="stylesheet">
-    
+
     <title><?php echo $pageTitle; ?></title>
 </head>
 <body>
@@ -25,11 +25,11 @@
           <img src="./books.png" alt="books">
       </div>
   </div>
-  
+
   <div class="home">
       <a href="/"><button class="btn-home"><i class="fa fa-home"></i></button></a>
   </div>
-  
+
   <div class="input-course-container">
       <h2>Step 1: Input Taken Courses</h2>
       <p>Input the courses that you have taken below one at a time, clicking the “Add Course” button after each input.
@@ -39,12 +39,12 @@
           <button class="btn1">Add Course</button>
       </div>
         <h3>Courses inputted so far:</h3>
-	<button class="clear-btn">Clear</button>
+        <button class="clear-btn">Clear</button>
       <div class="enteredCoursesList">
         <ul id="enteredCourses"></ul>
       </div>
   </div>
- 
+
   <div class="generate-course-container">
       <h2>Step 2: Course Recommendations</h2>
       <p>Please confirm that all the courses you have taken are listed above. When ready, please click the button below to generate recomended courses.<p>
@@ -52,16 +52,18 @@
           <button class="btn2">Generate Courses</button>
       </div>
     </div>
-    
-    <!-- div to display recommended courses -->
+
+    <div class="recommended-heading">
+      <!-- <h3>Recommended Courses:</h3> -->
+      <button class="clear-btn-rec">Clear</button>
+    </div>
+
     <div class="recommended-courses">
-        <h3>Recommended Courses:</h3>
-	<button class="clear-btn-rec">Clear</button>
-            <ul id="recommended-courses-list">
-                <!-- Recommended courses will be displayed here -->
-            </ul>
-  </div>
- 
+        <ul id="recommended-courses-list">
+            <!-- Recommended courses will be displayed here -->
+        </ul>
+    </div>
+
   <div class="course-data-container">
     <h2>Step 3: View Course Details</h2>
     <p>Enter a course code in the format of SUBJECT*COURSE NUM in order to view its details.</p>
@@ -69,22 +71,33 @@
       <input type="text" id="course-detail" name="course-detail" placeholder="Input Course..."><br>
       <button class="btn3">Search Course</button>
     </div>
-    <h3>Course details: </h3>
-	  <button class="clear-btn-detail">Clear</button>
-      <div class="courseDetails">
-        <!-- Course Details will be displayed here -->
-        <p id=code-detail></p>
-        <p id=name-detail></p>
-        <p id=prereq-detail></p>
-        <p id=restr-detail></p>
-      </div>
   </div>
- 
+
+  <div class="detail-heading">
+    <button class="clear-btn-detail">Clear</button>
+  </div>
+
+  <div class="courseDetails">
+      <!-- Course Details will be displayed here -->
+      <p id=code-detail></p>
+      <p id=name-detail></p>
+      <p id=dept-detail></p>
+      <p id=desc-detail></p>
+      <p id=location-detail></p>
+      <p id=prereq-detail></p>
+      <p id=restr-detail></p>
+      <p id=equates-detail></p>
+      <p id=term-detail></p>
+      <p id=weight-detail></p>
+  </div>
+
   <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
       // all functionality buttons
       let add_course_btn = document.querySelector(".btn1");
       let display_course_btn = document.querySelector(".btn3");
+      let recommendedCoursesContainer = document.querySelector('.recommended-courses');
+      let courseDetailsContainer = document.querySelector('.courseDetails');
 
       // clear buttons
       let clear_button = document.querySelector(".clear-btn");
@@ -103,25 +116,30 @@
       let nameDetail = document.getElementById("name-detail");
       let prereqDetail = document.getElementById("prereq-detail");
       let restrDetail = document.getElementById("restr-detail");
-      
- 
+      let equatesDetail = document.getElementById("equates-detail");
+      let deptDetail = document.getElementById("dept-detail");
+      let descDetail = document.getElementById("desc-detail");
+      let locationDetail = document.getElementById("location-detail");
+      let termDetail = document.getElementById("term-detail");
+      let weightDetail = document.getElementById("weight-detail");
+
+
       // Collect entered courses
       let enteredCourses = [];
-      
+
       // Event listener for adding a course to the list
       add_course_btn.addEventListener("click", function() {
-        console.log("hello");
         let courseValue = courseInput.value;
- 
+
         let splitCourse = courseValue.split('*');
- 
+
         if (splitCourse.length === 2 && splitCourse[0] !== '' && splitCourse[1] !== '' && splitCourse[1].trim() !== '' && !isNaN(splitCourse[1])) {
           enteredCourses.push(splitCourse[0] + "*" + splitCourse[1]); // Add to the list of entered courses
- 
+
           let listItem = document.createElement("li");
           listItem.textContent = splitCourse[0] + "*" + splitCourse[1];
           enteredCoursesList.appendChild(listItem);
- 
+
           courseInput.value = "";
         } else {
           alert("Please enter the course in the format of SUBJECT*COURSE NUM, for example; CIS*2500");
@@ -131,18 +149,17 @@
       /*** FUNCTION 3: Event listener for the display of courses at the bottom.***/
       display_course_btn.addEventListener("click", function() {
         let courseValue = courseDetail.value;
+        // courseDetailsContainer.style.backgroundColor = "#D9D9D9";
 
         let splitCourse = courseValue.split('*');
-        
+
         if (splitCourse.length === 2 && splitCourse[0] !== '' && splitCourse[1] !== '' && splitCourse[1].trim() !== '' && !isNaN(splitCourse[1])) {
-          //Display course code
-          codeDetail.textContent = "Course Code: " + courseValue;
 
           let apiUrl = 'get_course_details.php?id=' + encodeURIComponent(courseValue);
-          
+
           // call get by course ID endpoint
           fetch(apiUrl, {
-            method: 'GET', 
+            method: 'GET',
             headers: {
               'Content-Type': 'application/json',
             },
@@ -156,17 +173,30 @@
             .then(data => {
               // if the array is empty
               if (data.length == 0){
-                codeDetail.textContent = "Error: Inputted course does not exist. Please try again.";
+                alert("Error: Inputted course does not exist. Please try again")
+                codeDetail.textContent = "";
                 nameDetail.textContent = "";
+                deptDetail.textContent = "";
+                descDetail.textContent = "";
+                locationDetail.textContent = "";
+                termDetail.textContent = "";
+                weightDetail.textContent = "";
                 prereqDetail.textContent = "";
                 restrDetail.textContent = "";
+                equatesDetail.textContent = "";
               }
               else{
                   // Handle the data you received from the GET request.
                 codeDetail.textContent = "Course Code: " + courseValue;
                 nameDetail.textContent = "Course Name: " + data[0].courseName;
+                descDetail.textContent = "Description: " + data[0].description;
                 prereqDetail.textContent = "Prerequisites: " + data[0].prereqList;
                 restrDetail.textContent = "Restrictions: " + data[0].restrictList;
+                equatesDetail.textContent = "Equates: " + data[0].Equates;
+                deptDetail.textContent = "Department: " + data[0].department;
+                locationDetail.textContent = "Location: " + data[0].location;
+                termDetail.textContent = "Term: " + data[0].term;
+                weightDetail.textContent = "Weight: " + data[0].weight;
               }
             })
             .catch(error => {
@@ -179,26 +209,37 @@
 
       // Event listeners for clearing list and recs
       clear_button.addEventListener("click", function() {
-	enteredCourses = [];
-	enteredCoursesList.innerHTML = "";
+        enteredCourses = [];
+        enteredCoursesList.innerHTML = "";
       })
 
       clear_button_rec.addEventListener("click", function() {
-	recommendedCoursesList.innerHTML = "";
+        recommendedCoursesList.innerHTML = "";
+        // recommendedCoursesContainer.style.backgroundColor = null;
       })
 
       clear_btn_detail.addEventListener("click", function() {
-  courseDetail.value = "";
-  codeDetail.textContent= "";
-  nameDetail.textContent = "";
-  prereqDetail.textContent = "";
-  restrDetail.textContent = "";
+        // courseDetailsContainer.style.backgroundColor = null;
+        courseDetail.value = "";
+        codeDetail.textContent= "";
+        nameDetail.textContent = "";
+        prereqDetail.textContent = "";
+        restrDetail.textContent = "";
+        deptDetail.textContent = "";
+        descDetail.textContent = "";
+        locationDetail.textContent = "";
+        termDetail.textContent = "";
+        weightDetail.textContent = "";
+        equatesDetail.textContent = "";
       })
- 
+
 // Generate Courses button click event
 function generateAndDisplayRecommendedCourses() {
         let enteredCoursesInput = document.getElementById("enteredCourses");
         enteredCoursesInput.value = JSON.stringify(enteredCourses);
+
+        let recommendedCoursesContainer = document.querySelector('.recommended-courses');
+        // recommendedCoursesContainer.style.backgroundColor = "#D9D9D9";
 
         // Make an AJAX request to generate_recommendations.php
         let xhr = new XMLHttpRequest();
@@ -229,7 +270,7 @@ function generateAndDisplayRecommendedCourses() {
         };
         xhr.send("enteredCourses=" + JSON.stringify(enteredCourses));
     }
- 
+
       let generateCourseBtn = document.querySelector(".btn2");
       generateCourseBtn.addEventListener("click", generateAndDisplayRecommendedCourses);
     });
@@ -238,3 +279,4 @@ function generateAndDisplayRecommendedCourses() {
   </script>
 </body>
 </html>
+
