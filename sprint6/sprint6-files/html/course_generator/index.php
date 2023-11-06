@@ -138,7 +138,7 @@
           //Display course code
           codeDetail.textContent = "Course Code: " + courseValue;
 
-          let apiUrl = 'http://localhost/html/course_generator/get_course_details.php?id=' + encodeURIComponent(courseValue);
+          let apiUrl = 'get_course_details.php?id=' + encodeURIComponent(courseValue);
           
           // call get by course ID endpoint
           fetch(apiUrl, {
