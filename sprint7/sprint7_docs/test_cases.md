@@ -94,7 +94,7 @@ Input:
 
 ```
 {
-    "subject": "HROB"
+    "subject": ["HROB"]
 }
 ```
 
