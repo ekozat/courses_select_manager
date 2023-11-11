@@ -4,7 +4,6 @@ header('Content-Type: application/json');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve the entered courses from the POST request and decode it
     $enteredCoursesJSON = isset($_POST['enteredCourses']) ? $_POST['enteredCourses'] : '[]';
- 
     $enteredCourses = json_decode($enteredCoursesJSON, true);
  
     if ($enteredCourses === null) {
@@ -20,12 +19,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (empty($enteredCourses)) {
             // Send a GET request to the API endpoint to get available courses with no prerequisites
-            $apiUrl = "https://cis3760f23-13.socs.uoguelph.ca/site/rest-api/courses.php?action=available";
-            $response = file_get_contents($apiUrl);
-        } else {
-        // Send a POST request to the API endpoint to get available courses 
-        $apiUrl = "https://cis3760f23-13.socs.uoguelph.ca/site/rest-api/courses.php?action=available";
-        $postData = json_encode(["coursesTaken" => $enteredCourses, "includeNoPrereqs" => true,"allCourseData" => true]);
+            $apiUrl = "https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/";
+
+            $postData = json_encode(["prerequisites" => $enteredCourses,"type" => 'AND']);
+ 
+        $options = [
+            'http' => [
+                'method' => 'POST',
+                'header' => 'Content-type: application/json',
+                'content' => $postData
+            ]
+        ];
+            
+        $context = stream_context_create($options);
+        $response = file_get_contents($apiUrl, false, $context);
+        } 
+
+        else {
+        // Send a POST request to the API endpoint to get available courses with no prerequisites
+      
+        $apiUrl = "https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/";
+  
+        $postData = json_encode(["prerequisites" => $enteredCourses,"type" => 'OR']);
  
         $options = [
             'http' => [
@@ -37,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  
         $context = stream_context_create($options);
         $response = file_get_contents($apiUrl, false, $context);
-        
     }
+    
  
         if ($response === false) {
             throw new Exception("Failed to fetch recommended courses.");
