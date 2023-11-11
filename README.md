@@ -20,9 +20,9 @@ Sprint 7
 
 In Sprint 7 for F23 CIS*3760, our team will be improving upon our API and website by implementing the following:
 
+-   Update functionality to use our own API
 -   Refactor of code
 -   Automated testing
--   CI/CD pipeline
 -   Responsive & Accessible UI
 -   Updated API endpoints to not accept query strings
 
