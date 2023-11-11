@@ -1,4 +1,5 @@
 <?php
+
 header("Content-Type: application/json");
 header('Access-Control-Allow-Origin: *');
 
@@ -11,16 +12,32 @@ if (!$conn) {
 } else {
     $databaseName = 'cis3760';
     if (mysqli_select_db($conn, $databaseName)) {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-	    if (!isset($_GET['course_code'])) {
-                http_response_code(400);
-                echo json_encode(array('error' => 'Malformed course_code parameter'));
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $json_data = file_get_contents('php://input');
+            $course_data = json_decode($json_data, true);
+            if (isset($course_data['courseCode'])) {
+                if (empty($course_data['courseCode'])) {
+                    http_response_code(404);
+                    echo json_encode(array('error' => 'Array cannot be empty'));
+                    close_con($conn);
+                    return;
+                }
+                $courseCodes = $course_data['courseCode'];
+            } else {
+                http_response_code(404);
+                echo json_encode(array('error' => 'courseCode property not found'));
+                close_con($conn);
                 return;
             }
 
-            $courseCode = mysqli_real_escape_string($conn, $_GET['course_code']);
+            $quotedCourseCodes = array_map(function ($code) {
+                return "'\"" . $code . "\"'";
+            }, $courseCodes);
 
-            $sql = "SELECT * FROM coursesDB WHERE courseCode = '\"$courseCode\"'";
+            // Construct the SQL query with multiple course codes using IN clause
+            $placeholders = implode(",", $quotedCourseCodes);
+            $sql = "SELECT * FROM coursesDB WHERE courseCode IN ($placeholders)";
 
             try {
                 $result = $conn->query($sql);
@@ -60,4 +77,3 @@ if (!$conn) {
         echo json_encode(array('error' => 'Failed to select the database'));
     }
 }
-?>

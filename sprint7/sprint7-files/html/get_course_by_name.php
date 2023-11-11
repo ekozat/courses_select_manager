@@ -1,4 +1,5 @@
 <?php
+
 header("Content-Type: application/json");
 
 require 'db_connection.php';
@@ -10,16 +11,33 @@ if (!$conn) {
 } else {
     $databaseName = 'cis3760';
     if (mysqli_select_db($conn, $databaseName)) {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-	    if (!isset($_GET['course_name'])) {
-                http_response_code(400);
-                echo json_encode(array('error' => 'Malformed course_name parameter'));
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $json_data = file_get_contents('php://input');
+            $course_data = json_decode($json_data, true);
+            if (isset($course_data['courseName'])) {
+                if (empty($course_data['courseName'])) {
+                    http_response_code(404);
+                    echo json_encode(array('error' => 'Array cannot be empty'));
+                    close_con($conn);
+                    return;
+                }
+                $courseNames = $course_data['courseName'];
+            } else {
+                http_response_code(404);
+                echo json_encode(array('error' => 'courseName property not found'));
+                close_con($conn);
                 return;
+
             }
 
-            $courseName = mysqli_real_escape_string($conn, $_GET['course_name']);
+            $likeConditions = array_map(function ($name) {
+                return "courseName LIKE '%" . $name . "%'";
+            }, $courseNames);
 
-            $sql = "SELECT * FROM coursesDB WHERE courseName LIKE '%$courseName%'";
+            // Construct the SQL query with multiple LIKE conditions joined by OR
+            $conditions = implode(" OR ", $likeConditions);
+            $sql = "SELECT * FROM coursesDB WHERE " . $conditions;
 
             try {
                 $result = $conn->query($sql);
@@ -60,5 +78,3 @@ if (!$conn) {
         echo json_encode(array('error' => 'Failed to select the database'));
     }
 }
-?>
-

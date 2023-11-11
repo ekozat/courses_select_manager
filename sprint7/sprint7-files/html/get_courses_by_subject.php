@@ -1,4 +1,5 @@
 <?php
+
 header("Content-Type: application/json");
 
 require 'db_connection.php';
@@ -10,17 +11,33 @@ if (!$conn) {
 } else {
     $databaseName = 'cis3760';
     if (mysqli_select_db($conn, $databaseName)) {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            if (!isset($_GET['subject'])) {
-                http_response_code(400);
-                echo json_encode(array('error' => 'Malformed subject parameter'));
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $json_data = file_get_contents('php://input');
+            $subject_data = json_decode($json_data, true);
+
+            if (isset($subject_data['subject'])) {
+                if (empty($subject_data['subject'])) {
+                    http_response_code(404);
+                    echo json_encode(array('error' => 'Array cannot be empty'));
+                    close_con($conn);
+                    return;
+                }
+                $subjects = $subject_data['subject'];
+            } else {
+                http_response_code(404);
+                echo json_encode(array('error' => 'subject property not found'));
+                close_con($conn);
                 return;
             }
 
-            $subject = mysqli_real_escape_string($conn, $_GET['subject']);
-            $subject = strtoupper($subject); // Convert to uppercase to ensure case-insensitive matching
+            $likeConditions = array_map(function ($code) {
+                return "courseCode LIKE '%" . $code . "%'";
+            }, $subjects);
 
-            $sql = 'SELECT * FROM coursesDB WHERE courseCode LIKE "%' . $subject . '%"';
+            // Construct the SQL query with multiple LIKE conditions joined by OR
+            $conditions = implode(" OR ", $likeConditions);
+            $sql = "SELECT * FROM coursesDB WHERE " . $conditions;
 
             try {
                 $result = $conn->query($sql);
@@ -61,4 +78,3 @@ if (!$conn) {
         echo json_encode(array('error' => 'Failed to select the database'));
     }
 }
-?>

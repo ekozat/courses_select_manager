@@ -10,7 +10,7 @@ function check_valid($conn, $course_code, $course_num)
         return true;
     } else {
         http_response_code(404);
-        echo json_encode(array('error' => 'Malformed prerequisite array'));
+        echo json_encode(array('error' => 'Malformed restriction array'));
         close_con($conn);
         return false;
     }
@@ -23,96 +23,30 @@ if (!$conn) {
 } else {
     $databaseName = 'cis3760';
     if (mysqli_select_db($conn, $databaseName)) {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            if (isset($_GET['restrictions'])) {
-                $restrictions = $_GET['restrictions'];
-                if (str_contains($restrictions, "|")) {
-                    $restrictionsArray = explode('|', $restrictions);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $json_data = file_get_contents('php://input');
+            $restriction_data = json_decode($json_data, true);
 
-                    $data = array();
+            if (!isset($restriction_data['type'])) {
+                http_response_code(404);
+                echo json_encode(array('error' => 'Missing type property'));
+                close_con($conn);
+                return false;
+            }
+            if (!isset($restriction_data['restrictions'])) {
+                http_response_code(404);
+                echo json_encode(array('error' => 'Missing restrictions property'));
+                close_con($conn);
+                return false;
+            }
 
-                    foreach ($restrictionsArray as $restriction) {
-                        // Check if the restriction has 3 or 4 numbers after the letters
-                        $parts = explode('*', $restriction);
-                        $courseCode = $parts[0];
-                        $courseNumber = $parts[1];
+            $type = $restriction_data['type'];
+            $restrictions = $restriction_data['restrictions'];
 
-
-                        if (check_valid($conn, $courseCode, $courseNumber)) {
-                            $escapedRestriction = mysqli_real_escape_string($conn, trim($restriction));
-                            $sql = "SELECT * FROM coursesDB WHERE restrictions LIKE '%$escapedRestriction%'";
-
-                            $result = $conn->query($sql);
-
-                            if ($result) {
-                                while ($row = $result->fetch_assoc()) {
-                                    // Remove quotation marks from the values
-                                    foreach ($row as $key => $value) {
-                                        $row[$key] = str_replace('"', '', $value);
-                                    }
-                                    $data[] = $row;
-                                }
-                            }
-                        } else {
-                            return;
-                        }
-                    }
-                    if (empty($data)) {
-                        http_response_code(404);
-                        echo json_encode(array('error' => 'No matching restrictions found'));
-                    } else {
-                        echo json_encode($data);
-                    }
-                } else {
-                    $restrictionsArray = explode(',', $restrictions);
-                    $data = array();
-
-                    $condition = array();
-                    $combined  = "";
-
-                    foreach ($restrictionsArray as $restriction) {
-                        // Check if the prerequisite has 3 or 4 numbers after the letters
-                        $parts = explode('*', $restriction);
-                        $courseCode = $parts[0];
-                        $courseNumber = $parts[1];
-
-                        if (check_valid($conn, $courseCode, $courseNumber)) {
-                            $escapedRestriction = mysqli_real_escape_string($conn, trim($restriction));
-                            // Build each AND case
-                            $condition[] = "restrictions LIKE '%$escapedRestriction%'";
-                        } else {
-                            return;
-                        }
-
-                        // Combine all conditions with AND
-                        $combined = implode(' AND ', $condition);
-                    }
-
-                    $sql = "SELECT * FROM coursesDB WHERE $combined";
-
-                    $result = $conn->query($sql);
-
-                    if ($result) {
-                        while ($row = $result->fetch_assoc()) {
-                            // Remove quotation marks from the values
-                            foreach ($row as $key => $value) {
-                                $row[$key] = str_replace('"', '', $value);
-                            }
-                            $data[] = $row;
-                        }
-                    }
-
-                    if (empty($data)) {
-                        http_response_code(404);
-                        echo json_encode(array('error' => 'No matching restrictions found'));
-                    } else {
-                        echo json_encode($data);
-                    }
-
-                }
-            } else {
+            // if empty array, return courses with no restrictions
+            if (empty($restrictions)) {
                 $data = array();
-                $sql = "SELECT * FROM coursesDB WHERE restrictions = '\"{}\"'";
+                $sql = "SELECT * FROM coursesDB WHERE restrictions = '\"{}\"' ";
                 $result = $conn->query($sql);
                 if ($result) {
                     while ($row = $result->fetch_assoc()) {
@@ -125,6 +59,97 @@ if (!$conn) {
                 }
                 http_response_code(200);
                 echo json_encode($data);
+                return true;
+            }
+            if (strtoupper($type) == 'OR') {
+                $data = array();
+                foreach ($restrictions as $restriction) {
+                    // Check if the restriction has 3 or 4 numbers after the letters
+                    $parts = explode('*', $restriction);
+                    $courseCode = $parts[0];
+                    $courseNumber = $parts[1];
+
+                    if (!check_valid($conn, $courseCode, $courseNumber)) {
+                        http_response_code(404);
+                        echo json_encode(array('error' => 'Restrictions are malformed'));
+                    }
+
+                    $escapedRestriction = mysqli_real_escape_string($conn, trim($restriction));
+                    $sql = "SELECT * FROM coursesDB WHERE restrictions LIKE '%$escapedRestriction%'";
+
+                    $result = $conn->query($sql);
+
+                    if ($result) {
+                        while ($row = $result->fetch_assoc()) {
+                            // Remove quotation marks from the values
+                            foreach ($row as $key => $value) {
+                                $row[$key] = str_replace('"', '', $value);
+                            }
+                            $data[] = $row;
+                        }
+                    } else {
+                        return;
+                    }
+                }
+                if (empty($data)) {
+                    http_response_code(404);
+                    echo json_encode(array('error' => 'No matching restrictions found'));
+                    return false;
+                } else {
+                    http_response_code(200);
+                    echo json_encode($data);
+                    return true;
+                }
+            } elseif (strtoupper($type) == 'AND') {
+                $data = array();
+                $condition = array();
+                $combined  = "";
+
+                foreach ($restrictions as $restriction) {
+                    // Check if the restriction has 3 or 4 numbers after the letters
+                    $parts = explode('*', $restriction);
+                    $courseCode = $parts[0];
+                    $courseNumber = $parts[1];
+
+                    if (check_valid($conn, $courseCode, $courseNumber)) {
+                        $escapedRestriction = mysqli_real_escape_string($conn, trim($restriction));
+                        // Build each AND case
+                        $condition[] = "restrictions LIKE '%$escapedRestriction%'";
+                    } else {
+                        return;
+                    }
+
+                    // Combine all conditions with AND
+                    $combined = implode(' AND ', $condition);
+                }
+
+                $sql = "SELECT * FROM coursesDB WHERE $combined";
+
+                $result = $conn->query($sql);
+
+                if ($result) {
+                    while ($row = $result->fetch_assoc()) {
+                        // Remove quotation marks from the values
+                        foreach ($row as $key => $value) {
+                            $row[$key] = str_replace('"', '', $value);
+                        }
+                        $data[] = $row;
+                    }
+                }
+
+                if (empty($data)) {
+                    http_response_code(404);
+                    echo json_encode(array('error' => 'No matching restrictions found'));
+                    return false;
+                } else {
+                    http_response_code(200);
+                    echo json_encode($data);
+                    return true;
+                }
+            } else {
+                http_response_code(404);
+                echo json_encode(array('error' => 'Invalid option for type, must be AND or OR'));
+                return false;
             }
         } else {
             http_response_code(405);
@@ -136,4 +161,3 @@ if (!$conn) {
     }
     close_con($conn);
 }
-
