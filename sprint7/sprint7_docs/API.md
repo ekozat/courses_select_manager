@@ -229,7 +229,7 @@ Input:
 
 ```
 {
-    "courseCode": ["cis*2750", "cis*3490"]
+    "prerequisites": ["cis*2750", "cis*3490"]
     "type": "OR"
 }
 ```
