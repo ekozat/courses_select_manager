@@ -1,16 +1,10 @@
 # API Documentation
 
--   The base URL for requests is 
-> https://cis3760f23-01.socs.uoguelph.ca/ 
-
--   Our API is defined as /courses/[functionality]/
+-   The base URL for requests is https://cis3760f23-01.socs.uoguelph.ca/
+-   Our API is defined as /courses/{functionality}/
     -   **The last forward slash is important**
 
----
-
-## GET Endpoints
-
-## `GET /courses/getAllCourses/`
+### `GET /courses/getAllCourses/`
 
 Get a list of all courses in the coursesDB database
 
@@ -38,10 +32,9 @@ Get a list of all courses in the coursesDB database
     -   **200** if the courses are fetched successfully from the database
     -   **405** if the request method given was not GET
     -   **500** if the connection to the database failed or fetching fails
-
 ---
 
-## `GET /courses/getAllCoursesCopy/`
+### `GET /courses/getAllCoursesCopy/` 
 
 Get a list of all courses in the coursesDBCopy database (used to verify POST, PUT, and DELETE operations)
 
@@ -69,10 +62,9 @@ Get a list of all courses in the coursesDBCopy database (used to verify POST, PU
     -   **200** if the courses are fetched successfully from the database
     -   **405** if the request method given was not GET
     -   **500** if the connection to the database failed or fetching fails
-
 ---
 
-## `GET /courses/getSubjects/`
+### `GET /courses/getSubjects/` 
 
 Get all the courses by a specified subject
 
@@ -95,14 +87,25 @@ Get all the courses by a specified subject
     -   **200** if the subjects are fetched successfully from the database
     -   **405** if the request is an incorrect request method
     -   **500** if the connection to the database failed or fetching fails
-
 ---
 
-## `GET /courses/getCoursesBySubject/?subject={subject}` 
+### `POST /courses/getCoursesBySubject/` 
 
-Get all the courses by a specified subject
+Get all the courses by a specified subject(s)
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesBySubject/?subject=HROB 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesBySubject/ 
+
+Input a JSON body like this containing 1 or more subjects in an array
+
+Input:
+
+```
+{
+    "subject": ["HROB"]
+}
+```
+
+Result:
 
 ```
 [
@@ -112,6 +115,19 @@ Get all the courses by a specified subject
         "prerequisites": "()",
         "restrictions": "{UNIV*2000}"
     },
+    {
+        "courseCode": "HROB*2090",
+        "courseName": "Individuals and Groups in Organizations",
+        "prerequisites": "()",
+        "restrictions": "{HROB*2100,HROB*4000,PSYC*3080}"
+    },
+    {
+        "courseCode": "HROB*2200",
+        "courseName": "Labour Relations",
+        "prerequisites": "2.00 credits",
+        "restrictions": "{ECON*2200}"
+    }
+    ...
 ]
 ```
 
@@ -121,14 +137,25 @@ Get all the courses by a specified subject
     -   **404** if no courses found for the given subject
     -   **405** if the request is an incorrect request method
     -   **500** if the connection to the database failed or fetching fails
-
 ---
 
-## `GET /courses/getCourseByCode/?course_code={course_code}` 
+### `POST /courses/getCourseByCode/` 
 
 Get course details using the respective course code
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByCode/?course_code=cis*1300 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByCode/ 
+
+Input a JSON body like this containing 1 or more course codes in an array
+
+Input:
+
+```
+{
+    "courseCode": ["cis*1300"]
+}
+```
+
+Result:
 
 ```
 [
@@ -145,29 +172,40 @@ Get course details using the respective course code
     -   **200** if the course is fetched successfully from the database
     -   **400** if the query parameter is not included in the call
     -   **404** if the course code was not found in the database
-    -   **405** if the request method given was not GET
+    -   **405** if the request method given was not POST
     -   **500** if the connection to the database failed or fetching fails
-
 ---
 
-## `GET /courses/getCourseByName/?course_name={course_name}` 
+### `POST /courses/getCourseByName/` 
 
 Get course details using the respective course name using fuzzy search
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByName/?course_name=discrete 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByName/ 
+
+Input a JSON body like this containing 1 or more course names in an array
+
+Input:
+
+```
+{
+    "courseName": ["intelligence"]
+}
+```
+
+Result:
 
 ```
 [
     {
-        "courseCode": "CIS*1910",
-        "courseName": "Discrete Structures in Computing I",
-        "prerequisites": "()",
+        "courseCode": "CIS*4780",
+        "courseName": "Computational Intelligence",
+        "prerequisites": "CIS*3490 AND (CIS*3750 OR CIS*3760) AND (CIS*2460 OR STAT*2040)",
         "restrictions": "{}"
     },
     {
-        "courseCode": "CIS*2910",
-        "courseName": "Discrete Structures in Computing II",
-        "prerequisites": "(CIS*1300 OR ENGG*1410) AND (CIS*1910 OR ENGG*1500)",
+        "courseCode": "PHIL*3370",
+        "courseName": "Ethics of Artificial Intelligence",
+        "prerequisites": "1.50 credits in Philosophy OR 7.50 credits",
         "restrictions": "{}"
     }
 ]
@@ -177,81 +215,35 @@ Get course details using the respective course name using fuzzy search
     -   **200** if the course(s) is fetched successfully from the database
     -   **400** if the query parameter is not included in the call
     -   **404** if the course name was not found in the database
-    -   **405** if the request method given was not GET
+    -   **405** if the request method given was not POST
     -   **500** if the connection to the database failed or fetching fails
-
 ---
 
-## `GET /courses/getCoursesByPrereq/?prerequisites={course_code1[,|]course_code2[,|] ...}`
-
-**NOTE**: The course codes can be separated by the comma or pipe symbol and is explained why below
+### `POST /courses/getCoursesByPrereq/` 
 
 Get courses by their prerequisites using the course code(s)
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/ 
+
+Input a JSON body like this containing 0 or more prerequisites in an array and a **MANDATORY** type property
+
+This type property will let the API know if you want OR logic or AND logic when multiple courses are specified, it will be ignored but still required when an empty array or 1 course is specified
+
+When an empty array is specified, courses with no prerequisites will be returned
+
+Input:
+
+```
+{
+    "courseCode": ["cis*2750", "cis*3490"]
+    "type": "OR"
+}
+```
+
+Result:
 
 ```
 [
-    {
-        "courseCode": "CIS*3150",
-        "courseName": "Theory of Computation",
-        "prerequisites": "CIS*2750 AND CIS*3490",
-        "restrictions": "{}"
-    },
-    {
-        "courseCode": "CIS*4520",
-        "courseName": "Introduction to Cryptography",
-        "prerequisites": "CIS*3490",
-        "restrictions": "{CIS*4110}"
-    },
-    {
-        "courseCode": "CIS*4780",
-        "courseName": "Computational Intelligence",
-        "prerequisites": "CIS*3490 AND (CIS*3750 OR CIS*3760) AND (CIS*2460 OR STAT*2040)",
-        "restrictions": "{}"
-    }
-]
-```
-
-When a comma is used to separate prerequisites, a logical AND will be used
-
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490,cis*2750 
-
-```
-[
-    {
-        "courseCode": "CIS*3150",
-        "courseName": "Theory of Computation",
-        "prerequisites": "CIS*2750 AND CIS*3490",
-        "restrictions": "{}"
-    }
-]
-```
-
-When a '|' symbol is used to separate prerequisites, a logical OR will be used
-
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/?prerequisites=cis*3490|cis*2750 
-
-```
-[
-    {
-        "courseCode": "CIS*3150",
-        "courseName": "Theory of Computation",
-        "prerequisites": "CIS*2750 AND CIS*3490",
-        "restrictions": "{}"
-    },
-    {
-        "courseCode": "CIS*4520",
-        "courseName": "Introduction to Cryptography",
-        "prerequisites": "CIS*3490",
-        "restrictions": "{CIS*4110}"
-    },
-    {
-        "courseCode": "CIS*4780",
-        "courseName": "Computational Intelligence",
-        "prerequisites": "CIS*3490 AND (CIS*3750 OR CIS*3760) AND (CIS*2460 OR STAT*2040)",
-        "restrictions": "{}"
-    },
     {
         "courseCode": "CIS*3150",
         "courseName": "Theory of Computation",
@@ -297,9 +289,40 @@ When a '|' symbol is used to separate prerequisites, a logical OR will be used
 ]
 ```
 
-If no query parameter is given, the endpoint will return courses with **NO** prerequisites
+Input:
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/ 
+```
+{
+    "prerequisites": ["cis*2750", "cis*3490"],
+    "type": "AND"
+}
+```
+
+Result:
+
+```
+[
+    {
+        "courseCode": "CIS*3150",
+        "courseName": "Theory of Computation",
+        "prerequisites": "CIS*2750 AND CIS*3490",
+        "restrictions": "{}"
+    }
+]
+```
+
+If an empty prerequisites array is given, the endpoint will return courses with **NO** prerequisites
+
+Input:
+
+```
+{
+    "prerequisites": [],
+    "type": "AND"
+}
+```
+
+Result:
 
 ```
 [
@@ -321,18 +344,32 @@ If no query parameter is given, the endpoint will return courses with **NO** pre
 -   This endpoint will return:
     -   **200** if the course(s) is fetched successfully from the database
     -   **404** if no matching prerequisites were found in the database or if the query parameter is not properly formatted
-    -   **405** if the request method given was not GET
+    -   **405** if the request method given was not POST
     -   **500** if the connection to the database failed or fetching fails
-
 ---
 
-## `GET /courses/getCoursesByRestrictions/?restrictions={course_code1[,|]course_code2[,|] ...}`
-
-**NOTE**: The course codes can be separated by the comma or pipe symbol and is explained why below
+### `POST /courses/getCoursesByRestrictions/` 
 
 Get courses by their restrictions using the course code(s)
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500 
+> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/ 
+
+Input a JSON body like this containing 0 or more restrictions in an array and a **MANDATORY** type property
+
+This type property will let the API know if you want OR logic or AND logic when multiple courses are specified, it will be ignored but still required when an empty array or 1 course is specified
+
+When an empty array is specified, courses with no restrictions will be returned
+
+Input:
+
+```
+{
+    "restrictions": ["cis*1500"],
+    "type": "AND"
+}
+```
+
+Result:
 
 ```
 [
@@ -345,9 +382,16 @@ Get courses by their restrictions using the course code(s)
 ]
 ```
 
-When a comma is used to separate restrictions, a logical AND will be used
+Input:
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500,cis*1300 
+```
+{
+    "restrictions": ["cis*1500", "cis*1300"],
+    "type": "AND"
+}
+```
+
+Result:
 
 ```
 {
@@ -355,9 +399,16 @@ When a comma is used to separate restrictions, a logical AND will be used
 }
 ```
 
-When a '|' is used to separate restrictions, a logical OR will be used
+Input:
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/?restrictions=cis*1500|cis*1300 
+```
+{
+    "restrictions": ["cis*1500", "cis*1300"],
+    "type": "OR"
+}
+```
+
+Result:
 
 ```
 [
@@ -376,9 +427,18 @@ When a '|' is used to separate restrictions, a logical OR will be used
 ]
 ```
 
-If no query parameter is given, the endpoint will return courses with **NO** restrictions
+If an empty restrictions array is given, the endpoint will return courses with **NO** prerequisites
 
-> https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByRestrictions/ 
+Input:
+
+```
+{
+    "restrictions": [],
+    "type": "OR"
+}
+```
+
+Result:
 
 ```
 [
@@ -400,14 +460,11 @@ If no query parameter is given, the endpoint will return courses with **NO** res
 -   This endpoint will return:
     -   **200** if the course(s) is fetched successfully from the database
     -   **404** if no matching restrictions were found in the database or the query parameter is not properly formatted
-    -   **405** if the request method given was not GET
+    -   **405** if the request method given was not POST
     -   **500** if the connection to the database failed or fetching fails
-
 ---
 
-## POST Endpoint
-
-## `POST /courses/postCourses/`
+### `POST /courses/postCourses/` 
 
 Update the coursesDBCopy table with a new course
 
@@ -432,10 +489,10 @@ Adding the same course twice will return a 400 with:
 }
 ```
 
--   If you want prerequisites to be empty, there are two ways to achieve it:
-    -   Type in the field with "()". For example, "prerequisites": "()".
-    -   Do not mention the "prerequisites" parameter. For example,
+If you want prerequisites to be empty, there are two ways to achieve it:
 
+1. Type in the field with "()". For example, "prerequisites": "()".
+2. Do not mention the "prerequisites" parameter. For example:
 
 ```
 {
@@ -445,10 +502,10 @@ Adding the same course twice will return a 400 with:
 }
 ```
 
--   If you want restrictions to be empty, there are two ways to achieve it:
-    -   Type in the field with "{}". For example, "restrictions": "{}".
-    -   Do not mention the "restrictions" parameter. For example,
+If you want restrictions to be empty, there are two ways to achieve it:
 
+1. Type in the field with "{}". For example, "restrictions": "{}".
+2. Do not mention the "restrictions" parameter. For example:
 
 ```
 {
@@ -463,12 +520,9 @@ Adding the same course twice will return a 400 with:
     -   **405** if the request method given was not POST
     -   **400** if the course information is incomplete, i.e., one or more of course code or course name or the parameters are provided without the value
     -   **500** if the connection to the database failed or fetching fails
-
 ---
 
-## PUT Endpoint
-
-## `PUT /courses/update/`
+### `PUT /courses/update/` 
 
 Update a specific course's information in the coursesDBCopy table using a mandatory courseCode property
 
@@ -497,7 +551,7 @@ On successful update, the endpoint will return a JSON response like this:
         "prerequisites": "CIS*1000",
         "restrictions": "\"{CIS*1000}\""
     },
-    
+
 
     "updatedRow": {
         "courseCode": "\"CIS*1200\"",
@@ -517,12 +571,9 @@ If the update is not for courseName, prerequisites, and restrictions, it will th
     -   **400** if invalid data is input or missing courseCode in the request or course is not found
     -   **405** if the request method given was not PUT
     -   **500** if the connection to the database failed or fetching fails
-
 ---
 
-## DELETE Endpoint
-
-## `DELETE /courses/delete/`
+### `DELETE /courses/delete/` 
 
 Delete a course from the coursesDBCopy table by the courseCode
 
@@ -550,4 +601,3 @@ On successful deletion, the endpoint will return this:
     -   **404** if the course was not found in the database
     -   **405** if the request method given was not DELETE
     -   **500** if the connection to the database failed or fetching fails
-

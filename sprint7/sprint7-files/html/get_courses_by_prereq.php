@@ -32,13 +32,13 @@ if (!$conn) {
                 http_response_code(404);
                 echo json_encode(array('error' => 'Missing type property'));
                 close_con($conn);
-                return false;
+                return;
             }
             if (!isset($prerequisite_data['prerequisites'])) {
                 http_response_code(404);
                 echo json_encode(array('error' => 'Missing prerequisites property'));
                 close_con($conn);
-                return false;
+                return;
             }
 
             $type = $prerequisite_data['type'];
@@ -59,7 +59,6 @@ if (!$conn) {
                 }
                 http_response_code(200);
                 echo json_encode($data);
-                return true;
             }
             if (strtoupper($type) == 'OR') {
                 foreach ($prerequisites as $prerequisite) {
@@ -86,20 +85,16 @@ if (!$conn) {
                             }
                             $data[] = $row;
                         }
-                    } else {
-                        return;
                     }
                     if (empty($data)) {
                         http_response_code(404);
                         echo json_encode(array('error' => 'No matching prerequisites found'));
-                        return false;
                     } else {
                         http_response_code(200);
-                        $data = removeDuplicates($data, "courseCode");
-                        echo json_encode($data);
-                        return true;
                     }
                 }
+                $data = removeDuplicates($data, "courseCode");
+                echo json_encode($data);
             } elseif (strtoupper($type) == 'AND') {
 
                 $condition = array();
@@ -140,16 +135,13 @@ if (!$conn) {
                 if (empty($data)) {
                     http_response_code(404);
                     echo json_encode(array('error' => 'No matching prerequisites found'));
-                    return false;
                 } else {
                     http_response_code(200);
                     echo json_encode($data);
-                    return true;
                 }
             } else {
                 http_response_code(404);
                 echo json_encode(array('error' => 'Invalid option for type, must be AND or OR'));
-                return false;
             }
         } else {
             http_response_code(405);
@@ -175,3 +167,4 @@ function removeDuplicates($array, $key)
     }
     return $uniqueArray;
 }
+

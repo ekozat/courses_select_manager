@@ -29,15 +29,14 @@ if (!$conn) {
 
             if (!isset($restriction_data['type'])) {
                 http_response_code(404);
-                echo json_encode(array('error' => 'Missing type property'));
-                close_con($conn);
-                return false;
+                echo json_encode(array('error' => 'Missing type property'));                close_con($conn);
+                return;
             }
             if (!isset($restriction_data['restrictions'])) {
                 http_response_code(404);
                 echo json_encode(array('error' => 'Missing restrictions property'));
                 close_con($conn);
-                return false;
+                return;
             }
 
             $type = $restriction_data['type'];
@@ -59,7 +58,6 @@ if (!$conn) {
                 }
                 http_response_code(200);
                 echo json_encode($data);
-                return true;
             }
             if (strtoupper($type) == 'OR') {
                 $data = array();
@@ -87,18 +85,14 @@ if (!$conn) {
                             }
                             $data[] = $row;
                         }
-                    } else {
-                        return;
                     }
                 }
                 if (empty($data)) {
                     http_response_code(404);
                     echo json_encode(array('error' => 'No matching restrictions found'));
-                    return false;
                 } else {
                     http_response_code(200);
                     echo json_encode($data);
-                    return true;
                 }
             } elseif (strtoupper($type) == 'AND') {
                 $data = array();
@@ -140,16 +134,13 @@ if (!$conn) {
                 if (empty($data)) {
                     http_response_code(404);
                     echo json_encode(array('error' => 'No matching restrictions found'));
-                    return false;
                 } else {
                     http_response_code(200);
                     echo json_encode($data);
-                    return true;
                 }
             } else {
                 http_response_code(404);
                 echo json_encode(array('error' => 'Invalid option for type, must be AND or OR'));
-                return false;
             }
         } else {
             http_response_code(405);
@@ -161,3 +152,4 @@ if (!$conn) {
     }
     close_con($conn);
 }
+
