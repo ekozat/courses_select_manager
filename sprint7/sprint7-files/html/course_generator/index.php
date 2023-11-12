@@ -3,7 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,86 +14,111 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <!-- link bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <title><?php echo $pageTitle; ?></title>
 </head>
 <body>
-  <div class="image-row">
-      <div class="image-container">
-          <img src="./books.png" alt="books">
-      </div>
-      <h1>Student Course Generator</h1>
-      <div class="image-container">
-          <img src="./books.png" alt="books">
-      </div>
+    <div class="home">
+      <a href="/index.php" aria-label="Home"><button class="btn-home"><i class="fa fa-home"></i></button></a>
   </div>
+    <!-- hero page -->
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="images/hero.jpeg" class="d-block mx-lg-auto img-fluid" alt="hero image" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <div class="lc-block mb-3">
+                    <div editable="rich">
+                        <h2 class="fw-bold display-5">UoG Student Course Generator</h2>
+                    </div>
+                </div>
 
-  <div class="home">
-      <a href="/"><button class="btn-home"><i class="fa fa-home"></i></button></a>
-  </div>
+                <div class="lc-block mb-3">
+                    <div editable="rich">
+                        <p class="lead">Introducing our Student Course Generator – your ultimate tool for academic success! Seamlessly designed for students, this generator empowers you to effortlessly input your current courses, instantly generating a personalized list of recommended next steps based on your completed subjects.
+                        </p>
+                    </div>
+                </div>
 
-  <div class="input-course-container">
-      <h2>Step 1: Input Taken Courses</h2>
-      <p>Input the courses that you have taken below one at a time, clicking the “Add Course” button after each input.
-      Note: The input should be in the format of SUBJECT*COURSE NUM, for example; CIS*2500.</p>
-      <div class="submit-course">
-          <input type="text" id="course" name="course" placeholder="Input Course..."><br>
-          <button class="btn1">Add Course</button>
-      </div>
-        <h3>Courses inputted so far:</h3>
-        <button class="clear-btn">Clear</button>
-      <div class="enteredCoursesList">
-        <ul id="enteredCourses"></ul>
-      </div>
-  </div>
+                <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "add course" href="#addCourse" role="button">Generate Courses</a>
+                    <a class="btn btn-outline-secondary px-4 search-info-btn" aria-label = "search course" href="#searchCourse" role="button">Search Course Info.</a>
+                </div>
 
-  <div class="generate-course-container">
-      <h2>Step 2: Course Recommendations</h2>
-      <p>Please confirm that all the courses you have taken are listed above. When ready, please click the button below to generate recomended courses.<p>
-      <div class="generate-course">
-          <button class="btn2">Generate Courses</button>
-      </div>
+            </div>
+        </div>
     </div>
 
-    <div class="recommended-heading">
-      <!-- <h3>Recommended Courses:</h3> -->
-      <button class="clear-btn-rec">Clear</button>
-    </div>
+    <!-- Add Course -->
+    <section id = "addCourse">
+      <div class="jumbotron text-center input-course-container">
+          <h1>Input Courses</h1>
+          <p>Input the courses that you have taken below one at a time, clicking the “Add Course” button after each input.<br>Note: The input should be in the format of SUBJECT*COURSE NUM, for example; CIS*2500</p>
+          <div class="input-group input-group-btn submit-course">
+            <input type="text" class="form-control" size="50" id="course" name="course" placeholder="CIS*1500...">
+          </div>
+          <div class="lc-block text-center">
+            <a class="btn1 btn btn-dark mx-2 add-course-btn" aria-label= "add course to list" role="button">Add Course to List</a>
+            <a class="clear-btn btn btn-light mx-2 clear-course-btn" aria-label = "clear course from list" role="button">Clear Courses from List</a>
+          </div>
+          <h2>Courses Inputted So Far:</h2>
+          <div class="enteredCoursesList">
+            <ul id="enteredCourses"></ul>
+          </div>
+      </div>
+    </section>
 
-    <div class="recommended-courses">
-        <ul id="recommended-courses-list">
-            <!-- Recommended courses will be displayed here -->
-        </ul>
-    </div>
+    <!-- Generate Course Recommendations -->
+    <section id = "courseGenerator">
+      <div class="jumbotron text-center generate-course-container">
+          <h1>Course Recommendations</h1>
+          <p>Please confirm that all the courses you have taken are listed above. When ready, please click the button below to generate recomended courses.</p>
+          <div class="generate-course recommended-heading lc-block text-center">
+            <a class="btn2 btn btn-dark mx-2 generate-course-btn" aria-label= " generate courses" role="button">Generate Courses</a>
+            <a class="gen-course-empty-btn2 btn btn-dark mx-2 generate-course-no-pre-btn" aria-label= " generate courses with no pre" role="button">Generate Courses With No Prerequisites</a>
+            <a class="clear-btn-rec btn btn-light mx-2" aria-label= "clear button" role="button">Clear Results</a>
+          </div>
+          <div class="recommended-courses">
+            <ul id="recommended-courses-list">
+              <!-- Recommended courses will be displayed here -->
+            </ul>
+          </div>
+      </div>
+    </section>
 
-  <div class="course-data-container">
-    <h2>Step 3: View Course Details</h2>
-    <p>Enter a course code in the format of SUBJECT*COURSE NUM in order to view its details.</p>
-    <div class="submit-course-detail">
-      <input type="text" id="course-detail" name="course-detail" placeholder="Input Course..."><br>
-      <button class="btn3">Search Course</button>
-    </div>
-  </div>
+    <!-- Search Course -->
+    <section id = "searchCourse">
+      <div class="jumbotron text-center course-data-container">
+          <h1>Search Course Details</h1>
+          <p>Enter a course code in the format of CIS*1500 to view its details.</p>
+              <div class="input-group input-group-btn submit-course-detail">
+                  <input type="text" class="form-control custom-outline" size="50" id="course-detail" name="course-detail" placeholder="CIS*1500..."><br>
+                  <button type="button" class="btn3 btn btn-success search-btn">Search</button>
+              </div>
+          <div class="detail-heading lc-block d-grid gap-2 d-md-flex justify-content-md-start">
+            <a class="btn btn-dark px-4 me-md-2 clear-btn-detail" aria-label= "clear button" role="button">Clear Results</a>
+          </div>
+          <!-- display course search results -->
+          <div class="container courseDetails">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="course-detail">
+                          <p id=code-detail></p>
+                          <p id=name-detail></p>
+                          <p id=prereq-detail></p>
+                          <p id=restr-detail></p>
+                      </div>
+                  </div>
+              </div>
+          </div> 
+      </div>
+    </section>
 
-  <div class="detail-heading">
-    <button class="clear-btn-detail">Clear</button>
-  </div>
-
-  <div class="courseDetails">
-      <!-- Course Details will be displayed here -->
-      <p id=code-detail></p>
-      <p id=name-detail></p>
-      <p id=dept-detail></p>
-      <p id=desc-detail></p>
-      <p id=location-detail></p>
-      <p id=prereq-detail></p>
-      <p id=restr-detail></p>
-      <p id=equates-detail></p>
-      <p id=term-detail></p>
-      <p id=weight-detail></p>
-  </div>
-
-  <script type="text/javascript">
+       
+    
+    <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
       // all functionality buttons
       let add_course_btn = document.querySelector(".btn1");
@@ -116,12 +143,6 @@
       let nameDetail = document.getElementById("name-detail");
       let prereqDetail = document.getElementById("prereq-detail");
       let restrDetail = document.getElementById("restr-detail");
-      let equatesDetail = document.getElementById("equates-detail");
-      let deptDetail = document.getElementById("dept-detail");
-      let descDetail = document.getElementById("desc-detail");
-      let locationDetail = document.getElementById("location-detail");
-      let termDetail = document.getElementById("term-detail");
-      let weightDetail = document.getElementById("weight-detail");
 
 
       // Collect entered courses
@@ -155,17 +176,20 @@
 
         if (splitCourse.length === 2 && splitCourse[0] !== '' && splitCourse[1] !== '' && splitCourse[1].trim() !== '' && !isNaN(splitCourse[1])) {
 
-          let apiUrl = 'get_course_details.php?id=' + encodeURIComponent(courseValue);
+        let apiUrl = 'get_course_details.php';
+        let requestData = {
+          courseCode: [courseValue],
+        };
 
           // call get by course ID endpoint
           fetch(apiUrl, {
-            method: 'GET',
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
+            body: JSON.stringify(requestData)
           })
-            .then(response => {
-              if (!response.ok) {
+            .then(response => {              if (!response.ok) {
                 throw new Error('Network response was not ok');
               }
               return response.json();
@@ -176,27 +200,14 @@
                 alert("Error: Inputted course does not exist. Please try again")
                 codeDetail.textContent = "";
                 nameDetail.textContent = "";
-                deptDetail.textContent = "";
-                descDetail.textContent = "";
-                locationDetail.textContent = "";
-                termDetail.textContent = "";
-                weightDetail.textContent = "";
                 prereqDetail.textContent = "";
                 restrDetail.textContent = "";
-                equatesDetail.textContent = "";
               }
               else{
-                  // Handle the data you received from the GET request.
-                codeDetail.textContent = "Course Code: " + courseValue;
+                codeDetail.textContent = "Course Code: " + data[0].courseCode;
                 nameDetail.textContent = "Course Name: " + data[0].courseName;
-                descDetail.textContent = "Description: " + data[0].description;
-                prereqDetail.textContent = "Prerequisites: " + data[0].prereqList;
-                restrDetail.textContent = "Restrictions: " + data[0].restrictList;
-                equatesDetail.textContent = "Equates: " + data[0].Equates;
-                deptDetail.textContent = "Department: " + data[0].department;
-                locationDetail.textContent = "Location: " + data[0].location;
-                termDetail.textContent = "Term: " + data[0].term;
-                weightDetail.textContent = "Weight: " + data[0].weight;
+                prereqDetail.textContent = "Prerequisites: " + data[0].prerequisites;
+                restrDetail.textContent = "Restrictions: " + data[0].restrictions;
               }
             })
             .catch(error => {
@@ -225,12 +236,6 @@
         nameDetail.textContent = "";
         prereqDetail.textContent = "";
         restrDetail.textContent = "";
-        deptDetail.textContent = "";
-        descDetail.textContent = "";
-        locationDetail.textContent = "";
-        termDetail.textContent = "";
-        weightDetail.textContent = "";
-        equatesDetail.textContent = "";
       })
 
 // Generate Courses button click event
@@ -239,7 +244,6 @@ function generateAndDisplayRecommendedCourses() {
         enteredCoursesInput.value = JSON.stringify(enteredCourses);
 
         let recommendedCoursesContainer = document.querySelector('.recommended-courses');
-        // recommendedCoursesContainer.style.backgroundColor = "#D9D9D9";
 
         // Make an AJAX request to generate_recommendations.php
         let xhr = new XMLHttpRequest();
@@ -268,11 +272,63 @@ function generateAndDisplayRecommendedCourses() {
                 }
             }
         };
+        if (enteredCourses.length === 0) {
+          alert("You have not inputted any courses yet, did you mean to click Generate Courses With No Prerequisites?");
+          return;
+        }
         xhr.send("enteredCourses=" + JSON.stringify(enteredCourses));
     }
 
+// Generate Courses with no prerequisites button click event
+function displayCoursesWithNoPrereq() {
+    var apiUrl = "get_courses_with_no.php";
+    var postData = {
+        prerequisites: [],
+        type: 'AND'
+    };
+
+    fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData),
+    })
+    .then(response => response.json())
+    .then(data => {
+
+         data.sort((a, b) => {
+           return a.courseCode.localeCompare(b.courseCode, undefined, { sensitivity: 'base' });
+         });
+
+        // Assuming the data is an array of course objects
+        var resultElement = document.getElementById("recommended-courses-list");
+
+        // Clear previous content
+        resultElement.innerHTML = "";
+
+        // Display each course in a new paragraph
+        data.forEach(course => {
+          let courseCode = course.courseCode;
+          let courseName = course.courseName;
+          let listItem = document.createElement("li");
+          listItem.textContent = courseCode + " - " + courseName;
+          resultElement.appendChild(listItem);
+
+        });
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        var resultElement = document.getElementById("recommended-courses-list");
+        resultElement.innerHTML = 'Error occurred while fetching data.';
+    });
+}
+
       let generateCourseBtn = document.querySelector(".btn2");
+      let generateCourseBtnEmpty = document.querySelector(".gen-course-empty-btn2");
+
       generateCourseBtn.addEventListener("click", generateAndDisplayRecommendedCourses);
+      generateCourseBtnEmpty.addEventListener("click", displayCoursesWithNoPrereq);
     });
 
 
