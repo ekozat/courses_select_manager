@@ -60,7 +60,6 @@ $html = <<<HTML
             </div>
         </div>
     </section>
-    <hr>
 
     <!-- course generator -->
     <section id = "generator">
@@ -90,9 +89,10 @@ $html = <<<HTML
             </div>
         </div>
     </section>
+    <hr>
 
     <div class="team-text">
-        <h2>$title2</h2>
+        <h2 class = "title-team">$title2</h2>
     </div>
     <div class="row justify-content-center mx-auto">
 HTML;
@@ -105,7 +105,7 @@ foreach ($teamMembers as $index => $member) {
     $marginLeftClass = $index === 0 ? 'ml-2' : ''; // Add margin-left to the first team member
     $html .= <<<HTML
             <div class="col-md-2 team-member $marginLeftClass">
-                <a href="$href"><img src="$imagePath" alt="$name's Headshot" class="rounded-circle img-fluid"></a>
+                <a href="$href"><img src="$imagePath" alt="$name's Headshot" class="rounded-circle img-fluid" style="width: 150px; height: 150px;"></a>
                 <p>$name</p>
             </div>
 HTML;
@@ -120,5 +120,3 @@ HTML;
 // Output the generated HTML
 echo $html;
 ?>
-
-
