@@ -28,67 +28,90 @@ $html = <<<HTML
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hero Page</title>
     <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Hero Page</title>
+    
 </head>
 <body>
-    <div class="container">
-        <div class="text">
-            <h2>$title</h2>
-            <p>$greeting</p>
-            <p>$description1</p>
-            <p>$description2</p>
-        </div>
-        <div class="buttons-container">
-            <div class="download-button">
-                <a href="parsed_courses.xlsm" download class="download-button">Download File</a>
+    <!-- hero page -->
+    <section id = "hero-main">
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <div class="lc-block d-grid gap-2 d-md-flex flex-md-column justify-content-md-start">
+                        <a class="btn btn-dark px-4 me-md-2" aria-label="add course" href="parsed_courses.xlsm"  download class="download-button" role="button">Download File</a>
+                        <a class="btn btn-outline-secondary px-4 search-info-btn" aria-label="search course" href="apidocs" role="button">API Documentation</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="lc-block mb-3">
+                        <div editable="rich">
+                            <h2 class = "display-5">$title</h2>
+                            <p>$greeting</p>
+                            <p>$description1</p>
+                            <p>$description2</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="download-button">
-                <a href="apidocs.php" class="download-button">API Documentation</a>
-            </div>
         </div>
-    </div>
+    </section>
     <hr>
 
-    <div class="container">
-        <div class="text">
-            <h2>STUDENT COURSE GENERATOR</h2>
-            <p>Click on the button below to start planning your academic future!</p>
-            <div class="download-button-two">
-                <a href="course_generator" class="download-button-two">Start Now!</a>
+    <!-- course generator -->
+    <section id = "generator">
+        <div class="container col-xxl-8 px-4 py-5 course-generator">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="laptop-homepage.png" class="d-block mx-lg-auto img-fluid" alt="hero image" loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <div class="lc-block mb-3">
+                        <div editable="rich">
+                            <h2 class="fw-bold display-5">UoG Student Course Generator</h2>
+                        </div>
+                    </div>
+
+                    <div class="lc-block mb-3">
+                        <div editable="rich">
+                            <p class="lead">Click on the button below to start planning your academic future!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "add course" href="course_generator/index.php" role="button">Start Now!</a>
+                    </div>
+
+                </div>
             </div>
         </div>
-        <div class="buttons-container">
-            <a href="Laptop"><img src="laptop-homepage.png"></a>
-        </div>
+    </section>
+
+    <div class="team-text">
+        <h2>$title2</h2>
     </div>
-
-
-    <div class="team">
-        <div class="team-text">
-            <h2>$title2</h2>
-        </div>
-        <div class="team-members">
+    <div class="row justify-content-center mx-auto">
 HTML;
 
-
-
 // Loop through team members and create the HTML for each
-foreach ($teamMembers as $member) {
+foreach ($teamMembers as $index => $member) {
     $name = $member['name'];
     $imagePath = $member['imagePath'];
     $href = strtolower($name);
+    $marginLeftClass = $index === 0 ? 'ml-2' : ''; // Add margin-left to the first team member
     $html .= <<<HTML
-            <div class="team-member">
-                <a href="$href"><img src="$imagePath" alt="$name's Headshot"></a>
+            <div class="col-md-2 team-member $marginLeftClass">
+                <a href="$href"><img src="$imagePath" alt="$name's Headshot" class="rounded-circle img-fluid"></a>
                 <p>$name</p>
             </div>
 HTML;
 }
 
 $html .= <<<HTML
-        </div>
     </div>
 </body>
 </html>
@@ -97,3 +120,5 @@ HTML;
 // Output the generated HTML
 echo $html;
 ?>
+
+
