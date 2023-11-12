@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } 
 
         else {
-        // Send a POST request to the API endpoint to get available courses
+        // Send a POST request to the API endpoint to get available courses 
       
         $apiUrl = "https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/";
   
