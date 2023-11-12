@@ -9,200 +9,87 @@ button {
 }
 
 .home {
-    padding-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .btn-home {
-    border-radius: 5px;
-    font-size: 12px;
-    cursor: pointer;
-    padding: 5px;
-    background-color: white;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 5px;
+  background-color: white;
 }
 
 .btn-home:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
-.image-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #EDE9E4;
-}
-
-.image-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.image-container img {
-    width: 100px;
-    height: auto;
-    display: block;
+.jumbotron {
+  background-color: #9DBF9E;
+  color: #fff;
+  padding: 80px;
 }
 
 .input-course-container {
-  padding: 20px;
-}
-
-.input-course-container .btn1 {
-  margin-left: 30px;
-}
-
-.input-course-container input {
-  margin-right: 30px;
+  background-color: #9DBF9E;
+  color: #fff;
+  padding: 80px;
 }
 
 .generate-course-container {
-  padding: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 80px;
 }
-
-.course-data-container {
-  padding: 20px;
-}
-
-.course-data-container button {
-  margin-left: 30px;
-}
-
-.course-data-container input {
-  margin-right: 30px;
-}
-
-.recommended-heading {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-input[type=text] {
-  padding: 12px 20px;
-  box-sizing: border-box;
-  background-color: #D9D9D9;
-}
-
-.submit-course {
-  display: flex;
-  flex-direction: row;
+.jumbotron h1 {
   padding-bottom: 20px;
 }
 
-.btn1 {
-  width: 20%;
-  background-color: #D3B194;
-}
-
-.btn3 {
-  width: 20%;
-  background-color: #D3B194;
-}
-
-.generate-course {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  padding: 20px;
-}
-
-.courseDetails {
-  padding: 20px;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  max-height: 300px;
-  overflow-y: auto;
-  width: 75%;
-  margin: 0 auto;
-  height: 300px;
-  max-height: 300px;
-  background-color: #D9D9D9;
-  margin-bottom: 20px;
+.jumbotron p {
+  font-size: 20px;
 }
 
 .detail-heading {
-  padding: 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-}
-
-.generate-course .btn2 {
-  padding: 10px;
-  background-color: #D3B194;
-}
-
-.courses-generated {
-  background-color: #D9D9D9;
-  padding: 20px;
-  height: 50px;
-}
-
-.submit-course-detail {
-  display: flex;
-  flex-direction: row;
-}
-
-.enteredCoursesList {
   padding-top: 10px;
+  /* Adjust the value according to your preference */
 }
 
-.recommended-courses {
-  height: 300px;
-  max-height: 300px;
-  background-color: #D9D9D9;
-  overflow-y: auto;
-  padding: 20px;
-  width: 75%;
-  margin: 0 auto;
+.btn-primary {
+  width: 200px;
+  /* Adjust the width according to your preference */
 }
 
-.recommended-courses ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.text-center a {
+  margin-top: 50px;
 }
 
-.recommended-courses ul li {
-  margin-bottom: 5px;
+.input-course-container h2 {
+  margin-top: 25px;
 }
 
-.clear-btn {
-  background-color: white;
-  color: black;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  border: 2px solid #D3B194;
+#addCourse h2 {
+  text-align: left;
+  font-size: larger;
 }
 
-.clear-btn-rec {
-  background-color: white;
-  color: black;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  border: 2px solid #D3B194;
+#addCourse .enteredCoursesList {
+  text-align: left;
 }
 
-.clear-btn-detail {
-  background-color: white;
-  color: black;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  border: 2px solid #D3B194;
+#recommended-courses-list {
+  text-align: left;
+  margin-top: 10px;
+  padding-left: 30px;
 }
 
+.courseDetails p {
+  text-align: left;
+  margin-top: 10px;
+  padding-left: 20px;
+}
