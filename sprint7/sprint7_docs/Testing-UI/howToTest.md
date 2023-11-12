@@ -1,4 +1,4 @@
-- Download the .slide file found on this directory.
+- Download the .side file found on this directory.
 - Open your terminal
 - Redirect to the directory that contains the downloaded file.
 - Ensure you have the Selenium IDE chrome extension installed.
