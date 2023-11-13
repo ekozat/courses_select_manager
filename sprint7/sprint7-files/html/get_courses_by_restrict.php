@@ -16,6 +16,13 @@ function check_valid($conn, $course_code, $course_num)
     }
 }
 
+function handle_error_response($conn, $error_message)
+{
+    http_response_code(404);
+    echo json_encode(array('error' => $error_message));
+    close_con($conn);
+}
+
 $conn = open_con();
 
 if (!$conn) {
@@ -27,15 +34,8 @@ if (!$conn) {
             $json_data = file_get_contents('php://input');
             $restriction_data = json_decode($json_data, true);
 
-            if (!isset($restriction_data['type'])) {
-                http_response_code(404);
-                echo json_encode(array('error' => 'Missing type property'));                close_con($conn);
-                return;
-            }
-            if (!isset($restriction_data['restrictions'])) {
-                http_response_code(404);
-                echo json_encode(array('error' => 'Missing restrictions property'));
-                close_con($conn);
+            if (!isset($restriction_data['type']) || !isset($restriction_data['restrictions'])) {
+                handle_error_response($conn, 'Missing type or restrictions property');
                 return;
             }
 
@@ -59,6 +59,7 @@ if (!$conn) {
                 http_response_code(200);
                 echo json_encode($data);
             }
+
             if (strtoupper($type) == 'OR') {
                 $data = array();
                 foreach ($restrictions as $restriction) {
@@ -68,8 +69,8 @@ if (!$conn) {
                     $courseNumber = $parts[1];
 
                     if (!check_valid($conn, $courseCode, $courseNumber)) {
-                        http_response_code(404);
-                        echo json_encode(array('error' => 'Restrictions are malformed'));
+                        handle_error_response($conn, 'Restrictions are malformed');
+                        return;
                     }
 
                     $escapedRestriction = mysqli_real_escape_string($conn, trim($restriction));
@@ -88,8 +89,7 @@ if (!$conn) {
                     }
                 }
                 if (empty($data)) {
-                    http_response_code(404);
-                    echo json_encode(array('error' => 'No matching restrictions found'));
+                    handle_error_response($conn, 'No matching restrictions found');
                 } else {
                     http_response_code(200);
                     echo json_encode($data);
@@ -132,23 +132,19 @@ if (!$conn) {
                 }
 
                 if (empty($data)) {
-                    http_response_code(404);
-                    echo json_encode(array('error' => 'No matching restrictions found'));
+                    handle_error_response($conn, 'No matching restrictions found');
                 } else {
                     http_response_code(200);
                     echo json_encode($data);
                 }
             } else {
-                http_response_code(404);
-                echo json_encode(array('error' => 'Invalid option for type, must be AND or OR'));
+                handle_error_response($conn, 'Invalid option for type, must be AND or OR');
             }
         } else {
-            http_response_code(405);
-            echo json_encode(array('error' => 'Incorrect request method'));
+            handle_error_response($conn, 'Incorrect request method');
         }
     } else {
-        http_response_code(500);
-        echo json_encode(array('error' => 'Failed to select the database'));
+        handle_error_response($conn, 'Failed to select the database');
     }
     close_con($conn);
 }

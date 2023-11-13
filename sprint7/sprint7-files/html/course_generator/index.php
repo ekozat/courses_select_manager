@@ -238,8 +238,8 @@
         restrDetail.textContent = "";
       })
 
-// Generate Courses button click event
-function generateAndDisplayRecommendedCourses() {
+      // Generate Courses button click event
+      function generateAndDisplayRecommendedCourses() {
         let enteredCoursesInput = document.getElementById("enteredCourses");
         enteredCoursesInput.value = JSON.stringify(enteredCourses);
 
@@ -250,27 +250,27 @@ function generateAndDisplayRecommendedCourses() {
         xhr.open("POST", "generate_recommendations.php", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                let response = JSON.parse(xhr.responseText);
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            let response = JSON.parse(xhr.responseText);
 
-                // Check if the response contains recommended courses
-                if (response.recommendedCourses) {
-                    response.recommendedCourses.sort((a, b) => {
-                      return a.courseCode.localeCompare(b.courseCode, undefined, { sensitivity: 'base' });
-                    });
-                    let recommendedCoursesList = document.getElementById("recommended-courses-list");
-                    recommendedCoursesList.innerHTML = ""; // Clear the list
+            // Check if the response contains recommended courses
+            if (response.recommendedCourses) {
+              response.recommendedCourses.sort((a, b) => {
+                return a.courseCode.localeCompare(b.courseCode, undefined, { sensitivity: 'base' });
+              });
+              let recommendedCoursesList = document.getElementById("recommended-courses-list");
+              recommendedCoursesList.innerHTML = ""; // Clear the list
 
-                    // Display only the course codes in the list
-                    response.recommendedCourses.forEach(function(course) {
-                        let courseCode = course.courseCode;
-                        let courseName = course.courseName;
-                        let listItem = document.createElement("li");
-                        listItem.textContent = courseCode + " - " + courseName;
-                        recommendedCoursesList.appendChild(listItem);
-                    });
-                }
+              // Display only the course codes in the list
+              response.recommendedCourses.forEach(function(course) {
+                  let courseCode = course.courseCode;
+                  let courseName = course.courseName;
+                  let listItem = document.createElement("li");
+                  listItem.textContent = courseCode + " - " + courseName;
+                  recommendedCoursesList.appendChild(listItem);
+              });
             }
+          }
         };
         if (enteredCourses.length === 0) {
           alert("You have not inputted any courses yet, did you mean to click Generate Courses With No Prerequisites?");
@@ -278,52 +278,52 @@ function generateAndDisplayRecommendedCourses() {
         }
         
         xhr.send("enteredCourses=" + JSON.stringify(enteredCourses));
-    }
+      }
 
-// Generate Courses with no prerequisites button click event
-function displayCoursesWithNoPrereq() {
-    var apiUrl = "get_courses_with_no.php";
-    var postData = {
-        prerequisites: [],
-        type: 'AND'
-    };
+      // Generate Courses with no prerequisites button click event
+      function displayCoursesWithNoPrereq() {
+        var apiUrl = "get_courses_with_no.php";
+        var postData = {
+            prerequisites: [],
+            type: 'AND'
+        };
 
-    fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(postData),
-    })
-    .then(response => response.json())
-    .then(data => {
+        fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(postData),
+        })
+        .then(response => response.json())
+        .then(data => {
 
-         data.sort((a, b) => {
-           return a.courseCode.localeCompare(b.courseCode, undefined, { sensitivity: 'base' });
-         });
+          data.sort((a, b) => {
+            return a.courseCode.localeCompare(b.courseCode, undefined, { sensitivity: 'base' });
+          });
 
-        // Assuming the data is an array of course objects
-        var resultElement = document.getElementById("recommended-courses-list");
+          // Assuming the data is an array of course objects
+          var resultElement = document.getElementById("recommended-courses-list");
 
-        // Clear previous content
-        resultElement.innerHTML = "";
+          // Clear previous content
+          resultElement.innerHTML = "";
 
-        // Display each course in a new paragraph
-        data.forEach(course => {
-          let courseCode = course.courseCode;
-          let courseName = course.courseName;
-          let listItem = document.createElement("li");
-          listItem.textContent = courseCode + " - " + courseName;
-          resultElement.appendChild(listItem);
+          // Display each course in a new paragraph
+          data.forEach(course => {
+            let courseCode = course.courseCode;
+            let courseName = course.courseName;
+            let listItem = document.createElement("li");
+            listItem.textContent = courseCode + " - " + courseName;
+            resultElement.appendChild(listItem);
 
+          });
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          var resultElement = document.getElementById("recommended-courses-list");
+          resultElement.innerHTML = 'Error occurred while fetching data.';
         });
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        var resultElement = document.getElementById("recommended-courses-list");
-        resultElement.innerHTML = 'Error occurred while fetching data.';
-    });
-}
+      }
 
       let generateCourseBtn = document.querySelector(".btn2");
       let generateCourseBtnEmpty = document.querySelector(".gen-course-empty-btn2");

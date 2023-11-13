@@ -7,14 +7,17 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 
 require 'db_connection.php';
 
-function check_valid($conn, $course_code, $course_num)
-{
+function handleHttpError($errorCode, $errorMessage) {
+    http_response_code($errorCode);
+    echo json_encode(array('error' => $errorMessage));
+    close_con($GLOBALS['conn']);
+}
+
+function check_valid($course_code, $course_num) {
     if (isset($course_num) && (strlen($course_num) == 3 || strlen($course_num) == 4 || ($course_num == "" && $course_code == ""))) {
         return true;
     } else {
-        http_response_code(404);
-        echo json_encode(array('error' => 'Malformed prerequisite array'));
-        close_con($conn);
+        handleHttpError(404, 'Malformed prerequisite array');
         return false;
     }
 }
@@ -22,11 +25,8 @@ function check_valid($conn, $course_code, $course_num)
 $conn = open_con();
 
 if (!$conn) {
-
-    echo json_encode(array('error' => 'Failed to connect to the database'));
-
-} 
-else {
+    handleHttpError(500, 'Failed to connect to the database');
+} else {
     $databaseName = 'cis3760';
 
     if (mysqli_select_db($conn, $databaseName)) {
@@ -36,15 +36,11 @@ else {
             $data = array();
 
             if (!isset($prerequisite_data['type'])) {
-                http_response_code(404);
-                echo json_encode(array('error' => 'Missing type property'));
-                close_con($conn);
+                handleHttpError(404, 'Missing type property');
                 return;
             }
             if (!isset($prerequisite_data['prerequisites'])) {
-                http_response_code(404);
-                echo json_encode(array('error' => 'Missing prerequisites property'));
-                close_con($conn);
+                handleHttpError(404, 'Missing prerequisites property');
                 return;
             }
 
@@ -68,6 +64,7 @@ else {
                 echo json_encode($data);
                 return;
             }
+
             if (strtoupper($type) == 'OR') {
                 $data = array();
 
@@ -78,9 +75,8 @@ else {
                     $courseCode = $parts[0];
                     $courseNumber = $parts[1];
 
-                    if (!check_valid($conn, $courseCode, $courseNumber)) {
-                        http_response_code(404);
-                        echo json_encode(array('error' => 'Prerequisites are malformed'));
+                    if (!check_valid($courseCode, $courseNumber)) {
+                        handleHttpError(404, 'Prerequisites are malformed');
                     }
                     $escapedPrerequisite = mysqli_real_escape_string($conn, trim($prerequisite));
                     $sql = "SELECT * FROM coursesDB WHERE prerequisites LIKE '%$escapedPrerequisite%'";
@@ -97,19 +93,15 @@ else {
                         }
                     }
                     if (empty($data)) {
-                        http_response_code(404);
-                        echo json_encode(array('error' => 'No matching prerequisites found'));
+                        handleHttpError(404, 'No matching prerequisites found');
                     } else {
                         http_response_code(200);
                     }
                 }
                 $data = removeDuplicates($data, "courseCode");
-                // Thinking to put the evaluation code here. Loop through the obtained data and check if all the prerequisites are met
-                // echo json_encode($data);
-                // Evaluate prerequisites logic
 
                 // create an array to store the valid course
-                $matchingCourses = array(); 
+                $matchingCourses = array();
                 foreach ($data as $course) {
                     $prerequisites = $course['prerequisites'];
                     $isPrerequisiteMet = evaluatePrerequisites($prerequisites, $prerequisitesArr);
@@ -118,10 +110,9 @@ else {
                         $matchingCourses[] = $course;
                     }
                 }
-                echo json_encode($matchingCourses); 
+                echo json_encode($matchingCourses);
                 http_response_code(200);
 
-            
             } elseif (strtoupper($type) == 'AND') {
 
                 $condition = array();
@@ -133,7 +124,7 @@ else {
                     $courseCode = $parts[0];
                     $courseNumber = $parts[1];
 
-                    if (check_valid($conn, $courseCode, $courseNumber)) {
+                    if (check_valid($courseCode, $courseNumber)) {
                         $escapedPrerequisite = mysqli_real_escape_string($conn, trim($prerequisite));
                         // Build each AND case
                         $condition[] = "prerequisites LIKE '%$escapedPrerequisite%'";
@@ -160,30 +151,25 @@ else {
                 }
 
                 if (empty($data)) {
-                    http_response_code(404);
-                    echo json_encode(array('error' => 'No matching prerequisites found'));
+                    handleHttpError(404, 'No matching prerequisites found');
                 } else {
                     http_response_code(200);
                     echo json_encode($data);
                 }
             } else {
-                http_response_code(404);
-                echo json_encode(array('error' => 'Invalid option for type, must be AND or OR'));
+                handleHttpError(404, 'Invalid option for type, must be AND or OR');
             }
         } else {
-            http_response_code(405);
-            echo json_encode(array('error' => 'Incorrect request method'));
+            handleHttpError(405, 'Incorrect request method');
         }
     } else {
-        http_response_code(500);
-        echo json_encode(array('error' => 'Failed to select the database'));
+        handleHttpError(500, 'Failed to select the database');
     }
     close_con($conn);
 }
 
 // Helper function to remove duplicates based on a specific key
-function removeDuplicates($array, $key)
-{
+function removeDuplicates($array, $key) {
     $tempArray = array();
     $uniqueArray = array();
     foreach ($array as $val) {
@@ -201,15 +187,8 @@ function evaluatePrerequisites($prerequisitesStr, $prerequisitesArr) {
     // removes all spaces in the prerequisites string
     $prerequisitesStr = str_replace(' ', '', $prerequisitesStr);
 
-
     //this if statement checks if the prerequisites starts with a ( and ends with a )
     // to determine if it has ()
-
-    // This didnt work, just removes brackets
-    // if (strpos($prerequisitesStr, '(') === 0 && strrpos($prerequisitesStr, ')') === strlen($prerequisitesStr) - 1) {
-    //     $prerequisitesStr = substr($prerequisitesStr, 1, -1);
-    //     return evaluatePrerequisites($prerequisitesStr, $prerequisitesArr);
-    // }
 
     while (strpos($prerequisitesStr, '(') !== false) {
         $start = strrpos($prerequisitesStr, '(');
@@ -242,7 +221,6 @@ function evaluatePrerequisites($prerequisitesStr, $prerequisitesArr) {
         }
         $prerequisitesStr = substr_replace($prerequisitesStr, $insideResult ? '1' : '0', $start, $end - $start + 1);
     }
-
 
     // Evaluate OR conditions
     // use strpos to check if there is an OR statement in the prerequisites string

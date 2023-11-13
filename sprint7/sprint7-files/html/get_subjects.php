@@ -3,11 +3,16 @@ header("Content-Type: application/json");
 
 require 'db_connection.php';
 
+function handleHttpError($errorCode, $errorMessage = '') {
+    http_response_code($errorCode);
+    echo json_encode(array('error' => $errorMessage));
+    exit;
+}
+
 $conn = open_con();
 
 if (!$conn) {
-    http_response_code(500);
-    echo json_encode(array('error' => 'Failed to connect to the database'));
+    handleHttpError(500, 'Failed to connect to the database');
 } else {
     $databaseName = 'cis3760';
     if (mysqli_select_db($conn, $databaseName)) {
@@ -23,8 +28,8 @@ if (!$conn) {
                         $courseCode = $row['courseCode'];
                         // Extract the subject by splitting the course code
                         $subject = explode('*', $courseCode)[0];
-			// Remove double quotes
-			$subject = trim($subject, "\"");
+                        // Remove double quotes
+                        $subject = trim($subject, "\"");
                         $subjects[] = $subject;
                     }
 
@@ -36,20 +41,16 @@ if (!$conn) {
                     http_response_code(200);
                     echo json_encode(array_values($uniqueSubjects));
                 } else {
-                    http_response_code(500);
-                    echo json_encode(array('error' => 'Failed to fetch data from the database'));
+                    handleHttpError(500, 'Failed to fetch data from the database');
                 }
             } catch (Exception $e) {
-                http_response_code(500);
-                echo json_encode(array('error' => $e->getMessage()));
+                handleHttpError(500, $e->getMessage());
             }
         } else {
-            http_response_code(405);
-            echo json_encode(array('error' => 'Incorrect request method'));
+            handleHttpError(405, 'Incorrect request method');
         }
     } else {
-        http_response_code(500);
-        echo json_encode(array('error' => 'Failed to select the database'));
+        handleHttpError(500, 'Failed to select the database');
     }
 }
 ?>

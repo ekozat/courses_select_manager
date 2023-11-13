@@ -13,18 +13,20 @@ if (!$conn) {
     $databaseName = 'cis3760';
     if (mysqli_select_db($conn, $databaseName)) {
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
             $sql = "SELECT * FROM coursesDBCopy";
 
             try {
                 $result = $conn->query($sql);
+
                 if ($result) {
                     $data = array();
+                    
                     while ($row = $result->fetch_assoc()) {
                         // Remove quotation marks from the values
                         foreach ($row as $key => $value) {
                             $row[$key] = str_replace('"', '', $value);
                         }
+                        
                         $data[] = $row;
                     }
 
@@ -33,20 +35,23 @@ if (!$conn) {
                     http_response_code(200);
                     echo json_encode($data);
                 } else {
-                    http_response_code(500);
-                    echo json_encode(array('error' => 'Failed to fetch data from the database'));
+                    handleError(500, 'Failed to fetch data from the database');
                 }
             } catch (Exception $e) {
-                http_response_code(500);
-                echo json_encode(array('error' => $e->getMessage()));
+                handleError(500, $e->getMessage());
             }
         } else {
-            http_response_code(405);
-            echo json_encode(array('error' => 'Incorrect request method'));
+            handleError(405, 'Incorrect request method');
         }
     } else {
-        http_response_code(500);
-        echo json_encode(array('error' => 'Failed to select the database'));
+        handleError(500, 'Failed to select the database');
     }
 }
+
+function handleError($code, $message) {
+    http_response_code($code);
+    echo json_encode(array('error' => $message));
+}
 ?>
+
+

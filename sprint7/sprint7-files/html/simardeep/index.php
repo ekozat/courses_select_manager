@@ -18,9 +18,9 @@
         <div class="info">
             <?php
             $name = "Simardeep Singh";
-            $email = "ssingh75@uoguelph.ca";
-            $phone = "(519) 957-9611";
-            $address = "Unit 43, 1055 Gordon Street, Guelph";
+            $email = "abc@uoguelph.ca";
+            $phone = "(123) 456-7890";
+            $address = "Unit 11, 1234 abc Street, Guelph";
 
             echo "<p><strong>Name:</strong> $name</p>";
             echo "<p><strong>Email:</strong> $email</p>";
