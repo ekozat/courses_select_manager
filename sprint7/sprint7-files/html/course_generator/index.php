@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="home">
-      <a href="/" aria-label="Home"><button class="btn-home"><i class="fa fa-home"></i></button></a>
+      <a href="/" aria-label="Home"><button class="btn-home" aria-label="home button"><i class="fa fa-home"></i></button></a>
   </div>
     <!-- hero page -->
     <div class="container col-xxl-8 px-4 py-5">
@@ -43,8 +43,8 @@
                     </div>
                 </div>
 
-                <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "add course" href="#addCourse" role="button">Generate Courses</a>
-                    <a class="btn btn-outline-secondary px-4 search-info-btn" aria-label = "search course" href="#searchCourse" role="button">Search Course Info.</a>
+                <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Courses" href="#addCourse" role="button">Generate Courses</a>
+                    <a class="btn btn-outline-secondary px-4 search-info-btn" aria-label = "Search Course Info." href="#searchCourse" role="button">Search Course Info.</a>
                 </div>
 
             </div>
@@ -60,8 +60,8 @@
             <input type="text" class="form-control" size="50" id="course" name="course" placeholder="CIS*1500...">
           </div>
           <div class="lc-block text-center">
-            <a class="btn1 btn btn-dark mx-2 add-course-btn" aria-label= "add course to list" role="button">Add Course to List</a>
-            <a class="clear-btn btn btn-light mx-2 clear-course-btn" aria-label = "clear course from list" role="button">Clear Courses from List</a>
+            <a class="btn1 btn btn-dark mx-2 add-course-btn" aria-label= "Add Course to List" role="button">Add Course to List</a>
+            <a class="clear-btn btn btn-light mx-2 clear-course-btn" aria-label = "Clear Courses from List" role="button">Clear Courses from List</a>
           </div>
           <h2>Courses Inputted So Far:</h2>
           <div class="enteredCoursesList">
@@ -76,9 +76,9 @@
           <h1>Course Recommendations</h1>
           <p>Please confirm that all the courses you have taken are listed above. When ready, please click the button below to generate recomended courses.</p>
           <div class="generate-course recommended-heading lc-block text-center">
-            <a class="btn2 btn btn-dark mx-2 generate-course-btn" aria-label= " generate courses" role="button">Generate Courses</a>
-            <a class="gen-course-empty-btn2 btn btn-dark mx-2 generate-course-no-pre-btn" aria-label= " generate courses with no pre" role="button">Generate Courses With No Prerequisites</a>
-            <a class="clear-btn-rec btn btn-light mx-2" aria-label= "clear button" role="button">Clear Results</a>
+            <a class="btn2 btn btn-dark mx-2 generate-course-btn" aria-label= "Generate Courses" role="button">Generate Courses</a>
+            <a class="gen-course-empty-btn2 btn btn-dark mx-2 generate-course-no-pre-btn" aria-label= "Generate Courses With No Prerequisites" role="button">Generate Courses With No Prerequisites</a>
+            <a class="clear-btn-rec btn btn-light mx-2" aria-label= "Clear Results" role="button">Clear Results</a>
           </div>
           <div class="recommended-courses">
             <ul id="recommended-courses-list">
@@ -95,10 +95,10 @@
           <p>Enter a course code in the format of CIS*1500 to view its details.</p>
               <div class="input-group input-group-btn submit-course-detail">
                   <input type="text" class="form-control custom-outline" size="50" id="course-detail" name="course-detail" placeholder="CIS*1500..."><br>
-                  <button type="button" class="btn3 btn btn-success search-btn">Search</button>
+                  <button type="button" class="btn3 btn btn-success search-btn" aria-label="Search">Search</button>
               </div>
           <div class="detail-heading lc-block d-grid gap-2 d-md-flex justify-content-md-start">
-            <a class="btn btn-dark px-4 me-md-2 clear-btn-detail" aria-label= "clear button" role="button">Clear Results</a>
+            <a class="btn btn-dark px-4 me-md-2 clear-btn-detail" aria-label= "Clear Results" role="button">Clear Results</a>
           </div>
           <!-- display course search results -->
           <div class="container courseDetails">
@@ -276,6 +276,7 @@ function generateAndDisplayRecommendedCourses() {
           alert("You have not inputted any courses yet, did you mean to click Generate Courses With No Prerequisites?");
           return;
         }
+        
         xhr.send("enteredCourses=" + JSON.stringify(enteredCourses));
     }
 
