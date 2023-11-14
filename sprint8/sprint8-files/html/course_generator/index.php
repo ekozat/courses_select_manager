@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +14,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <!-- link bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <title><?php echo $pageTitle; ?></title>
 </head>
@@ -46,6 +48,9 @@
                 <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Courses" href="#addCourse" role="button">Generate Courses</a>
                     <a class="btn btn-outline-secondary px-4 search-info-btn" aria-label = "Search Course Info." href="#searchCourse" role="button">Search Course Info.</a>
                 </div>
+
+              <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" href="/course_generator/genTree" role="button">Generate Course Tree</a>
+              </div>
 
             </div>
         </div>
@@ -105,21 +110,20 @@
               <div class="row">
                   <div class="col-md-12">
                       <div class="course-detail">
-                          <p id=code-detail></p>
-                          <p id=name-detail></p>
+                          <p id=code-detail></p>                          <p id=name-detail></p>
                           <p id=prereq-detail></p>
                           <p id=restr-detail></p>
                       </div>
                   </div>
               </div>
-          </div> 
+          </div>
       </div>
     </section>
 
-       
-    
     <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
+
+    document.addEventListener("DOMContentLoaded", async function() {
+
       // all functionality buttons
       let add_course_btn = document.querySelector(".btn1");
       let display_course_btn = document.querySelector(".btn3");
@@ -143,7 +147,6 @@
       let nameDetail = document.getElementById("name-detail");
       let prereqDetail = document.getElementById("prereq-detail");
       let restrDetail = document.getElementById("restr-detail");
-
 
       // Collect entered courses
       let enteredCourses = [];
@@ -276,7 +279,7 @@
           alert("You have not inputted any courses yet, did you mean to click Generate Courses With No Prerequisites?");
           return;
         }
-        
+
         xhr.send("enteredCourses=" + JSON.stringify(enteredCourses));
       }
 

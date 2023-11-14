@@ -1,0 +1,42 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.home {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btn-home {
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 5px;
+  background-color: white;
+}
+
+.btn-home:hover {
+  opacity: 0.5;
+}
+
+.dropdown-menu {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+#genTreeDropdown {
+  padding: 20px;
+}
+
+#genTreeBtn {
+  padding: 20px;
+}
+

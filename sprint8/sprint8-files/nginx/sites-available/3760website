@@ -99,6 +99,12 @@ server {
 		# as directory, then fall back to displaying a 404.
 		try_files $uri $uri/ /404/index.php;
 	}
+	location /course_generator/genTree {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ /404/index.php;
+        }
+
 
 	location /simar {
 		# First attempt to serve request as file, then
