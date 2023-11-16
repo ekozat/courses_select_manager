@@ -83,3 +83,47 @@ The purpose of this file is to list all user stories that will be used to help p
 
 -   An ability to run a script which runs many front-end tests is present
 -   A proper testing tool such as Puppeteer or Playwright is used
+
+# Sara Adi's User Stories
+**Title:** Course Prerequisites Tree Diagram
+
+**Priority:** High
+
+**Estimate (in hrs):** -
+
+**User Story:**  As a user, I want to graph course prerequisites as a tree diagram on the website
+
+**Acceptance Criteria:**:
+
+-   The site prompts the user to select a subject
+-   The user clicks generate tree
+-   A tree is generated.
+
+**Title:** Complex pre-requsites
+
+**Priority:** High
+
+**Estimate (in hrs):** -
+
+**User Story:**  As a user, I want the tree diagram to showcase all prerequistes including the ones that have an OR / AND relationship
+
+**Acceptance Criteria:**:
+
+-   The site prompts the user to select a subject
+-   The user clicks generate tree
+-   A tree is generated that has nodes whos edged are connected dispite the pre-req being an AND / OR
+
+**Title:** No pre-req courses
+
+**Priority:** High
+
+**Estimate (in hrs):** -
+
+**User Story:**  As a user, I want the tree diagram to showcase courses (nodes) with no pre-req (courses)
+
+**Acceptance Criteria:**:
+
+-   The site prompts the user to select a subject
+-   The user clicks generate tree
+-   A tree is generated that has nodes who do not have edges
+
