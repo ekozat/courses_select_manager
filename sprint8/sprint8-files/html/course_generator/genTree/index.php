@@ -65,6 +65,12 @@
     <div id="tree-container"></div>
     
     <script type="text/javascript">
+    function htmlTitle(html) {
+      const container = document.createElement("div");
+      container.innerHTML = html;
+      return container;
+    }
+
     async function getSubjects() {
       const response = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getSubjects/", {
         method: "GET",
@@ -106,7 +112,7 @@
         });
         const data = await response.json();
         data.forEach((d) => {
-          genTreeCourses.push(d.courseCode);
+          genTreeCourses.push(d);
         });
         subjectValue.textContent = subject;
       });
@@ -120,8 +126,11 @@
         // this will create nodes for every course in the subject
         genTreeCourses.forEach((course) => {
           nodes.push({
-            id: course,
-            label: course
+            id: course.courseCode,
+            label: course.courseCode,
+            title: htmlTitle(
+              `${course.courseName}`
+            ),
           })
         })
 
@@ -141,10 +150,10 @@
 
         // this is where we create the edges based on API call
         for (const course of genTreeCourses) {
-          await buildChartData(course).then((courses) => {
+          await buildChartData(course.courseCode).then((courses) => {
             courses.forEach(async (c) => {
               edges.push({
-                from: course,
+                from: course.courseCode,
                 to: c.courseCode
               })
             })
@@ -163,13 +172,11 @@
                 arrows: { to: true },
                 hoverWidth: 2.0, 
                 color: {
-                        highlight: 'red', // Color when hovered over
-                        hover: 'red', // Color of the arrow itself when hovered over
-
-                    },
+                    highlight: 'red', // Color when hovered over
+                    hover: 'red', // Color of the arrow itself when hovered over
                 },
+            },
         };
-
         let network = new vis.Network(container, data, options)
       });
     });
