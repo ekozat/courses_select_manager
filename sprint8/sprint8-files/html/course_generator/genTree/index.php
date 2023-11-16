@@ -27,15 +27,37 @@
       <a href="/" aria-label="Home"><button class="btn-home" aria-label="home button"><i class="fa fa-home"></i></button></a>
     </div>
 
-    <div class="dropdown" id="genTreeDropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+    <!-- hero page -->
+    <div class="container hero-img col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="images/treeImg.webp" class="d-block mx-lg-auto img-fluid" alt="hero image" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <div class="lc-block mb-3">
+                    <div editable="rich">
+                        <h2 class="fw-bold display-5">UoG Course Tree Generator</h2>
+                    </div>
+                </div>
+
+                <div class="lc-block mb-3">
+                    <div editable="rich">
+                        <p class="lead">Introducing our Course Tree Generator – The Ultimate tool to allow you to see all the relations behind any course you want! Simply choose which subject you are interested in, and click the button to generate the tree! Have fun and happy pre-requiste searching.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dropdown lc-block d-grid gap-2 d-md-flex justify-content-md-start" id="genTreeDropdown">
+        <button class="btn btn-dark px-4 me-md-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
             Select Subject
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         </div>
     </div>
 
-    <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
+    <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-outline-secondary px-4 search-info-btn" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
     </div>
 
     <div id="tree-container"></div>
