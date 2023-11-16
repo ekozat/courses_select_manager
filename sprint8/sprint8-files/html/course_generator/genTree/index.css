@@ -34,10 +34,12 @@ button {
 
 #genTreeDropdown {
   padding: 20px;
+  margin-left: 250px;
 }
 
 #genTreeBtn {
   padding: 20px;
+  margin-left: 250px;
 }
 
 #tree-container {
