@@ -39,7 +39,7 @@
     </div>
 
     <div id="tree-container"></div>
-
+    
     <script type="text/javascript">
     async function getSubjects() {
       const response = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getSubjects/", {
@@ -65,7 +65,7 @@
       // Courses for a specific subject in order to gen tree
       let genTreeCourses = [];
       let initialCourseIds = [];
-
+      
       // Get the value in the dropdown and populate a list with relevant courses
       dropdownMenu.addEventListener("click", async function(e) {
         genTreeCourses = []
@@ -84,25 +84,6 @@
         data.forEach((d) => {
           genTreeCourses.push(d.courseCode);
         });
-
-        console.log(genTreeCourses);
-
-        // not sure if we need this, prob not
-        // genTreeCourses.forEach(async (course) => {
-        //   const no_prereq_courses = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByCode/", {
-        //     method: "POST",
-        //     mode: "cors",
-        //     body: JSON.stringify({
-        //       courseCode: [course],
-        //     }),
-        //   });
-        //   const data = await no_prereq_courses.json();
-        //   data.forEach((d) => {
-        //     if (d.prerequisites === "()") {
-        //       initialCourseIds.push(d.courseCode);
-        //     }
-        //   });
-        // });
       });
 
       const generate_button = document.getElementById("genTreeBtn");
@@ -125,7 +106,7 @@
             mode: "cors",
             body: JSON.stringify({
               prerequisites: [courseId],
-              type: "OR",
+              type: "AND",
             }),
           });
 
@@ -141,43 +122,14 @@
                 from: course,
                 to: c.courseCode
               })
-              // await buildChartData(c.courseCode).then((cs) => {
-              //   cs.forEach((b) => {
-              //     edges.push({
-              //       from: c.courseCode,
-              //       to: b.courseCode
-              //     })
-              //   })
-              // })
             })
           })
         }
 
-        // Hardcoded values from sprint doc
-        let nodes2 = new vis.DataSet([
-          { id: "CIS*1300", label: "CIS*1300" },
-          { id: "CIS*1910", label: "CIS*1910" },
-          { id: "CIS*2170", label: "CIS*2170" },
-          { id: "CIS*2500", label: "CIS*2500" },
-          { id: "CIS*2430", label: "CIS*2430" },
-          { id: "CIS*2520", label: "CIS*2520" },
-          { id: "CIS*2750", label: "CIS*2750" },
-        ])
-
-        let edges2 = new vis.DataSet([
-          { from: "CIS*1300", to: "CIS*2500" },
-          { from: "CIS*1300", to: "CIS*2170" },
-          { from: "CIS*1910", to: "CIS*2520" },
-          { from: "CIS*2500", to: "CIS*2520" },
-          { from: "CIS*2500", to: "CIS*2430" },
-          { from: "CIS*2430", to: "CIS*2750" },
-          { from: "CIS*2520", to: "CIS*2750" },
-        ])
-
         let container = document.getElementById('tree-container');
         let data = {
-          nodes: nodes2,
-          edges: edges2
+          nodes: nodes,
+          edges: edges
         };
 
         let options = {
