@@ -49,15 +49,17 @@
             </div>
         </div>
     </div>
-    <div class="dropdown lc-block d-grid gap-2 d-md-flex justify-content-md-start" id="genTreeDropdown">
-        <button class="btn btn-dark px-4 me-md-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+
+    <div class="dropdown" id="genTreeDropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
             Select Subject
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         </div>
+        <div id="chosenSubject">Subject Chosen: <span id="subjectValue"></span></div>
     </div>
 
-    <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-outline-secondary px-4 search-info-btn" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
+    <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
     </div>
 
     <div id="tree-container"></div>
@@ -106,6 +108,7 @@
         data.forEach((d) => {
           genTreeCourses.push(d.courseCode);
         });
+        subjectValue.textContent = subject;
       });
 
       const generate_button = document.getElementById("genTreeBtn");
