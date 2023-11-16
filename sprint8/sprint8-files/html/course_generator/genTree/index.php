@@ -94,7 +94,6 @@
 
       // Courses for a specific subject in order to gen tree
       let genTreeCourses = [];
-      let initialCourseIds = [];
       
       // Get the value in the dropdown and populate a list with relevant courses
       dropdownMenu.addEventListener("click", async function(e) {
@@ -149,16 +148,18 @@
         }
 
         // this is where we create the edges based on API call
-        for (const course of genTreeCourses) {
-          await buildChartData(course.courseCode).then((courses) => {
-            courses.forEach(async (c) => {
-              edges.push({
-                from: course.courseCode,
-                to: c.courseCode
-              })
+        // use Promise.all to make API calls concurrently
+          await Promise.all(
+            genTreeCourses.map(async (course) => {
+              const courses = await buildChartData(course.courseCode);
+              courses.forEach((c) => {
+                edges.push({
+                  from: course.courseCode,
+                  to: c.courseCode,
+                });
+              });
             })
-          })
-        }
+          );
 
         let container = document.getElementById('tree-container');
         let data = {
@@ -183,4 +184,3 @@
   </script>
 </body>
 </html>
-
