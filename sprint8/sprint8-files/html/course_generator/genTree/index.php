@@ -158,10 +158,16 @@
         };
 
         let options = {
-          edges: {
-            smooth: true,
-            arrows: { to: true },
-          },
+            edges: {
+                smooth: true,
+                arrows: { to: true },
+                hoverWidth: 2.0, 
+                color: {
+                        highlight: 'red', // Color when hovered over
+                        hover: 'red', // Color of the arrow itself when hovered over
+
+                    },
+                },
         };
 
         let network = new vis.Network(container, data, options)
