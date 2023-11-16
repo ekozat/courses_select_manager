@@ -79,9 +79,7 @@ if (!$conn) {
                         handleHttpError(404, 'Prerequisites are malformed');
                     }
                     $escapedPrerequisite = mysqli_real_escape_string($conn, trim($prerequisite));
-                    $sql = "SELECT * FROM coursesDB WHERE prerequisites LIKE '%$escapedPrerequisite%'";
-
-                    $result = $conn->query($sql);
+                    $sql = "SELECT * FROM coursesDB WHERE prerequisites LIKE '%$escapedPrerequisite%'";                    $result = $conn->query($sql);
 
                     if ($result) {
                         while ($row = $result->fetch_assoc()) {
@@ -93,7 +91,8 @@ if (!$conn) {
                         }
                     }
                     if (empty($data)) {
-                        handleHttpError(404, 'No matching prerequisites found');
+                        // handleHttpError(200, 'No matching prerequisites found');
+                        http_response_code(200);
                     } else {
                         http_response_code(200);
                     }
@@ -151,7 +150,9 @@ if (!$conn) {
                 }
 
                 if (empty($data)) {
-                    handleHttpError(404, 'No matching prerequisites found');
+                    // handleHttpError(404, 'No matching prerequisites found');
+                    http_response_code(200);
+                    echo json_encode($data);
                 } else {
                     http_response_code(200);
                     echo json_encode($data);
@@ -276,5 +277,6 @@ function evaluatePrerequisites($prerequisitesStr, $prerequisitesArr) {
 
     return false;
 }
+
 
 

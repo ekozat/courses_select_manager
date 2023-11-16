@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,30 +29,30 @@
 
     <div class="dropdown" id="genTreeDropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-            Select Subject to Generate Tree
+            Select Subject
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         </div>
     </div>
 
-    <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" href="/course_generator/genTree" role="button">Generate Course Tree</a>
+    <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
     </div>
-    
-    <script type="text/javascript">
 
+    <div id="tree-container"></div>
+
+    <script type="text/javascript">
     async function getSubjects() {
-        const response = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getSubjects/", {
-            method: "GET",
-            mode: "cors",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-        return response.json()
+      const response = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getSubjects/", {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      return response.json()
     }
 
     document.addEventListener("DOMContentLoaded", async function() {
-
       let dropdownMenu = document.querySelector(".dropdown-menu");
       const data = await getSubjects()
       data.forEach(subject => {
@@ -63,7 +64,8 @@
 
       // Courses for a specific subject in order to gen tree
       let genTreeCourses = [];
-      
+      let initialCourseIds = [];
+
       // Get the value in the dropdown and populate a list with relevant courses
       dropdownMenu.addEventListener("click", async function(e) {
         genTreeCourses = []
@@ -82,7 +84,110 @@
         data.forEach((d) => {
           genTreeCourses.push(d.courseCode);
         });
+
         console.log(genTreeCourses);
+
+        // not sure if we need this, prob not
+        // genTreeCourses.forEach(async (course) => {
+        //   const no_prereq_courses = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getCourseByCode/", {
+        //     method: "POST",
+        //     mode: "cors",
+        //     body: JSON.stringify({
+        //       courseCode: [course],
+        //     }),
+        //   });
+        //   const data = await no_prereq_courses.json();
+        //   data.forEach((d) => {
+        //     if (d.prerequisites === "()") {
+        //       initialCourseIds.push(d.courseCode);
+        //     }
+        //   });
+        // });
+      });
+
+      const generate_button = document.getElementById("genTreeBtn");
+      generate_button.addEventListener("click", async function() {
+
+        let nodes = []
+        let edges = []
+
+        // this will create nodes for every course in the subject
+        genTreeCourses.forEach((course) => {
+          nodes.push({
+            id: course,
+            label: course
+          })
+        })
+
+        async function buildChartData(courseId) {
+          const courses = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/", {
+            method: "POST",
+            mode: "cors",
+            body: JSON.stringify({
+              prerequisites: [courseId],
+              type: "OR",
+            }),
+          });
+
+          const data = await courses.json()
+          return data;
+        }
+
+        // this is where we create the edges based on API call
+        for (const course of genTreeCourses) {
+          await buildChartData(course).then((courses) => {
+            courses.forEach(async (c) => {
+              edges.push({
+                from: course,
+                to: c.courseCode
+              })
+              // await buildChartData(c.courseCode).then((cs) => {
+              //   cs.forEach((b) => {
+              //     edges.push({
+              //       from: c.courseCode,
+              //       to: b.courseCode
+              //     })
+              //   })
+              // })
+            })
+          })
+        }
+
+        // Hardcoded values from sprint doc
+        let nodes2 = new vis.DataSet([
+          { id: "CIS*1300", label: "CIS*1300" },
+          { id: "CIS*1910", label: "CIS*1910" },
+          { id: "CIS*2170", label: "CIS*2170" },
+          { id: "CIS*2500", label: "CIS*2500" },
+          { id: "CIS*2430", label: "CIS*2430" },
+          { id: "CIS*2520", label: "CIS*2520" },
+          { id: "CIS*2750", label: "CIS*2750" },
+        ])
+
+        let edges2 = new vis.DataSet([
+          { from: "CIS*1300", to: "CIS*2500" },
+          { from: "CIS*1300", to: "CIS*2170" },
+          { from: "CIS*1910", to: "CIS*2520" },
+          { from: "CIS*2500", to: "CIS*2520" },
+          { from: "CIS*2500", to: "CIS*2430" },
+          { from: "CIS*2430", to: "CIS*2750" },
+          { from: "CIS*2520", to: "CIS*2750" },
+        ])
+
+        let container = document.getElementById('tree-container');
+        let data = {
+          nodes: nodes2,
+          edges: edges2
+        };
+
+        let options = {
+          edges: {
+            smooth: true,
+            arrows: { to: true },
+          },
+        };
+
+        let network = new vis.Network(container, data, options)
       });
     });
   </script>
