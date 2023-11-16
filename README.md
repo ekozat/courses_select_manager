@@ -3,32 +3,32 @@
 # Team
 
 -   Team Lead:
-    -   Maneesh K. Wijewardhana
+    -   Simardeep Singh
 -   Team Members:
     -   Sara Adi
     -   Fee Kim Ah-Poa 
     -   Simardeep Singh
     -   Emily Kozatchiner
+    -   Maneesh Wijewardhana
 
 ## Current Sprint
 
-Sprint 7
+Sprint 8
 
 ## Description
 
 **Project Overview**
 
-In Sprint 7 for F23 CIS*3760, our team will be improving upon our API and website by implementing the following:
+In Sprint 8 for F23 CIS*3760, our team will be generating graph for course pre-requisites as a tree diagram on our website by implementing the following:
 
--   Update functionality to use our own API
--   Refactor of code
--   Automated testing
+-   Choose the appropriate javascript library
+-   More Prerequisite parsing to properly link OR and AND cases
+-   Identify Root Node and Build Tree Structure
 -   Responsive & Accessible UI
--   Updated API endpoints to not accept query strings
 
 ## Team Approach
--   Maneesh will create tasks, lead group meetings, and ensure everyone is okay with what tasks they are working on this sprint
-    -   Will work on cleaning up the website URL's, revamping our API to not use query strings, and develop user stories/test cases
+-   Simar will create tasks, lead group meetings, and ensure everyone is okay with what tasks they are working on this sprint
+    -   Will develop user stories/test cases
 -   Sara will focus on revamping the UI by utilizing Bootstrap and make the site more responsive and accessible
     -   Will work on automated testing for the website code using Selenium
 -   Simardeep will refactor the codebase ensuring there are no long functions, unused variables and logic, and overall cleaning up the code
