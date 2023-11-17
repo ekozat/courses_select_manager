@@ -70,7 +70,7 @@
     </div>
 
     <div id="tree-container"></div>
-
+    
     <script type="text/javascript">
     function htmlTitle(html) {
       const container = document.createElement("div");
@@ -156,7 +156,7 @@
       data2.forEach(course => {
           allCourses.push(course);
       });
-
+      
       // Get the value in the dropdown and populate a list with relevant courses
       dropdownMenu.addEventListener("click", async function(e) {
         genTreeCourses = []
@@ -181,7 +181,8 @@
       const generate_button = document.getElementById("genTreeBtn");
       const generate_all_button = document.getElementById("genTreeBtnAll");
 
-      generate_button.addEventListener("click", async function() {
+      generate_button.addEventListener("click", async function(e) {
+        e.preventDefault();
         // ensure if there was an old graph, to destroy it
         if (network) {
           network.destroy();
@@ -203,17 +204,17 @@
 
         // this is where we create the edges based on API call
         // use Promise.all to make API calls concurrently
-          await Promise.all(
-            genTreeCourses.map(async (course) => {
-              const courses = await buildChartData(course.courseCode);
-              courses.forEach((c) => {
-                edges.push({
-                  from: course.courseCode,
-                  to: c.courseCode,
-                });
+        await Promise.all(
+          genTreeCourses.map(async (course) => {
+            const courses = await buildChartData(course.courseCode);
+            courses.forEach((c) => {
+              edges.push({
+                from: course.courseCode,
+                to: c.courseCode,
               });
-            })
-          );
+            });
+          })
+        );
 
         let container = document.getElementById('tree-container');
         let data = {
@@ -225,7 +226,7 @@
             edges: {
                 smooth: true,
                 arrows: { to: true },
-                hoverWidth: 2.0,
+                hoverWidth: 2.0, 
                 color: {
                     highlight: 'red', // Color when hovered over
                     hover: 'red', // Color of the arrow itself when hovered over
@@ -236,7 +237,8 @@
       });
 
       // IF U WANT TO GEN ALL COURSES TREE
-      generate_all_button.addEventListener("click", async function() {
+      generate_all_button.addEventListener("click", async function(e) {
+        e.preventDefault();
         // ensure if there was an old graph, to destroy it
         if (network) {
           network.destroy();
@@ -257,7 +259,19 @@
         })
 
         // this is where we create the edges based on API call
-        // use Promise.all to make API calls concurrently
+        // THIS IS FOR CHROME
+        if (window.navigator.userAgent.includes("Chrome")) {
+          for (const course of allCourses) {
+            const courses = await buildChartData(course.courseCode);
+            courses.forEach((c) => {
+              edges.push({
+                from: course.courseCode,
+                to: c.courseCode
+              })
+            })
+          }
+        } else {
+          // use Promise.all to make API calls concurrently
           await Promise.all(
             allCourses.map(async (course) => {
               const courses = await buildChartData(course.courseCode);
@@ -269,6 +283,7 @@
               });
             })
           );
+        }
 
         let container = document.getElementById('tree-container');
         let data = {
@@ -280,7 +295,7 @@
             edges: {
                 smooth: false,
                 arrows: { to: true },
-                hoverWidth: 2.0,
+                hoverWidth: 2.0, 
                 color: {
                     highlight: 'red', // Color when hovered over
                     hover: 'red', // Color of the arrow itself when hovered over
@@ -293,4 +308,3 @@
   </script>
 </body>
 </html>
-
