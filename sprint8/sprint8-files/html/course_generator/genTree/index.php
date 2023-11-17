@@ -61,9 +61,16 @@
 
     <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
     </div>
+    <div id="genTreeBtnAll" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate All Courses Tree" role="button">Generate All Courses Tree (~1min)</a>
+    </div>
+
+    <div class="input-group mb-3 search-container">
+        <input type="text" id="searchInput" class="form-control" style="max-width: 200px;" placeholder="Search for a course...">
+        <button id="searchBtn" class="btn btn-outline-secondary" type="button">Search</button>
+    </div>
 
     <div id="tree-container"></div>
-    
+
     <script type="text/javascript">
     function htmlTitle(html) {
       const container = document.createElement("div");
@@ -82,8 +89,47 @@
       return response.json()
     }
 
+    async function getAllCourses() {
+      const response = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getAllCourses/", {
+        method: "GET",
+        mode: "cors",        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      return response.json()
+    }
+
+    let genTreeCourses = [];
+    let allCourses = [];
+    let network;
+
     document.addEventListener("DOMContentLoaded", async function() {
+      // SEARCH FEATURE
+      const searchInput = document.getElementById("searchInput");
+      const searchBtn = document.getElementById("searchBtn");
+
+      searchBtn.addEventListener("click", function () {
+        const searchText = searchInput.value.trim().toUpperCase();
+
+        if (network && searchText !== "") {
+          const nodeIds = network.body.data.nodes.getIds();
+          const foundNode = nodeIds.find((id) => {
+            const label = network.body.data.nodes.get(id).label.toUpperCase();
+            return label.includes(searchText);
+          });
+
+          if (foundNode) {
+            network.selectNodes([foundNode]);
+            network.focus(foundNode, { scale: 2.0 });
+          } else {
+            alert("Course not found!");
+          }
+        }
+      });
+
+      // Courses for a specific subject in order to gen tree
       let dropdownMenu = document.querySelector(".dropdown-menu");
+
       const data = await getSubjects()
       data.forEach(subject => {
         const dropdownItem = document.createElement("a");
@@ -92,9 +138,11 @@
         dropdownMenu.appendChild(dropdownItem);
       });
 
-      // Courses for a specific subject in order to gen tree
-      let genTreeCourses = [];
-      
+      const data2 = await getAllCourses()
+      data2.forEach(course => {
+          allCourses.push(course);
+      });
+
       // Get the value in the dropdown and populate a list with relevant courses
       dropdownMenu.addEventListener("click", async function(e) {
         genTreeCourses = []
@@ -117,7 +165,13 @@
       });
 
       const generate_button = document.getElementById("genTreeBtn");
+      const generate_all_button = document.getElementById("genTreeBtnAll");
+
       generate_button.addEventListener("click", async function() {
+        // ensure if there was an old graph, to destroy it
+        if (network) {
+          network.destroy();
+        }
 
         let nodes = []
         let edges = []
@@ -171,14 +225,83 @@
             edges: {
                 smooth: true,
                 arrows: { to: true },
-                hoverWidth: 2.0, 
+                hoverWidth: 2.0,
                 color: {
                     highlight: 'red', // Color when hovered over
                     hover: 'red', // Color of the arrow itself when hovered over
                 },
             },
         };
-        let network = new vis.Network(container, data, options)
+        network = new vis.Network(container, data, options)
+      });
+
+      // IF U WANT TO GEN ALL COURSES TREE
+      generate_all_button.addEventListener("click", async function() {
+        // ensure if there was an old graph, to destroy it
+        if (network) {
+          network.destroy();
+        }
+
+        let nodes = []
+        let edges = []
+
+        // this will create nodes for every course in the subject
+        allCourses.forEach((course) => {
+          nodes.push({
+            id: course.courseCode,
+            label: course.courseCode,
+            title: htmlTitle(
+              `${course.courseName}`
+            ),
+          })
+        })
+
+        async function buildChartData(courseId) {
+          const courses = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/", {
+            method: "POST",
+            mode: "cors",
+            body: JSON.stringify({
+              prerequisites: [courseId],
+              type: "AND",
+            }),
+          });
+
+          const data = await courses.json()
+          return data;
+        }
+
+        // this is where we create the edges based on API call
+        // use Promise.all to make API calls concurrently
+          await Promise.all(
+            allCourses.map(async (course) => {
+              const courses = await buildChartData(course.courseCode);
+              courses.forEach((c) => {
+                edges.push({
+                  from: course.courseCode,
+                  to: c.courseCode,
+                });
+              });
+            })
+          );
+
+        let container = document.getElementById('tree-container');
+        let data = {
+          nodes: nodes,
+          edges: edges
+        };
+
+        let options = {
+            edges: {
+                smooth: false,
+                arrows: { to: true },
+                hoverWidth: 2.0,
+                color: {
+                    highlight: 'red', // Color when hovered over
+                    hover: 'red', // Color of the arrow itself when hovered over
+                },
+            },
+        };
+        network = new vis.Network(container, data, options)
       });
     });
   </script>

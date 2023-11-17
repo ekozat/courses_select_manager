@@ -37,7 +37,12 @@ button {
   margin-left: 250px;
 }
 
-#genTreeBtn {
+#genTreeBtn, #genTreeBtnAll {
+  padding: 20px;
+  margin-left: 250px;
+}
+
+.search-container {
   padding: 20px;
   margin-left: 250px;
 }
@@ -46,4 +51,5 @@ button {
   width: 100vw;
   height: 100vh
 }
+
 
