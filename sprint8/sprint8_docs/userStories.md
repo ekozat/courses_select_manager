@@ -3,10 +3,10 @@
 # Team
 
 -   Team Lead:
-    -   Maneesh K. Wijewardhana
+    -   Simardeep Singh
 -   Team Members:
     -   Sara Adi
-    -   Simardeep Singh
+    -   Maneesh K. Wijewardhana
     -   Fee Kim Ah-Poa
     -   Emily Kozatchiner
 
@@ -127,3 +127,26 @@ The purpose of this file is to list all user stories that will be used to help p
 -   The user clicks generate tree
 -   A tree is generated that has nodes who do not have edges
 
+# Fee Kim's User Stories
+**Title:** Hovering over a course
+
+**Priority:** Low
+
+**Estimate (in hrs):** -
+
+**User Story:**  As a user, I want to be able to get the name of the course upon hovering over it
+
+**Acceptance Criteria:**:
+-   Upon hovering on the tree you should be able to get the course name when hovering over the course code
+
+**Title:** clicking on a course
+
+**Priority:** Low
+
+**Estimate (in hrs):** -
+
+**User Story:**  As a user, I want to be able to get the prerequistes in a way that is easy to be read
+
+**Acceptance Criteria:**:
+-   Upon on clicking on the course code shape, the arrows will be changed to another colour for easy interaction with the tree
+-   It will be clearer to the user to follow the prerequisites
