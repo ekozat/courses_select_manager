@@ -99,6 +99,20 @@
       return response.json()
     }
 
+    async function buildChartData(courseId) {
+      const courses = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/", {
+        method: "POST",
+        mode: "cors",
+        body: JSON.stringify({
+          prerequisites: [courseId],
+          type: "AND",
+        }),
+      });
+
+      const data = await courses.json()
+      return data;
+    }
+
     let genTreeCourses = [];
     let allCourses = [];
     let network;
@@ -187,20 +201,6 @@
           })
         })
 
-        async function buildChartData(courseId) {
-          const courses = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/", {
-            method: "POST",
-            mode: "cors",
-            body: JSON.stringify({
-              prerequisites: [courseId],
-              type: "AND",
-            }),
-          });
-
-          const data = await courses.json()
-          return data;
-        }
-
         // this is where we create the edges based on API call
         // use Promise.all to make API calls concurrently
           await Promise.all(
@@ -256,20 +256,6 @@
           })
         })
 
-        async function buildChartData(courseId) {
-          const courses = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getCoursesByPrereq/", {
-            method: "POST",
-            mode: "cors",
-            body: JSON.stringify({
-              prerequisites: [courseId],
-              type: "AND",
-            }),
-          });
-
-          const data = await courses.json()
-          return data;
-        }
-
         // this is where we create the edges based on API call
         // use Promise.all to make API calls concurrently
           await Promise.all(
@@ -307,3 +293,4 @@
   </script>
 </body>
 </html>
+
