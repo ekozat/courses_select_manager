@@ -49,27 +49,36 @@
             </div>
         </div>
     </div>
+    
 
-    <div class="dropdown" id="genTreeDropdown">
+    <div class="vstack gap-2 button-gen">
+      <div class="dropdown" id="genTreeDropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-            Select Subject
+        Select Subject
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        </div>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
         <div id="chosenSubject">Subject Chosen: <span id="subjectValue"></span></div>
-    </div>
+      </div>
 
-    <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
-    </div>
-    <div id="genTreeBtnAll" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate All Courses Tree" role="button">Generate All Courses Tree (~1min)</a>
-    </div>
+      <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
+      </div>
+      
+      <div id="genTreeBtnAll" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate All Courses Tree" role="button">Generate All Courses Tree (~1min)</a>
+      </div>
 
-    <div class="input-group mb-3 search-container">
+      <div class="input-group mb-3 search-container">
         <input type="text" id="searchInput" class="form-control" style="max-width: 200px;" placeholder="Search for a course...">
         <button id="searchBtn" class="btn btn-outline-secondary" type="button">Search</button>
+      </div>
     </div>
 
-    <div id="tree-container"></div>
+
+    <div class="row mt-3">
+        <div class="col">
+            <div id="tree-container"></div>
+        </div>
+    </div>
+
     
     <script type="text/javascript">
     function htmlTitle(html) {
