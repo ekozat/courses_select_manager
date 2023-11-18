@@ -150,3 +150,43 @@ The purpose of this file is to list all user stories that will be used to help p
 **Acceptance Criteria:**:
 -   Upon on clicking on the course code shape, the arrows will be changed to another colour for easy interaction with the tree
 -   It will be clearer to the user to follow the prerequisites
+
+# Emily Kozatchiner's User Stories
+**Title:** User Chosen Subject Display from Dropdown.
+
+**Priority:** Medium
+
+**Estimate (in hrs):** -
+
+**User Story:**  As a user, I want dynamic feedback as to which subject is currently selected from the drop-down menu output below the dropdown on the generator tree page.
+
+**Acceptance Criteria:**:
+-   When a user chooses a subject from the dropdown, the text under that displays the subject chosen should update according to user choice in the dropdown (display the subject chosen)
+-   When a subject is not chosen from the dropdown, the subject chosen will not be displayed, or blank
+
+
+**Title:** Searching the Diagram
+
+**Priority:** Medium
+
+**Estimate (in hrs):** -
+
+**User Story:**  As a user, I want quickly locate a course on the diagram and determine the relationship between neighbouring courses.
+
+**Acceptance Criteria:**:
+-   There is a search box to input my wanted course in order to help highlight it on the diagram
+-   If the course is not existant on the diagram, an error should pop up displaying that the course is not found
+-   If the course is existant on the diagram, the diagram should focus/zoom in on the course request, and highlight all adjacent arrows to showcase the relationship
+-   If no course is entered and the search button is pressed, the diagram should not change.
+
+**Title:** Fast Course Tree Generation of the Diagram
+
+**Priority:** High
+
+**Estimate (in hrs):** -
+
+**User Story:**  As a user, I would like diagram generation to occur within a couple seconds of clicking the button to generate.
+
+**Acceptance Criteria:**:
+-   When clicking the generate button, the user should not have to wait more than 3 seconds for diagram to appear.
+-   During the generation of the courses, there should be a loading icon displayed to show that theyre input was taken and is being executed.
