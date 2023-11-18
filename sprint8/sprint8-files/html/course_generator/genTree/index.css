@@ -34,17 +34,16 @@ button {
 
 #genTreeDropdown {
   padding: 20px;
-  margin-left: 250px;
+
 }
 
 #genTreeBtn, #genTreeBtnAll {
   padding: 20px;
-  margin-left: 250px;
+ 
 }
 
 .search-container {
   padding: 20px;
-  margin-left: 250px;
 }
 
 #tree-container {
@@ -52,4 +51,6 @@ button {
   height: 100vh
 }
 
-
+.button-gen {
+  margin-left: 15%;
+}
