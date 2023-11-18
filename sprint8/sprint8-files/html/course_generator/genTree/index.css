@@ -2,10 +2,113 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  transition: background-color 0.3s ease;
+  /* Smooth transition for dark mode */
+  color: #333;
+  /* Default text color */
 }
 
 button {
   cursor: pointer;
+}
+
+.lead{
+  text-align: justify;
+}
+
+/* Styles for light mode */
+body.light-mode {
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* Styles for dark mode */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #eaeaea;
+}
+
+body.dark-mode .btn-home {
+  background-color: #333;
+  color: #ffffff;
+}
+
+/* CSS for toggle switch and icons */
+.switch {
+  position: relative;
+  margin-left: 5%;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s ease;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+input:checked+.slider {
+  background-color: #007bff;
+  /* Change color for active state */
+}
+
+input:checked+.slider:before {
+  transform: translateX(26px);
+  /* Move the toggle circle */
+}
+
+/* Style for moon and sun icons */
+.fa-moon,
+.fa-sun {
+  position: absolute;
+  font-size: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease;
+}
+
+.fa-moon {
+  right: 5px;
+  opacity: 1;
+  color: #1a1a1a;
+
+}
+
+.fa-sun {
+  left: 5px;
+  opacity: 0;
+  color: #f1c40f;
+}
+
+input:checked+.slider .fa-moon {
+  opacity: 0;
+}
+
+input:checked+.slider .fa-sun {
+  opacity: 1;
 }
 
 .home {
@@ -37,9 +140,10 @@ button {
 
 }
 
-#genTreeBtn, #genTreeBtnAll {
+#genTreeBtn,
+#genTreeBtnAll {
   padding: 20px;
- 
+
 }
 
 .search-container {
@@ -47,7 +151,7 @@ button {
 }
 
 #tree-container {
-  width: 100vw;
+  width: 80%;
   height: 100vh
 }
 
@@ -56,7 +160,5 @@ button {
 }
 
 .canvas-gen {
-  margin-top: 5%;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin: 5% auto;
 }
