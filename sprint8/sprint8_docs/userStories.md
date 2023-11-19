@@ -166,14 +166,14 @@ The purpose of this file is to list all user stories that will be used to help p
 - Ensure the messages guide users on corrective actions or provide assistance to resolve issues.
 
 
-- **Title:** Distinguishable Arrow Colors for Directional Representation
-- **Priority:** Medium
-- **Estimate (in hrs): -**
-- **User Story:** As a user, I want distinct colors for incoming and outgoing arrows in the tree diagram to easily differentiate the direction of course dependencies.
-- **Acceptance Criteria:**
-    - Incoming arrows pointing towards a course node should be displayed in one color (e.g., blue).
-    - Outgoing arrows originating from a course node should be displayed in a different color (e.g., red).
-    - The color contrast should be clear and easily distinguishable to aid in understanding course dependencies visually.
+**Title:** Distinguishable Arrow Colors for Directional Representation
+**Priority:** Medium
+**Estimate (in hrs): -**
+**User Story:** As a user, I want distinct colors for incoming and outgoing arrows in the tree diagram to easily differentiate the direction of course dependencies.
+**Acceptance Criteria:**
+- Incoming arrows pointing towards a course node should be displayed in one color (e.g., blue).
+- Outgoing arrows originating from a course node should be displayed in a different color (e.g., red).
+- The color contrast should be clear and easily distinguishable to aid in understanding course dependencies visually.
 
 # Maneesh'S user stories
 
