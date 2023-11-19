@@ -15,8 +15,6 @@
 - **Input:** Clicking the "Generate All Courses Tree" button without choosing any subject
 - **Expected Result:** A tree displaying prerequisites for all courses should be shown.
 
-Additionally, you might want to consider the following test cases to ensure comprehensive coverage:
-
 **Test Case 4:**
 - **Description:** Searching for a specific course
 - **Input:** Entering a course code in the search input and clicking the search button
