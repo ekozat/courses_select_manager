@@ -150,9 +150,15 @@ input:checked+.slider .fa-sun {
   padding: 20px;
 }
 
+#download {
+  margin-left: 16%;
+}
+
 #tree-container {
   width: 80%;
-  height: 100vh
+  height: 120vh;
+  overflow: auto;
+  border: 3px solid #ABAAA9 ;
 }
 
 .button-gen {

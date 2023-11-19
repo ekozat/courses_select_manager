@@ -81,6 +81,9 @@
       </div>
     </div>
 
+    <div id="download" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Download Tree" role="button">Download Tree</a>
+    </div>
+
 
     <div class="row mt-3">
         <div class="col">
@@ -244,6 +247,8 @@
             edges: {
                 smooth: true,
                 arrows: { to: true },
+                hoverWidth: 2.0, 
+ 
   
             },
         };
@@ -328,6 +333,8 @@
             edges: {
                 smooth: false,
                 arrows: { to: true },
+                hoverWidth: 2.0, 
+
             },
         };
         network = new vis.Network(container, data, options)
@@ -366,6 +373,33 @@
       }
     });
     });
+    // Javascript for downloading file
+    document.addEventListener("DOMContentLoaded", function() {
+
+      function downloadTree() { 
+        network.on("afterDrawing", function () {
+
+          const canvas = network.canvas.frame.canvas;          
+          const dataURL = canvas.toDataURL("image/png");
+    
+          const link = document.createElement("a");    
+          link.href = dataURL;        
+          link.download = "tree.png";          
+          document.body.appendChild(link);        
+          link.click();          
+          document.body.removeChild(link);
+   
+          network.off("afterDrawing");  
+        });   
+  
+        network.redraw();
+      }      
+      const download = document.getElementById("download");
+      download.addEventListener("click", function() {
+  
+        downloadTree();  
+      }); 
+    });    
   </script>
 </body>
 </html>
