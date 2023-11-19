@@ -14,9 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Merriweather:wght@300&display=swap" rel="stylesheet">
-    <!-- Font Awesome CDN link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- link bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -29,18 +27,15 @@
     <div class="home">
       <a href="/" aria-label="Home"><button class="btn-home" aria-label="home button"><i class="fa fa-home"></i></button></a>
     </div>
-
-    <!-- Toggle switch for dark mode -->
     <label class="switch">
-    <input type="checkbox" class="toggle-dark-mode">
-    <span class="slider">
-      <span class="toggle-icons">
-        <i class="fa fa-moon"></i> <!-- Moon icon -->
-        <i class="fa fa-sun"></i> <!-- Sun icon -->
+      <input type="checkbox" class="toggle-dark-mode">
+      <span class="slider">
+        <span class="toggle-icons">
+          <i class="fa fa-moon"></i> <!-- Moon icon -->
+          <i class="fa fa-sun"></i> <!-- Sun icon -->
+        </span>
       </span>
-    </span>
-  </label>
-
+    </label>
     <!-- hero page -->
     <div class="container hero-img col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -330,19 +325,18 @@
     });
     // JavaScript for toggling dark mode
     document.addEventListener('DOMContentLoaded', function() {
-      const toggleSwitch = document.querySelector('.toggle-dark-mode');
+    const toggleSwitch = document.querySelector('.toggle-dark-mode');
 
-      toggleSwitch.addEventListener('change', function() {
-        if (this.checked) {
-          document.body.classList.add('dark-mode');
-          document.body.classList.remove('light-mode');
-        } else {
-          document.body.classList.remove('dark-mode');
-          document.body.classList.add('light-mode');
-        }
-      });
+    toggleSwitch.addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+      }
     });
-
+    });
   </script>
 </body>
 </html>
