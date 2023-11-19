@@ -136,3 +136,27 @@ The purpose of this file is to list all user stories that will be used to help p
 - Upon toggling to dark mode, ensure the background color changes to a dark hue while text and elements adjust for better visibility.
 - Implement smooth transitions between light and dark modes without disrupting the user experience.
 
+
+**Title:** Responsive Design
+
+**Priority:** High
+
+**Estimate (in hrs): -**
+
+**User Story:** As a user, I want the application to be responsive across various devices and screen sizes.
+
+**Acceptance Criteria:**
+- Test and optimize the application's layout for desktops, tablets, and mobile devices.
+- Ensure elements, such as buttons and text, adjust appropriately for different screen resolutions.
+
+**Title:** Error Handling and Messaging
+
+**Priority:** Medium
+
+**Estimate (in hrs): -**
+
+**User Story:** As a user, I want informative error messages and handling for any unexpected issues, for example searching for invalid course.
+
+**Acceptance Criteria:**
+- Implement clear and descriptive error messages for scenarios like network failures, incorrect inputs, or system errors.
+- Ensure the messages guide users on corrective actions or provide assistance to resolve issues.
