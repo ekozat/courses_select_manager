@@ -124,10 +124,13 @@ The purpose of this file is to list all user stories that will be used to help p
 # Simar's user stories
 
 **Title: Dark Mode Preference**
+
 **Priority: Low**
+
 **Estimate (in hrs): -**
-**User Story:**
-As a user, I want the option to switch between light and dark modes for better readability and reduced eye strain during extended usage.
+
+**User Story:** As a user, I want the option to switch between light and dark modes for better readability and reduced eye strain during extended usage.
+
 **Acceptance Criteria:**
 - Include a toggle switch or button in the website interface, allowing users to switch between light and dark modes.
 - Upon toggling to dark mode, ensure the background color changes to a dark hue while text and elements adjust for better visibility.
