@@ -29,6 +29,7 @@ The purpose of this file is to list all user stories that will be used to help p
 -   The user clicks generate tree
 -   A tree is generated.
 
+
 **Title:** Complex pre-requsites
 
 **Priority:** High
@@ -42,6 +43,7 @@ The purpose of this file is to list all user stories that will be used to help p
 -   The site prompts the user to select a subject
 -   The user clicks generate tree
 -   A tree is generated that has nodes whos edged are connected dispite the pre-req being an AND / OR
+
 
 **Title:** No pre-req courses
 
@@ -68,6 +70,7 @@ The purpose of this file is to list all user stories that will be used to help p
 
 **Acceptance Criteria:**:
 -   Upon hovering on the tree you should be able to get the course name when hovering over the course code
+
 
 **Title:** clicking on a course
 
@@ -108,6 +111,7 @@ The purpose of this file is to list all user stories that will be used to help p
 -   If the course is not existant on the diagram, an error should pop up displaying that the course is not found
 -   If the course is existant on the diagram, the diagram should focus/zoom in on the course request, and highlight all adjacent arrows to showcase the relationship
 -   If no course is entered and the search button is pressed, the diagram should not change.
+
 
 **Title:** Fast Course Tree Generation of the Diagram
 
@@ -160,3 +164,40 @@ The purpose of this file is to list all user stories that will be used to help p
 **Acceptance Criteria:**
 - Implement clear and descriptive error messages for scenarios like network failures, incorrect inputs, or system errors.
 - Ensure the messages guide users on corrective actions or provide assistance to resolve issues.
+
+
+- **Title:** Distinguishable Arrow Colors for Directional Representation
+- **Priority:** Medium
+- **Estimate (in hrs): -**
+- **User Story:** As a user, I want distinct colors for incoming and outgoing arrows in the tree diagram to easily differentiate the direction of course dependencies.
+- **Acceptance Criteria:**
+    - Incoming arrows pointing towards a course node should be displayed in one color (e.g., blue).
+    - Outgoing arrows originating from a course node should be displayed in a different color (e.g., red).
+    - The color contrast should be clear and easily distinguishable to aid in understanding course dependencies visually.
+
+# Maneesh'S user stories
+
+**Title:** Zoom and Pan Functionality
+
+**Priority:** Medium
+
+**Estimate (in hrs): -**
+
+**User Story:** As a user, I want the ability to zoom in/out and pan across the diagram for better visibility and navigation.
+
+**Acceptance Criteria:**
+- Implement zoom in/out controls and the ability to drag the diagram for navigation purposes.
+
+
+**Title:** Export Functionality for Diagram
+
+**Priority:** Low
+
+**Estimate (in hrs): -**
+
+**User Story:** As a user, I want the option to export the entire tree diagram for offline use or sharing.
+
+**Acceptance Criteria:**
+- Provide functionality to export the diagram in common formats such as PDF, PNG, or SVG.
+
+
