@@ -37,8 +37,8 @@
       </span>
     </label>
     <!-- hero page -->
-    <div class="container hero-img col-xxl-8 px-4 py-5">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="container hero-img col-xxl-8 px-4">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-2">
             <div class="col-10 col-sm-8 col-lg-6">
                 <img src="images/treeImg.webp" class="d-block mx-lg-auto img-fluid" alt="hero image" loading="lazy">
             </div>
@@ -61,35 +61,36 @@
 
 
     <div class="vstack gap-2 button-gen">
-      <div class="dropdown" id="genTreeDropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-        Select Subject
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
-        <div id="chosenSubject">Subject Chosen: <span id="subjectValue"></span></div>
-      </div>
 
-      <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
-      </div>
+      <div class="top-row">
+        <div class="dropdown" id="genTreeDropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+          Select Subject
+          </button>
+          <!-- style="padding-left: 30px, margin-top: -30px;" -->
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
+          <div id="chosenSubject">Subject Chosen: <span id="subjectValue"></span></div>
+        </div>
 
-      <div id="genTreeBtnAll" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate All Courses Tree" role="button">Generate All Courses Tree </a>
-      </div>
+        <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
+        </div>
 
-      <div class="input-group mb-3 search-container">
-        <input type="text" id="searchInput" class="form-control" style="max-width: 200px;" placeholder="Search for a course...">
-        <button id="searchBtn" class="btn btn-outline-secondary" type="button">Search</button>
-      </div>
+        <div id="genTreeBtnAll" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate All Courses Tree" role="button">Generate All Courses Tree</a>
+        </div>
 
-      <div id="download" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Download Tree" role="button">Download Tree</a>
+        <div id="download" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Download Tree" role="button">Download Tree</a>
+        </div>
+
       </div>
 
     </div>
 
-
-
-
     <div class="row mt-3">
         <div class="col">
+              <div class="input-group mb-3 search-container">
+                <input type="text" id="searchInput" class="form-control" style="max-width: 200px;" placeholder="Search for a course...">
+                <button id="searchBtn" class="btn btn-outline-secondary" type="button">Search</button>
+              </div>
             <div id="tree-container" class = "canvas-gen"></div>
         </div>
     </div>

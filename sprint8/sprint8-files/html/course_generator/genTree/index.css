@@ -136,21 +136,27 @@ input:checked+.slider .fa-sun {
 }
 
 #genTreeDropdown {
-  padding: 20px;
+  padding: 30px;
 
 }
 
 #genTreeBtn,
-#genTreeBtnAll, #download {
+#genTreeBtnAll, 
+#download {
   padding: 20px;
+  padding-bottom: -20px;
 
 }
 
 .search-container {
-  padding: 20px;
+  position: absolute;
+  width: 80%;
+  overflow: auto;
+  left: 10%;
 }
 
 #tree-container {
+  position: relative;
   width: 80%;
   height: 120vh;
   overflow: auto;
@@ -163,4 +169,14 @@ input:checked+.slider .fa-sun {
 
 .canvas-gen {
   margin: 5% auto;
+}
+
+.top-row{
+  display: flex;
+  position: relative;
+  right: 8%;
+}
+
+.btn.btn-dark.px-4.me-md-2{
+  margin-bottom: 30px;
 }
