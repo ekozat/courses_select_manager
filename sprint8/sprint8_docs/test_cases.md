@@ -366,10 +366,10 @@ Input: When clicking on the generate tree button after selecting subject
 Expected Result: The graph of all prequisites for the subject will be displayed
 
 
-**Test Case 9:**
+**Test Case 10:**
 
 Description: Clicking on generate all courses tree 
 
 Input: When clicking on the generate all courses tree button without selecting subject
 
-Expected Result: The graph of all prequisites for the courses will be displayed
+Expected Result: The tree for all prequisites for the courses will be displayed
