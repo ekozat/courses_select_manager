@@ -58,7 +58,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <div class="vstack gap-2 button-gen">
       <div class="dropdown" id="genTreeDropdown">
@@ -71,7 +71,7 @@
 
       <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
       </div>
-      
+
       <div id="genTreeBtnAll" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate All Courses Tree" role="button">Generate All Courses Tree </a>
       </div>
 
@@ -94,7 +94,7 @@
         </div>
     </div>
 
-    
+
     <script type="text/javascript">
     function htmlTitle(html) {
       const container = document.createElement("div");
@@ -180,7 +180,7 @@
       data2.forEach(course => {
           allCourses.push(course);
       });
-      
+
       // Get the value in the dropdown and populate a list with relevant courses
       dropdownMenu.addEventListener("click", async function(e) {
         genTreeCourses = []
@@ -247,33 +247,31 @@
         };
 
         let options = {
-            edges: {
-                smooth: true,
-                arrows: { to: true },
-                hoverWidth: 2.0, 
- 
-  
+          edges: {
+            smooth: true,
+            arrows: { to: true },
+            hoverWidth: 2.0,
+            color: {
+              highlight: 'red',
+              hover: 'red',
             },
+          },
         };
         network = new vis.Network(container, data, options)
 
         // change the colour of the edges that go to the node and from the node
         network.on('click', function (params) {
-  
-            if (params.edges.length > 0) {    
-                let clickedNode = params.nodes[0]
-   
-                params.edges.forEach((edge) => {      
-                    let currentEdge = network.body.edges[edge]      
-                    if (currentEdge.fromId !== clickedNode) {        
-                        network.clustering.updateEdge(currentEdge.id, { color: { highlight: 'blue', hover: 'blue'} }); // Color for incoming arrows to the node
-      
-                    } else {
-        
-                        network.clustering.updateEdge(currentEdge.id, { color: { highlight: 'red', hover: 'red'} }); // Color for outgoing arrows to the node      
-                    }    
-                }) 
-            }
+          if (params.edges.length > 0) {
+            let clickedNode = params.nodes[0]
+            params.edges.forEach((edge) => {
+              let currentEdge = network.body.edges[edge]
+              if (currentEdge.fromId !== clickedNode) {
+                network.clustering.updateEdge(currentEdge.id, { color: { highlight: 'blue', hover: 'blue'} }); // Color for incoming arrows to the node
+              } else {
+                network.clustering.updateEdge(currentEdge.id, { color: { highlight: 'red', hover: 'red'} }); // Color for outgoing arrows to the node
+              }
+            })
+          }
         });
       });
 
@@ -333,33 +331,32 @@
         };
 
         let options = {
-            edges: {
-                smooth: false,
-                arrows: { to: true },
-                hoverWidth: 2.0, 
-
+          edges: {
+            smooth: false,
+            arrows: { to: true },
+            hoverWidth: 2.0,
+            color: {
+              highlight: 'red',
+              hover: 'red',
             },
+          },
         };
         network = new vis.Network(container, data, options)
+
         // change the colour of the edges that go to the node and from the node
         network.on('click', function (params) {
-  
-            if (params.edges.length > 0) {    
-                let clickedNode = params.nodes[0]
-   
-                params.edges.forEach((edge) => {      
-                    let currentEdge = network.body.edges[edge]      
-                    if (currentEdge.fromId !== clickedNode) {        
-                        network.clustering.updateEdge(currentEdge.id, { color: { highlight: 'blue', hover: 'blue'} }); // Color for incoming arrows to the node
-      
-                    } else {
-        
-                        network.clustering.updateEdge(currentEdge.id, { color: { highlight: 'red', hover: 'red'} }); // Color for outgoing arrows to the node      
-                    }    
-                }) 
-            }
+          if (params.edges.length > 0) {
+            let clickedNode = params.nodes[0]
+            params.edges.forEach((edge) => {
+              let currentEdge = network.body.edges[edge]
+              if (currentEdge.fromId !== clickedNode) {
+                network.clustering.updateEdge(currentEdge.id, { color: { highlight: 'blue', hover: 'blue'} }); // Color for incoming arrows to the node
+              } else {
+                network.clustering.updateEdge(currentEdge.id, { color: { highlight: 'red', hover: 'red'} }); // Color for outgoing arrows to the node
+              }
+            })
+          }
         });
-
       });
     });
     // JavaScript for toggling dark mode
@@ -379,30 +376,30 @@
     // Javascript for downloading file
     document.addEventListener("DOMContentLoaded", function() {
 
-      function downloadTree() { 
+      function downloadTree() {
         network.on("afterDrawing", function () {
 
-          const canvas = network.canvas.frame.canvas;          
+          const canvas = network.canvas.frame.canvas;
           const dataURL = canvas.toDataURL("image/png");
-    
-          const link = document.createElement("a");    
-          link.href = dataURL;        
-          link.download = "tree.png";          
-          document.body.appendChild(link);        
-          link.click();          
+
+          const link = document.createElement("a");
+          link.href = dataURL;
+          link.download = "tree.png";
+          document.body.appendChild(link);
+          link.click();
           document.body.removeChild(link);
-   
-          network.off("afterDrawing");  
-        });   
-  
+
+          network.off("afterDrawing");
+        });
+
         network.redraw();
-      }      
+      }
       const download = document.getElementById("download");
       download.addEventListener("click", function() {
-  
-        downloadTree();  
-      }); 
-    });    
+
+        downloadTree();
+      });
+    });
   </script>
 </body>
 </html>
