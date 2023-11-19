@@ -25,3 +25,31 @@
 - **Input:** Toggling the dark mode switch on/off
 - **Expected Result:** The background color and text color should change accordingly between light and dark modes without affecting the functionality.
 
+**Test Case 6:**
+- **Description:** Exporting Tree Diagram
+- **Input:** Choosing the tree and clicking on download Tree button.
+- **Expected Result:** The tree diagram should be downloaded in the PNG format.
+
+**Test Case 7:**
+- **Description:** Highlighting Node and Arrows with Colors
+- **Input:** Click on a specific node in the tree diagram.
+- **Expected Result:**
+    - The selected node becomes highlighted.
+    - Incoming arrows leading to the selected node should be displayed in blue.
+    - Outgoing arrows from the selected node should be displayed in red.
+
+**Test Case 8:** 
+- **Description:** Verify the presence of a border surrounding the canvas containing the tree diagram.
+- **Input:** Inspect the tree diagram area visually.
+- **Expected Result**: A visible border should be observed outlining the entire tree diagram canvas, ensuring containment and a structured appearance.
+
+**Test Case 9:**
+- **Description:** Test the error message displayed when attempting to search for a course that does not exist in the diagram.
+- **Input**: Enter a non-existent course code into the search box.
+- **Expected Result:** An error message should be displayed, explicitly indicating that the searched course does not exist within the diagram.
+
+**Test Case 10:** 
+- **Description:** Validate the format and clarity of the error message for a non-existent course search.
+- **Input:** Attempt to search for a course that is not present within the tree diagram.
+- **Expected Result:** The error message should be clearly presented, stating the absence of the searched course within the diagram in a manner that is easily understandable and concise for the user.
+
