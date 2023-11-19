@@ -72,17 +72,20 @@
       <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
       </div>
       
-      <div id="genTreeBtnAll" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate All Courses Tree" role="button">Generate All Courses Tree (~1min)</a>
+      <div id="genTreeBtnAll" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate All Courses Tree" role="button">Generate All Courses Tree </a>
       </div>
 
       <div class="input-group mb-3 search-container">
         <input type="text" id="searchInput" class="form-control" style="max-width: 200px;" placeholder="Search for a course...">
         <button id="searchBtn" class="btn btn-outline-secondary" type="button">Search</button>
       </div>
+
+      <div id="download" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Download Tree" role="button">Download Tree</a>
+      </div>
+
     </div>
 
-    <div id="download" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Download Tree" role="button">Download Tree</a>
-    </div>
+
 
 
     <div class="row mt-3">
@@ -403,3 +406,4 @@
   </script>
 </body>
 </html>
+

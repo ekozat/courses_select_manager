@@ -141,17 +141,13 @@ input:checked+.slider .fa-sun {
 }
 
 #genTreeBtn,
-#genTreeBtnAll {
+#genTreeBtnAll, #download {
   padding: 20px;
 
 }
 
 .search-container {
   padding: 20px;
-}
-
-#download {
-  margin-left: 16%;
 }
 
 #tree-container {
