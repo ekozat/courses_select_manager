@@ -135,4 +135,4 @@ The purpose of this file is to list all user stories that will be used to help p
 - Include a toggle switch or button in the website interface, allowing users to switch between light and dark modes.
 - Upon toggling to dark mode, ensure the background color changes to a dark hue while text and elements adjust for better visibility.
 - Implement smooth transitions between light and dark modes without disrupting the user experience.
-- Persist user preference for dark mode across sessions, remembering the selected mode for subsequent visits to the website.
+
