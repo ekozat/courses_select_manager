@@ -244,14 +244,29 @@
             edges: {
                 smooth: true,
                 arrows: { to: true },
-                hoverWidth: 2.0, 
-                color: {
-                    highlight: 'red', // Color when hovered over
-                    hover: 'red', // Color of the arrow itself when hovered over
-                },
+  
             },
         };
         network = new vis.Network(container, data, options)
+
+        // change the colour of the edges that go to the node and from the node
+        network.on('click', function (params) {
+  
+            if (params.edges.length > 0) {    
+                let clickedNode = params.nodes[0]
+   
+                params.edges.forEach((edge) => {      
+                    let currentEdge = network.body.edges[edge]      
+                    if (currentEdge.fromId !== clickedNode) {        
+                        network.clustering.updateEdge(currentEdge.id, { color: { highlight: 'blue', hover: 'blue'} }); // Color for incoming arrows to the node
+      
+                    } else {
+        
+                        network.clustering.updateEdge(currentEdge.id, { color: { highlight: 'red', hover: 'red'} }); // Color for outgoing arrows to the node      
+                    }    
+                }) 
+            }
+        });
       });
 
       // IF U WANT TO GEN ALL COURSES TREE
@@ -313,14 +328,28 @@
             edges: {
                 smooth: false,
                 arrows: { to: true },
-                hoverWidth: 2.0, 
-                color: {
-                    highlight: 'red', // Color when hovered over
-                    hover: 'red', // Color of the arrow itself when hovered over
-                },
             },
         };
         network = new vis.Network(container, data, options)
+        // change the colour of the edges that go to the node and from the node
+        network.on('click', function (params) {
+  
+            if (params.edges.length > 0) {    
+                let clickedNode = params.nodes[0]
+   
+                params.edges.forEach((edge) => {      
+                    let currentEdge = network.body.edges[edge]      
+                    if (currentEdge.fromId !== clickedNode) {        
+                        network.clustering.updateEdge(currentEdge.id, { color: { highlight: 'blue', hover: 'blue'} }); // Color for incoming arrows to the node
+      
+                    } else {
+        
+                        network.clustering.updateEdge(currentEdge.id, { color: { highlight: 'red', hover: 'red'} }); // Color for outgoing arrows to the node      
+                    }    
+                }) 
+            }
+        });
+
       });
     });
     // JavaScript for toggling dark mode
