@@ -137,7 +137,6 @@ input:checked+.slider .fa-sun {
 
 #genTreeDropdown {
   padding-top: 50px;
-  padding-top: 50px;
 }
 
 #genTreeBtn,
@@ -161,7 +160,7 @@ input:checked+.slider .fa-sun {
   height: 120vh;
   overflow: auto;
   border: 3px solid #ABAAA9 ;
-  z-index: -1;
+  z-index: 999;
 }
 
 .button-gen {
