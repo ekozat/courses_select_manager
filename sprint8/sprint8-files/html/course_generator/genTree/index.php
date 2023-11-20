@@ -37,8 +37,8 @@
       </span>
     </label>
     <!-- hero page -->
-    <div class="container hero-img col-xxl-8 px-4">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-2">
+    <div class="container hero-img col-xxl-8 px-4 py-1">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
             <div class="col-10 col-sm-8 col-lg-6">
                 <img src="images/treeImg.webp" class="d-block mx-lg-auto img-fluid" alt="hero image" loading="lazy">
             </div>
@@ -59,30 +59,36 @@
         </div>
     </div>
 
-
-    <div class="vstack gap-2 button-gen">
-
-      <div class="top-row">
-        <div class="dropdown" id="genTreeDropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-          Select Subject
-          </button>
-          <!-- style="padding-left: 30px, margin-top: -30px;" -->
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
-          <div id="chosenSubject">Subject Chosen: <span id="subjectValue"></span></div>
+    <div class="container col-xlg-8">
+      <div class="row flex-lg align-items-center justify-content-center py-3">
+        <div class="col-md-3">
+            <div class="dropdown" id="genTreeDropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                  Select Subject
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
+              <div id="chosenSubject">Subject Chosen: <span id="subjectValue"></span></div>
+            </div>
         </div>
 
-        <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
+        <div class="col-md-3">
+            <div id="genTreeBtn" class="lc-block text-center">
+                <a class="btn btn-dark px-4 me-md-2" aria-label="Generate Course Tree" role="button">Generate Course Tree</a>
+            </div>
         </div>
 
-        <div id="genTreeBtnAll" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate All Courses Tree" role="button">Generate All Courses Tree</a>
+        <div class="col-md-3">
+            <div id="genTreeBtnAll" class="lc-block text-center">
+                <a class="btn btn-dark px-4 me-md-2" aria-label="Generate All Courses Tree" role="button">Generate All Courses Tree</a>
+            </div>
         </div>
 
-        <div id="download" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Download Tree" role="button">Download Tree</a>
+        <div class="col-md-3">
+          <div id="download" class="lc-block text-center">
+            <a class="btn btn-dark px-4 me-md-2" aria-label="Download Tree" role="button">Download Tree</a>
+          </div>
         </div>
-
       </div>
-
     </div>
 
     <div class="row mt-3">
@@ -91,16 +97,32 @@
                 <input type="text" id="searchInput" class="form-control" style="max-width: 200px;" placeholder="Search for a course...">
                 <button id="searchBtn" class="btn btn-outline-secondary" type="button">Search</button>
               </div>
-            <div id="tree-container" class = "canvas-gen"></div>
+
+            <div id="loading-container">
+              <div id="loading-overlay">
+                  <div class="loading-spinner"></div>
+              </div>
+              <div id="tree-container" class = "canvas-gen"></div>
+            </div>
         </div>
     </div>
 
 
     <script type="text/javascript">
+    const loadingOverlay = document.getElementById("loading-overlay");
     function htmlTitle(html) {
       const container = document.createElement("div");
       container.innerHTML = html;
       return container;
+    }
+
+    function showLoading() {
+      loadingOverlay.style.display = "flex";
+      loadingOverlay.style.pointerEvents = "none"; // Allow interaction
+    }
+
+    function hideLoading() {
+      loadingOverlay.style.display = "none";
     }
 
     async function getSubjects() {
@@ -208,6 +230,7 @@
 
       generate_button.addEventListener("click", async function(e) {
         e.preventDefault();
+        showLoading();
         // ensure if there was an old graph, to destroy it
         if (network) {
           network.destroy();
@@ -274,11 +297,15 @@
             })
           }
         });
+        network.on('afterDrawing', (params) => {
+          hideLoading();
+        })
       });
 
       // IF U WANT TO GEN ALL COURSES TREE
       generate_all_button.addEventListener("click", async function(e) {
         e.preventDefault();
+        showLoading();
         // ensure if there was an old graph, to destroy it
         if (network) {
           network.destroy();
@@ -358,6 +385,9 @@
             })
           }
         });
+        network.on('afterDrawing', (params) => {
+          hideLoading();
+        })
       });
     });
     // JavaScript for toggling dark mode
