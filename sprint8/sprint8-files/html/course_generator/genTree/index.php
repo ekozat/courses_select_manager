@@ -37,8 +37,8 @@
       </span>
     </label>
     <!-- hero page -->
-    <div class="container hero-img col-xxl-8 px-4">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-2">
+    <div class="container hero-img col-xxl-8 px-4 py-1">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-3">
             <div class="col-10 col-sm-8 col-lg-6">
                 <img src="images/treeImg.webp" class="d-block mx-lg-auto img-fluid" alt="hero image" loading="lazy">
             </div>
@@ -59,30 +59,36 @@
         </div>
     </div>
 
-
-    <div class="vstack gap-2 button-gen">
-
-      <div class="top-row">
-        <div class="dropdown" id="genTreeDropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-          Select Subject
-          </button>
-          <!-- style="padding-left: 30px, margin-top: -30px;" -->
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
-          <div id="chosenSubject">Subject Chosen: <span id="subjectValue"></span></div>
+    <div class="container col-xlg-8">
+      <div class="row flex-lg align-items-center justify-content-center py-3">
+        <div class="col-md-3">
+            <div class="dropdown" id="genTreeDropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                  Select Subject
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
+              <div id="chosenSubject">Subject Chosen: <span id="subjectValue"></span></div>
+            </div>
         </div>
 
-        <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" role="button">Generate Course Tree</a>
+        <div class="col-md-3">
+            <div id="genTreeBtn" class="lc-block text-center">
+                <a class="btn btn-dark px-4 me-md-2" aria-label="Generate Course Tree" role="button">Generate Course Tree</a>
+            </div>
         </div>
 
-        <div id="genTreeBtnAll" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate All Courses Tree" role="button">Generate All Courses Tree</a>
+        <div class="col-md-3">
+            <div id="genTreeBtnAll" class="lc-block text-center">
+                <a class="btn btn-dark px-4 me-md-2" aria-label="Generate All Courses Tree" role="button">Generate All Courses Tree</a>
+            </div>
         </div>
 
-        <div id="download" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Download Tree" role="button">Download Tree</a>
+        <div class="col-md-3">
+          <div id="download" class="lc-block text-center">
+            <a class="btn btn-dark px-4 me-md-2" aria-label="Download Tree" role="button">Download Tree</a>
+          </div>
         </div>
-
       </div>
-
     </div>
 
     <div class="row mt-3">
@@ -101,6 +107,19 @@
       const container = document.createElement("div");
       container.innerHTML = html;
       return container;
+    }
+
+    function updateEdgeColors(nodeId) {
+      const connectedEdges = network.getConnectedEdges(nodeId);
+
+      connectedEdges.forEach((edgeId) => {
+        const edge = network.body.edges[edgeId];
+        if (edge.fromId !== nodeId) {
+          network.clustering.updateEdge(edgeId, { color: { highlight: 'blue', hover: 'blue' } });
+        } else {
+          network.clustering.updateEdge(edgeId, { color: { highlight: 'red', hover: 'red' } });
+        }
+      });
     }
 
     async function getSubjects() {
@@ -160,6 +179,7 @@
           if (foundNode) {
             network.selectNodes([foundNode]);
             network.focus(foundNode, { scale: 2.0 });
+            updateEdgeColors(foundNode);
           } else {
             alert("Course not found!");
           }

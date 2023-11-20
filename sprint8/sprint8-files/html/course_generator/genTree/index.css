@@ -136,23 +136,22 @@ input:checked+.slider .fa-sun {
 }
 
 #genTreeDropdown {
-  padding: 30px;
-
+  padding-top: 50px;
 }
 
 #genTreeBtn,
 #genTreeBtnAll, 
 #download {
-  padding: 20px;
+  padding-top: 30px;
   padding-bottom: -20px;
-
 }
 
 .search-container {
-  position: absolute;
+  /* position: absolute; */
   width: 80%;
   overflow: auto;
   left: 10%;
+  top: 2%;
 }
 
 #tree-container {
@@ -174,9 +173,10 @@ input:checked+.slider .fa-sun {
 .top-row{
   display: flex;
   position: relative;
-  right: 8%;
+  right: 8.5%;
 }
 
-.btn.btn-dark.px-4.me-md-2{
-  margin-bottom: 30px;
+.col-md-3{
+  left: 3%;
+  position: relative;
 }
