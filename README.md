@@ -3,42 +3,35 @@
 # Team
 
 -   Team Lead:
-    -   Simardeep Singh
+    -   Emily Kozatchiner
 -   Team Members:
     -   Sara Adi
     -   Fee Kim Ah-Poa
     -   Simardeep Singh
-    -   Emily Kozatchiner
     -   Maneesh Wijewardhana
 
 ## Current Sprint
 
-Sprint 8
+Sprint 9
 
 ## Description
 
 **Project Overview**
 
-In Sprint 8 for F23 CIS\*3760, our team will be generating graph for course pre-requisites as a tree diagram on our website by implementing the following:
-
--   Choose the appropriate JavaScript library
--   Identify Root Node and Build Tree Structure
--   Responsive & Accessible UI
--   Implement Dark Mode
--   **NOTE**
-    -   Generating the tree for all courses will take a significant amount of time due to the number of courses offered and connections between them
-    -   We have done as much optimization as we could and on Safari/Firefox, the time will take around 1 minute
-    -   On Chrome, however, due to not handling concurrent API calls the same, will take longer about 2-3 minutes
+In Sprint 9 for F23 CIS\*3760, our team will be implement different wrap-up functionalities to clean up the website and ensure that it will be the best version of itself that it can. We will work on the following as a team:
+-   Implement a CI/CD pipeline for testing and ensure that new additions from hence-forth are implemented with continous integration
+-   Implementing graphing by a singular course rather than subject
 
 ## Team Approach
 
--   Simar will create tasks, lead group meetings, and ensure everyone is okay with what tasks they are working on this sprint
+-   The whole team will ensure the clean-up of the site and wrap up functionality of course generator.
+<!-- -   Simar will create tasks, lead group meetings, and ensure everyone is okay with what tasks they are working on this sprint
     -   Will develop user stories/test cases and Implement dark mode.
 -   Sara, Fee, Maneesh and Emily will work in team programming format and work together on following tasks.
     -   Identify Nodes and Build Tree structure using the chosen javascript library.
     -   Build UI Design and Tree Design
     -   Display tree to the frontend and improve UI design, if necessary
-    -   Write use stories and test cases.
+    -   Write use stories and test cases. -->
 
 ## Authors and acknowledgment
 
@@ -50,4 +43,4 @@ In Sprint 8 for F23 CIS\*3760, our team will be generating graph for course pre-
 
 ## Project status
 
-Complete!
+In-Progress
