@@ -53,3 +53,12 @@
 - **Input:** Attempt to search for a course that is not present within the tree diagram.
 - **Expected Result:** The error message should be clearly presented, stating the absence of the searched course within the diagram in a manner that is easily understandable and concise for the user.
 
+**Test Case 11:**
+- **Description:** Ensure loading icon is present for the rendering duration of the diagram, and is hidden when the diagram is not being rendered.
+- **Input:** Press the generate course diagram button and note the loading icon and its disapearance when diagram is generated
+- **Expected Result:** The loading icon is present when rendering, and not present when a diagram is drawn or when page is first loaded.
+
+**Test Case 12:** 
+- **Description:** Test that when subject is chosen from the dropdown, it dynamically outputs the choice to the user
+- **Input:** Choose a subject from the dropdown. 
+- **Expected Result:** The paragraph below the dropdown should now display the chosen subject.
