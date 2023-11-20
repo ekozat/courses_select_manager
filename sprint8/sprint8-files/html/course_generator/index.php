@@ -48,7 +48,7 @@
                 <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Courses" href="#addCourse" role="button">Generate Courses</a>
                     <a class="btn btn-outline-secondary px-4 search-info-btn" aria-label = "Search Course Info." href="#searchCourse" role="button">Search Course Info.</a>
                 </div>
-
+              <!-- DONT FORGET TO CHANGE THE LOCALHOST BACK -->
               <div id="genTreeBtn" class="lc-block d-grid gap-2 d-md-flex justify-content-md-start"><a class="btn btn-dark px-4 me-md-2" aria-label = "Generate Course Tree" href="/course_generator/genTree" role="button">Generate Course Tree</a>
               </div>
 

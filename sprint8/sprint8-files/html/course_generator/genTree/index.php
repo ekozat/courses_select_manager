@@ -125,6 +125,19 @@
       loadingOverlay.style.display = "none";
     }
 
+    function updateEdgeColors(nodeId) {
+      const connectedEdges = network.getConnectedEdges(nodeId);
+
+      connectedEdges.forEach((edgeId) => {
+        const edge = network.body.edges[edgeId];
+        if (edge.fromId !== nodeId) {
+          network.clustering.updateEdge(edgeId, { color: { highlight: 'blue', hover: 'blue' } });
+        } else {
+          network.clustering.updateEdge(edgeId, { color: { highlight: 'red', hover: 'red' } });
+        }
+      });
+    }
+
     async function getSubjects() {
       const response = await fetch("https://cis3760f23-01.socs.uoguelph.ca/courses/getSubjects/", {
         method: "GET",
@@ -182,6 +195,7 @@
           if (foundNode) {
             network.selectNodes([foundNode]);
             network.focus(foundNode, { scale: 2.0 });
+            updateEdgeColors(foundNode);
           } else {
             alert("Course not found!");
           }
