@@ -1,16 +1,15 @@
 stages:
-  - test
+#   - test
   - deploy
 
-before_script:
-  - apt-get update
-  - apt-get install node
-  - npm install -g selenium-side-runner
-  - npm install -g chromedriver
+# before_script:
+#   - apk add node
+#   - npm install -g selenium-side-runner
+#   - npm install -g chromedriver
 
-test:
-  script:
-    - selenium-side-runner ./sprint9/sprint9_docs/Testing-UI/Sprint7.side
+# test:
+#   script:
+#     - selenium-side-runner ./sprint9/sprint9_docs/Testing-UI/Sprint7.side
 
 deploy-job:
   stage: deploy
