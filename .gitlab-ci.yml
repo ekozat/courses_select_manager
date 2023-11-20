@@ -20,13 +20,20 @@ stages:          # List of stages for jobs, and their order of execution
   - test
   - deploy
 
+variables:
+  SELENIUM_VERSION: 3.141.59  # Adjust to the Selenium version you're using
 
-selenium-test-job:   # This job runs in the test stage.
-  stage: test    # It only starts when the job in the build stage completes successfully.
-  services:
-    - selenium/standalone-chrome
+before_script:
+  - apt-get update -qy
+  - apt-get install -y wget
+  - wget https://selenium-release.storage.googleapis.com/$SELENIUM_VERSION/selenium-server-standalone-$SELENIUM_VERSION.jar
+  - export PATH=$PATH:/path/to/selenium-side-runner  # Add selenium-side-runner to the PATH
+  - chmod +x /path/to/selenium-side-runner  # Ensure executable permissions
+
+test:
   script:
-    - selenium-side-runner sprint9/sprint9_docs/Testing-UI/Sprint7.side
+     - selenium-side-runner ./sprint9/sprint9_docs/Testing-UI/Sprint7.side
+
 
 deploy-job:      # This job runs in the deploy stage.
   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
