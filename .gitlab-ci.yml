@@ -10,6 +10,8 @@ deploy:
   stage: deploy
   script:
     - ls /usr/bin
+    - apt install -y openssh-client openssh-server
+    - ls /usr/bin
     - chmod +x ./deploy.sh
     - ./deploy.sh
   only:
