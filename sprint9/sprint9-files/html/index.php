@@ -5,7 +5,7 @@ header('Content-Type: text/html; charset=UTF-8');
 // Define variables for the content
 $title = "F’23 CIS*3760: Group 101";
 $greeting = "Greetings and welcome to our digital realm!";
-$description1 = "We’re group 101! Although we’re small in size, we're mighty in effort!";
+$description1 = "We’re group 101! Although we’re small in size, we're mighty in effort! Also this is to test CI/CD";
 $description2 = "Prepare to embark on a journey with us as we dive into Sprint 3. We look forward to showcasing our collective talents and pushing the boundaries of what's achievable in the digital realm. Welcome aboard!";
 
 $downloadFile = 'parsed_courses.xlsm';
