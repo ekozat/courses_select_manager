@@ -30,5 +30,5 @@ stages:
 test:
   stage: test
   script:
-    echo "installed"
+    selenium-side-runner ./sprint9/sprint9_docs/Testing-UI/Sprint7.side
     # - cd /home/gitlab-runner/builds/wxi6sxsz/0/cis3760_f23/f23_cis3760_101/e2eTest
