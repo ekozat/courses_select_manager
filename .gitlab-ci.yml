@@ -1,8 +1,8 @@
-image: node:latest
+# image: node:latest
 
-before_script:
-  - npm install -g selenium-side-runner
-  - npm install -g chromedriver
+# before_script:
+#   - npm install -g selenium-side-runner
+#   - npm install -g chromedriver
 
 
 stages:
@@ -21,8 +21,7 @@ stages:
 
 e2e:chrome:
   stage: confidence-check
-  services:
-    - selenium/standalone-chrome
+  image: selenium/standalone-chrome:latest
   # script:
   #   - selenium-side-runner ./sprint9/sprint9_docs/Testing-UI/Sprint7.side
   script:
