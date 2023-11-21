@@ -1,4 +1,4 @@
-# image: node:latest
+image: ubuntu:latest
 
 # # before_script:
 # #   - npm install -g selenium-side-runner
