@@ -2,7 +2,7 @@ image: ubuntu:latest
 
 before_script:
   - apt-get update
-  - apt-get install node
+  - apt install node
 
 stages:
   # - deploy
@@ -31,7 +31,5 @@ stages:
 test:
   stage: test
   script:
-    echo "test"
     # - cd /home/gitlab-runner/builds/wxi6sxsz/0/cis3760_f23/f23_cis3760_101/e2eTest
-    # - sudo apt-get install node
-    # - npm install -g selenium-side-runner
+    - npm install -g selenium-side-runner
