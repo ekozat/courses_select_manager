@@ -14,8 +14,8 @@ stages:
 deploy:
   stage: deploy
   script:
-    - sudo chmod +x ./deploy.sh
-    - sudo ./deploy.sh
+    - chmod +x ./deploy.sh
+    - ./deploy.sh
   only:
     - testing-ci
 
