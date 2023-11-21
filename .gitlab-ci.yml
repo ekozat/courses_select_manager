@@ -1,15 +1,10 @@
 image: ubuntu:latest
 
-# # before_script:
-# #   - npm install -g selenium-side-runner
-# #   - npm install -g chromedriver
-
+before_script:
+  - apt install -y openssh-client openssh-server
 
 stages:
   - deploy
-#   - confidence-check
-#   # - test
-
 
 deploy:
   stage: deploy
@@ -18,35 +13,3 @@ deploy:
     - ./deploy.sh
   only:
     - testing-ci
-
-
-# e2e:chrome:
-#   stage: confidence-check
-#   image: selenium/standalone-chrome:latest
-#   # script:
-#   #   - selenium-side-runner ./sprint9/sprint9_docs/Testing-UI/Sprint7.side
-#   script:
-#     - selenium-side-runner -c "browserName=chrome" -c "headless=true" ./sprint9/sprint9_docs/Testing-UI/Sprint7.side
-
-
-# # test:
-# #   stage: test
-# #   script:
-# #     - apt-get update -qy
-# #     - apt-get install -y unzip
-# #     - wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
-# #     - unzip chromedriver_linux64.zip
-# #     - mv chromedriver /usr/local/bin/
-# #     - chmod +x /usr/local/bin/chromedriver
-# #     - selenium-side-runner -c "goog:chromeOptions.args=[disable-infobars, headless]" ./sprint9/sprint9_docs/Testing-UI/Sprint7.side
-# #     # - cd /home/gitlab-runner/builds/wxi6sxsz/0/cis3760_f23/f23_cis3760_101/e2eTest
-  
-# image: node:8.10
-# stages:
-#   - confidence-check
-# e2e:chrome:
-#   stage: confidence-check
-#   services:
-#     - selenium/standalone-chrome
-#   script:
-#     - npm run confidence-check --host=selenium__standalone-chrome
