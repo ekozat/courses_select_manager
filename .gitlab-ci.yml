@@ -1,8 +1,13 @@
+image: ubuntu:latest
+
+before_script:
+  - apt-get update
+  - apt-get install node
+
 stages:
   # - deploy
   - test
-before_script:
-  - apk update
+
 # deploy:
 #   stage: deploy
 #   script:
