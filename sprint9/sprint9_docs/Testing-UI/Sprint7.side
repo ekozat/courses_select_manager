@@ -57,7 +57,7 @@
       "id": "9c96232d-90a0-44a7-9ae1-9e94a56591e4",
       "comment": "",
       "command": "click",
-      "target": "linkText=Download File",
+      "target": "linkText=Download .xlsm Course File",
       "targets": [
         ["linkText=Download File", "linkText"],
         ["css=.flex-md-column > .btn-dark", "css:finder"],
