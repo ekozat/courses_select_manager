@@ -8,7 +8,7 @@ deploy:
     - "COMMIT_HASH=$(git rev-parse HEAD)"
     - "COMMIT_MESSAGE=$(git log --format=%B -n 1 $COMMIT_HASH)"
     - "CURRENT_BRANCH=$CI_COMMIT_REF_NAME"
-    - "CHANGES=$(git diff --name-only HEAD^..HEAD /home/gitlab-runner/builds/mC5sdKVSv/0/cis3760_f23/f23_cis3760_101/sprint9/sprint9-files/html)"
+    - "CHANGES=$(git diff --name-only HEAD^..HEAD ~/builds/mC5sdKVSv/0/cis3760_f23/f23_cis3760_101/sprint9/sprint9-files/html)"
 
     - >
       if [ "$CURRENT_BRANCH" != "sprint9" ]; then
@@ -17,7 +17,7 @@ deploy:
         echo "No changes in the HTML folder. Commit message: $COMMIT_MESSAGE" 
       else
         sudo chmod +w /var/www/html
-        sudo cp -R ~/builds/mC5sdKVSv/0/cis3760_f23/f23_cis3760_10/sprint9/sprint9-files/html/* /var/www/html/
+        sudo cp -R ~/builds/mC5sdKVSv/0/cis3760_f23/f23_cis3760_101/sprint9/sprint9-files/html/* /var/www/html/
         echo "Commit Deployed: $COMMIT_HASH - $COMMIT_MESSAGE"
       fi
 
