@@ -43,7 +43,7 @@ $html = <<<HTML
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
                 <div class="col-10 col-sm-8 col-lg-6">
                     <div class="lc-block d-grid gap-2 d-md-flex flex-md-column justify-content-md-start">
-                        <a class="btn btn-dark px-4 me-md-2" aria-label="Download File" href="parsed_courses.xlsm"  download class="download-button" role="button">Download File</a>
+                         <a class="btn btn-dark px-4 me-md-2" aria-label="Download File" href="parsed_courses.xlsm"  download class="download-button" role="button">Download .xlsm Course File</a>
                         <a class="btn btn-outline-secondary px-4 search-info-btn" aria-label="API Documentation" href="apidocs" role="button">API Documentation</a>
                     </div>
                 </div>
