@@ -1,15 +1,13 @@
 image: ubuntu:latest
 
-before_script:
-  - apt update
-  - chmod +x ./deploy.sh
-
 stages:
   - deploy
 
 deploy:
   stage: deploy
   script:
+    - apt update
+    - chmod +x ./deploy.sh
     - ./deploy.sh
   only:
     - testing-ci
