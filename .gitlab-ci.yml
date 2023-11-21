@@ -21,11 +21,10 @@ stages:
 
 e2e:chrome:
   stage: confidence-check
-  # services:
-  #   - selenium/standalone-chrome
+  services:
+    - selenium/standalone-chrome
   # script:
   #   - selenium-side-runner ./sprint9/sprint9_docs/Testing-UI/Sprint7.side
-  image: selenium/standalone-chrome:latest 
   script:
     - selenium-side-runner -c "browserName=chrome" -c "headless=true" ./sprint9/sprint9_docs/Testing-UI/Sprint7.side
 
