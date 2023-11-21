@@ -34,7 +34,8 @@ e2e:chrome:
   services:
     - selenium/standalone-chrome
   script:
-    - npm run confidence-check --host=selenium__standalone-chrome
+    - selenium-side-runner -c "goog:chromeOptions.args=[disable-infobars, headless]" ./sprint9/sprint9_docs/Testing-UI/Sprint7.side
+
 
 # test:
 #   stage: test
