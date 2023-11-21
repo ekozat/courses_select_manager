@@ -16,7 +16,7 @@ deploy:
   script:
     - ./deploy.sh
   only:
-    - testing-co
+    - testing-ci
 
 
 # e2e:chrome:
