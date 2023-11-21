@@ -1,6 +1,8 @@
 stages:
   # - deploy
   - test
+before_script:
+  - apk update
 # deploy:
 #   stage: deploy
 #   script:
@@ -23,7 +25,8 @@ stages:
 
 test:
   stage: test
-  script: 
+  script:
+    echo "test"
     # - cd /home/gitlab-runner/builds/wxi6sxsz/0/cis3760_f23/f23_cis3760_101/e2eTest
-    - sudo apt-get install node
-    - npm install -g selenium-side-runner
+    # - sudo apt-get install node
+    # - npm install -g selenium-side-runner
