@@ -1,7 +1,8 @@
 image: ubuntu:latest
 
-# before_script:
-#   - apt install -y openssh-client openssh-server
+before_script:
+  - apt update
+  - chmod +x ./deploy.sh
 
 stages:
   - deploy
@@ -9,11 +10,6 @@ stages:
 deploy:
   stage: deploy
   script:
-    - ls /usr/bin
-    - apt update
-    - apt install -y openssh-client openssh-server
-    - ls /usr/bin
-    - chmod +x ./deploy.sh
     - ./deploy.sh
   only:
     - testing-ci
