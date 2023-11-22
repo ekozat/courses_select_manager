@@ -65,8 +65,8 @@
             <input type="text" class="form-control" size="50" id="course" name="course" placeholder="CIS*1500...">
           </div>
           <div class="lc-block text-center">
-            <a class="btn1 btn btn-dark mx-2 add-course-btn" aria-label= "Add Course to List" role="button">Add Course to List</a>
-            <a class="clear-btn btn btn-light mx-2 clear-course-btn" aria-label = "Clear Courses from List" role="button">Clear Courses from List</a>
+            <button class="btn1 btn btn-dark mx-2 add-course-btn" aria-label= "Add Course to List">Add Course to List</button>
+            <button class="clear-btn btn btn-light mx-2 clear-course-btn" aria-label = "Clear Courses from List">Clear Courses from List</button>
           </div>
           <h2>Courses Inputted So Far:</h2>
           <div class="enteredCoursesList">
@@ -81,9 +81,9 @@
           <h1>Course Recommendations</h1>
           <p>Please confirm that all the courses you have taken are listed above. When ready, please click the button below to generate recomended courses.</p>
           <div class="generate-course recommended-heading lc-block text-center">
-            <a class="btn2 btn btn-dark mx-2 generate-course-btn" aria-label= "Generate Courses" role="button">Generate Courses</a>
-            <a class="gen-course-empty-btn2 btn btn-dark mx-2 generate-course-no-pre-btn" aria-label= "Generate Courses With No Prerequisites" role="button">Generate Courses With No Prerequisites</a>
-            <a class="clear-btn-rec btn btn-light mx-2" aria-label= "Clear Results" role="button">Clear Results</a>
+            <button class="btn2 btn btn-dark mx-2 generate-course-btn" aria-label= "Generate Courses">Generate Courses</button>
+            <button class="gen-course-empty-btn2 btn btn-dark mx-2 generate-course-no-pre-btn" aria-label= "Generate Courses With No Prerequisites">Generate Courses With No Prerequisites</button>
+            <button class="clear-btn-rec btn btn-light mx-2" aria-label= "Clear Results">Clear Results</button>
           </div>
           <div class="recommended-courses">
             <ul id="recommended-courses-list">
@@ -103,14 +103,15 @@
                   <button type="button" class="btn3 btn btn-success search-btn" aria-label="Search">Search</button>
               </div>
           <div class="detail-heading lc-block d-grid gap-2 d-md-flex justify-content-md-start">
-            <a class="btn btn-dark px-4 me-md-2 clear-btn-detail" aria-label= "Clear Results" role="button">Clear Results</a>
+            <a class="btn btn-dark px-4 me-md-2 clear-btn-detail" aria-label= "Clear Results" role="button" tabindex="0">Clear Results</a>
           </div>
           <!-- display course search results -->
           <div class="container courseDetails">
               <div class="row">
                   <div class="col-md-12">
                       <div class="course-detail">
-                          <p id=code-detail></p>                          <p id=name-detail></p>
+                          <p id=code-detail></p>                          
+                          <p id=name-detail></p>
                           <p id=prereq-detail></p>
                           <p id=restr-detail></p>
                       </div>
@@ -150,6 +151,22 @@
 
       // Collect entered courses
       let enteredCourses = [];
+
+      // Binds input field event listener to btn click
+      courseInput.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          // Trigger the click event on the add_course_btn button
+          add_course_btn.click();
+        }
+      });
+
+      // Binds input field event listener to btn click
+      courseDetail.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          // Trigger the click event on the add_course_btn button
+          display_course_btn.click();
+        }
+      });
 
       // Event listener for adding a course to the list
       add_course_btn.addEventListener("click", function() {

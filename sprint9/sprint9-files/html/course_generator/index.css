@@ -8,6 +8,10 @@ button {
   cursor: pointer;
 }
 
+#courseGenerator button, #addCourse button{
+  margin-top: 50px;
+}
+
 .home {
   padding-top: 20px;
   display: flex;
