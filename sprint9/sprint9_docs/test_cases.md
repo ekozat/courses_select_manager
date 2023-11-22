@@ -1,7 +1,11 @@
 # Test Cases:
 
-<!-- Sample Test Case -->
-**Test Case 1:**
-- **Description:** Choosing subject to generate tree
-- **Input:** Selecting a subject from the dropdown, e.g., "CIS"
-- **Expected Result:** The text "Subject Chosen: CIS" should be displayed, indicating the selected course.
+**Test Case 1:** 
+- **Description:** Using keyboard short cuts to naviagte through the page
+- **Input:** Clicking "Tab" on the keybaord
+- **Expected Result:** The site naviagation is moved to the next content (i..e, button or user input)
+
+**Test Case 2:** 
+- **Description:** Dark/light mode
+- **Input:** Toggiling the dark/light mode button on the top of the site page
+- **Expected Result:** The site and its elements will switch between light or dark mode.
