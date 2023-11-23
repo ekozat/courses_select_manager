@@ -25,9 +25,9 @@
 </head>
 <body>
     <div class="home">
-      <a href="/" aria-label="Home"><button class="btn-home" aria-label="home button"><i class="fa fa-home"></i></button></a>
+      <a href="/" aria-label="Home"><button class="btn-home" aria-label="home button" tabindex="-1"><i class="fa fa-home"></i></button></a>
     </div>
-    <label class="switch">
+    <label class="switch" tabindex="0" role="switch">
       <input type="checkbox" class="toggle-dark-mode">
       <span class="slider">
         <span class="toggle-icons">
@@ -109,6 +109,7 @@
 
 
     <script type="text/javascript">
+
     const loadingOverlay = document.getElementById("loading-overlay");
     function htmlTitle(html) {
       const container = document.createElement("div");
