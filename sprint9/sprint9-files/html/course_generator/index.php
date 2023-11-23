@@ -23,7 +23,7 @@
 </head>
 <body>
     <div class="home">
-      <a href="/" aria-label="Home"><button class="btn-home" aria-label="home button"><i class="fa fa-home"></i></button></a>
+      <a href="/" aria-label="Home"><button class="btn-home" aria-label="home button" tabindex="-1"><i class="fa fa-home"></i></button></a>
   </div>
     <!-- hero page -->
     <div class="container col-xxl-8 px-4 py-5">

@@ -10,7 +10,7 @@
     <body>
         <?php
             echo '<div class="home">';
-                echo '<button class="btn"><a href=\'/\'><i class="fa fa-home"></i></a></button>';
+                echo '<button class="btn" tabindex="-1"><a href=\'/\'><i class="fa fa-home"></i></a></button>';
             echo '</div>';
         ?>
         <?php 
