@@ -8,6 +8,25 @@ body {
     color: #fff;
 }
 
+.home {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .btn-home {
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 5px;
+    background-color: white;
+  }
+  
+  .btn-home:hover {
+    opacity: 0.5;
+  }
+
 .team-text {
     display: flex;
     flex-direction: column;
