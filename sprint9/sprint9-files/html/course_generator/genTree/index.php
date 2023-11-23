@@ -218,12 +218,29 @@
         const dropdownItem = document.createElement("a");
         dropdownItem.classList.add("dropdown-item");
         dropdownItem.textContent = subject;
+        dropdownItem.setAttribute("tabindex", "-1");
         dropdownMenu.appendChild(dropdownItem);
       });
 
       const data2 = await getAllCourses()
       data2.forEach(course => {
           allCourses.push(course);
+      });
+
+      // Ability to cycle through course options
+      dropdownMenu.addEventListener("keypress", function(event) {
+        if (dropdownMenu.classList.contains("show")) {
+
+            if (event.key == "Enter"){
+              let focusedElement = document.activeElement;
+
+              // Check if the focused element is a dropdown item
+              if (focusedElement.classList.contains("dropdown-item")) {
+                  focusedElement.click();
+              }
+            }
+
+        }
       });
 
       // Get the value in the dropdown and populate a list with relevant courses
