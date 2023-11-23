@@ -176,7 +176,7 @@
       "id": "f149f625-08eb-4718-9d3f-746d19385dd2",
       "comment": "",
       "command": "click",
-      "target": "linkText=Add Course to List",
+      "target": "css=.btn1",
       "targets": [
         ["linkText=Add Course to List", "linkText"],
         ["css=.btn1", "css:finder"],
@@ -218,7 +218,7 @@
       "id": "0c443571-d259-4ac7-9f93-b9ac4695f7f8",
       "comment": "",
       "command": "click",
-      "target": "linkText=Add Course to List",
+      "target": "css=.btn1",
       "targets": [
         ["linkText=Add Course to List", "linkText"],
         ["css=.btn1", "css:finder"],
@@ -260,7 +260,7 @@
       "id": "fc9a4fc9-bca6-4b78-9896-fb7837aa507a",
       "comment": "",
       "command": "click",
-      "target": "linkText=Add Course to List",
+      "target": "css=.btn1",
       "targets": [
         ["linkText=Add Course to List", "linkText"],
         ["css=.btn1", "css:finder"],
@@ -349,7 +349,7 @@
       "id": "44427344-13e2-420c-94a5-b694e0d16dc5",
       "comment": "",
       "command": "click",
-      "target": "linkText=Add Course to List",
+      "target": "css=.btn1",
       "targets": [
         ["linkText=Add Course to List", "linkText"],
         ["css=.btn1", "css:finder"],
@@ -398,7 +398,7 @@
       "id": "d5b12499-1773-4cd0-966e-e58c18232a13",
       "comment": "",
       "command": "click",
-      "target": "linkText=Add Course to List",
+      "target": "css=.btn1",
       "targets": [
         ["linkText=Add Course to List", "linkText"],
         ["css=.btn1", "css:finder"],
@@ -452,7 +452,7 @@
       "id": "efddb4e0-517c-42ec-bd26-7dbaa300003e",
       "comment": "",
       "command": "click",
-      "target": "linkText=Clear Courses from List",
+      "target": "css=.clear-btn",
       "targets": [
         ["linkText=Clear Courses from List", "linkText"],
         ["css=.clear-btn", "css:finder"],
@@ -495,6 +495,7 @@
       "comment": "",
       "command": "click",
       "target": "linkText=Add Course to List",
+      "target": "css=.btn1",
       "targets": [
         ["linkText=Add Course to List", "linkText"],
         ["css=.btn1", "css:finder"],
@@ -536,7 +537,7 @@
       "id": "449203f8-12e6-43dc-9a92-ef7e5c6ac41b",
       "comment": "",
       "command": "click",
-      "target": "linkText=Add Course to List",
+      "target": "css=.btn1",
       "targets": [
         ["linkText=Add Course to List", "linkText"],
         ["css=.btn1", "css:finder"],
@@ -550,7 +551,7 @@
       "id": "ca90b57e-dd47-4678-b3da-a75cd631dd0b",
       "comment": "",
       "command": "click",
-      "target": "linkText=Clear Courses from List",
+      "target": "css=.clear-btn",
       "targets": [
         ["linkText=Clear Courses from List", "linkText"],
         ["css=.clear-btn", "css:finder"],
@@ -608,7 +609,7 @@
       "id": "a09d06b1-5b67-40dd-98e2-3ff847c18cff",
       "comment": "",
       "command": "click",
-      "target": "linkText=Generate Courses With No Prerequisites",
+      "target": "css=.gen-course-empty-btn2",
       "targets": [
         ["linkText=Generate Courses With No Prerequisites", "linkText"],
         ["css=.gen-course-empty-btn2", "css:finder"],
@@ -622,7 +623,7 @@
       "id": "8d047f83-be2c-45a1-bb04-bc37604b10f6",
       "comment": "",
       "command": "click",
-      "target": "linkText=Clear Results",
+      "target": "css=.clear-btn-rec",
       "targets": [
         ["linkText=Clear Results", "linkText"],
         ["css=.clear-btn-rec", "css:finder"],
@@ -697,7 +698,7 @@
       "id": "a6ec07d6-07fe-471d-bdc2-c256be85db0b",
       "comment": "",
       "command": "click",
-      "target": "linkText=Add Course to List",
+      "target": "css=.btn1",
       "targets": [
         ["linkText=Add Course to List", "linkText"],
         ["css=.btn1", "css:finder"],
@@ -750,7 +751,7 @@
       "id": "73d7e9d5-eb1e-41eb-9959-48d7ece692af",
       "comment": "",
       "command": "click",
-      "target": "linkText=Add Course to List",
+      "target": "css=.btn1",
       "targets": [
         ["linkText=Add Course to List", "linkText"],
         ["css=.btn1", "css:finder"],
@@ -787,7 +788,7 @@
       "id": "67ec672f-a387-4898-ba6b-05c0e2fdeddc",
       "comment": "",
       "command": "click",
-      "target": "linkText=Clear Courses from List",
+      "target": "css=.clear-btn",
       "targets": [
         ["linkText=Clear Courses from List", "linkText"],
         ["css=.clear-btn", "css:finder"],
@@ -820,7 +821,7 @@
       "id": "668e52cc-9560-4720-938b-1a42f8406a25",
       "comment": "",
       "command": "click",
-      "target": "linkText=Clear Results",
+      "target": "css=.clear-btn-rec",
       "targets": [
         ["linkText=Clear Results", "linkText"],
         ["css=.clear-btn-rec", "css:finder"],
