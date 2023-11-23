@@ -405,20 +405,36 @@
         })
       });
     });
-    // JavaScript for toggling dark mode
-    document.addEventListener('DOMContentLoaded', function() {
-    const toggleSwitch = document.querySelector('.toggle-dark-mode');
 
-    toggleSwitch.addEventListener('change', function() {
-      if (this.checked) {
-        document.body.classList.add('dark-mode');
-        document.body.classList.remove('light-mode');
-      } else {
-        document.body.classList.remove('dark-mode');
-        document.body.classList.add('light-mode');
-      }
-    });
-    });
+    // JavaScript for toggling dark mode
+    const toggleSwitch = document.querySelector('.toggle-dark-mode');
+    const inputSwitch = document.querySelector('.switch');
+
+      document.addEventListener("keypress", function(event){
+        if (event.key === "Enter") {
+            // add to make sure it only toggles when focused
+            if (document.activeElement == inputSwitch){
+              //need to swich manually
+              toggleSwitch.checked = !toggleSwitch.checked;
+              updateToggle();
+            }
+          }
+      });
+      
+      toggleSwitch.addEventListener("change", function() {
+        updateToggle();
+      });
+
+    function updateToggle(){
+      if (toggleSwitch.checked) {
+          document.body.classList.add('dark-mode');
+          document.body.classList.remove('light-mode');
+        } else {
+          document.body.classList.remove('dark-mode');
+          document.body.classList.add('light-mode');
+        }
+    }
+
     // Javascript for downloading file
     document.addEventListener("DOMContentLoaded", function() {
 
