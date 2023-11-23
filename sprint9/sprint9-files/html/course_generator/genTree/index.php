@@ -73,19 +73,19 @@
 
         <div class="col-md-3">
             <div id="genTreeBtn" class="lc-block text-center">
-                <a class="btn btn-dark px-4 me-md-2" aria-label="Generate Course Tree" role="button">Generate Course Tree</a>
+                <button class="btn btn-dark px-4 me-md-2" aria-label="Generate Course Tree">Generate Course Tree</button>
             </div>
         </div>
 
         <div class="col-md-3">
             <div id="genTreeBtnAll" class="lc-block text-center">
-                <a class="btn btn-dark px-4 me-md-2" aria-label="Generate All Courses Tree" role="button">Generate All Courses Tree</a>
+                <button class="btn btn-dark px-4 me-md-2" aria-label="Generate All Courses Tree">Generate All Courses Tree</button>
             </div>
         </div>
 
         <div class="col-md-3">
           <div id="download" class="lc-block text-center">
-            <a class="btn btn-dark px-4 me-md-2" aria-label="Download Tree" role="button">Download Tree</a>
+            <button class="btn btn-dark px-4 me-md-2" aria-label="Download Tree">Download Tree</button>
           </div>
         </div>
       </div>
