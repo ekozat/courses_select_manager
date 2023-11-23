@@ -183,6 +183,13 @@
       const searchInput = document.getElementById("searchInput");
       const searchBtn = document.getElementById("searchBtn");
 
+      // Add a searchInput kb shortcut
+      searchInput.addEventListener("keypress", function(event){
+        if (event.key == "Enter"){
+          searchBtn.click();
+        }
+      });
+
       searchBtn.addEventListener("click", function () {
         const searchText = searchInput.value.trim().toUpperCase();
 
