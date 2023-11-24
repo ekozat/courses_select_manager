@@ -83,7 +83,7 @@ body.dark-mode .btn-home {
 }
 
 input:checked+.slider {
-  background-color: #007bff;
+  background-color: #bad3ee;
   /* Change color for active state */
 }
 

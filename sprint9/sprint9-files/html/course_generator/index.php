@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- link bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -25,6 +27,15 @@
     <div class="home">
       <a href="/" aria-label="Home"><button class="btn-home" aria-label="home button" tabindex="-1"><i class="fa fa-home"></i></button></a>
   </div>
+  <label class="switch">
+      <input type="checkbox" class="toggle-dark-mode">
+      <span class="slider">
+        <span class="toggle-icons">
+          <i class="fa fa-moon"></i> <!-- Moon icon -->
+          <i class="fa fa-sun"></i> <!-- Sun icon -->
+        </span>
+      </span>
+    </label>
     <!-- hero page -->
     <div class="container col-xxl-8 px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -369,6 +380,20 @@
 
       generateCourseBtn.addEventListener("click", generateAndDisplayRecommendedCourses);
       generateCourseBtnEmpty.addEventListener("click", displayCoursesWithNoPrereq);
+    });
+            // JavaScript for toggling dark mode
+    document.addEventListener('DOMContentLoaded', function() {
+    const toggleSwitch = document.querySelector('.toggle-dark-mode');
+
+    toggleSwitch.addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.body.classList.add('light-mode');
+      }
+    });
     });
 
 
