@@ -168,24 +168,42 @@
         }
       });
 
-      // Event listener for adding a course to the list
+  // Event listener for adding a course to the list
       add_course_btn.addEventListener("click", function() {
         let courseValue = courseInput.value;
 
         let splitCourse = courseValue.split('*');
 
         if (splitCourse.length === 2 && splitCourse[0] !== '' && splitCourse[1] !== '' && splitCourse[1].trim() !== '' && !isNaN(splitCourse[1])) {
-          enteredCourses.push(splitCourse[0] + "*" + splitCourse[1]); // Add to the list of entered courses
 
-          let listItem = document.createElement("li");
-          listItem.textContent = splitCourse[0] + "*" + splitCourse[1];
-          enteredCoursesList.appendChild(listItem);
+        let course = splitCourse[0] + "*" + splitCourse[1];
+        enteredCourses.push(course); 
 
-          courseInput.value = "";
-        } else {
-          alert("Please enter the course in the format of SUBJECT*COURSE NUM, for example; CIS*2500");
-        }
-      });
+        let listItem = document.createElement("li");
+        listItem.textContent = course;
+
+        // Create a delete button
+        let deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.className = "btn btn-danger mx-2 delete-course-btn";
+
+        deleteButton.addEventListener("click", function () {
+        enteredCourses = enteredCourses.filter(c => c !== course);
+        // Remove the corresponding list item when the delete button is clicked
+        enteredCoursesList.removeChild(listItem);
+       });
+
+      // Append the delete button to the list item
+        listItem.appendChild(deleteButton);
+
+        enteredCoursesList.appendChild(listItem);
+
+        courseInput.value = "";
+      } else {
+      
+      alert("Please enter the course in the format of SUBJECT*COURSE NUM, for example; CIS*2500");
+    }
+  });
 
       /*** FUNCTION 3: Event listener for the display of courses at the bottom.***/
       display_course_btn.addEventListener("click", function() {
