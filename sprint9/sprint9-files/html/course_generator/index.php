@@ -186,6 +186,7 @@
         let deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.className = "btn btn-danger mx-2 delete-course-btn";
+        deleteButton.style.marginTop = "0px";
 
         deleteButton.addEventListener("click", function () {
         enteredCourses = enteredCourses.filter(c => c !== course);
