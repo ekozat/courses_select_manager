@@ -46,16 +46,27 @@ $html = <<<HTML
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    // JavaScript for toggling dark mode
+    document.addEventListener('DOMContentLoaded', function() {
             const toggleSwitch = document.querySelector('.toggle-dark-mode');
+            const body = document.body;
+
+            // Check for dark mode preference in local storage
+            const darkMode = localStorage.getItem('darkMode');
+            
+            // If dark mode is stored in local storage, apply it
+            if (darkMode === 'enabled') {
+                body.classList.add('dark-mode');
+                toggleSwitch.checked = true;
+            }
 
             toggleSwitch.addEventListener('change', function() {
                 if (this.checked) {
-                    document.body.classList.add('dark-mode');
-                    document.body.classList.remove('light-mode');
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'enabled');
                 } else {
-                    document.body.classList.remove('dark-mode');
-                    document.body.classList.add('light-mode');
+                    body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', null);
                 }
             });
         });

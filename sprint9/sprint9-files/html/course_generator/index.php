@@ -381,20 +381,30 @@
       generateCourseBtn.addEventListener("click", generateAndDisplayRecommendedCourses);
       generateCourseBtnEmpty.addEventListener("click", displayCoursesWithNoPrereq);
     });
-            // JavaScript for toggling dark mode
+    // JavaScript for toggling dark mode
     document.addEventListener('DOMContentLoaded', function() {
-    const toggleSwitch = document.querySelector('.toggle-dark-mode');
+            const toggleSwitch = document.querySelector('.toggle-dark-mode');
+            const body = document.body;
 
-    toggleSwitch.addEventListener('change', function() {
-      if (this.checked) {
-        document.body.classList.add('dark-mode');
-        document.body.classList.remove('light-mode');
-      } else {
-        document.body.classList.remove('dark-mode');
-        document.body.classList.add('light-mode');
-      }
-    });
-    });
+            // Check for dark mode preference in local storage
+            const darkMode = localStorage.getItem('darkMode');
+            
+            // If dark mode is stored in local storage, apply it
+            if (darkMode === 'enabled') {
+                body.classList.add('dark-mode');
+                toggleSwitch.checked = true;
+            }
+
+            toggleSwitch.addEventListener('change', function() {
+                if (this.checked) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', null);
+                }
+            });
+        });
 
 
   </script>

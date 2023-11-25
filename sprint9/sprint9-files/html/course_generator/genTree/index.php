@@ -430,34 +430,30 @@
       });
     });
 
-    // JavaScript for toggling dark mode
-    const toggleSwitch = document.querySelector('.toggle-dark-mode');
-    const inputSwitch = document.querySelector('.switch');
+    // JavaScript for toggling dark mode    
+    document.addEventListener('DOMContentLoaded', function() {
+            const toggleSwitch = document.querySelector('.toggle-dark-mode');
+            const body = document.body;
 
-      document.addEventListener("keypress", function(event){
-        if (event.key === "Enter") {
-            // add to make sure it only toggles when focused
-            if (document.activeElement == inputSwitch){
-              //need to swich manually
-              toggleSwitch.checked = !toggleSwitch.checked;
-              updateToggle();
+            // Check for dark mode preference in local storage
+            const darkMode = localStorage.getItem('darkMode');
+            
+            // If dark mode is stored in local storage, apply it
+            if (darkMode === 'enabled') {
+                body.classList.add('dark-mode');
+                toggleSwitch.checked = true;
             }
-          }
-      });
-      
-      toggleSwitch.addEventListener("change", function() {
-        updateToggle();
-      });
 
-    function updateToggle(){
-      if (toggleSwitch.checked) {
-          document.body.classList.add('dark-mode');
-          document.body.classList.remove('light-mode');
-        } else {
-          document.body.classList.remove('dark-mode');
-          document.body.classList.add('light-mode');
-        }
-    }
+            toggleSwitch.addEventListener('change', function() {
+                if (this.checked) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', null);
+                }
+            });
+        });
 
     // Javascript for downloading file
     document.addEventListener("DOMContentLoaded", function() {
