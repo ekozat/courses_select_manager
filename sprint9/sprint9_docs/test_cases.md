@@ -7,5 +7,11 @@
 
 **Test Case 2:** 
 - **Description:** Dark/light mode
-- **Input:** Toggiling the dark/light mode button on the top of the site page
+- **Input:** Toggling the dark/light mode button on the top of the site page
 - **Expected Result:** The site and its elements will switch between light or dark mode.
+
+**Test Case 3:** 
+- **Description:** Deleting an entered course
+- **Input:** Enter a course and then delete it
+- **Expected Result:** Upon deleting the course and then click on generate courses will alert you on no courses have 
+                        entered.
