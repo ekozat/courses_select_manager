@@ -28,3 +28,4 @@ test:
     - cd
     - cd ~/builds/mC5sdKVSv/0/cis3760_f23/f23_cis3760_101/sprint9/sprint9_docs/Testing-UI
     - sudo selenium-side-runner -c "goog:chromeOptions.args=[--no-sandbox, --headless,--disable-gpu, --disable-dev-shm-usage] browserName=chrome" Sprint7.side
+    - sudo selenium-side-runner -c "goog:chromeOptions.args=[--no-sandbox, --headless,--disable-gpu, --disable-dev-shm-usage] browserName=chrome" Tree_Generator.side
