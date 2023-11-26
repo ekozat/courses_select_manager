@@ -59,3 +59,31 @@ entered courses
 
 -   The user clicks on the delete button that will appear on the list of entered courses
 -   The course will be deleted from the list
+
+## Maneesh Wijewardhana's User Stories
+
+**Title:** Smoother deployment pipeline
+
+**Priority:** High
+
+**Estimate (in hrs):** -
+
+**User Story:** As a developer, I want a smoother way to deploying changes to production, preferably through Gitlab
+entered courses
+
+**Acceptance Criteria:**:
+
+-   Developer makes changes in the repo and after pushing, changes are live on the VM
+
+**Title:** Automated Testing
+
+**Priority:** High
+
+**Estimate (in hrs):** -
+
+**User Story:** As a developer, I want my automated tests to run against the code I pushed to production so I know if any new code that was added, breaks certain parts of our website
+entered courses
+
+**Acceptance Criteria:**:
+
+-   Developer makes changes to repo and after pushing, Gitlab automatically runs our automated test suite and reports back with success/failures
