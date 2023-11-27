@@ -118,3 +118,31 @@ entered courses
 -   Application does what it is advertised to do
 -   There is an ease of usage that the user feels when using the website.
 -   Overall, the user would recommend the usage of the website to a friend.
+
+## Simar's user stories
+
+**Title:** Consistent Color Palette
+
+**Priority:** Medium
+
+**Estimate (in hrs):** -
+
+**User Story:** As a user, I want consistent color schemes across different sections of the website for a visually unified experience.
+
+**Acceptance Criteria:**
+
+-   All elements utilize a predefined color palette for consistency.
+-   Backgrounds, buttons, text, and other elements maintain consistent colors throughout the site.
+
+**Title:** Streamlined UI Elements
+
+**Priority:** Medium
+
+**Estimate (in hrs): -**
+
+**User Story:** As a user, I want a consistent and streamlined design for UI elements across various pages for better usability.
+
+**Acceptance Criteria:**
+
+-   UI elements like buttons, input fields, dropdowns, and checkboxes follow a uniform style.
+-   Elements maintain consistent sizing, spacing, and placement across different pages.
