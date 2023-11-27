@@ -24,7 +24,7 @@ body.light-mode {
 
 /* Styles for dark mode */
 body.dark-mode {
-  background-color: #040404; 
+  background-color: #353535; 
   color: #F2F1F2; 
 }
 
@@ -41,7 +41,7 @@ body.dark-mode .lc-block .btn:hover {
 }
 
 body.dark-mode .btn-home {
-  background-color: #333;
+  background-color:#5c5b5b ;
   color: #ffffff;
 }
 
@@ -83,7 +83,7 @@ body.dark-mode .btn-home {
 }
 
 input:checked+.slider {
-  background-color: #007bff;
+  background-color: #bad3ee;
   /* Change color for active state */
 }
 
