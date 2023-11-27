@@ -30,3 +30,9 @@
 - **Description:** Dropdown menu navigation
 - **Input:** Arrow keys are pressed to scroll through the options 
 - **Expected Result:** The arrow keys should advance the focus in the direction the arrow keys were pressed.
+
+**Test Case 7:**
+- **Description:** API Documentation Link Functionality
+- **Input:** Clicking on the API documentation link/button
+- **Expected Result:** The API documentation page loads successfully with clearly organized content and accessible information.
+
