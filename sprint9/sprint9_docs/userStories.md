@@ -87,3 +87,34 @@ entered courses
 **Acceptance Criteria:**:
 
 -   Developer makes changes to repo and after pushing, Gitlab automatically runs our automated test suite and reports back with success/failures
+
+## Emily Kozatchiner's User Stories
+
+**Title:** Keyboard Shortcut accessibility
+
+**Priority:** Medium
+
+**Estimate (in hrs):** -
+
+**User Story:** As a user with restricted mouse mobility, I want to be able to use keyboard keys for navigation and data input across the website.
+
+**Acceptance Criteria:**:
+
+-   Ensure buttons are able to be tabbed to throughout the site.
+-   Ensure that the "enter" key can trigger a button listener by both being focused on the button and/or the text field associated with the button.
+-   The dropdown option on the graph generation page is traversable through arrow keys and is able to select an option through the enter key
+-   The dropdown option can be exited by tabbing to the next button.
+
+**Title:** Application usability
+
+**Priority:** High
+
+**Estimate (in hrs):** -
+
+**User Story:** As a user, I want to be comfortable and motivated to use the application. It should provide good value and do what it's advertised.
+
+**Acceptance Criteria:**:
+
+-   Application does what it is advertised to do
+-   There is an ease of usage that the user feels when using the website.
+-   Overall, the user would recommend the usage of the website to a friend.
