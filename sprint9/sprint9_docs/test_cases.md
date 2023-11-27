@@ -15,6 +15,7 @@
 - **Input:** Enter a course and then delete it
 - **Expected Result:** Upon deleting the course and then click on generate courses will alert you on no courses have 
                         entered.
+                        
 **Test Case 4:** 
 - **Description:** Tabbing to all clickable items
 - **Input:** When the tab key is hit on any page of the site.
