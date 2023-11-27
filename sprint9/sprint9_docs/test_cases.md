@@ -36,3 +36,12 @@
 - **Input:** Clicking on the API documentation link/button
 - **Expected Result:** The API documentation page loads successfully with clearly organized content and accessible information.
 
+
+**Test Case 8:**
+- **Description:** Automated Testing Integration
+- **Input:** Developer pushes changes to the repository
+- **Expected Result:**
+    - Gitlab CI/CD Pipeline triggers automatically.
+    - Automated test suite runs against the updated code.
+    - Test results are reported back within a reasonable time frame.
+    - The report clearly indicates success or failures, highlighting any broken functionalities.
